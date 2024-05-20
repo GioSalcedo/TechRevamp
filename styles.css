@@ -1,0 +1,41 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  /* Variables colores  */
+  --Colors-neutral-black: #010F14;
+  --Colors-neutral-disable-50: #F5F9FA;
+  --Colors-neutral-disable-100: #DFE9EC;
+  --Colors-neutral-disable-200: #D2E1E5;
+  --Colors-neutral-disable-300: #ABC9CE;
+  --Colors-neutral-white: #FAFEFE;
+  --Colors-primary-blue-50: #EBFFFE;
+  --Colors-primary-blue-100: #CDFCFF;
+  --Colors-primary-blue-200: #A2F7FF;
+  --Colors-primary-blue-300: #62F0FE;
+  --Colors-primary-blue-400: #1BDEF5;
+  --Colors-primary-blue-500: #00C1DB;
+  --Colors-primary-blue-600: #029AB8;
+  --Colors-primary-blue-700: #097B95;
+  --Colors-primary-blue-800: #126378;
+  --Colors-primary-blue-950: #063646;
+  --Colors-primary-blue-principal-900: #11485A;
+  --Colors-secondary-green-50: #F2FFE6;
+  --Colors-secondary-green-100: #E1FEC9;
+  --Colors-secondary-green-300: #9EF85E;
+  --Colors-secondary-green-400: #7BEE2D;
+  --Colors-secondary-green-500: #5BD40E;
+  --Colors-secondary-green-600: #42AA06;
+  --Colors-secondary-green-700: #34810A;
+  --Colors-secondary-green-800: #2C660E;
+  --Colors-secondary-green-900: #275611;
+  --Colors-secondary-green-950: #103003;
+  --Colors-secondary-green-principal-200: #C1FD93;
+  --Colors-semantic-alert: #EE9E1E;
+  --Colors-semantic-error: #E93828;
+  --Colors-semantic-success: #008F5C
+
+  /* Variables textos  */
+  
+}
