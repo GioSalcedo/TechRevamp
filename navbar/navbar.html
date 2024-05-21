@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <!-- Contenido del nav bar -->
-        <ul class="navbar">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="about.html">Acerca de</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-          <li class="right"><a href="#"><i class="fas fa-search"></i></a></li>
-          <li class="right"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
-      </nav>
-      <script src="script.js"></script>
+  <style></style>
+
+ <nav class="navbar">
+    <div class="navbar-left">
+        <div class="navbar-logo">LOGO</div>
+        <a href="#" class="navbar-products">Products</a>
+    </div>
+    <div class="navbar-center">
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+    <div class="navbar-right">
+        <a href="#">About us</a>
+        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-user"></i> Account</a>
+        <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+    </div>
+    <div class="navbar-toggle" id="navbarToggle" onclick="toggleMenu()">&#9776;</div>
+</nav>
+      <script>function toggleMenu() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+      }
+      </script>
+      <script src="/script.js"></script>
 </body>
 </html>
