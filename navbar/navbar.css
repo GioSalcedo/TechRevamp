@@ -1,8 +1,3 @@
-body {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1rem;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -11,6 +6,8 @@ body {
     padding: 10px 20px;
     color: var(--Colors-neutral-white, #FAFEFE);
     flex-wrap: wrap;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
 }
 
 .navbar-left, .navbar-center, .navbar-right {
@@ -162,3 +159,5 @@ body {
         display: block;
     }
 }
+
+
