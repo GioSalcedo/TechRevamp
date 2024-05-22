@@ -1,21 +1,19 @@
 body {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--primary-blue-principal-900, #11485A);  
+    background: var(--primary-blue-principal-900, #11485A);
     padding: 10px 20px;
     color: var(--Colors-neutral-white, #FAFEFE);
     flex-wrap: wrap;
 }
 
-.navbar-left,
-.navbar-center,
-.navbar-right {
+.navbar-left, .navbar-center, .navbar-right {
     display: flex;
     align-items: center;
 }
@@ -62,7 +60,8 @@ body {
     border: none;
     cursor: pointer;
     padding: 5px;
-    background-color: var(--primary-blue-principal-900, #11485A); 
+    background-color: var(--primary-blue-principal-900, #11485A);
+    color: var(--Colors-neutral-white, #FAFEFE);
 }
 
 .navbar-right a {
@@ -95,13 +94,11 @@ body {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--primary-blue-principal-900, #11485A); 
+    background-color: var(--primary-blue-principal-900, #11485A);
     width: 100%;
 }
 
-.navbar-products:hover,
-.navbar-right a:hover,
-.navbar-responsive a:hover {
+.navbar-products:hover, .navbar-right a:hover, .navbar-responsive a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -118,77 +115,50 @@ body {
     display: flex;
 }
 
-/* Media queries para responsive design */
+/* Media queries for responsive design */
 @media (max-width: 768px) {
-  .navbar {
-      align-items: flex-start;
-  }
+    .navbar {
+        align-items: flex-start;
+    }
 
-  .navbar-left, .navbar-center, .navbar-right {
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: 10px;
-  }
+    .navbar-left, .navbar-center, .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 
-  .navbar-right, .navbar-left .navbar-products {
-      display: none; /* Hide navbar-right and Products link */
-  }
+    .navbar-right, .navbar-left .navbar-products {
+        display: none; 
+    }
 
+    .navbar-center {
+        order: -1; 
+    }
 
-  .navbar-center {
-      order: -1; /* Move search bar to top */
-  }
+    .navbar-toggle {
+        display: block;
+        cursor: pointer;
+    }
 
-  .navbar-toggle {
-      display: block;
-      cursor: pointer;
-  }
+    .navbar.active .navbar-right, .navbar.active .navbar-left .navbar-products {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
-/* New Styles from provided CSS */
-.nav-bar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  position: relative;
-  background-color: var(--color2);
-  padding: 12px 20px;
-}
-
-/* Adjustments for mobile menu */
+/* Media queries adjustments for very small screens */
 @media (max-width: 480px) {
-  .navbar {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  .navbar li {
-    float: left;
-  }
+    .navbar-left, .navbar-center, .navbar-right {
+        width: 100%;
+    }
 
-  .navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-
-  .navbar-left {
-    width: 100%;
-  }
-
-  .navbar .right {
-    float: right;
-
-  .navbar-toggle{
-    display: block;
-    cursor: pointer;
-  }
-  
-  }}
+    .navbar-toggle {
+        display: block;
+    }
+}
