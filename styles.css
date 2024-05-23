@@ -64,3 +64,118 @@
   --ubuntu--tittle--23-large-400: 1.44rem;
 }
 
+/* values start */
+.scroll-container{
+  display:flex;  
+  text-align: center;  
+  overflow: hidden; 
+}
+
+.scroll-1 {
+  display:flex;  
+  animation: animate var(--t) linear infinite;
+  animation-delay: calc(var(--t) * -1);  
+}
+
+.scroll-2 { 
+  display:flex;  
+  animation: animate2 var(--t) linear infinite;
+  animation-delay: calc(var(--t) / -2);
+}
+
+@keyframes animate{
+ 0%{
+  transform: translateX(100%)
+ }
+ 100%{
+  transform: translateX(-100%)
+ }
+}
+
+@keyframes animate2
+{
+  0%{
+    transform: translateX(0%)
+  }
+  100%{
+    transform: translateX(-200%)
+  }
+}
+
+.value-card{  
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-card-background{
+   /* background: linear-gradient(45deg, var(--Colors-primary-blue-950),var(--Colors-primary-blue-950), var(--Colors-primary-blue-700), var(--Colors-secondary-green-500)); */
+  background:var(--Colors-primary-blue-principal-900);
+
+  width: 218px;
+  height: 272px;
+  border-radius: 26px;
+}
+
+.value-card:hover{
+  transform: scale(1.1);
+}
+
+.value-card-text{
+  position: absolute;  
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  font-family: Ubuntu;
+}
+
+.value-card-title{
+  position: relative;
+  width: 80%;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  color: var(--Colors-secondary-green-principal-200);
+  font-size: var(--ubuntu--headline--23-small-400);
+}
+
+.value-card-main-content{
+  position: relative;
+  width: 85%;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--Colors-neutral-white);
+  font-size: var(--ubuntu--body--18-xlarge-400);
+} 
+
+.value-card-description{
+  position: absolute;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  visibility: hidden;
+}
+
+.value-card-main-content img{
+  position: absolute;
+  transform: translate(-50%, -55%);
+  width: 100%;
+  transition: opacity 0.5s;
+}
+
+.value-card-main-content img:hover{
+  opacity:0.1;
+  transition: 0.5s ;
+}
+
+/* values end
