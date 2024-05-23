@@ -71,6 +71,7 @@
   display:flex;  
   text-align: center;  
   overflow: hidden; 
+  margin-bottom: 20px;
 }
 
 .scroll-1 {
@@ -180,6 +181,7 @@
   transition: 0.5s ;
 }
 /* values end
+
 /* Inicio de cards */
 h2 {
   align-self: stretch;
@@ -189,6 +191,7 @@ h2 {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin: 20px 0;
 }
 
 .container-cards h3 {
