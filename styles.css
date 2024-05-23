@@ -319,11 +319,85 @@ h2 {
   animation-duration:5s;
 } */
 
+.container-intro-about{
+  width: 100%;
+}
+
+.container-intro-about p{
+  margin: 40px 20px;
+  padding: 0 20px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.about-us-banner{
+  position: relative;
+  display: flex;
+  align-content: center;
+  text-align: center;
+}
+.about-us-banner h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-weight: 700;
+  font-size: 4vw;
+  margin: 0;
+  color: var(--Colors-neutral-white) ;
+}
+
+.about-us-banner img{
+  width: 100%;
+}
+.team-work{
+  display: flex;
+  flex-direction: column;
+}
+
+.team-work img{
+  width: 100%;
+  max-width: 826px;
+  margin: auto;
+  padding: 20px 40px;
+}
+
+.team-work p{
+  padding: 0 20px;
+  font-size: 44px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+/** MEDIA QUERIES */
+@media(max-width: 500px) {
+  .container-intro-about p{
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .team-work p{
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .team-work img{
+    padding: 0 40px;
+  }
+}
 
 @media only screen and (min-width: 480px) {
   .card {
     width: 70%;
     height: 400px;
+  }
+
+  .container-intro-about p{
+    font-size: 29px;
   }
 }
 
@@ -337,6 +411,11 @@ h2 {
   .card {
     width: 40%;
   }
+
+  .container-intro-about p{
+    font-size: 32px;
+  }
+
 }
 
 /* Large devices (laptops/desktops, 980px and up) */
