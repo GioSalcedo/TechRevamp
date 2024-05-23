@@ -1,41 +1,43 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  list-style: none;
 }
 :root {
   /* Variables colores  */
-  --Colors-neutral-black: #010F14;
-  --Colors-neutral-disable-50: #F5F9FA;
-  --Colors-neutral-disable-100: #DFE9EC;
-  --Colors-neutral-disable-200: #D2E1E5;
-  --Colors-neutral-disable-300: #ABC9CE;
-  --Colors-neutral-white: #FAFEFE;
-  --Colors-primary-blue-50: #EBFFFE;
-  --Colors-primary-blue-100: #CDFCFF;
-  --Colors-primary-blue-200: #A2F7FF;
-  --Colors-primary-blue-300: #62F0FE;
-  --Colors-primary-blue-400: #1BDEF5;
-  --Colors-primary-blue-500: #00C1DB;
-  --Colors-primary-blue-600: #029AB8;
-  --Colors-primary-blue-700: #097B95;
+  --Colors-neutral-black: #010f14;
+  --Colors-neutral-disable-50: #f5f9fa;
+  --Colors-neutral-disable-100: #dfe9ec;
+  --Colors-neutral-disable-200: #d2e1e5;
+  --Colors-neutral-disable-300: #abc9ce;
+  --Colors-neutral-white: #fafefe;
+  --Colors-primary-blue-50: #ebfffe;
+  --Colors-primary-blue-100: #cdfcff;
+  --Colors-primary-blue-200: #a2f7ff;
+  --Colors-primary-blue-300: #62f0fe;
+  --Colors-primary-blue-400: #1bdef5;
+  --Colors-primary-blue-500: #00c1db;
+  --Colors-primary-blue-600: #029ab8;
+  --Colors-primary-blue-700: #097b95;
   --Colors-primary-blue-800: #126378;
   --Colors-primary-blue-950: #063646;
-  --Colors-primary-blue-principal-900: #11485A;
-  --Colors-secondary-green-50: #F2FFE6;
-  --Colors-secondary-green-100: #E1FEC9;
-  --Colors-secondary-green-300: #9EF85E;
-  --Colors-secondary-green-400: #7BEE2D;
-  --Colors-secondary-green-500: #5BD40E;
-  --Colors-secondary-green-600: #42AA06;
-  --Colors-secondary-green-700: #34810A;
-  --Colors-secondary-green-800: #2C660E;
+  --Colors-primary-blue-principal-900: #11485a;
+  --Colors-secondary-green-50: #f2ffe6;
+  --Colors-secondary-green-100: #e1fec9;
+  --Colors-secondary-green-300: #9ef85e;
+  --Colors-secondary-green-400: #7bee2d;
+  --Colors-secondary-green-500: #5bd40e;
+  --Colors-secondary-green-600: #42aa06;
+  --Colors-secondary-green-700: #34810a;
+  --Colors-secondary-green-800: #2c660e;
   --Colors-secondary-green-900: #275611;
   --Colors-secondary-green-950: #103003;
-  --Colors-secondary-green-principal-200: #C1FD93;
-  --Colors-semantic-alert: #EE9E1E;
-  --Colors-semantic-error: #E93828;
-  --Colors-semantic-success: #008F5C;
+  --Colors-secondary-green-principal-200: #c1fd93;
+  --Colors-semantic-alert: #ee9e1e;
+  --Colors-semantic-error: #e93828;
+  --Colors-semantic-success: #008f5c;
 
   /* Text-size styles */
   /* base size: ubuntu--body--16-large-400 (16px) */
@@ -177,5 +179,189 @@
   opacity:0.1;
   transition: 0.5s ;
 }
-
 /* values end
+/* Inicio de cards */
+h2 {
+  align-self: stretch;
+  color: var(--neutral-black, #010f14);
+  text-align: center;
+  font-size: var(--ubuntu--headline--32-large-400);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.container-cards h3 {
+  align-self: stretch;
+  color: var(--neutral-black, #010f14);
+  font-size: var(--ubuntu--display--52-large-400);
+  text-align: center;
+}
+
+.container-cards h3 {
+  align-self: stretch;
+  color: var(--neutral-black, #010f14);
+  font-size: var(--ubuntu--body--13-small-400);
+  text-align: center;
+}
+
+.container-cards {
+  background-color: var(--Colors-primary-blue-principal-900);
+  display: flex;
+  padding: 40px 16px 40px 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.container-cards span {
+  position: relative;
+  display: block;
+}
+
+#span-air-1 {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, blue);
+}
+#span-air-1:hover {
+  left: 100%;
+  transition: 2s;
+  transition-delay: 0.25s;
+}
+
+#span-air-2 {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, blue);
+}
+#span-air-2:hover {
+  top: 100%;
+  transition: 2s;
+}
+
+#span-air-3 {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, blue);
+}
+#span-air-3:hover {
+  right: 100%;
+  transition: 2s;
+  transition-delay: 0.5s;
+}
+
+.container-icons-contact {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+.container-icons-contact icons-contact {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: solid black 1px;
+  width: 40px;
+  height: 40px;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
+  display: flex;
+  padding: 30px 38px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--Gap-gap-9, 16px);
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* .bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(255, 255, 255) 50%, rgb(91, 255, 76) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+} */
+
+
+@media only screen and (min-width: 480px) {
+  .card {
+    width: 70%;
+    height: 400px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .container-cards {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .card {
+    width: 40%;
+  }
+}
+
+/* Large devices (laptops/desktops, 980px and up) */
+@media only screen and (min-width: 980px) {
+  .card {
+    height: 450px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container-cards {
+    display: flex;
+  }
+
+  .card {
+    width: 22%;
+    height: 500px;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+/* final de cards */
