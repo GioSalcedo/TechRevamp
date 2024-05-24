@@ -241,6 +241,14 @@ h4 {
   width: 300px;
   height: 400px;
 }
+.card h3, h4 {
+  position: relative;
+  z-index: 1;
+  font-size: var(--ubuntu--headline--29-medium-400);
+  text-align: center;
+  font-weight: 400;
+}
+
 .card div {
   position: absolute;
   width: 100%;
@@ -256,7 +264,7 @@ h4 {
 }
 
 .card .front {
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(6px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
   border-radius: var(--Gap-gap-9, 16px);
@@ -265,8 +273,13 @@ h4 {
   transform: perspective(500px) rotateY(0deg);
 }
 
-.card .back {
-  backdrop-filter: blur(3px);
+.card:hover .front {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+/* back water */
+.card .back-water {
+  backdrop-filter: blur(6px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
   border-radius: var(--Gap-gap-9, 16px);
@@ -275,30 +288,144 @@ h4 {
   transform: perspective(500px) rotateY(180deg);
 }
 
-.card:hover .front {
-  transform: perspective(500px) rotateY(180deg);
-}
-.card:hover .back {
+.card:hover .back-water {
   transform: perspective(500px) rotateY(360deg);
 }
 
-.card .back::before {
+.card .back-water::before {
   content: "";
-  background-image: conic-gradient(#DC9B06 20deg, transparent 120deg);
+  background-image: conic-gradient(#76bbff 20deg, transparent 120deg);
   position: absolute;
   width: 700px;
   height: 700px;
   animation: rotate 2.5s linear infinite;
+  z-index: -1;
 }
 
-.card .back::after {
+.card .back-water::after {
   content: "";
   position: absolute;
-  background-color: #A0C88C;
+  background-image: url("agua.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   width: 98%;
   height: 98%;
   border-radius: 10px;
+  z-index: -1;
+}
+
+/* back air */
+.card .back-air {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
+  border-radius: var(--Gap-gap-9, 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .back-air {
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.card .back-air::before {
+  content: "";
+  background-image: conic-gradient(#D2E4EE 20deg, transparent 120deg);
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  animation: rotate 2.5s linear infinite;
+  z-index: -1;
+}
+
+.card .back-air::after {
+  content: "";
+  position: absolute;
+  background-image: url("aire.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* back ea.back-earth */
+.card .back-earth {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
+  border-radius: var(--Gap-gap-9, 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .back-earth {
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.card .back-earth::before {
+  content: "";
+  background-image: conic-gradient(#b8895d 20deg, transparent 120deg);
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  animation: rotate 2.5s linear infinite;
+  z-index: -1;
+}
+
+.card .back-earth::after {
+  content: "";
+  position: absolute;
+  background-image: url("tierra.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  border-radius: 10px;
+  z-index: -1;
+}
+/* back fire */
+.card .back-fire {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
+  border-radius: var(--Gap-gap-9, 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .back-fire {
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.card .back-fire::before {
+  content: "";
+  background-image: conic-gradient(#F17207 20deg, transparent 120deg);
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  animation: rotate 2.5s linear infinite;
+  z-index: -1;
+}
+
+.card .back-fire::after {
+  content: "";
+  position: absolute;
+  background-image: url("fuego.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  border-radius: 10px;
+  z-index: -1;
 }
 
 @keyframes rotate {
