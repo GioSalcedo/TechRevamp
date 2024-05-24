@@ -168,6 +168,10 @@
     padding:32px;
   }
 
+  .text-ltr{
+    direction: ltr;
+  }
+
   .mission-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -322,8 +326,8 @@
 (min-width: 576px) and (max-width: 767px){ */
   @media only screen and (min-width: 576px) {
     .scroll-container{
-    margin-left: 20px;
-    margin-right: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
     .value-card-background{
       width: 218px;
