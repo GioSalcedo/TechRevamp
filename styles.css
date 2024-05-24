@@ -368,3 +368,132 @@ h2 {
 }
 
 /* final de cards */
+
+/* start of form page */
+
+.contact-container {
+  background-color: var(--Colors-neutral-white, #fafefe);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-container h1 {
+  font-size: var(--ubuntu--headline--32-large-400);
+  text-align: center;
+}
+
+.contact-form-container {
+  flex: 1;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form label {
+  text-align: left;
+  font-weight: bold;
+}
+
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--primary-blue-700, #097B95);
+  background: var(--neutral-white, #FAFEFE);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.contact-form input:focus, 
+.contact-form select:focus, 
+contact-form textarea:focus {
+  outline: none;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: var(--Colors-primary-blue-principal-900, #11485A);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 1px solid var(--Colors-primary-blue-800, #126378);
+  font-size: var(--ubuntu--body--13-small-400);
+}
+
+.contact-form button:hover {
+  background-color: var(--Colors-primary-blue-800, #126378);
+}
+
+.contact-container a {
+  color: var(--Colors-primary-blue-principal-900, #11485A);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .contact-form-container {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .contact-image {
+    flex: 1;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-image {
+    margin-top: 20px;
+  }
+}
+
+/* end of contact-form  */
