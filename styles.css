@@ -321,12 +321,13 @@ h2 {
 
 .container-intro-about{
   width: 100%;
+  height: auto;
 }
 
 .container-intro-about p{
   margin: 40px 20px;
   padding: 0 20px;
-  font-size: 32px;
+  font-size: var(--ubuntu--body--18-xlarge-400);
   text-align: center;
 }
 
@@ -342,13 +343,14 @@ h2 {
   left: 50%;
   translate: -50% -50%;
   font-weight: 700;
-  font-size: 4vw;
+  font-size: var(--ubuntu--headline--23-small-400);
   margin: 0;
   color: var(--Colors-neutral-white) ;
 }
 
 .about-us-banner img{
   width: 100%;
+  height: auto;
 }
 .team-work{
   display: flex;
@@ -359,45 +361,22 @@ h2 {
   width: 100%;
   max-width: 826px;
   margin: auto;
-  padding: 20px 40px;
+  padding: 0 40px;
 }
 
 .team-work p{
   padding: 0 20px;
-  font-size: 44px;
+  font-size: var(--ubuntu--headline--23-small-400);
   font-weight: 700;
   font-style: italic;
 }
 
 
 /** MEDIA QUERIES */
-@media(max-width: 500px) {
-  .container-intro-about p{
-    font-size: 18px;
-    padding: 12px;
-  }
-
-  .team-work p{
-    padding: 0;
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    font-style: italic;
-  }
-
-  .team-work img{
-    padding: 0 40px;
-  }
-}
-
 @media only screen and (min-width: 480px) {
   .card {
     width: 70%;
     height: 400px;
-  }
-
-  .container-intro-about p{
-    font-size: 29px;
   }
 }
 
@@ -413,7 +392,15 @@ h2 {
   }
 
   .container-intro-about p{
-    font-size: 32px;
+    font-size: var(--ubuntu--headline--29-medium-400);
+  }
+
+  .about-us-banner h2{
+    font-size: var(--ubuntu--display--46-medium-400);
+  }
+
+  .team-work p{
+    font-size: var(--ubuntu--display--36-small-400);
   }
 
 }
@@ -434,6 +421,18 @@ h2 {
   .card {
     width: 22%;
     height: 500px;
+  }
+
+  .about-us-banner h2{
+    font-size: var(--ubuntu--display--52-large-400);
+  }
+
+  .container-intro-about p{
+    font-size: var(--ubuntu--headline--32-large-400);
+  }
+
+  .team-work p{
+    font-size: var(--ubuntu--display--46-medium-400);
   }
 }
 
