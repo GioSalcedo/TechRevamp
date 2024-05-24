@@ -66,12 +66,147 @@
   --ubuntu--tittle--23-large-400: 1.44rem;
 }
 
-/* values start */
+/* ----------------------mission  vision start-------------- */
+
+.mission-container,
+.vision-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+}
+
+.vision-container{
+  margin-bottom: 2rem;
+}
+
+.mission-img,
+.vision-img
+{
+  display: flex;
+  justify-content: center;
+}
+
+.mission-img img,
+.vision-img img{
+  width: 100%;
+  height: auto;
+  border-radius: 25% 63% 62% 25% / 75% 69% 31% 25%;
+}
+
+.mission-text,
+.vision-text{
+  margin-top: 10%;
+  box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05), 25px 35px 20px rgba(0,0,0,0.05), 25px 30px 30px rgba(0,0,0,0.05), inset -20px -20px 25px  rgba(355,355,355,0.9) ;
+  border-radius: 35% 65% 31% 69% / 57% 59% 41% 43%;
+  transition: 0.5s ease-in-out;
+}
+
+.mission-text:hover,
+.vision-text:hover{
+  border-radius: 50%;
+}
+
+.mission-title
+.vision-tittle{ 
+  text-align: center;
+  padding-top: 10px;
+}
+
+.mission-description,
+.vision-description{
+  font-size: var(--ubuntu--body--18-xlarge-400);
+  line-height: 1.3;
+  text-align: center;
+  color: var(--Colors-primary-blue-950);
+  font-size: 4vw;
+}
+
+.mission-description p,
+.vision-description{
+  padding: 10px 50px 65px 40px;
+}
+
+/* -------------mission end ---------------------- */
+
+/* ------------ START mediaquery mision y visión ------------------ */
+
+/* Tablets y phablets
+(min-width: 576px) and (max-width: 767px){ */
+@media only screen and (min-width: 576px) {
+
+  .mission-img,
+  .vision-img {
+    padding:20px;
+    padding: 0 30px 0 30px;
+  }
+
+  .mission-img img,
+  .vision-img img{
+    max-width: 700px;
+  }
+  .mission-text,
+  .vision-text{
+    min-height: 300px;
+    margin-top: 10%;
+  }
+
+  .mission-description,
+  .vision-description{
+    font-size: 3vw;
+  }
+}
+/* Escritorio pequeño / tablet
+@media only screen and (min-width: 768px) and (max-width: 991px){ */
+@media only screen and (min-width: 768px) {
+
+  .vision-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+    gap:32px;
+    padding:32px;
+  }
+
+  .mission-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:32px;
+    padding:32px;
+  }
+
+  .mission-img,
+  .vision-img{
+    padding: 0 0 0 0;
+  }
+  
+  .mission-text,
+  .vision-text{
+    min-height: 300px;
+    margin: 0 auto 0 auto; 
+    align-content: center;
+    max-width: 500px;
+  }
+
+  .mission-description,
+  .vision-description{
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+}
+/* ----------- END mediaquery mision y visión -------------- */
+
+
+/*--------------- values start------------------------ */
+
 .scroll-container{
   display:flex;  
   text-align: center;  
   overflow: hidden; 
   margin-bottom: 20px;
+  background-color: white;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 2rem;
 }
 
 .scroll-1 {
@@ -115,11 +250,9 @@
 }
 
 .value-card-background{
-   /* background: linear-gradient(45deg, var(--Colors-primary-blue-950),var(--Colors-primary-blue-950), var(--Colors-primary-blue-700), var(--Colors-secondary-green-500)); */
   background:var(--Colors-primary-blue-principal-900);
-
-  width: 218px;
-  height: 272px;
+  width: 148px;
+  height: 204px;
   border-radius: 26px;
 }
 
@@ -146,7 +279,7 @@
   transform: translate(-50%, 0%);
   text-align: center;
   color: var(--Colors-secondary-green-principal-200);
-  font-size: var(--ubuntu--headline--23-small-400);
+  font-size: var(--ubuntu--body--18-xlarge-400);
 }
 
 .value-card-main-content{
@@ -156,7 +289,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--Colors-neutral-white);
-  font-size: var(--ubuntu--body--18-xlarge-400);
+  font-size: var(--ubuntu--body--14-medium-400);
 } 
 
 .value-card-description{
@@ -178,9 +311,45 @@
 
 .value-card-main-content img:hover{
   opacity:0.1;
-  transition: 0.5s ;
+  transition: 0.5s;
 }
-/* values end
+/*---------- values end-----------*/
+
+
+/* ------------ START mediaquery values ------------------ */
+
+/* Tablets y phablets
+(min-width: 576px) and (max-width: 767px){ */
+  @media only screen and (min-width: 576px) {
+    .scroll-container{
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+    .value-card-background{
+      width: 218px;
+      height: 274px;
+    }
+    .value-card-title{
+      font-size: var(--ubuntu--headline--23-small-400);
+    }
+    
+    .value-card-main-content{
+      font-size: var(--ubuntu--body--20-xxlarge-400);
+    } 
+  }
+
+/* Escritorio pequeño / tablet
+@media only screen and (min-width: 768px) and (max-width: 991px){ */
+  @media only screen and (min-width: 768px) {
+    .scroll-container{
+      margin-left: 32px;
+      margin-right: 32px;
+      }
+  }  
+
+
+/* ------------ END mediaquery values ------------------ */
+
 
 /* Inicio de cards */
 h2 {
@@ -318,7 +487,6 @@ h2 {
 .bg3 {
   animation-duration:5s;
 } */
-
 
 @media only screen and (min-width: 480px) {
   .card {
