@@ -374,17 +374,21 @@ h2 {
 .contact-container {
   background-color: var(--Colors-neutral-white, #fafefe);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 1200px;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
 }
 
-.contact-container h1 {
+.contact-container h2 {
   font-size: var(--ubuntu--headline--32-large-400);
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .contact-form-container {
@@ -418,7 +422,7 @@ h2 {
 
 .contact-form input:focus, 
 .contact-form select:focus, 
-contact-form textarea:focus {
+.contact-form textarea:focus {
   outline: none;
 }
 
@@ -459,6 +463,7 @@ contact-form textarea:focus {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  padding-left : 20px;
 }
 
 .contact-image img {
@@ -480,8 +485,9 @@ contact-form textarea:focus {
   }
 
   .contact-image {
-    flex: 1;
+    flex: 1.2; 
     margin-top: 0;
+    padding-left: 20px;
   }
 }
 
@@ -497,3 +503,4 @@ contact-form textarea:focus {
 }
 
 /* end of contact-form  */
+

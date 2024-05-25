@@ -24,8 +24,8 @@
     <!-- Start of the formulary -->
     <div class="contact-container">
         <div class="contact-form-container">
-            <h2>Contáctenos</h2>
-            <p>Un miembro de nuestro equipo se pondrá en contacto pronto.</p>
+            <h2>Solicitar Reparación</h2>
+            <p>Un miembro de nuestro equipo se pondrá en contacto pronto para coordinar la reparación de su dispositivo electrónico.</p>
             <form class="contact-form">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" required placeholder="Ingrese su correo electronico">
@@ -36,26 +36,28 @@
                 <label for="phone">Número de teléfono</label>
                 <input type="tel" id="phone" name="phone" required placeholder="Ingrese su numero de telefono">
                 
-                <label for="topic">Elige un tema</label>
-                <select id="topic" name="topic" required>
-                    <option value="">Seleccione un tema</option>
-                    <option value="soporte">Soporte</option>
-                    <option value="ventas">Ventas</option>
-                    <option value="otros">Otros</option>
+                <label for="device">Tipo de dispositivo</label>
+                <select id="device" name="device" required>
+                    <option value="">Seleccione un dispositivo</option>
+                    <option value="telefono">Teléfono</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="portatil">Portátil</option>
+                    <option value="otro">Otro</option>
                 </select>
                 
-                <label for="message">¿Cómo podemos ayudarte?</label>
-                <textarea id="message" name="message" required placeholder="Ingrese un breve mensaje de como podemos ayudarle"></textarea>
+                <label for="issue">Descripción del problema</label>
+                <textarea id="issue" name="issue" required placeholder="Breve mensaje en el que describa su problema"></textarea>
                 
                 <button type="submit">Enviar</button>
             </form>
             <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a>.</p>
         </div>
         <div class="contact-image">
-            <img src="images_values/contact-us-showcase.png" alt="img placeholder">
+            <img src="images_values/repair-showcase.png" alt="imagen placeholder">
         </div>
     </div>
     </main>
+    
     <!-- End of the formulary -->
 
     <!-- Start footer -->
