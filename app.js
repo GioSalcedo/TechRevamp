@@ -122,43 +122,40 @@ document.addEventListener('DOMContentLoaded', function () {
   const messageTextarea = document.getElementById('message');
 
   form.addEventListener('submit', function (event) {
-      event.preventDefault();
       let isValid = true;
       let errorMessage = '';
 
-      // Validate email
+      //email
       const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       if (!emailRegex.test(emailInput.value)) {
           isValid = false;
           errorMessage += 'Por favor, ingrese un correo electrónico válido.\n';
       }
 
-      // Validate name (not empty)
+      //no empty inputs (name)
       if (nameInput.value.trim() === '') {
           isValid = false;
           errorMessage += 'Por favor, ingrese su nombre.\n';
       }
 
-      // Validate phone number
+      //vlidate phone number
       const phoneRegex = /^3\d{10}$/;
       if (!phoneRegex.test(phoneInput.value)) {
           isValid = false;
-          errorMessage += 'Por favor, ingrese un número de teléfono válido de 11 dígitos que comience con 3.\n';
+          errorMessage += 'Por favor, ingrese un número de teléfono válido.\n';
       }
 
-      // Validate topic (not empty)
       if (topicSelect.value === '') {
           isValid = false;
           errorMessage += 'Por favor, seleccione un tema.\n';
       }
 
-      // Validate message
       if (messageTextarea.value.trim().length < 50) {
           isValid = false;
           errorMessage += 'Por favor, ingrese un mensaje de al menos 50 caracteres.\n';
       }
 
-      // If the form is not valid, prevent submission and show errors
+      //prevent submission and show errors
       if (!isValid) {
           event.preventDefault();
           alert(errorMessage);
