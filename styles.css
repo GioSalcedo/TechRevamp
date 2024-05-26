@@ -502,7 +502,7 @@ h2 {
 
 .card .back-air::before {
   content: "";
-  background-image: conic-gradient(#a2dfff 20deg, transparent 120deg);
+  background-image: conic-gradient(#97c2da 20deg, transparent 120deg);
   position: absolute;
   width: 700px;
   height: 700px;
@@ -529,6 +529,10 @@ h2 {
   width: 200px;
   height: 220px;
   margin-bottom: 20px;
+}
+
+.profile-img-air img {
+  transform: scale(3);
 }
 
 /* back ea.back-earth */
