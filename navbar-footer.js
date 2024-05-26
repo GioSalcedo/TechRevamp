@@ -10,7 +10,7 @@ function loadHTML(elementID, url) {
 
 document.addEventListener('DOMContentLoaded', function () {
   loadHTML('navbar', 'navbar/navbar.html');
-  // loadHTML('footer', 'footer/footer.html');
+  loadHTML('footer', 'footer/footer.html');
 });
 
 // navbar
