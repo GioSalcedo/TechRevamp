@@ -1,0 +1,125 @@
+/** Estilos FAQS  */
+body{
+  font-family: "Ubuntu";
+}
+
+.faq-tittle{
+  font-size: var(--ubuntu--tittle--23-large-400, 1.44rem);
+  font-weight: 500;
+}
+
+#faq-section{
+  margin:0 16px;
+}
+
+.faq-section p{
+  font-size: var(--ubuntu--body--16-large-400, 1rem);
+}
+.container-info-faq img {
+  width: 100%;
+  max-width: 826px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/** Start estilos cuadro búsqueda */
+#search-form{
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-disable-300, #ABC9CE);
+  color: var(--neutral-disable-300, #ABC9CE);
+  display: flex;
+  width: 80%;
+  min-width: 284px;
+  max-width: 550px;
+  padding: 4px 4px;
+  align-items: center;
+}
+
+.search-container{
+  display: flex;
+  min-width: 284px;
+  max-width: 550px;
+  gap: 4px;
+}
+
+.search-container i{
+  display: flex;
+  align-items: center;
+  color: var(--neutral-disable-300, #ABC9CE);
+}
+
+.search-container input{
+  border-style: none;
+  width: 100%;
+  font-size: var(--ubuntu--body--14-medium-400, 0.88rem);
+}
+/** End estilos cuadro búsqueda */
+
+/** Start estilos sección preguntas y respuestas */
+.faq{
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-bottom: 2px solid var(--neutral-disable-200, #D2E1E5);
+  color: var(--neutral-black, #010F14);
+  font-size: var(--ubuntu--body--14-medium-400, 0.88rem);
+  margin:0 0 8px;
+}
+
+.question ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 8px 0;
+  list-style-type: none;
+  line-height: 1.5;
+}
+
+.question li{
+  font-size: var(--ubuntu--body--16-large-400, 1rem);
+  font-weight: 500;
+}
+
+.section h3{
+  font-size: var(--ubuntu--body--18-xlarge-400, 1.12rem);
+  margin: 24px 0 2px;
+}
+
+.answer{
+  line-height: 1.3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+
+.answer p{
+  margin: 0 0 8px 0;
+  /* display: none; */
+}
+
+.faq.show .answer {
+  max-height: 300px;
+  animation: fade 1s ease-in-out;
+}
+
+.faq.show svg{
+  transform: rotate(180deg);
+}
+
+svg {
+  transition: transform 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
