@@ -66,6 +66,10 @@
   --ubuntu--tittle--23-large-400: 1.44rem;
 }
 
+body{
+  background-color: var(--Colors-neutral-white); 
+}
+
 /* ----------------------mission  vision start-------------- */
 
 .mission-container,
@@ -328,12 +332,11 @@ h2 {
 }
 /* Inicio de cards */
 .container-cards {
-  background-image: url("background.png");
-  background-size: cover;
+  background: linear-gradient(0deg, rgba(17, 72, 90, 0.8) 0%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(0deg, rgba(12, 53, 116, 0.50) 0%, rgba(12, 116, 22, 0.50) 29.5%, rgba(143, 19, 19, 0.50) 60.5%, rgba(63, 59, 59, 0.50) 84.5%, rgba(250, 254, 254, 0.60) 100%);
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 40px 16px 40px 16px;
+  padding: 40px 16px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
