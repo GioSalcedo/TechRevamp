@@ -7,12 +7,12 @@ function loadHTML(elementID, url) {
     })
     .catch(error => console.error('Error cargando el HTML:', error));
 }
-
+ 
 document.addEventListener('DOMContentLoaded', function () {
   loadHTML('navbar', 'navbar/navbar.html');
   // loadHTML('footer', 'footer/footer.html');
 });
-
+ 
 //values start
 let scrollContainer = document.getElementsByClassName('scroll-container');
 //Cuando llamo por classname, los elementos se guardan en un arreglo, en este caso, arreglo de 1 solo elemento.
@@ -77,7 +77,7 @@ for (element of mainContents) {
 //         e.target.children[0].children[1].children[1].style.opacity = "1";
 //     })
 // }
-
+ 
 //values end
  
  
