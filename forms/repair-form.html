@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="./navbar/navbar.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/navbar/navbar.css" />
+    <link rel="stylesheet" href="/forms/form.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="/footer.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>TechRevamp</title>
@@ -14,45 +15,63 @@
 
   <body>
     <header>
-      <nav>
-        <div id="navbar">
-        </div>
-      </nav>
+    <!-- start of navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+          <div class="navbar-logo">LOGO</div>
+          <a href="#" class="navbar-products">Products</a>
+      </div>
+      <div class="navbar-center">
+          <div class="search-container">
+              <input type="text" placeholder="Search...">
+              <button><i class="fas fa-search"></i></button>
+          </div>
+      </div>
+      <div class="navbar-right">
+          <a href="#">About us</a>
+          <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+          <a href="#"><i class="fas fa-user"></i> Account</a>
+          <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+      </div>
+      <div class="navbar-toggle" id="navbarToggle" onclick="toggleMenu()">&#9776;</div>
+  </nav>
+  <!-- end of navbar-->
     </header>
 
     <!-- Start of the formulary -->
     <main>
     <div class="contact-container">
         <div class="contact-form-container">
-            <h2>Contáctenos</h2>
-            <p>Un miembro de nuestro equipo se pondrá en contacto pronto.</p>
+          <h2>Solicitar Reparación</h2>
+          <p>Un miembro de nuestro equipo se pondrá en contacto pronto para coordinar la reparación de su dispositivo electrónico.</p>
             <form class="contact-form">
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required placeholder="Ingrese su correo electronico">
+                <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
                 
                 <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" required placeholder="Ingrese su nombre">
+                <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
                 
                 <label for="phone">Número de teléfono</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Ingrese su numero de telefono">
+                <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de telefono">
                 
                 <label for="topic">Elige un tema</label>
-                <select id="topic" name="topic" required>
-                    <option value="">Seleccione un tema</option>
-                    <option value="soporte">Soporte</option>
-                    <option value="ventas">Ventas</option>
+                <select id="topic" name="topic">
+                    <option value="">Seleccione un dispositivo</option>
+                    <option value="soporte">Portatil</option>
+                    <option value="ventas">Celular</option>
+                    <option value="ventas">Tablet</option>
                     <option value="otros">Otros</option>
                 </select>
                 
-                <label for="message">¿Cómo podemos ayudarte?</label>
-                <textarea id="message" name="message" required placeholder="Ingrese un breve mensaje de como podemos ayudarle"></textarea>
+                <label for="message">¿Detalla que necesitas reparar?</label>
+                <textarea id="message" name="message" required placeholder="Ingrese un breve mensaje de como se dano el dispositivo"></textarea>
                 
                 <button type="submit">Enviar</button>
             </form>
             <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a>.</p>
         </div>
         <div class="contact-image">
-            <img src="images_values/contact-us-showcase.png" alt="img placeholder">
+            <img src="/forms/repair-showcase.png" alt="img placeholder">
         </div>
     </div>
     </main>
@@ -121,6 +140,7 @@
         </div>
     </footer>
     <!-- End footer -->
-    <script src="app.js"></script>
+    <script src="/forms/form.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>
