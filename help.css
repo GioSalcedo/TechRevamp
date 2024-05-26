@@ -70,21 +70,43 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding:16px 50px 16px 50px;
   text-align: center;
+}
+
+.container-help-banner{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-help-banner h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: var(--ubuntu--tittle--23-large-400);
+  color: var(--Colors-neutral-white);
+  width: 100%;
+}
+
+.container-help-banner img{
+  width: 100%;  
 }
 
 .card-help{
   border:1px solid var(--Colors-primary-blue-principal-900);
-  margin: 32px 0 32px 0;
   max-width: 400px;
-  padding:10px;
   border-radius: 8px;
+  padding:16px;
 }
 
-.container-help h1{
-  font-size: var(--ubuntu--tittle--23-large-400);
-  color: var(--Colors-primary-blue-principal-900);
+.container-help-cards{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap:8px;
 }
 
 .container-help h2{
@@ -143,12 +165,7 @@
 (min-width: 576px) and (max-width: 767px){ */
 
 @media only screen and (min-width: 768px) {
-
-  .container-help{
-    padding:20px;
-  }
-
-  .container-help h1{
+  .container-help-banner h1{
     font-size: var(--ubuntu--headline--29-medium-400);
   }
   
@@ -162,10 +179,11 @@
   }
 
   .container-help-cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-top: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 20px;
   }
   
   .card-help{
@@ -173,24 +191,23 @@
     flex-direction: column;
     justify-content: space-evenly;
     margin: 0;
-    max-width: 350px;
-    flex: 1 1 50%;
-    margin: 20px;
- 
+    max-width: 400px;
+    padding: 20px; 
+    margin-right: 20px;
   }
   .card-help img{
     display: none;
   }
   .imgT{
     display:flex;
-    flex: 1 1 calc(50% - 32px); 
-    max-width: 500px;
+    max-width: 400px;
   }
+
   .imgT img{
     display:flex;
-    flex-direction: column;
     justify-content: space-around;
     width: 100%;
+    padding-left: 20px;
   }
   .card-help button{
     padding: 0.5rem var(--Gap-gap-11, 1.25rem);
@@ -201,11 +218,12 @@
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 1200px) {
-  .container-help{
-    padding:32px;
-  }
 
-  .container-help h1{
+  .container-help-banner{
+    width: 100%;
+  }
+ 
+  .container-help-banner h1{
     font-size: var(--ubuntu--headline--32-large-400);
   }
   
@@ -221,10 +239,14 @@
   .container-help-cards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    padding:32px;
+    justify-content: space-between;
+    width: 100% ;
   }
 
   .card-help{
     max-width: 500px;
+    margin: 0px;
   }
 
   .card-help img{
