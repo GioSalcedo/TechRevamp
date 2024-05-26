@@ -414,6 +414,23 @@ h2 {
   border: 1px solid var(--primary-blue-700, #097B95);
   background: var(--neutral-white, #FAFEFE);
 }
+.form-control.error input,
+.form-control.error select,
+.form-control.error textarea {
+  border-color: var(--Colors-semantic-error, #e93828);
+}
+.form-control.success input,
+.form-control.success select,
+.form-control.success textarea {
+  border-color: var(--primary-blue-700, #097B95);
+}
+small {
+  color: var(--Colors-semantic-error, #e93828);
+  visibility: hidden;
+}
+.form-control.error small {
+  visibility: visible;
+}
 
 .contact-form textarea {
   resize: vertical;
