@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
         phoneInput.style.borderColor = '';
         topicSelect.style.borderColor = '';
         messageTextarea.style.borderColor = '';
-        errorParagraph.innerHTML = ''; // Clear any previous error messages
+        errorParagraph.innerHTML = '';
     }
 
+    //start of the validation process
     function validateEmail() {
         const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
         if (!emailRegex.test(emailInput.value)) {
@@ -45,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!phoneNumberRegex.test(phoneValue)) {
             phoneInput.style.borderColor = errorColor;
             return 'Por favor, ingrese un número de teléfono válido que contenga solo números.';
-        } else if (phoneValue.length !== 11) {
+        } else if (phoneValue.length !== 10) {
             phoneInput.style.borderColor = errorColor;
-            return 'Por favor, ingrese un número de teléfono de 11 dígitos.';
+            return 'Por favor, ingrese un número de teléfono de 10 dígitos.';
         } else if (!phoneValue.startsWith('3')) {
             phoneInput.style.borderColor = errorColor;
             return 'Los números de teléfono deben iniciar con 3.';
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         errorParagraph.innerHTML = message;
     }
 
+    //Restricts user from entering letters to the phone field
     function restrictInputToNumbers(event) {
         const key = event.key;
         if (!/^\d$/.test(key) && key !== 'Backspace' && key !== 'Delete' && key !== 'ArrowLeft' && key !== 'ArrowRight' && key !== 'Tab') {
@@ -119,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // If no errors, allow form submission
         errorParagraph.innerHTML = '';
         form.submit();
     });
