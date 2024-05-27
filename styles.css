@@ -619,7 +619,6 @@ background-color: var(--Colors-neutral-white);
 }
 
 /** MEDIA QUERIES */
-
 /* ------------ START mediaquery values ------------------ */
 /* Escritorio pequeño / tablet
 @media only screen and (min-width: 768px) and (max-width: 991px){ */
@@ -677,6 +676,48 @@ background-color: var(--Colors-neutral-white);
 
   .team-work p {
     font-size: var(--ubuntu--display--36-small-400);
+  }
+
+  /* Styles FAQs */
+  .container-info-faq{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-tittle{
+    width: 100%;
+  }
+
+  .img-faqs,
+  .description-faqs{
+    width: 50%;
+  }
+  .container-info-faq h2{
+    width: 50%;
+  }
+
+  #search-form{
+    width: 40%;
+    margin: 0;
+    /* order: 1; */
+  } 
+
+  .description-faqs{
+    order: 3;
+  }
+
+  .img-faqs{
+    order: 2;
+  }
+
+  #faq-section{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
   }
 }
 

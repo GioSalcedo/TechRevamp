@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="faqs.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -17,10 +18,15 @@
     <section id="faq-section">
       <div class="container-info-faq">
         <h2 class="faq-tittle">Preguntas frecuentes</h2>
-        <p>Encuentra respuestas rápidas y claras sobre pagos, envíos, productos y nuestro negocio. ¡Todo lo que necesitas saber para una compra segura y confiable!</p>
-        <img src="/img/faqs.svg" alt="Imagen FAQs"/>
+        <div class="description-faqs">
+          <p>Encuentra respuestas rápidas y claras sobre pagos, envíos, productos y nuestro negocio. ¡Todo lo que necesitas saber para una compra segura y confiable!</p>
+        </div>
+        <div class="img-faqs">
+          <img src="/img/faqs.svg" alt="Imagen FAQs"/>
+        </div>
+
         <!-- Buscador  -->
-        <div id="search-form">
+        <div id="search-form" class="search-form">
           <form action="">
             <label class="search-container">
               <i>
@@ -31,10 +37,6 @@
               <input type="text" placeholder="Busca tu pregunta">
             </label>
           </form>
-          <!-- <button id="button-search">
-            
-            <input id="input-search" type="text" placeholder="Search..."/>
-          </button>        -->
         </div>
       </div>
       <section class="section payments">

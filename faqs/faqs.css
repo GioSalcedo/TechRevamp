@@ -4,8 +4,9 @@ body{
 }
 
 .faq-tittle{
-  font-size: var(--ubuntu--tittle--23-large-400, 1.44rem);
-  font-weight: 500;
+  /* font-size: var(--ubuntu--tittle--23-large-400, 1.44rem);*/
+  font-weight: 500;  
+  text-align: left;
 }
 
 #faq-section{
@@ -15,7 +16,16 @@ body{
 .faq-section p{
   font-size: var(--ubuntu--body--16-large-400, 1rem);
 }
-.container-info-faq img {
+
+.container-info-faq{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.container-info-faq img{
   width: 100%;
   max-width: 826px;
   margin: auto;
@@ -29,18 +39,21 @@ body{
   border: 1px solid var(--neutral-disable-300, #ABC9CE);
   color: var(--neutral-disable-300, #ABC9CE);
   display: flex;
-  width: 80%;
+  width: 100%;
   min-width: 284px;
   max-width: 550px;
+  margin: 16px 0 0;
   padding: 4px 4px;
   align-items: center;
 }
 
 .search-container{
   display: flex;
+  /* Pendiente arreglar width 100% */
+  width: 100%;
   min-width: 284px;
   max-width: 550px;
-  gap: 4px;
+  gap: 4px;  
 }
 
 .search-container i{
@@ -58,7 +71,7 @@ body{
 
 /** Start estilos sección preguntas y respuestas */
 .faq{
-  max-width: 600px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -66,6 +79,14 @@ body{
   color: var(--neutral-black, #010F14);
   font-size: var(--ubuntu--body--14-medium-400, 0.88rem);
   margin:0 0 8px;
+  /* padding: 0 0 0 4px; */
+}
+
+.faq.show ul{
+  background-color: var(--primary-blue-100, #CDFCFF);
+  border-radius: 4px;
+  color: var(--primary-blue-950, #063646);
+  border: 0.1px solid var(--neutral-disable-300, #ABC9CE);
 }
 
 .question ul{
@@ -86,6 +107,10 @@ body{
 .section h3{
   font-size: var(--ubuntu--body--18-xlarge-400, 1.12rem);
   margin: 24px 0 2px;
+}
+
+.answer, .question li{
+  margin: 0 0 0 6px;
 }
 
 .answer{
