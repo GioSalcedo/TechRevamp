@@ -30,10 +30,10 @@ function moveProductsLink() {
     if (!navbarRight.contains(productsLink)) {
       navbarRight.appendChild(productsLink);
     }
-  } else {
-    if (!navbarLeft.contains(productsLink)) {
-      navbarLeft.appendChild(productsLink);
-    }
+  // } else {
+  //   if (!navbarLeft.contains(productsLink)) {
+  //     navbarLeft.appendChild(productsLink);
+  //   }
   }
 }
 
