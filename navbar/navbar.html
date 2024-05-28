@@ -5,10 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="navbar.css">
+    <!-- <link rel="stylesheet" href="navbar.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <style>.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--primary-blue-principal-900, #11485A);
+        padding: 10px 20px;
+        color: var(--Colors-neutral-white, #FAFEFE);
+        flex-wrap: wrap;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1rem;
+    }
+    
+    .navbar-left, .navbar-center, .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-left .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+    
+    .navbar-left .navbar-products {
+        color: var(--Colors-neutral-white, #FAFEFE);
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 4px;
+    }
+    
+    .navbar-center {
+        flex-grow: 1;
+        justify-content: center;
+    }
+    
+    .search-container {
+        display: flex;
+        align-items: center;
+        color: var(--Colors-neutral-white, #FAFEFE);
+        padding: 5px;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .search-container input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        border-radius: 4px 0 0 4px;
+        flex-grow: 1;
+    }
+    
+    .search-container button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        background-color: var(--primary-blue-principal-900, #11485A);
+        color: var(--Colors-neutral-white, #FAFEFE);
+    }
+    
+    .navbar-right a {
+        margin-left: 15px;
+        color: var(--Colors-neutral-white, #FAFEFE);
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-right a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-right a i {
+        margin-right: 5px;
+    }
+    
+    .navbar-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* Responsive navigation bar */
+    .navbar-responsive {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--primary-blue-principal-900, #11485A);
+        width: 100%;
+    }
+    
+    .navbar-products:hover, .navbar-right a:hover, .navbar-responsive a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-responsive a {
+        color: var(--Colors-neutral-white, #FAFEFE);
+        text-decoration: none;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+        align-items: center;
+    }
+    
+    .navbar-responsive.active {
+        display: flex;
+    }
+    
+    /* Media queries for responsive design */
+    @media (max-width: 768px) {
+        .navbar {
+            align-items: flex-start;
+        }
+    
+        .navbar-left, .navbar-center, .navbar-right {
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    
+        .navbar-right, .navbar-left .navbar-products {
+            display: none; 
+        }
+    
+        .navbar-center {
+            order: -1; 
+        }
+    
+        .navbar-toggle {
+            display: block;
+            cursor: pointer;
+        }
+    
+        .navbar.active .navbar-right, .navbar.active .navbar-left .navbar-products {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+    
+    /* Media queries adjustments for very small screens */
+    @media (max-width: 480px) {
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .navbar-left, .navbar-center, .navbar-right {
+            width: 100%;
+        }
+    
+        .navbar-toggle {
+            display: block;
+        }
+    }
+    
+    
+    </style>
     <!-- start of navbar -->
     <nav class="navbar">
         <div class="navbar-left">
@@ -31,6 +195,34 @@
     </nav>
 
     <script>
-        </script>
+        // Toggle the active state of the menu when the toggle button is clicked
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Move the products link to the right when the menu is toggled
+        function moveProductsLink() {
+            const productsLink = document.querySelector('.navbar-products');
+            const navbarRight = document.querySelector('.navbar-right');
+            const navbarLeft = document.querySelector('.navbar-left');
+
+            if (window.innerWidth <= 768) {
+                if (!navbarRight.contains(productsLink)) {
+                    navbarRight.appendChild(productsLink);
+                }
+            } else {
+                if (!navbarLeft.contains(productsLink)) {
+                    navbarLeft.appendChild(productsLink);
+                }
+            }
+        }
+
+        // Call the function on page load
+        moveProductsLink();
+
+        // Add an event listener for window resize
+        window.addEventListener('resize', moveProductsLink);
+    </script>
 </body>
 </html>
