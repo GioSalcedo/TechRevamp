@@ -1,49 +1,63 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background: var(--primary-blue-principal-900, #11485A);
-    padding: 10px 20px;
+    gap: 16px;
+    padding: 16px;
     color: var(--Colors-neutral-white, #FAFEFE);
-    flex-wrap: wrap;
+    background: var(--primary-blue-principal-900, #11485A);
     font-family: 'Ubuntu', sans-serif;
     font-size: 1rem;
 }
 
-.navbar-left, .navbar-center, .navbar-right {
+#navsuperior{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 36px;
+}
+
+.icons{
     display: flex;
     align-items: center;
+    gap: 16px;
 }
 
-.navbar-left .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.toggle {
+    cursor: pointer;
 }
 
-.navbar-left .navbar-products {
+.menu{
+    display: none;
+    align-items: flex-start;
+    gap: 6px;   
+}
+
+.menu a{
+    text-align: left;
     color: var(--Colors-neutral-white, #FAFEFE);
     text-decoration: none;
-    font-size: 1rem;
-    padding: 8px 15px;
-    border-radius: 4px;
+    font-size: 1rem; 
 }
 
-.navbar-center {
-    flex-grow: 1;
-    justify-content: center;
-}
-
-.search-container {
+.searchbar{
     display: flex;
+    justify-content: center;
     align-items: center;
     color: var(--Colors-neutral-white, #FAFEFE);
-    padding: 5px;
     border-radius: 4px;
     width: 100%;
-    max-width: 400px;
+    max-width: 550px;
+    margin: 0;
+    flex-grow: 1;
 }
 
-.search-container input {
+.searchbar input {
+    width: 100%;
     border: none;
     outline: none;
     padding: 5px;
@@ -51,7 +65,7 @@
     flex-grow: 1;
 }
 
-.search-container button {
+.searchbar button {
     background: none;
     border: none;
     cursor: pointer;
@@ -60,73 +74,26 @@
     color: var(--Colors-neutral-white, #FAFEFE);
 }
 
-.navbar-right a {
-    color: var(--Colors-neutral-white, #FAFEFE);
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 8px 15px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-right a:hover {
+.menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-right a i {
-    margin-right: 5px;
-}
-
-.navbar-toggle {
-    display: none;
-    /* font-size: 1.5rem; */
-    cursor: pointer;
-}
-
-/* Responsive navigation bar */
-.navbar-responsive {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: var(--primary-blue-principal-900, #11485A);
-    width: 100%;
-}
-
-.navbar-products:hover, .navbar-right a:hover, .navbar-responsive a:hover {
+.navbar-products:hover, .menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-responsive a {
-    color: var(--Colors-neutral-white, #FAFEFE);
-    text-decoration: none;
-    padding: 10px 20px;
-    width: 100%;
-    text-align: left;
-    align-items: center;
-}
-
-.navbar-responsive.active {
-    display: flex;
-}
-
-.navbar-logo{
-   
-}
-.navbar-logo img{
-    width: 40px;
-    height:100%;
-}
 .active{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 30% 0 30%;
+    /* padding: 0 30%; */
 }
 .hidden{
     display: none;
 }
+
 /* Media queries for responsive design */
-@media (max-width: 768px) {
+/* @media (min-width: 768px) {
     .navbar {
         align-items: flex-start;
     }
@@ -144,7 +111,7 @@
         order: -1; 
     } */
 
-    .navbar-toggle {
+    /* .navbar-toggle {
         display: block;
         cursor: pointer;
     }
@@ -153,54 +120,8 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-    }
-}
+    } 
+}*/
 
 /* Media queries adjustments for very small screens */
-@media (max-width: 480px) {
-    .navbar {
-        /* position: relative; */
-        flex-direction: flex-wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        padding: 16px;
-
-    }
-    .cart-icon, .navbar-left, .navbar-toggle{
-        /* position: fixed; */
-    }
-
-    .navbar-center, .navbar-right {
-        width: 100%;
-    }
-    .navbar-right{
-        /* justify-content: center; */
-        align-items: flex-start;
-        
-    }
-    .navbar-right a{
-        text-align: left;
-        
-    }
-    .navbar-center{
-        margin: 0;
-
-    }
-    .navbar-left{
-        width:50%;
-        margin: 0;
-    }
-    .active{
-        display: flex;
-        flex-direction: column;
-        padding: 0 30% 0 30%;
-    }
-    .hidden{
-        display: none;
-    }
-    
-
-}
-
-
+/* 
