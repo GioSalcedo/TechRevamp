@@ -16,29 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // navbar
 // Toggle the active state of the menu when the toggle button is clicked
 function toggleMenu() {
-  const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar-right');
+  const search = document.querySelector('.navbar-center');
+
   navbar.classList.toggle('active');
-}
-
-// Move the products link to the right when the menu is toggled
-function moveProductsLink() {
-  const productsLink = document.querySelector('.navbar-products');
-  const navbarRight = document.querySelector('.navbar-right');
-  const navbarLeft = document.querySelector('.navbar-left');
-
-  if (window.innerWidth <= 768) {
-    if (!navbarRight.contains(productsLink)) {
-      navbarRight.appendChild(productsLink);
-    }
-  // } else {
-  //   if (!navbarLeft.contains(productsLink)) {
-  //     navbarLeft.appendChild(productsLink);
-  //   }
-  }
+  search.classList.toggle('hidden');
 }
 
 // Call the function on page load
-moveProductsLink();
+// moveProductsLink();
 
 // Add an event listener for window resize
 window.addEventListener('resize', moveProductsLink);

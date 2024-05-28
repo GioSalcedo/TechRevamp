@@ -18,7 +18,6 @@
 .navbar-left .navbar-logo {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: 20px;
 }
 
 .navbar-left .navbar-products {
@@ -62,7 +61,6 @@
 }
 
 .navbar-right a {
-    margin-left: 15px;
     color: var(--Colors-neutral-white, #FAFEFE);
     text-decoration: none;
     font-size: 1rem;
@@ -82,7 +80,7 @@
 
 .navbar-toggle {
     display: none;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     cursor: pointer;
 }
 
@@ -112,6 +110,21 @@
     display: flex;
 }
 
+.navbar-logo{
+   
+}
+.navbar-logo img{
+    width: 40px;
+    height:100%;
+}
+.active{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30% 0 30%;
+}
+.hidden{
+    display: none;
+}
 /* Media queries for responsive design */
 @media (max-width: 768px) {
     .navbar {
@@ -121,16 +134,15 @@
     .navbar-left, .navbar-center, .navbar-right {
         width: 100%;
         justify-content: space-between;
-        margin-bottom: 10px;
     }
 
     .navbar-right, .navbar-left .navbar-products {
         display: none; 
     }
 
-    .navbar-center {
+    /* .navbar-center {
         order: -1; 
-    }
+    } */
 
     .navbar-toggle {
         display: block;
@@ -147,17 +159,48 @@
 /* Media queries adjustments for very small screens */
 @media (max-width: 480px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        /* position: relative; */
+        flex-direction: flex-wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 16px;
+
+    }
+    .cart-icon, .navbar-left, .navbar-toggle{
+        /* position: fixed; */
     }
 
-    .navbar-left, .navbar-center, .navbar-right {
+    .navbar-center, .navbar-right {
         width: 100%;
     }
-
-    .navbar-toggle {
-        display: block;
+    .navbar-right{
+        /* justify-content: center; */
+        align-items: flex-start;
+        
     }
+    .navbar-right a{
+        text-align: left;
+        
+    }
+    .navbar-center{
+        margin: 0;
+
+    }
+    .navbar-left{
+        width:50%;
+        margin: 0;
+    }
+    .active{
+        display: flex;
+        flex-direction: column;
+        padding: 0 30% 0 30%;
+    }
+    .hidden{
+        display: none;
+    }
+    
+
 }
 
 
