@@ -243,17 +243,3 @@ li {
     gap: 12px;
   } 
 }
-/* Media query mobile {
-  .container-copyright{
-      padding: 10px 16px 16px 16px;
-      /* width: 360px;
-      max-width: 360px;
-  }
-  .sign-in{
-    padding-bottom:10px;
-  }
-  .container-links {
-  display: flex;
-  flex-wrap: wrap;
-  }
-} */

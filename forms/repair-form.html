@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/navbar/navbar.css" />
+    <link rel="stylesheet" href="/footer/footer.css"/>
+    <link rel="stylesheet" href="/forms/form.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" />
+    <link rel="stylesheet" href="/footer.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>TechRevamp</title>
+  </head>
+
+  <body>
+    <header>
+    <!-- start of navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+          <div class="navbar-logo">LOGO</div>
+          <a href="#" class="navbar-products">Products</a>
+      </div>
+      <div class="navbar-center">
+          <div class="search-container">
+              <input type="text" placeholder="Search...">
+              <button><i class="fas fa-search"></i></button>
+          </div>
+      </div>
+      <div class="navbar-right">
+          <a href="#">About us</a>
+          <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+          <a href="#"><i class="fas fa-user"></i> Account</a>
+          <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+      </div>
+      <div class="navbar-toggle" id="navbarToggle" onclick="toggleMenu()">&#9776;</div>
+  </nav>
+  <!-- end of navbar-->
+    </header>
+
+    <!-- Start of the formulary -->
+    <main>
+    <div class="contact-container">
+        <div class="contact-form-container">
+          <h2>Solicitar Reparación</h2>
+          <p>Un miembro de nuestro equipo se pondrá en contacto pronto para coordinar la reparación de su dispositivo electrónico.</p>
+            <form class="contact-form">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
+                
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
+                
+                <label for="phone">Número de teléfono</label>
+                <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de telefono">
+                
+                <label for="topic">Elige un tema</label>
+                <select id="topic" name="topic">
+                    <option value="">Seleccione un dispositivo</option>
+                    <option value="soporte">Portatil</option>
+                    <option value="ventas">Celular</option>
+                    <option value="ventas">Tablet</option>
+                    <option value="otros">Otros</option>
+                </select>
+                
+                <label for="message">¿Detalla que necesitas reparar?</label>
+                <textarea id="message" name="message" required placeholder="Ingrese un breve mensaje de como se dano el dispositivo"></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+            <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a>.</p>
+        </div>
+        <div class="contact-image">
+            <img src="/forms/repair-showcase.png" alt="img placeholder">
+        </div>
+    </div>
+    </main>
+    <!-- End of the formulary -->
+
+    <!-- Start footer -->
+    <footer class="footer">
+        <div class="container-links">
+          <!-- Logo - insertar  -->
+          <div class="logo">
+            <h1>LOGO</h1>
+            <!-- !Cuando tengamos imagen logo
+            <figure>
+              <a href="#">
+                <img src="" alt="Logo TechReVamp 2024">
+              </a>
+            </figure>-->
+          </div> 
+          <!-- area Contact us -->
+          <div class="links contact-us">
+            <h4>Contáctenos</h4>
+            <ul>
+              <li><a href="" class="outline">Trabaje con nosotros</a></li>
+              <li><a href="" class="outline">Acerca de nosotros</a></li>
+              <li><a href="" class="outline">Sigue tu orden</a></li>
+              <li><a href="" class="outline">Servicio reparación</a></li>
+            </ul>
+          </div>
+          <!-- area About -->
+          <div class="links about-us">
+            <h4>Acerca de</h4>
+            <ul>
+              <li><a href="" class="outline">Mapa del sitio</a></li>
+              <li><a href="" class="outline">Ayuda / FAQs</a></li>
+              <li><a id="terms-conditions" href="" class="outline">Términos y condiciones</a></li>
+              <li><a id="privacy-policy" href="" class="outline">Política de privacidad</a></li>
+            </ul>
+          </div>
+          <!-- social media -->
+          <div class="links">
+            <h4>Síguenos</h4>
+            <span class="social-media">
+              <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00016 0.333313C5.1895 0.333313 4.96283 0.341313 4.2515 0.373313C3.54216 0.40598 3.0575 0.518646 2.6335 0.683313C2.18849 0.850543 1.78533 1.11287 1.45216 1.45198C1.11307 1.78516 0.850745 2.18831 0.683496 2.63331C0.51883 3.05731 0.406163 3.54198 0.373496 4.25131C0.340829 4.96265 0.333496 5.18931 0.333496 6.99998C0.333496 8.81065 0.340829 9.03731 0.373496 9.74865C0.406163 10.458 0.51883 10.9426 0.683496 11.3666C0.850764 11.8116 1.11308 12.2148 1.45216 12.548C1.78536 12.8871 2.18851 13.1494 2.6335 13.3166C3.0575 13.4813 3.54216 13.594 4.2515 13.6266C4.96283 13.6586 5.1895 13.6666 7.00016 13.6666C8.81083 13.6666 9.0375 13.6586 9.74883 13.6266C10.4582 13.594 10.9428 13.4813 11.3668 13.3166C11.8118 13.1494 12.215 12.8871 12.5482 12.548C12.8873 12.2148 13.1496 11.8116 13.3168 11.3666C13.4815 10.9426 13.5942 10.458 13.6268 9.74865C13.6588 9.03731 13.6668 8.81065 13.6668 6.99998C13.6668 5.18931 13.6588 4.96265 13.6268 4.25131C13.5942 3.54198 13.4815 3.05731 13.3168 2.63331C13.1496 2.18831 12.8873 1.78516 12.5482 1.45198C12.215 1.11287 11.8118 0.850543 11.3668 0.683313C10.9428 0.518646 10.4582 0.40598 9.74883 0.373313C9.0375 0.341313 8.81083 0.333313 7.00016 0.333313ZM7.00016 1.53465C8.78016 1.53465 8.99083 1.54131 9.6935 1.57331C10.3442 1.60331 10.6968 1.71131 10.9322 1.80265C11.2428 1.92398 11.4655 2.06865 11.6988 2.30131C11.9322 2.53465 12.0762 2.75731 12.1975 3.06798C12.2882 3.30331 12.3975 3.65598 12.4268 4.30598C12.4588 5.00931 12.4655 5.21931 12.4655 6.99998C12.4655 8.77998 12.4588 8.99065 12.4268 9.69331C12.3968 10.344 12.2882 10.6966 12.1975 10.932C12.0906 11.2216 11.9202 11.4835 11.6988 11.6986C11.4655 11.932 11.2428 12.076 10.9322 12.1973C10.6968 12.288 10.3442 12.3973 9.69416 12.4266C8.9915 12.4586 8.78083 12.4653 7.00016 12.4653C5.22016 12.4653 5.00883 12.4586 4.30683 12.4266C3.65616 12.3966 3.3035 12.288 3.06816 12.1973C2.77855 12.0905 2.51657 11.9201 2.3015 11.6986C2.08007 11.4836 1.90967 11.2216 1.80283 10.932C1.7115 10.6966 1.60283 10.344 1.5735 9.69398C1.5415 8.99065 1.53483 8.78065 1.53483 6.99998C1.53483 5.21998 1.5415 5.00931 1.5735 4.30665C1.6035 3.65598 1.7115 3.30331 1.80283 3.06798C1.92416 2.75731 2.06883 2.53465 2.3015 2.30131C2.53483 2.06798 2.7575 1.92398 3.06816 1.80265C3.3035 1.71131 3.65616 1.60265 4.30616 1.57331C5.0095 1.54131 5.2195 1.53465 7.00016 1.53465ZM7.00016 9.22198C6.41085 9.22198 5.84568 8.98788 5.42897 8.57117C5.01227 8.15447 4.77816 7.58929 4.77816 6.99998C4.77816 6.41067 5.01227 5.84549 5.42897 5.42879C5.84568 5.01208 6.41085 4.77798 7.00016 4.77798C7.58947 4.77798 8.15465 5.01208 8.57135 5.42879C8.98806 5.84549 9.22216 6.41067 9.22216 6.99998C9.22216 7.58929 8.98806 8.15447 8.57135 8.57117C8.15465 8.98788 7.58947 9.22198 7.00016 9.22198ZM7.00016 3.57665C6.5506 3.57665 6.10545 3.66519 5.69011 3.83723C5.27477 4.00927 4.89739 4.26143 4.5795 4.57932C4.26161 4.8972 4.00945 5.27459 3.83742 5.68993C3.66538 6.10526 3.57683 6.55042 3.57683 6.99998C3.57683 7.44954 3.66538 7.89469 3.83742 8.31003C4.00945 8.72537 4.26161 9.10276 4.5795 9.42064C4.89739 9.73853 5.27477 9.99069 5.69011 10.1627C6.10545 10.3348 6.5506 10.4233 7.00016 10.4233C7.90809 10.4233 8.77883 10.0626 9.42082 9.42064C10.0628 8.77864 10.4235 7.9079 10.4235 6.99998C10.4235 6.09206 10.0628 5.22132 9.42082 4.57932C8.77883 3.93732 7.90809 3.57665 7.00016 3.57665ZM11.3588 3.44131C11.3588 3.54637 11.3381 3.6504 11.2979 3.74746C11.2577 3.84452 11.1988 3.93271 11.1245 4.007C11.0502 4.08129 10.962 4.14021 10.865 4.18042C10.7679 4.22062 10.6639 4.24131 10.5588 4.24131C10.4538 4.24131 10.3497 4.22062 10.2527 4.18042C10.1556 4.14021 10.0674 4.08129 9.99314 4.007C9.91886 3.93271 9.85993 3.84452 9.81973 3.74746C9.77952 3.6504 9.75883 3.54637 9.75883 3.44131C9.75883 3.22914 9.84311 3.02566 9.99314 2.87563C10.1432 2.7256 10.3467 2.64131 10.5588 2.64131C10.771 2.64131 10.9745 2.7256 11.1245 2.87563C11.2745 3.02566 11.3588 3.22914 11.3588 3.44131Z" fill="#FAFEFE"/>
+                </svg>
+              </a>
+              <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                <path d="M6.40146 14.0173V9.16801H4.54546C4.4491 9.16801 4.35669 9.12973 4.28855 9.06159C4.22041 8.99345 4.18213 8.90104 4.18213 8.80467V6.88667C4.18213 6.79031 4.22041 6.6979 4.28855 6.62976C4.35669 6.56162 4.4491 6.52334 4.54546 6.52334H6.39413V4.66667C6.34991 4.22637 6.40262 3.78173 6.54856 3.36398C6.69451 2.94622 6.93014 2.56549 7.23892 2.24851C7.5477 1.93154 7.92214 1.68601 8.33592 1.52917C8.74971 1.37234 9.19282 1.308 9.63413 1.34067H11.1808C11.2781 1.34048 11.3715 1.37854 11.441 1.44664C11.5105 1.51473 11.5504 1.60741 11.5521 1.70467V3.32867C11.55 3.42576 11.51 3.51817 11.4406 3.58609C11.3712 3.65401 11.2779 3.69203 11.1808 3.69201H10.2141C9.17013 3.69201 8.96946 4.18667 8.96946 4.91401V6.52267H11.4515C11.503 6.52096 11.5544 6.53051 11.6019 6.55066C11.6494 6.5708 11.692 6.60105 11.7266 6.63931C11.7613 6.67757 11.7872 6.72292 11.8025 6.7722C11.8178 6.82148 11.8223 6.87351 11.8155 6.92467L11.5908 8.85001C11.5795 8.93819 11.5364 9.01919 11.4694 9.07767C11.4024 9.13615 11.3164 9.16806 11.2275 9.16734H8.9848V14.0167C8.98587 14.1023 8.96979 14.1873 8.9375 14.2666C8.9052 14.3459 8.85735 14.4179 8.79677 14.4785C8.73619 14.539 8.6641 14.5868 8.58476 14.619C8.50541 14.6512 8.42042 14.6672 8.3348 14.666H7.04346C6.95848 14.6662 6.87432 14.6495 6.79586 14.6168C6.71741 14.5842 6.64623 14.5362 6.58649 14.4758C6.52674 14.4154 6.47961 14.3436 6.44784 14.2648C6.41608 14.186 6.40031 14.1023 6.40146 14.0173Z" fill="#FAFEFE"/>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="container-copyright">
+          <div class="copyright">
+            <small>2024 © <b>TechReVamp. </b> Todos los derechos reservados.</small>
+            <span class="terms-policy">
+              <a href="">Términos y condiciones</a>
+              <a href="">Política de privacidad</a>
+            </span>
+          </div>
+          <div class="sign-in">
+            <p>¿Ya eres cliente?</p>
+            <a href="">Iniciar sesión</a>
+          </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+    <script src="/forms/form.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
