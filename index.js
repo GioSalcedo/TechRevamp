@@ -14,7 +14,9 @@ app.get("/", function(req,res){
 });
 
 // Rutas
-
+app.get("/products", function(req,res){
+  res.use(express.static("public"))
+});
 
 // Configura la aplicación para servir archivos estáticos desde el directorio "public"
 //middleaware
