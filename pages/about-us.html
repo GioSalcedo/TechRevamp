@@ -3,29 +3,21 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="stylesheet" href="./navbar/navbar.css"/>
-    <link rel="stylesheet" href="./footer/footer.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="icon" type="" href="./img/logo-techrevamp.png"/>
-    <title>TechRevamp</title>
+    <title>Sobre Nosotros</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="" href="/assets/images/logo-techrevamp.png"/>
+    <link rel="stylesheet" href="/assets/css/about-us.css"/>
+    <script src="/assets/js/navbar-footer.js" defer></script>
   </head>
-
   <body>
     <header>
-      <!-- Start navbar -->
-      <nav>
         <div id="navbar"></div>
-      </nav>
-      <!-- End navbar -->
     </header>
     <main>
       <!-- Start - Intro About us, qué hacemos, quienes somos -->
       <div class="container-intro-about">
         <div class="about-us-banner">
-          <img src="/img/about-us-banner.webp" alt="Imagen trabajo en equipo" />
+          <img src="/assets/images/about-us_img/about-us-banner.webp" alt="Imagen trabajo en equipo" />
           <h2>Sobre nosotros</h2>
         </div>
         <p class="who-we-are">
@@ -35,7 +27,7 @@
         </p>
         <div class="team-work">
           <img
-            src="/img/image-about-intro.svg"
+            src="/assets/images/about-us_img/hero_img/image-about-intro.svg"
             alt="Imagen trabajo en equipo"
           />
           <p class="slogan">“Revive, Reuse, Reimagine”</p>
@@ -45,7 +37,7 @@
       <!-- mission and vision start-->
       <div class="mission-container">
         <div class="mission-img">
-          <img src="/img/images_mission&vision/mission.webp" alt="mission" />
+          <img src="/assets/images/about-us_img/m&v_img/mission.webp" alt="mission" />
         </div>
         <div class="mission-text">
           <h2 class="mission-title">Misión</h2>
@@ -62,7 +54,7 @@
       </div>
       <div class="vision-container">
         <div class="vision-img">
-          <img src="img/images_mission&vision/vision.webp" alt="vision" />
+          <img src="/assets/images/about-us_img/m&v_img/vision.webp" alt="vision" />
         </div>
         <div class="vision-text">
           <h2 class="vision-title">Visión</h2>
@@ -80,7 +72,7 @@
       <!-- mission and vision end-->
       <!-- valores -->
       <h2>Nuestros valores</h2>
-      <div class="scroll-container" style="--t: 50s">
+      <div class="scroll-container" style="--t: 120s">
         <div class="scroll-1">
           <div class="value-card">
             <div class="value-card-text">
@@ -89,7 +81,7 @@
                 <div class="value-card-description">
                   Garantizamos transacciones seguras y productos de calidad.
                 </div>
-                <img src="img/images_values/icons/reliability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/reliability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -101,7 +93,7 @@
                 <div class="value-card-description">
                   Llevamos la tecnología al alcance de todos.
                 </div>
-                <img src="/img/images_values/icons/affordability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/affordability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -114,7 +106,7 @@
                   Promovemos la reutilización para reducir el desperdicio
                   electrónico.
                 </div>
-                <img src="/img/images_values/icons/sustainability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/sustainability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -127,7 +119,7 @@
                   Ofrecemos un servicio excepcional, atendiendo sus solicitudes
                   eficazmente.
                 </div>
-                <img src="/img/images_values/icons/commitment.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/commitment.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -140,7 +132,7 @@
                   Valoramos la riqueza de las diferencias en un ambiente
                   respetuoso y tolerante.
                 </div>
-                <img src="/img/images_values/icons/diversity.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/diversity.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -153,7 +145,83 @@
                   Trabajamos juntos, asegurando que cada miembro del equipo sea
                   parte del éxito colectivo.
                 </div>
-                <img src="/img/images_values/icons/teamwork.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/teamwork.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Confianza</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Garantizamos transacciones seguras y productos de calidad.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/reliability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Accesibilidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Llevamos la tecnología al alcance de todos.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/affordability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Sostenibilidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Promovemos la reutilización para reducir el desperdicio
+                  electrónico.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/sustainability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Compromiso</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Ofrecemos un servicio excepcional, atendiendo sus solicitudes
+                  eficazmente.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/commitment.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Diversidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Valoramos la riqueza de las diferencias en un ambiente
+                  respetuoso y tolerante.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/diversity.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Colaboración</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Trabajamos juntos, asegurando que cada miembro del equipo sea
+                  parte del éxito colectivo.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/teamwork.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -167,7 +235,7 @@
                 <div class="value-card-description">
                   Garantizamos transacciones seguras y productos de calidad.
                 </div>
-                <img src="/img/images_values/icons/reliability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/reliability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -179,7 +247,7 @@
                 <div class="value-card-description">
                   Llevamos la tecnología al alcance de todos.
                 </div>
-                <img src="/img/images_values/icons/affordability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/affordability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -192,7 +260,7 @@
                   Promovemos la reutilización para reducir el desperdicio
                   electrónico.
                 </div>
-                <img src="/img/images_values/icons/sustainability.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/sustainability.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -205,7 +273,7 @@
                   Ofrecemos un servicio excepcional, atendiendo sus solicitudes
                   eficazmente.
                 </div>
-                <img src="/img/images_values/icons/commitment.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/commitment.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -218,7 +286,7 @@
                   Valoramos la riqueza de las diferencias en un ambiente
                   respetuoso y tolerante.
                 </div>
-                <img src="/img/images_values/icons/diversity.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/diversity.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
@@ -228,14 +296,91 @@
               <div class="value-card-title">Colaboración</div>
               <div class="value-card-main-content">
                 <div class="value-card-description">
-                  Trabajamos juntos, uniendo talentos y habilidades para
-                  alcanzar el éxito.
+                  Trabajamos juntos, asegurando que cada miembro del equipo sea
+                  parte del éxito colectivo.
                 </div>
-                <img src="/img/images_values/icons/teamwork.png" />
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/teamwork.png" />
               </div>
             </div>
             <div class="value-card-background"></div>
           </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Confianza</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Garantizamos transacciones seguras y productos de calidad.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/reliability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Accesibilidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Llevamos la tecnología al alcance de todos.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/affordability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Sostenibilidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Promovemos la reutilización para reducir el desperdicio
+                  electrónico.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/sustainability.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Compromiso</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Ofrecemos un servicio excepcional, atendiendo sus solicitudes
+                  eficazmente.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/commitment.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Diversidad</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Valoramos la riqueza de las diferencias en un ambiente
+                  respetuoso y tolerante.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/diversity.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+          <div class="value-card">
+            <div class="value-card-text">
+              <div class="value-card-title">Colaboración</div>
+              <div class="value-card-main-content">
+                <div class="value-card-description">
+                  Trabajamos juntos, asegurando que cada miembro del equipo sea
+                  parte del éxito colectivo.
+                </div>
+                <img class= "valuesimg" src="/assets/images/about-us_img/values_img/teamwork.png" />
+              </div>
+            </div>
+            <div class="value-card-background"></div>
+          </div>
+        </div>
         </div>
       </div>
       <!-- fin valores -->
@@ -245,12 +390,12 @@
         <!-- card-water -->
         <div class="card">
           <div class="front">
-            <img class="profile-img-water" src="img/profile_img/gaby_perfil-water.webp" alt="imagen de perfil" width="200px" height="200px">
+            <img class="profile-img-water" src="/assets/images/about-us_img/team_img/gaby_perfil-water.webp" alt="imagen de perfil" width="200px" height="200px">
               <h3 class="member-name">Gabriela Rojas</h3>
               <h4 class="role">Desarrolladora Fullstack <br> Diseñadora UX/UI </h4>
           </div>
           <div class="back-water">
-            <img class="element-card" src="img/agua.svg" alt="elemente de agua" width="100px" height="100px">
+            <img class="element-card" src="/assets/images/about-us_img/team_img/agua.svg" alt="elemente de agua" width="100px" height="100px">
             <p class="profile-description">
               Profesional curiosa, creativa y apasionada por el desarrollo full-stack y el diseño UX/UI. Enfocada en crear soluciones funcionales y accesibles.
             </p>
@@ -275,12 +420,12 @@
         </div>
         <div class="card">
           <div class="front">
-            <img class="profile-img-earth" src="/img/profile_img/Nicole.webp" alt="imagen de perfil" width="200px" height="200px">
+            <img class="profile-img-earth" src="/assets/images/about-us_img/team_img/Nicole.webp" alt="imagen de perfil" width="200px" height="200px">
               <h3 class="member-name">Nicole Rojas</h3>
               <h4 class="role">Desarrolladora Fullstack</h4>
           </div>
           <div class="back-earth">
-            <img class="element-card" src="img/tierra.svg" alt="elemente de tierra" width="100px" height="100px">
+            <img class="element-card" src="/assets/images/about-us_img/team_img/tierra.svg" alt="elemente de tierra" width="100px" height="100px">
             <p class="profile-description">
               Comprometida con la excelencia, aporto mi creatividad para desarrollar aplicaciones web eficientes y brindar experiencias de usuario amigables.
             </p>
@@ -305,12 +450,12 @@
         </div>
         <div class="card">
           <div class="front">
-            <img class="profile-img-air" src="img/profile_img/artu_perfil.webp" alt="imagen de perfil" width="200px" height="200px">
+            <img class="profile-img-air" src="/assets/images/about-us_img/team_img/artu_perfil.webp" alt="imagen de perfil" width="200px" height="200px">
               <h3 class="member-name">Arturo Navas</h3>
               <h4 class="role">Desarrollador Backend</h4>
           </div>
           <div class="back-air">
-            <img class="element-card" src="img/aire.svg" alt="elemente de aire" width="100px" height="100px">
+            <img class="element-card" src="/assets/images/about-us_img/team_img/aire.svg" alt="elemente de aire" width="100px" height="100px">
             <p class="profile-description">
               Estudiante apasionado por el backend con experiencia en Java, SQL y Spring Boot. Competente en crear APIs robustas y gestionar bases de datos.            </p>
             <ul class="list-inline-air">
@@ -335,12 +480,12 @@
         <!-- card fire -->
         <div class="card">
           <div class="front">
-            <img class="profile-img-fire" src="img/profile_img/gio_perfil.webp" alt="imagen de perfil" width="200px" height="200px">
+            <img class="profile-img-fire" src="/assets/images/about-us_img/team_img/gio_perfil.webp" alt="imagen de perfil" width="200px" height="200px">
               <h3 class="member-name">Giovanny Salcedo</h3>
               <h4 class="role">Desarrollador Fullstack</h4>
           </div>
           <div class="back-fire">
-            <img class="element-card" src="img/fuego.svg" alt="elemente de aire" width="100px" height="100px">
+            <img class="element-card" src="/assets/images/about-us_img/team_img/fuego.svg" alt="elemente de aire" width="100px" height="100px">
             <p class="profile-description">
               Poseo experiencia en Ruby, Java, Ruby on Rails, HTML, CSS y JavaScript. Enfocado en UX y resultados, usando metodologías ágiles y herramientas como Trello y JIRA.
             </p>
@@ -371,9 +516,6 @@
       <div id="footer"></div>
     </footer>
     <!-- End footer -->
-    <script src="app.js"></script>
-    <script src="about-us.js"></script>
-    <script src="help.js"></script>
-    <script src="navbar-footer.js"></script>
+    <script src="/assets/js/values.js"></script>
   </body>
 </html>

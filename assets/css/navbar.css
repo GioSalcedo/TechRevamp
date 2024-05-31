@@ -1,0 +1,250 @@
+/* ----------------NAVBAR STYLES---------------- */
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    color: var(--Colors-neutral-white, #FAFEFE);
+    background: var(--primary-blue-principal-900, #11485A);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#navsuperior{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    height: 40px;
+    cursor: pointer;  
+}
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.icons svg{
+    width:26px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.menu a{
+    text-align: left;
+    color: var(--Colors-neutral-white, #FAFEFE);
+    text-decoration: none;
+    font-size: 1rem; 
+}
+
+.searchbar,
+.searchbar-hiddenonphone{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    color: var(--Colors-neutral-white, #FAFEFE);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0;
+    flex-grow: 1;
+    outline: none;
+}
+.navbar input{
+    width: 100%;
+    background-color: var(--primary-blue-principal-900, #11485A);
+    border: 1px solid var(--neutral-disable-50, #F5F9FA);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    flex-grow: 1;
+    color: var(--neutral-disable-100, #DFE9EC);
+    color: var(--neutral-disable-100, #DFE9EC);
+    /* Ubuntu/body/20-xxlarge-400 */
+    font-family: Ubuntu;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline:none;
+}
+.navbar input:focus{
+    border-color: var(--Colors-secondary-green-principal-200, #c1fd93);
+    box-shadow: 0 0 5px 2px var( --Colors-primary-blue-800, #126378);
+}
+.navbar input::placeholder{
+    color: var(--neutral-disable-100, #DFE9EC);
+    /* Ubuntu/body/20-xxlarge-400 */
+    font-family: Ubuntu;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.searchbar button,
+.searchbar-hiddenonphone button{
+    position:absolute;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    background-color: var(--Colors-neutral-white, #FAFEFE);
+    color: var(--primary-blue-principal-900, #11485A);
+    height:36px;
+    width:36px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    align-self: stretch;
+    border-radius: 0.5rem;
+    background: var(--neutral-white, #FAFEFE);
+}
+
+.menu a:hover, 
+.cart svg:hover,
+.toggle svg:hover{
+    color:#c1fd93;
+    fill: var(--Colors-secondary-green-principal-200, #c1fd93);
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    cursor: pointer;
+}
+
+.active{
+    display: grid;
+    grid-template-columns: 1fr,
+}
+
+.menu-list{
+    display: grid;
+    width: fit-content;
+    gap: 8px; 
+}
+.menu-text{
+    margin-left: 10px;
+}
+
+.hidden,
+.searchbar-hiddenonphone{
+    display: none;
+}
+
+.searchbar button:hover,
+.searchbar-hiddenonphone button:hover
+{
+    background: var(--Colors-secondary-green-principal-200, #c1fd93);
+}
+
+/* ----------------MEDIA QUERIES FOR RESPONSIVE DESIGN---------------- */
+
+/* MQ for tablets ((min-width: 768px) */
+
+@media (min-width: 768px){
+    .navbar{
+        padding: 20px;
+    }
+
+    .logo{
+        height: 60px;
+    }
+    .icons svg{
+        width:32px;
+        height: 32px;
+    }
+
+    .searchbar-hiddenonphone{
+        position:relative;
+        display:flex;
+        max-width: none;
+        margin: 0 20px;
+    }
+    .searchbar-hiddenonphone input{
+        height: 40px;
+    }
+    .searchbar-hiddenonphone button{
+        margin-top: 11.5px;
+        height:40px;
+        width:40px;
+    }
+    .searchbar-hiddenonphone svg{
+        height:24px;
+        width: 24px;
+    }
+
+    .menu a,
+    input,
+    input::placeholder
+    {
+        font-size: 1.15rem; 
+    }           
+    .menu-list{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        row-gap: 10px;
+        column-gap: 50px; 
+    }
+    .menu-list a{
+        display: flex;
+        
+    }
+
+    .searchbar{
+        display: none;
+    }
+
+}
+/* MQ for desktop (min-width: 1200px) */
+
+@media (min-width: 1200px){
+    .navbar{
+        padding: 32px;
+        gap:32px;
+    }
+
+    .logo{
+        height: 70px;
+    }
+    .icons svg{
+        width:40px;
+        height:40px;
+    }
+
+    .searchbar-hiddenonphone{
+        margin: 0 32px;
+    }
+    .searchbar-hiddenonphone input{
+        height: 44px;
+    }
+    .searchbar-hiddenonphone button{
+        margin-top: 14.5px;
+        height:44px;
+        width:44px;
+    }
+    .searchbar-hiddenonphone svg{
+        height:28px;
+        width: 28px;
+    }
+    
+    .toggle{
+        display: none;
+    }
+    .menu{
+        display: block;
+        width: 100%;
+    }
+    .menu a,
+    input,
+    input::placeholder
+    {
+        font-size: 1.22rem; 
+    }              
+    .menu-list{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

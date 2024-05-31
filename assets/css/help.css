@@ -92,7 +92,7 @@
 }
 
 .container-help-banner img{
-  width: 100%;  
+  width: 100%;
 }
 
 .card-help{
@@ -125,7 +125,6 @@
 }
  
 .question:hover{
-  background-color: var(--Colors-secondary-green-100);
   color: var(--Colors-primary-blue-950);
 }
 .card-help img{

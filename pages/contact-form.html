@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contáctenos</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="icon" type="" href="/assets/images/img/logo-techrevamp.png"/>
+    <link rel="stylesheet" href="/assets/css/form.css">
+    <script src="/assets/js/navbar-footer.js" defer></script>    
+  </head>
+
+  <body>
+    <header>
+      <div id="navbar"></div>
+    </header>
+    <main>
+      <div class="contact-container">
+        <div class="contact-form-container">
+          <h2>Contáctenos</h2>
+          <p>Un miembro de nuestro equipo se pondrá en contacto pronto.</p>
+          <form class="contact-form">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
+            
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
+            
+            <label for="phone">Número de teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de telefono">
+            
+            <label for="topic">Elige un tema</label>
+            <select id="topic" name="topic">
+                <option value="">Seleccione un tema</option>
+                <option value="soporte">Soporte</option>
+                <option value="ventas">Ventas</option>
+                <option value="otros">Otros</option>
+            </select>
+            
+            <label for="message">¿Cómo podemos ayudarte?</label>
+            <textarea id="message" name="message"  placeholder="Ingrese un breve mensaje de como podemos ayudarle"></textarea>
+            
+            <button type="submit">Enviar</button>
+            </form>
+            <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de privacidad</a>.</p>
+        </div>
+        <div class="contact-image">
+          <img src="/assets/images/forms_img/contact-us-showcase.png" alt="img placeholder">
+        </div>
+      </div>
+    </main>
+    <div id="footer"></div>
+    <script src="/assets/js/form.js"></script>
+  </body>
+</html>
