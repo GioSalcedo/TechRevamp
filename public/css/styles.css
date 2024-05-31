@@ -1,5 +1,10 @@
 @import url("navbar.css");
 @import url("footer.css");
+@import url("help.css");
+@import url("faqs.css");
+@import url("form.css");
+@import url("products.css");
+
 
 * {
   padding: 0;
@@ -68,10 +73,6 @@
   --ubuntu--tittle--16-medium-500: 1rem;
   --ubuntu--tittle--16-medium-700: 1rem;
   --ubuntu--tittle--23-large-400: 1.44rem;
-}
-
-body {
-  background-color: #008f5c;
 }
 
 /* -----------------------mission  vision start-------------- */
@@ -897,6 +898,10 @@ h2 {
   }
 }
 
+/* ------------ END mediaquery values ------------------ */
+
+/* final de cards */
+
 @keyframes slide {
   0% {
     transform: translateX(-25%);
@@ -905,7 +910,3 @@ h2 {
     transform: translateX(25%);
   }
 }
-
-/* ------------ END mediaquery values ------------------ */
-
-/* final de cards */
