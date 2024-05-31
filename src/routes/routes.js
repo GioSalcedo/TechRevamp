@@ -1,24 +1,23 @@
 const { Router } = require('express');
 
-const router = Router()
+const router = Router();
 
 // Ruta Inicial
 router.get("/", (req, res) => {
-  res.render('index.ejs', {
-    root: __dirname
-  })
-})
+  res.render('index');
+});
 
 // Rutas
 router.get("/productos", (req, res) => {
-  res.render('products', {
-    root: __dirname
-  });
-})
+  res.render('products');
+});
 
+router.get("/acerca_de_nosotros", (req, res) => {
+  res.render('about-us');
+});
+// Manejo de rutas no encontradas (404)
 router.use((req, res) => {
-  res.send('No se encontro esta pagina')
-})
-
+  res.status(404).send('No se encontró esta página');
+});
 
 module.exports = router;
