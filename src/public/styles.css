@@ -5,6 +5,7 @@
   font-family: "Ubuntu", sans-serif;
   list-style: none;
 }
+
 :root {
   /* Variables colores  */
   --Colors-neutral-black: #010f14;
@@ -67,7 +68,7 @@
 }
 
 body {
-  background-color: var(--Colors-neutral-white);
+  background-color: black;
 }
 
 /* -----------------------mission  vision start-------------- */
