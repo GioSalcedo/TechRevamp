@@ -19,6 +19,7 @@ router.get("/acerca-de-nosotros", (req, res) => {
 router.get("/contactanos", (req, res) => {
   res.render('contact-form');
 });
+
 // Manejo de rutas no encontradas (404)
 router.use((req, res) => {
   res.status(404).send('No se encontró esta página');
