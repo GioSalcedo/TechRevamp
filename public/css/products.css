@@ -15,10 +15,38 @@
 }
 
 .galery-recommendation {
-  height: 100px;
+  height: 500px;
+  width: 100%;
 }
 
-.card-recommendation {
+.galery-recommendation img{
+  height: 400px;
+  width: 100%;
+}
+
+.galery-recommendation div{
+  height: 200px;
+  width: 100%;
+}
+
+.galery-products {
+  margin-bottom: 100px;
+}
+
+.galery-products img{
+  height: 200px;
+  width: 50%;
+}
+
+.galery-products div{
+  height: 200px;
+  width: 100%;
+}
+
+
+
+
+/* .card-recommendation {
   display: flex;
   padding: 10px 12px;
   flex-direction: column;
@@ -32,7 +60,7 @@
   align-items: flex-start;
   flex: 1 0 0;
   align-self: stretch;
-}
+} */
 
 /* .products-recommendation {
 
