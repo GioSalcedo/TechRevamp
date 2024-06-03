@@ -59,60 +59,9 @@
 }
 /* fin de mision y visión  */
 
+@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 1200px) {}
 
-.container-intro-about {
-  width: 100%;
-  height: auto;
-}
-
-.container-intro-about p {
-  margin: 40px 20px;
-  padding: 0 20px;
-  font-size: var(--ubuntu--body--18-xlarge-400);
-  text-align: center;
-}
-
-.about-us-banner {
-  position: relative;
-  display: flex;
-  align-content: center;
-  text-align: center;
-}
-
-.about-us-banner h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  font-weight: 700;
-  font-size: var(--ubuntu--headline--23-small-400);
-  margin: 0;
-  color: var(--Colors-neutral-white);
-}
-
-.about-us-banner img {
-  width: 100%;
-  height: auto;
-}
-
-.team-work {
-  display: flex;
-  flex-direction: column;
-}
-
-.team-work img {
-  width: 100%;
-  max-width: 826px;
-  margin: auto;
-  padding: 0 40px;
-}
-
-.team-work p {
-  padding: 0 20px;
-  font-size: var(--ubuntu--headline--23-small-400);
-  font-weight: 700;
-  font-style: italic;
-}
 
 
 
