@@ -1,11 +1,9 @@
 .scroll-container {
   display: flex;
   text-align: center;
-  overflow: hidden;
   margin-bottom: 20px;
   background-color: var(--Colors-neutral-white);
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-inline: 16px;
   margin-bottom: 2rem;
 }
 

@@ -24,6 +24,10 @@ router.get("/ayuda", (req, res) => {
   res.render('help');
 });
 
+router.get("/cuenta", (req, res) => {
+  res.render('account');
+});
+
 router.get("/servicio-reparacion", (req, res) => {
   res.render('repair-form');
 });
