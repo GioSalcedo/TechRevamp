@@ -1,7 +1,5 @@
 /* ----------------NAVBAR STYLES---------------- */
-@import url(styles.css);
-
-.navbar{
+.navbar-blue{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,7 +57,7 @@
     flex-grow: 1;
     outline: none;
 }
-.navbar input{
+.navbar-blue input{
     width: 100%;
     background-color: var(--primary-blue-principal-900, #11485A);
     border: 1px solid var(--neutral-disable-50, #F5F9FA);
@@ -76,11 +74,11 @@
     line-height: normal;
     outline:none;
 }
-.navbar input:focus{
+.navbar-blue input:focus{
     border-color: var(--Colors-secondary-green-principal-200, #c1fd93);
     box-shadow: 0 0 5px 2px var( --Colors-primary-blue-800, #126378);
 }
-.navbar input::placeholder{
+.navbar-blue input::placeholder{
     color: var(--neutral-disable-100, #DFE9EC);
     /* Ubuntu/body/20-xxlarge-400 */
     font-family: Ubuntu;
@@ -146,7 +144,7 @@
 /* MQ for tablets ((min-width: 768px) */
 
 @media (min-width: 768px){
-    .navbar{
+    .navbar-blue{
         padding: 20px;
     }
 
@@ -202,7 +200,7 @@
 /* MQ for desktop (min-width: 1200px) */
 
 @media (min-width: 1200px){
-    .navbar{
+    .navbar-blue{
         padding: 32px;
         gap:32px;
     }
