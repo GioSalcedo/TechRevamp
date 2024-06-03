@@ -1,5 +1,3 @@
-/*--------------- values start------------------------ */
-
 .scroll-container {
   display: flex;
   text-align: center;
@@ -114,4 +112,3 @@
   opacity: 0.1;
   transition: 0.5s;
 }
-/*---------- values end-----------*/

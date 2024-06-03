@@ -1,50 +1,34 @@
+@import url(styles.css);
 /* Inicio de cards */
 .container-cards {
+  background: linear-gradient(0deg, rgba(17, 72, 90, 0.8) 0%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(0deg, rgba(12, 53, 116, 0.50) 0%, rgba(12, 116, 22, 0.50) 29.5%, rgba(143, 19, 19, 0.50) 60.5%, rgba(63, 59, 59, 0.50) 84.5%, rgba(250, 254, 254, 0.60) 100%);
   width: 100%;
-  height: 100%;
+  height: 50%;
+  display: flex;
   padding: 16px;
-  background: linear-gradient(
-      0deg,
-      rgba(17, 72, 90, 0.8) 0%,
-      rgba(255, 255, 255, 0.2) 100%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(12, 53, 116, 0.5) 0%,
-      rgba(12, 116, 22, 0.5) 29.5%,
-      rgba(143, 19, 19, 0.5) 60.5%,
-      rgba(63, 59, 59, 0.5) 84.5%,
-      rgba(250, 254, 254, 0.6) 100%
-    );
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-h2 {
+  gap: 16px;
   align-self: stretch;
-  color: var(--neutral-black, #010f14);
   text-align: center;
-  font-size: var(--ubuntu--headline--32-large-400);
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 20px 0;
 }
 
-.card {
-  height: 100%;
-  width: 100%;
+.card-member {
+  position: relative;
+  width: 90%;
+  height: 400px;
 }
 
-.card h3 {
-  font-size: 2rem;
+.card-member h3 {
+  font-size: var( --ubuntu--headline--32-large-400);
 }
 
-.card h4 {
-  font-size: 1.3rem;
+.card-member h4 {
+  font-size: var(--ubuntu--headline--23-small-400);
 }
 
-.card div {
+.card-member div {
   position: absolute;
   width: 100%;
   height: 400px;
@@ -59,7 +43,7 @@ h2 {
   transition: 1.5s;
 }
 
-.card .front {
+.card-member .front {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
   border-radius: var(--Gap-gap-9, 16px);
@@ -71,18 +55,18 @@ h2 {
   gap: 10px;
 }
 
-.card:hover .front {
+.card-member:hover .front {
   transform: perspective(500px) rotateY(180deg);
 }
 
-.card .front .img {
+.card-member .front .img {
   border: solid #f13607 5px;
   border-radius: 50%;
   width: unset;
   height: auto;
 }
 
-.element-card {
+.element-card-member {
   padding-bottom: 10px;
 }
 
@@ -105,7 +89,7 @@ h2 {
   font-size: 50px;
   color: #3a9dff;
 }
-.card .back-water {
+.card-member .back-water {
   backdrop-filter: blur(1px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
@@ -113,13 +97,14 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   transform: perspective(500px) rotateY(180deg);
+  font-size: var(--ubuntu--body--16-large-400);
 }
 
-.card:hover .back-water {
+.card-member:hover .back-water {
   transform: perspective(500px) rotateY(360deg);
 }
 
-.card .back-water::before {
+.card-member .back-water::before {
   content: "";
   background-image: conic-gradient(#3a9dff 20deg, transparent 120deg);
   position: absolute;
@@ -129,7 +114,7 @@ h2 {
   z-index: -1;
 }
 
-.card .back-water::after {
+.card-member .back-water::after {
   content: "";
   position: absolute;
   background-color: var(--Colors-neutral-white);
@@ -171,7 +156,7 @@ h2 {
   color: #a2dfff;
 }
 
-.card .back-air {
+.card-member .back-air {
   backdrop-filter: blur(6px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
@@ -179,15 +164,16 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   transform: perspective(500px) rotateY(180deg);
+  font-size: var(--ubuntu--body--16-large-400);
 }
 
-.card:hover .back-air {
+.card-member:hover .back-air {
   transform: perspective(500px) rotateY(360deg);
 }
 
-.card .back-air::before {
+.card-member .back-air::before {
   content: "";
-  background-image: conic-gradient(#97c2da 20deg, transparent 120deg);
+  background-image: conic-gradient(#a2dfff 20deg, transparent 120deg);
   position: absolute;
   width: 700px;
   height: 700px;
@@ -195,7 +181,7 @@ h2 {
   z-index: -1;
 }
 
-.card .back-air::after {
+.card-member .back-air::after {
   content: "";
   position: absolute;
   background-color: var(--Colors-neutral-white);
@@ -214,10 +200,6 @@ h2 {
   width: 200px;
   height: 220px;
   margin-bottom: 20px;
-}
-
-.profile-img-air img {
-  transform: scale(3);
 }
 
 /* back ea.back-earth */
@@ -239,7 +221,7 @@ h2 {
   font-size: 50px;
   color: #5db85d;
 }
-.card .back-earth {
+.card-member .back-earth {
   backdrop-filter: blur(6px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
@@ -247,13 +229,14 @@ h2 {
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   transform: perspective(500px) rotateY(180deg);
+  font-size: var(--ubuntu--body--16-large-400);
 }
 
-.card:hover .back-earth {
+.card-member:hover .back-earth {
   transform: perspective(500px) rotateY(360deg);
 }
 
-.card .back-earth::before {
+.card-member .back-earth::before {
   content: "";
   background-image: conic-gradient(#5db85d 20deg, transparent 120deg);
   position: absolute;
@@ -263,7 +246,7 @@ h2 {
   z-index: -1;
 }
 
-.card .back-earth::after {
+.card-member .back-earth::after {
   content: "";
   position: absolute;
   background-color: var(--Colors-neutral-white);
@@ -287,6 +270,7 @@ h2 {
 /* back fire */
 .list-inline-fire {
   padding-left: 0px;
+  border: #f13607;
 }
 
 .list-inline-fire > li {
@@ -304,20 +288,21 @@ h2 {
   color: #f13607;
 }
 
-.card .back-fire {
+.card-member .back-fire {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.2);
   border-radius: var(--Gap-gap-9, 16px);
   border-top: 1px solid rgba(255, 255, 255, 0.6);
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   transform: perspective(500px) rotateY(180deg);
+  font-size: var(--ubuntu--body--16-large-400);
 }
 
-.card:hover .back-fire {
+.card-member:hover .back-fire {
   transform: perspective(500px) rotateY(360deg);
 }
 
-.card .back-fire::before {
+.card-member .back-fire::before {
   content: "";
   background-image: conic-gradient(#f13607 20deg, transparent 120deg);
   position: absolute;
@@ -327,7 +312,7 @@ h2 {
   z-index: -1;
 }
 
-.card .back-fire::after {
+.card-member .back-fire::after {
   content: "";
   position: absolute;
   background-color: var(--Colors-neutral-white);
@@ -356,4 +341,63 @@ h2 {
   }
 }
 
+
+@media only screen and (min-width: 768px) {
+  .container-cards{
+    flex-direction: row;
+    flex-wrap: wrap
+  }
+
+  .card-member {
+    width: 45%;
+  }
+
+  .card-member h3{
+  font-size: var(--ubuntu--headline--32-large-400)
+  }
+
+  .card-member .back-water {
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+
+  .card-member .back-earth {
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+
+  .card-member .back-air {
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+
+  .card-member .back-fire {
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+  
+}
+
+@media only screen and (min-width: 1200px) {
+  .container-cards{
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .card-member {
+    width: 45%;
+  }
+
+  .card-member .back-water {
+    font-size: var(--ubuntu--tittle--16-medium-500);
+  }
+
+  .card-member .back-earth {
+    font-size: var(--ubuntu--tittle--16-medium-500);
+  }
+
+  .card-member .back-air {
+    font-size: var(--ubuntu--tittle--16-medium-500);
+  }
+
+  .card-member .back-fire {
+    font-size: var(--ubuntu--tittle--16-medium-500);
+  }
+}
 /* fin cards */

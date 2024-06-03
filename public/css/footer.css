@@ -2,6 +2,7 @@
   width: 100%;
   background-color: var(--primary-blue-principal-900, #11485A);
   bottom: 0;
+  position: relative;
 }
 
 /* Configurar estilos para container links contact, about and social media */

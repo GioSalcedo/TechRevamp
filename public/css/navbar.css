@@ -1,4 +1,6 @@
 /* ----------------NAVBAR STYLES---------------- */
+@import url(styles.css);
+
 .navbar{
     display: flex;
     flex-direction: column;
