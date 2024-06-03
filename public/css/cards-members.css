@@ -345,7 +345,8 @@
 @media only screen and (min-width: 768px) {
   .container-cards{
     flex-direction: row;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    gap: 40px;
   }
 
   .card-member {
@@ -357,21 +358,20 @@
   }
 
   .card-member .back-water {
-    font-size: var(--ubuntu--body--20-xxlarge-400);
+    font-size: var(--ubuntu--body--18-xlarge-400);
   }
 
   .card-member .back-earth {
-    font-size: var(--ubuntu--body--20-xxlarge-400);
+    font-size: var(--ubuntu--body--18-xlarge-400);
   }
 
   .card-member .back-air {
-    font-size: var(--ubuntu--body--20-xxlarge-400);
+    font-size: var(--ubuntu--body--18-xlarge-400);
   }
 
   .card-member .back-fire {
-    font-size: var(--ubuntu--body--20-xxlarge-400);
+    font-size: var(--ubuntu--body--18-xlarge-400);
   }
-  
 }
 
 @media only screen and (min-width: 1200px) {
