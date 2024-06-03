@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/header');%>
+</head>
+<body>
+    <header>
+      <%- include('partials/navbar');%>
+    </header>
+    <main>
+      <div class="add-product-container">
+        <div class="add-product-form-container">
+            <h2>Añadir nuevo producto</h2>
+            <p>Agregue la descripción del producto que desea añadir al catálogo</p>
+            <form class="add-product-form">
+              <label for="product-name">Nombre de produto</label>
+              <input type="text" id="product-name" name="product-name" placeholder="Ingrese el nombre el producto">
+              
+              <label for="price">Precio del producto</label>
+              <input type="number" id="price" name="price" placeholder="Ingrese el precio del producto">
+              
+              <label for="category">Elige una categoría</label>
+              <select id="category" name="topic">
+                <option value="">Seleccione una categoria</option>
+                <option value="laptops">Laptops</option>
+                <option value="smartphones">Smartphones</option>
+                <option value="tablets">Tablets</option>
+                <option value="monitores">Monitores</option>
+                <option value="auriculares">Auriculares</option>
+                <option value="relojesInteligentes">Relojes Inteligentes</option>
+                <option value="camaras">Cámaras</option>
+                <option value="impresoras">Impresoras</option>
+                <option value="routers">Routers</option>
+                <option value="teclados">Teclados</option>
+              </select>
+              
+              <label for="description">Descripción</label>
+              <textarea id="description" name="message"  placeholder="Ingrese la descripción del producto"></textarea>
+              <label for="input-images">Cargue imágenes sobre su producto en formatos (PNG, JPG, JPEG, WEBP)</label>
+              <input type="file" id="input-images" name="input-images" accept=".jpg, .jpeg, .png, .webp" multiple/>
+              <div class="preview">
+                <p></p>
+              </div>
+              <button id="btn-add-product" type="submit">Añadir producto</button>
+            </form>
+        </div>
+        <div class="contact-image">
+          <img src="/img/forms_img/add-product.svg" alt="img placeholder">
+        </div>
+      </div>
+    </main>
+    <!-- End of the formulary -->
+    <%- include('partials/footer');%>
+    <%- include('partials/scripts');%>
+    <script src="/../js/form-new-products.js"></script>
+  </body>
+</html>

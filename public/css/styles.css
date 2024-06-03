@@ -9,6 +9,7 @@
 @import url(navbar.css);
 @import url(footer.css);
 @import url(intro-about-us.css);
+@import url(form-new-products.css);
 
 *{
   padding: 0;
