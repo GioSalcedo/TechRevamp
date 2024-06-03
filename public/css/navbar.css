@@ -15,6 +15,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .logo{
     height: 40px;
@@ -166,7 +167,6 @@
         height: 40px;
     }
     .searchbar-hiddenonphone button{
-        margin-top: 11.5px;
         height:40px;
         width:40px;
     }
@@ -220,7 +220,6 @@
         height: 44px;
     }
     .searchbar-hiddenonphone button{
-        margin-top: 14.5px;
         height:44px;
         width:44px;
     }
