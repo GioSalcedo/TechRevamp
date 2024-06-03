@@ -3,8 +3,8 @@
   text-align: center;
   margin-bottom: 20px;
   background-color: var(--Colors-neutral-white);
-  margin-inline: 16px;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .scroll-1 {
