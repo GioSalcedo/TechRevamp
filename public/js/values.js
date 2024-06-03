@@ -34,31 +34,3 @@ for (element of mainContents) {
   })
 }
 
-//al momento de hacer mouseover, el for ya se ha ejecutado y el element es la última tarjeta del arreglo.
-//la función necesita recibir el parámetro e para obtener el elemento especifico al que le hago mouseover (a traves de e.target) --> console.log(e.target) imprime img
-//Como el mouseover se está linkeando a la imágen, necesitamos acceder al children 0 del padre (card-description)
-
-//Esto que sigue es mi intento de que la animación en el texto ocurra apenas tocando el scroll, no solo la imagen...pero no, funciona mejor del otro modo.
-
-// for(element of scroll1){
-//     element.addEventListener('mouseover', function(e){
-//         e.target.children[0].children[1].children[0].style.visibility = 'visible';
-//         e.target.children[0].children[1].children[1].style.opacity = "0.1";
-//     })
-//     element.addEventListener('mouseout', function(e){
-//         e.target.children[0].children[1].children[0].style.visibility = 'hidden';
-//         e.target.children[0].children[1].children[1].style.opacity = "1";
-//     })
-// }
-// for(element of scroll2){
-//     element.addEventListener('mouseover', function(e){
-//         e.target.children[0].children[1].children[0].style.visibility = 'visible';
-//         e.target.children[0].children[1].children[1].style.opacity = "0.1";
-//     });
-//     element.addEventListener('mouseout', function(e){
-//         e.target.children[0].children[1].children[0].style.visibility = 'hidden';
-//         e.target.children[0].children[1].children[1].style.opacity = "1";
-//     })
-// }
-
-//values end
