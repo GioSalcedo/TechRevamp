@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('partials/header');%>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/navbar');%>
+  </header>
+  <main>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Solicitar Reparación</h2>
+        <p>Un miembro de nuestro equipo se pondrá en contacto pronto para coordinar la reparación de su dispositivo
+          electrónico.</p>
+        <form class="contact-form">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
+
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Ingrese su nombre">
+
+          <label for="phone">Número de teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de telefono">
+
+          <label for="topic">Elige un tema</label>
+          <select id="topic" name="topic">
+            <option value="">Seleccione un dispositivo</option>
+            <option value="soporte">Portatil</option>
+            <option value="ventas">Celular</option>
+            <option value="ventas">Tablet</option>
+            <option value="otros">Otros</option>
+          </select>
+
+          <label for="message">¿Detalla que necesitas reparar?</label>
+          <textarea id="message" name="message" required
+            placeholder="Ingrese un breve mensaje de como se dano el dispositivo"></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+        <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de
+            privacidad</a>.</p>
+      </div>
+      <div class="contact-image">
+        <img src="/img/forms_img/repair-showcase.png" alt="img placeholder">
+      </div>
+    </div>
+  </main>
+  <%- include('partials/footer');%>
+  <%- include('partials/scripts');%>
+  <script src="/assets/js/form.js"></script>
+</body>
+
+</html>

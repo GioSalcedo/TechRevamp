@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/header');%>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/navbar');%>
+    </header>
+    <main>
+        <div class="container-help">
+            <div class="container-help-banner">
+                <img src="/img/help_img/bannerhelp.svg" />
+                <h1>¿Cómo podemos ayudarte?</h1>
+            </div>
+            <div class="container-help-cards">
+                <div class="card-help">
+                    <h2>Ayuda rápida</h2>
+                    <img src="/img/help_img/FAQedited.svg" />
+                    <div class='question'>¿Tienes preguntas?</div>
+                    <br>
+                    <p>Visita nuestras FAQs para obtener respuestas rápidas y detalladas sobre cómo comprar, vender y
+                        más en TechRevamp.<br><br>¡Haz clic aquí abajo!</p>
+                    <a href='/faqs'><button>Preguntas frecuentes</button></a>
+                </div>
+                <div class="imgT">
+                    <img src="/img/help_img/FAQedited.svg">
+                </div>
+                <div class="card-help">
+                    <h2>Contáctanos para soporte</h2>
+                    <img src="/img/help_img/contactedited.svg" />
+                    <div class='question'>¿Necesitas ayuda?</div>
+                    <br>
+                    <p> Nuestro equipo de soporte está aquí para asistirte. Contáctanos para cualquier consulta o
+                        problema. <br><br>¡Haz clic aquí abajo!</p>
+                    <a href='/contactanos'><button>Obtener soporte</button></a>
+                </div>
+                <div class="imgT">
+                    <img src="/img/help_img/contactedited.svg">
+                </div>
+                <div class="card-help">
+                    <h2>Pregunta por nuestro servicio de reparación</h2>
+                    <img src="/img/help_img/repairedited.svg" />
+                    <div class='question'>¿Tu dispositivo necesita reparación?</div>
+                    <br>
+                    <p>Conoce nuestro servicio de reparación profesional para devolverle la funcionalidad. <br><br>¡Haz
+                        clic aquí abajo!</p>
+                    <a href='/servicio-reparacion'><button>Solicitar reparación</button></a>
+                </div>
+                <div class="imgT">
+                    <img src="/img/help_img/repairedited.svg">
+                </div>
+            </div>
+            <div class="container-imagesTablet">
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer');%>
+    <%- include('partials/scripts');%>
+</body>
+</html>

@@ -1,0 +1,82 @@
+.title-recommendation {
+  font-size: var(--ubuntu--headline--32-large-400);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button-recommendation {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+}
+
+.galery-recommendation {
+  height: 500px;
+  width: 100%;
+}
+
+.galery-recommendation img{
+  height: 400px;
+  width: 100%;
+}
+
+.galery-recommendation div{
+  height: 200px;
+  width: 100%;
+}
+
+.galery-products {
+  margin-bottom: 100px;
+}
+
+.galery-products img{
+  height: 200px;
+  width: 50%;
+}
+
+.galery-products div{
+  height: 200px;
+  width: 100%;
+}
+
+/* .card-recommendation {
+  display: flex;
+  padding: 10px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--Border-radius-border-4, 6px);
+  flex: 1 0 0;
+  align-self: stretch;
+  display: flex;
+  padding: 10px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+} */
+
+/* .products-recommendation {
+
+}
+
+.title-products-recommendation{
+
+}
+
+.title-categories {
+
+}
+
+.buttons-categories {
+
+} */
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1200px) {
+}
