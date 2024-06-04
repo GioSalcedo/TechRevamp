@@ -1,0 +1,201 @@
+@import url(styles.css);
+
+.container-help{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container-help-banner{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-help-banner h1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: var(--ubuntu--tittle--23-large-400);
+  color: var(--Colors-neutral-white);
+  width: 100%;
+}
+
+.container-help-banner img{
+  width: 100%;
+}
+
+.card-help{
+  border:1px solid var(--Colors-primary-blue-principal-900);
+  max-width: 400px;
+  border-radius: 8px;
+  padding:16px;
+}
+
+.container-help-cards{
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap:8px;
+}
+
+.container-help h2{
+  font-size: var(--ubuntu--tittle--16-medium-700);
+  color: var(--Colors-neutral-black);
+}
+
+.container-help p{
+  font-size: var(--ubuntu--body--14-medium-400);
+  color: var(--Colors-neutral-black);
+  padding-bottom: 16px;
+}
+
+.question{
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+ 
+.question:hover{
+  color: var(--Colors-primary-blue-950);
+}
+.card-help img{
+  width: 100%;
+  padding:16px;
+}
+
+.imgT img{
+  display: none;
+}
+  
+.card-help button{
+  display: inline-flex;
+  padding: 0.5rem var(--Gap-gap-9, 1rem);
+  justify-content: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: var(--primary-blue-principal-900, #11485A);
+  color: var(--neutral-white, #FAFEFE);
+
+  /* Ubuntu/body/14-medium-400 */
+  font-family: Ubuntu;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card-help button:hover {
+  background-color: var(--Colors-secondary-green-principal-200);
+  color:var(--Colors-primary-blue-950);
+  cursor: pointer;
+}
+
+
+/* Tablets y phablets
+(min-width: 576px) and (max-width: 767px){ */
+
+@media only screen and (min-width: 768px) {
+  .container-help-banner h1{
+    font-size: var(--ubuntu--headline--29-medium-400);
+  }
+  
+  .container-help h2{
+    font-size: var(--ubuntu--body--18-xlarge-400);
+  }
+  
+  .container-help p{
+    font-size: var(--ubuntu--body--16-large-400);
+    padding-bottom: 16px;
+  }
+
+  .container-help-cards{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 20px;
+  }
+  
+  .card-help{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    max-width: 400px;
+    padding: 20px; 
+    margin-right: 20px;
+  }
+  .card-help img{
+    display: none;
+  }
+  .imgT{
+    display:flex;
+    max-width: 400px;
+  }
+
+  .imgT img{
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 20px;
+  }
+  .card-help button{
+    padding: 0.5rem var(--Gap-gap-11, 1.25rem);
+    font-size: 1.125rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 1200px) {
+
+  .container-help-banner{
+    width: 100%;
+  }
+ 
+  .container-help-banner h1{
+    font-size: var(--ubuntu--headline--32-large-400);
+  }
+  
+  .container-help h2{
+    font-size: var(--ubuntu--headline--23-small-400);
+  }
+  
+  .container-help p{
+    font-size: var(--ubuntu--body--18-xlarge-400);
+    padding-bottom: 16px;
+  }
+  
+  .container-help-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:32px;
+    justify-content: space-between;
+    width: 100% ;
+  }
+
+  .card-help{
+    max-width: 500px;
+    margin: 0px;
+  }
+
+  .card-help img{
+    display: flex;
+  }
+  .imgT{
+    display: none;
+  }
+  .imgT img{
+    display:none;
+  }
+
+  .card-help button{
+    padding: 0.75rem 2.25rem;
+    font-size: 1.125rem;
+  }
+}
+
