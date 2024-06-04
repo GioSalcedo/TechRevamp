@@ -54,6 +54,11 @@
   font-weight: 700;
 }
 
+.rights{
+  visibility: visible;
+  color: var(--primary-blue-principal-900, #11485A);
+}
+
 .footer .container-links a:hover,
 .footer .container-links .social-media a{
   color:  var(--primary-blue-300, #62F0FE);
@@ -80,9 +85,8 @@
   width: 100%;
   display: flex;
   gap: 12px;
-  flex-wrap: wrap-reverse;
-  justify-items:flex-start;
-  justify-content:flex-start; 
+  flex-direction: column-reverse;
+  align-items:center; 
   padding: 16px 24px;
   background-color: var(--secondary-green-principal-200, #C1FD93);
   font-weight: 300;
@@ -101,6 +105,7 @@
 
 .container-copyright p{
   color: var(--primary-blue-principal-900, #11485A);
+  text-align: center;
 }
 
 .container-copyright a,
@@ -122,56 +127,6 @@
   display: none;
 }
 
-/* Media query para tablet */
-/* @media(max-width: 768px) {
-  .footer .container-links{
-    grid-template-columns: repeat(3, 1fr);
-    padding: 16px 24px;
-  }
-
-  .footer .container-copyright{
-    padding: 16px 24px;
-    gap: 50px;
-  } 
-
-  .copyright{
-    display: flex; 
-    flex-wrap: wrap-reverse;
-    gap: 4px
-    }
-  
-  .sign-in{
-    display: flex; 
-    flex-wrap: wrap;
-    gap: 4px
-  }
-  .copyright a{
-    margin-inline-end: 10px;
-  }
-} */
-
-/* Media query para mobile
-@media(max-width: 500px) {
-
-  .footer .container-links {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 16px 24px;
-  }
-
-  .terms-policy{
-    display: none;
-  }
-
-  .footer .container-copyright{
-    display: flex; 
-    flex-wrap: wrap-reverse;
-    justify-items:flex-start;
-    justify-content:flex-start; 
-    padding: 16px 24px;
-    gap: 12px;
-  } 
-} */
-
 /* ----------------MEDIA QUERIES FOR RESPONSIVE DESIGN---------------- */
 /* MQ for tablets ((min-width: 768px) */
 @media (min-width: 768px){
@@ -184,10 +139,10 @@
     padding: 16px 24px;
   }
 
-  .footer .container-copyright{
+  /* .footer .container-copyright{
     padding: 16px 24px;
     gap: 50px;
-  } 
+  }  */
 
   .copyright{
     display: flex; 
@@ -212,17 +167,18 @@
     padding: 16px 50px;
   }
 
-  .terms-policy{
+  /* .terms-policy{
     display: flex;
     gap: 10px;
     display: block;
-  }
+  } */
 
-  .footer .container-copyright{
+  /* .footer .container-copyright{
     gap: 100px;
     justify-items: center;
     justify-content: center;
+    align-items: center;
     padding: 16px 50px;
     font-weight: 300;
-  }
+  } */
 }
