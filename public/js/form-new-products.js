@@ -8,6 +8,7 @@ const messageTextarea = document.getElementById('description');
 const submitButton = form.querySelector('button[type="submit"]');
 const imagesAttached = document.getElementById("input-images")
 const preview = document.querySelector(".preview");
+const curFiles = imagesAttached.files;
 
 const btnSubmit = document.getElementById('btn-add-product')
 
@@ -245,7 +246,7 @@ function agregarProducto() {
         precio: priceValue,
         descripcion: descriptionValue,
         categoria: categoryValue,
-        imagen: imagesAttached
+        imagen: imagesAttached.files[0].name
     };
 
     productos.push(nuevoProducto);
@@ -254,12 +255,13 @@ function agregarProducto() {
     console.log(JSON.stringify(nuevoProducto, null, 2));
 
     localStorage.setItem('productos', JSON.stringify(productos));
+    console.log(`Listado de productos completo: \n${JSON.stringify(productos, null, 2)}`);
 
     form.reset();
 }
 
 function updateImageDisplay(){
-    const curFiles = imagesAttached.files;
+    
     if (curFiles.length > 0) {
         const list = document.createElement("ol");
         preview.appendChild(list)

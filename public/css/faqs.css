@@ -10,7 +10,8 @@ body{
 }
 
 #faq-section{
-  margin:0 16px;
+  margin:30px 16px;
+  padding: 20px 0;
 }
 
 .faq-section p{
@@ -192,5 +193,9 @@ svg {
     flex-direction: column;
     justify-content:center;
     align-items: center;
+  }
+
+  .search-container input{
+    padding: 6px 0;
   }
 }

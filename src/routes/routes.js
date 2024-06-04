@@ -44,6 +44,11 @@ router.get("/admin/nuevos-productos", (req, res) => {
   res.render('form-new-products');
 });
 
+//Tarea 7 - eliminar luego de evaluar
+router.get("/agregar-elementos", (req, res) => {
+  res.render('tarea-7-console');
+});
+
 // Manejo de rutas no encontradas (404)
 router.use((req, res) => {
   res.status(404).send('No se encontró esta página');
