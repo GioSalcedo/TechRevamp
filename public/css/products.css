@@ -74,6 +74,32 @@
 .buttons-categories {
 
 } */
+.arrow_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Border-radius-border-4, 6px);
+  align-self: stretch;
+  padding: 50px;
+}
+
+.container-categories button{
+  font-size: var(--ubuntu--tittle--14-small-500);
+  font-weight: 800;
+  color: var(--Colors-primary-blue-950);
+}
+
+.container-categories p{
+  font-size: var(--ubuntu--body--20-xxlarge-400);
+  color: var(--Colors-primary-blue-800);
+}
+
+.container-categories a{
+  font-size: var(--ubuntu--body--20-xxlarge-400);
+  color: var(--Colors-primary-blue-600);
+  text-decoration: none;
+}
+
 
 @media only screen and (min-width: 768px) {
 }
