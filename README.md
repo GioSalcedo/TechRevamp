@@ -10,7 +10,8 @@ TechRevamp es una plataforma confiable para la compra y venta de productos tecno
 ## Instalacion
 
 1. **Clona el repositorio**:
-   git clone https://github.com/GioSalcedo/TechRevamp.git
+
+        git clone https://github.com/GioSalcedo/TechRevamp.git
 
 Navega al directorio del proyecto:
 
