@@ -44,6 +44,15 @@ router.get("/admin/nuevos-productos", (req, res) => {
   res.render('form-new-products');
 });
 
+router.get("/registro", (req, res) => {
+  res.render('register');
+});
+
+router.get("/iniciar-sesion", (req, res) => {
+  res.render('login');
+});
+
+
 //Tarea 7 - eliminar luego de evaluar
 router.get("/agregar-elementos", (req, res) => {
   res.render('tarea-7-console');
