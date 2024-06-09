@@ -91,14 +91,13 @@ function agregarProducto(nombre, precio, categoria, descripcion, imagen) {
         nombre: nombre,
         precio: precio,
         categoria: categoria,
-        descripcion: descripcion, 
+        descripcion: descripcion,
         imagen: imagen
     };
     productos.push(nuevoProducto);
-    console.log(`Listado de productos completo: \n${listarProductos()}`);
-    console.log("Producto agregado exitosamente:");
     console.log(JSON.stringify(nuevoProducto, null, 2));
 }
 
 // Ejemplo de uso
 agregarProducto("Disco Duro Externo Seagate", 100, "Laptops", "Disco Duro Externo Seagate de 2TB, USB 3.0", "/img/products/recommendation_photo.png}");
+
