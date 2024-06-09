@@ -36,19 +36,14 @@
         </div>
       </div>
     </div> -->
-
     <h3>Ofertas</h3>
     <section class="galery-products">
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
-      <%- include('partials/card-product');%>
+      <% Object.keys(productos.productos).forEach(function(key) { %>
+        <% const producto = productos.productos[key]; %>
+        <% if (producto && producto.nombre) { %>
+          <%- include('partials/card-product', {producto: producto}); %>
+        <% } %>
+      <% }); %>
     </section>
 
     <div class="arrow_button mx-2">
