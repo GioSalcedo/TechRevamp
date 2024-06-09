@@ -2,11 +2,11 @@
   <img src="<%= producto.imagen %>" alt="Imagen de producto" />
   <div class="info-card-product">
     <h3><%= producto.nombre %></h3>
-    <div class="d-flex justify-content-between">
-      <p class="price-1">$<%= producto.precio %></p>
-      <p class="discount">Descuento</p>
+    <div class="price-and-discount">
+      <p class="price-1">$<%= (producto.precio * 1.25).toFixed(2) %></p>
+      <p class="discount">25%</p>
     </div>
-    <p class="price-2">$<%= producto.precio %></p>
+    <p class="price-2">$<%= producto.precio.toFixed(2) %></p>
     <div class="botton-info-card-product">
       <a href="#">Link de producto</a>
       <button>
