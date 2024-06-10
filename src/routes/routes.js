@@ -45,7 +45,7 @@ router.get("/admin/nuevos-productos", (req, res) => {
 });
 
 router.get("/registro", (req, res) => {
-  res.render('register');
+  res.render('registration');
 });
 
 router.get("/iniciar-sesion", (req, res) => {
