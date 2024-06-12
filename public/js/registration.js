@@ -1,89 +1,114 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const registrationForm = document.getElementById("registrationForm");
-    const fullName = document.getElementById("fullName");
-    const phone = document.getElementById("phone");
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-    const dob = document.getElementById("dob");
-  
-    registrationForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-  
-      // Clear previous errors
-      clearErrors();
-  
-      // Validate form fields
-      let isValid = true;
-  
-      if (!validateFullName(fullName.value)) {
-        displayError("fullNameError", "Nombre completo no válido");
-        isValid = false;
-      }
-  
-      if (!validatePhone(phone.value)) {
-        displayError("phoneError", "Número de teléfono no válido");
-        isValid = false;
-      }
-  
-      if (!validateEmail(email.value)) {
-        displayError("emailError", "Email no válido");
-        isValid = false;
-      }
-  
-      if (!validatePassword(password.value, confirmPassword.value)) {
-        displayError("passwordError", "Las contraseñas no coinciden o no son válidas");
-        displayError("confirmPasswordError", "Las contraseñas no coinciden o no son válidas");
-        isValid = false;
-      }
-  
-      if (!validateDOB(dob.value)) {
-        displayError("dobError", "Fecha de nacimiento no válida");
-        isValid = false;
-      }
-  
-      if (isValid) {
-        const user = {
-          fullName: fullName.value,
-          phone: phone.value,
-          email: email.value,
-          password: password.value,
-          dob: dob.value,
-        };
-        console.log(JSON.stringify(user));
-      }
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registrationForm');
+    const fullNameInput = document.getElementById('fullName');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const dobInput = document.getElementById('dob');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    function clearErrorStyles() {
+        document.querySelectorAll('.error').forEach(error => error.innerHTML = '');
+    }
+
+    function validateFullName() {
+        if (fullNameInput.value.trim() === '') {
+            return 'Por favor, ingrese su nombre completo.';
+        }
+        return '';
+    }
+
+    function validatePhone() {
+        const phoneValue = phoneInput.value.trim();
+        const phoneNumberRegex = /^\d+$/;
+        if (!phoneNumberRegex.test(phoneValue)) {
+            return 'Por favor, ingrese un número de teléfono válido que contenga solo números.';
+        } else if (phoneValue.length !== 10) {
+            return 'Por favor, ingrese un número de teléfono de 10 dígitos.';
+        } else if (!phoneValue.startsWith('3')) {
+            return 'Los números de teléfono deben iniciar con 3.';
+        }
+        return '';
+    }
+
+    function validateEmail() {
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
+        if (!emailRegex.test(emailInput.value)) {
+            return 'Por favor, ingrese un correo electrónico válido.';
+        }
+        return '';
+    }
+
+    function validatePassword() {
+        const password = passwordInput.value;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$^&]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            return 'La contraseña debe tener al menos 6 caracteres, una letra mayúscula, un número y un carácter especial (!@#$^&).';
+        }
+        return '';
+    }
+
+    function validateConfirmPassword() {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            return 'Las contraseñas no coinciden.';
+        }
+        return '';
+    }
+
+    function validateDob() {
+        if (dobInput.value === '') {
+            return 'Por favor, ingrese su fecha de nacimiento.';
+        }
+        return '';
+    }
+
+    function showError(inputElement, message) {
+        const errorElement = inputElement.nextElementSibling;
+        errorElement.innerHTML = message;
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        clearErrorStyles();
+
+        let errorMessage = validateFullName();
+        if (errorMessage) {
+            showError(fullNameInput, errorMessage);
+            return;
+        }
+
+        errorMessage = validatePhone();
+        if (errorMessage) {
+            showError(phoneInput, errorMessage);
+            return;
+        }
+
+        errorMessage = validateEmail();
+        if (errorMessage) {
+            showError(emailInput, errorMessage);
+            return;
+        }
+
+        errorMessage = validatePassword();
+        if (errorMessage) {
+            showError(passwordInput, errorMessage);
+            return;
+        }
+
+        errorMessage = validateConfirmPassword();
+        if (errorMessage) {
+            showError(confirmPasswordInput, errorMessage);
+            return;
+        }
+
+        errorMessage = validateDob();
+        if (errorMessage) {
+            showError(dobInput, errorMessage);
+            return;
+        }
+
+        form.submit();
     });
-  
-    function clearErrors() {
-      document.querySelectorAll(".error").forEach(error => error.textContent = "");
-    }
-  
-    function displayError(elementId, message) {
-      document.getElementById(elementId).textContent = message;
-    }
-  
-    function validateFullName(name) {
-      return name.trim().length > 0;
-    }
-  
-    function validatePhone(phone) {
-      const phoneRegex = /^\+?[\d\s]+$/;
-      return phoneRegex.test(phone);
-    }
-  
-    function validateEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-  
-    function validatePassword(password, confirmPassword) {
-      return password.length >= 6 && password === confirmPassword;
-    }
-  
-    function validateDOB(date) {
-      const selectedDate = new Date(date);
-      const currentDate = new Date();
-      return selectedDate < currentDate;
-    }
-  });
-  
+});
