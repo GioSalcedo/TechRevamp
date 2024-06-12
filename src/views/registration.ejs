@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <%- include('partials/header');%>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
@@ -9,40 +10,40 @@
   </header>
   <main>
     <div class="container">
-      <h2>Registro de Usuario</h2>
+      <h2 class="form-title">Registro de Usuario</h2>
       <form id="registrationForm">
-        <div class="form-group">
-          <label for="fullName">Nombre completo</label>
-          <input type="text" id="fullName" name="fullName" required />
+        <div class="form-group form-control">
+          <label for="fullName" class="form-label">Nombre completo</label>
+          <input type="text" id="fullName" name="fullName" class="form-input" required />
           <div class="error" id="fullNameError"></div>
         </div>
-        <div class="form-group">
-          <label for="phone">Número de teléfono</label>
-          <input type="tel" id="phone" name="phone" required />
+        <div class="form-group form-control">
+          <label for="phone" class="form-label">Número de teléfono</label>
+          <input type="tel" id="phone" name="phone" class="form-input" required />
           <div class="error" id="phoneError"></div>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+        <div class="form-group form-control">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required />
           <div class="error" id="emailError"></div>
         </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" required />
+        <div class="form-group form-control">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" id="password" name="password" class="form-input" required />
           <div class="error" id="passwordError"></div>
         </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirmar Contraseña</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" required />
+        <div class="form-group form-control">
+          <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required />
           <div class="error" id="confirmPasswordError"></div>
         </div>
-        <div class="form-group">
-          <label for="dob">Fecha de Nacimiento</label>
-          <input type="date" id="dob" name="dob" required />
+        <div class="form-group form-control">
+          <label for="dob" class="form-label">Fecha de Nacimiento</label>
+          <input type="date" id="dob" name="dob" class="form-input" required />
           <div class="error" id="dobError"></div>
         </div>
         <div class="form-actions">
-          <button type="submit">Registrar</button>
+          <button type="submit" class="submit-button">Registrar</button>
         </div>
       </form>
     </div>
