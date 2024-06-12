@@ -1,0 +1,98 @@
+/* Container for forms */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title styling */
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input styling */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Focus state for input */
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Error message styling */
+.error {
+    color: #e93828;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Form actions (submit button) styling */
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Submit button styling */
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover state for submit button */
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Form control error state */
+.form-control.error input,
+.form-control.error select,
+.form-control.error textarea {
+    border-color: #e93828;
+}
+
+/* Form control success state */
+.form-control.success input,
+.form-control.success select,
+.form-control.success textarea {
+    border-color: #007bff;
+}
+
+/* Small error messages */
+small {
+    color: #e93828;
+    visibility: hidden;
+}
+
+/* Visible small error messages */
+.form-control.error small {
+    visibility: visible;
+}
