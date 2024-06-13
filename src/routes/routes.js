@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { productos } = require('../../public/js/products.js')
 
 const router = Router();
 
@@ -9,7 +10,7 @@ router.get("/", (req, res) => {
 
 // Rutas
 router.get("/productos", (req, res) => {
-  res.render('products');
+  res.render("products", { productos: productos });
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {

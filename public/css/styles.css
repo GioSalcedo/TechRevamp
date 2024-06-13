@@ -17,6 +17,7 @@
   margin: 0;
   text-decoration: none;
   list-style-type: none;
+  font-family: "Ubuntu", sans-serif;
 }
 
 *, *::before, *::after{box-sizing: border-box;}
