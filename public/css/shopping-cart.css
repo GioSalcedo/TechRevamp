@@ -6,6 +6,9 @@
   width: 100%;
   padding: 10px 16px;
   height: auto;
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--neutral-disable-300, #ABC9CE);
+  background: var(--primary-blue-50, #EBFFFE);
 
   a{
     display: flex;
