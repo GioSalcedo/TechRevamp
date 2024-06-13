@@ -32,8 +32,8 @@ router.get("/servicio-reparacion", (req, res) => {
   res.render('repair-form');
 });
 
-router.get("/carrito", (req, res) => {
-  res.render('cart');
+router.get("/carro-compras", (req, res) => {
+  res.render('shopping-cart');
 });
 
 router.get("/faqs", (req, res) => {
