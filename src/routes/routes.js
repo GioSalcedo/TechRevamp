@@ -34,7 +34,7 @@ router.get("/servicio-reparacion", (req, res) => {
 });
 
 router.get("/carro-compras", (req, res) => {
-  res.render('shopping-cart');
+  res.render('shopping-cart', { productos: productos });
 });
 
 router.get("/faqs", (req, res) => {

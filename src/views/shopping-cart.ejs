@@ -55,9 +55,14 @@
           <div class="recommended-products">
             <!-- Start of the carrousel product cards-->
             <h3>Productos recomendados</h3>
-            <div class="products-carrousel">
-              <div class="product-card">
-              </div>
+            <!-- CONSULTAAAAR -->
+            <div class="galery-products">
+              <% Object.keys(productos.productos).forEach(function(key) { %>
+                <% const producto = productos.productos[key]; %>
+                <% if (producto && producto.nombre) { %>
+                  <%- include('partials/card-product', {producto: producto}); %>
+                <% } %>
+              <% }); %>
             </div>
             <!-- End of the carrousel product cards-->
           </div>
