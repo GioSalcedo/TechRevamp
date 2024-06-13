@@ -14,9 +14,16 @@
 *{
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+}
+
+*, *::before, *::after{box-sizing: border-box;}
+input, button, textarea, select { font: inherit}
+
+img, video, svg { 
+  height: auto;
+  width: auto;
 }
 
 :root {
