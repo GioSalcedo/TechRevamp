@@ -10,62 +10,39 @@
     />
   </head>
   <body>
-    <header><%- include('partials/navbar');%></header>
-
-    <!-- <div class="galery-recommendation">
-      <div class="header-recomendation">
-        <h2>Hello, ‘Username’</h2>
-        <p>Tenemos algunas recomendaciones para usted</p>
-      </div>
-
-      <div class="header-botton-recomendation">
-        <p>Sólo para ti</p>
-        <a href="#">Ver Todo</a>
-      </div>
-
-      <div class="card-product-recommendation">
-        <img
-          src="../img/products/recommendation_photo.png"
-          alt="Imagen de producto"/>
-        <div>
-          <h3>Nombre de producto</h3>
-          <p>precio_1</p>
-          <p>precio_2</p>
-          <a href="">Link de producto</a>
-          <button>agregar al carrito</button>
-        </div>
-      </div>
-    </div> -->
-    <h3>Ofertas</h3>
-    <section class="galery-products">
+    <header>
+      <%- include('partials/navbar');%> 
+    </header>
+    <div class="header-recomendation">
+      <h2>Hello, ‘@Username’</h2>
+      <p>Tenemos algunas recomendaciones para usted</p>
+    </div>
+    <div class="header-botton-recomendation">
+      <p>Sólo para ti</p>
+      <a href="#">Ver Todo</a>
+    </div>
+    <div class="card-container-recommendation">
       <% Object.keys(productos.productos).forEach(function(key) { %>
         <% const producto = productos.productos[key]; %>
         <% if (producto && producto.nombre) { %>
-          <%- include('partials/card-product', {producto: producto}); %>
+          <%-//  include('partials/card-recommendation', {producto: producto}); %>
         <% } %>
       <% }); %>
+    </div>
+    <h3>Ofertas</h3>
+    <section class="galery-products">
+      <div class="container-products">
+        <% Object.keys(productos.productos).forEach(function(key) { %>
+          <% const producto = productos.productos[key]; %>
+          <% if (producto && producto.nombre) { %>
+            <%- include('partials/card-product', {producto: producto}); %>
+          <% } %>
+        <% }); %>
+      </div>
     </section>
 
-    <div class="arrow_button mx-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="60"
-        height="60"
-        viewBox="0 0 50 50"
-        fill="none"
-      >
-        <path
-          d="M25 42C15.6 42 8 34.4 8 25C8 15.6 15.6 8 25 8C34.4 8 42 15.6 42 25C42 34.4 34.4 42 25 42ZM25 10C16.7 10 10 16.7 10 25C10 33.3 16.7 40 25 40C33.3 40 40 33.3 40 25C40 16.7 33.3 10 25 10Z"
-          fill="#979797"
-        />
-        <path
-          d="M25 34.4L15.3 24.7L16.7 23.3L25 31.6L33.3 23.3L34.7001 24.7L25 34.4Z"
-          fill="#979797"
-        />
-        <path d="M24 16H26V33H24V16Z" fill="#979797" />
-      </svg>
-    </div>
-    <%- include('partials/categories');%>
+    <!-- <%- // include('partials/arrow-button');%>  -->
+    <!-- <%- // include('partials/categories');%> -->
     <%- include('partials/footer');%> 
     <%- include('partials/scripts');%>
   </body>
