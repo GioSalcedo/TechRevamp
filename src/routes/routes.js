@@ -2,6 +2,7 @@ const { Router } = require('express');
 
 const router = Router();
 
+const authentication = require('../controllers/authentication.controller.js');
 // Ruta Inicial
 router.get("/", (req, res) => {
   res.render('index');
@@ -48,10 +49,13 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
+router.post("/api/registrations", authentication.registration);
+
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
 
+router.post("/api/login", authentication.login);
 
 //Tarea 7 - eliminar luego de evaluar
 router.get("/agregar-elementos", (req, res) => {

@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include('partials/header');%>
-  </head>
-  <body>
-    <header>
-      <%- include('partials/navbar');%>
-    </header>
-    <main>
-        
-    </main>
 
-    <!-- Start footer -->
-    <%- include('partials/footer');%>
-    <%- include('partials/scripts');%>
-    <!-- End footer -->
-    <script src="/../js/login.js"></script>
-  </body>
+<head>
+  <%- include('partials/header');%>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/navbar');%>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Inicia Sesión </h2>
+        <p>No tienes una cuenta? <a href="/src/views/registration.ejs">Registrate Aqui</a></p>
+        <form class="contact-form">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
+          <label for="email">Correo electrónico</label>
+          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
+          <label for="checkbox">Recuerdame</label>
+          <input type="checkbox" name="checkbox" id="checkbox">
+          
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="contact-image">
+        <svg viewBox="0 0 630 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="629" height="679" rx="7.5" fill="#D2E1E5"/>
+          <rect x="0.5" y="0.5" width="629" height="679" rx="7.5" stroke="#097B95"/>
+          <path d="M169.5 181.5C169.5 178.664 170.223 176.121 171.365 174.302C172.511 172.476 174.032 171.444 175.629 171.444H454.026C455.622 171.444 457.143 172.476 458.289 174.302C459.431 176.121 460.154 178.664 460.154 181.5V492.896C460.154 495.731 459.431 498.275 458.289 500.094C457.143 501.92 455.622 502.952 454.026 502.952H175.629C174.032 502.952 172.511 501.92 171.365 500.094C170.223 498.275 169.5 495.731 169.5 492.896V181.5Z" fill="#F5F9FA" stroke="#097B95"/>
+          <path d="M346.905 360.117L346.906 360.119C347.344 360.853 347.395 361.565 347.21 362.056C347.036 362.518 346.634 362.85 345.959 362.85H281.84C281.164 362.85 280.766 362.52 280.597 362.063C280.416 361.577 280.471 360.869 280.916 360.138L280.917 360.137L299.448 329.418C299.448 329.418 299.448 329.418 299.448 329.418C299.891 328.691 300.482 328.312 301.044 328.236C301.596 328.16 302.202 328.363 302.724 328.971L302.726 328.973L306.468 333.275C306.468 333.275 306.468 333.276 306.469 333.276C307.179 334.103 308.115 334.507 309.061 334.447C310.004 334.388 310.894 333.873 311.529 332.983L311.529 332.983L320.521 320.334C320.521 320.334 320.521 320.334 320.521 320.334C321.005 319.654 321.567 319.4 322.052 319.423C322.539 319.446 323.085 319.753 323.522 320.482C323.523 320.483 323.523 320.483 323.523 320.484L346.905 360.117ZM341.736 324.85C337.983 324.85 334.827 321.315 334.827 316.799C334.827 312.279 337.985 308.744 341.736 308.744C345.488 308.744 348.646 312.281 348.646 316.799C348.646 321.315 345.488 324.85 341.736 324.85Z" fill="#D2E1E5" stroke="#097B95"/>
+          </svg>          
+      </div>
+    </div>
+  </main>
+
+  <!-- Start footer -->
+  <%- include('partials/footer');%>
+  <%- include('partials/scripts');%>
+  <!-- End footer -->
+  <script src="/../js/login.js"></script>
+</body>
+
 </html>    

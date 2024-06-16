@@ -1,98 +1,112 @@
-/* Container for forms */
-.container {
+.registration {
+    background-color: var(--Colors-neutral-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
     width: 100%;
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  }
 
-/* Form title styling */
-.form-title {
+  .registration h2 {
+    font-size: var(--ubuntu--headline--29-medium-400);
+    margin-bottom: 1rem;
     text-align: center;
-    margin-bottom: 20px;
-}
+  }
 
-/* Form group styling */
-.form-group {
-    margin-bottom: 15px;
-}
+  .registration p {
+    font-size: var(--ubuntu--body--14-medium-400);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
 
-/* Label styling */
-.form-label {
+  .registration button {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* Input styling */
-.form-input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-/* Focus state for input */
-.form-input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-/* Error message styling */
-.error {
-    color: #e93828;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Form actions (submit button) styling */
-.form-actions {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Submit button styling */
-.submit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: var(--ubuntu--body--14-medium-400);
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    border: none;
+    border-radius: 4px;
+  }
 
-/* Hover state for submit button */
-.submit-button:hover {
-    background-color: #0056b3;
-}
+  .continue-google {
+    background-color: var(--Colors-primary-blue-500);
+    color: var(--Colors-neutral-white);
+  }
 
-/* Form control error state */
-.form-control.error input,
-.form-control.error select,
-.form-control.error textarea {
-    border-color: #e93828;
-}
+  .continue-x {
+    background-color: var(--Colors-secondary-green-500);
+    color: var(--Colors-neutral-white);
+  }
 
-/* Form control success state */
-.form-control.success input,
-.form-control.success select,
-.form-control.success textarea {
-    border-color: #007bff;
-}
+  .registration form {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* Small error messages */
-small {
-    color: #e93828;
-    visibility: hidden;
-}
+  .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
 
-/* Visible small error messages */
-.form-control.error small {
-    visibility: visible;
-}
+  .input-group label {
+    font-size: var(--ubuntu--body--14-medium-400);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .input-group input,
+  .input-group select {
+    width: calc(100% - 2rem);
+    padding: 0.5rem 1rem;
+    font-size: var(--ubuntu--body--14-medium-400);
+    border: 1px solid var(--Colors-neutral-disable-200);
+    border-radius: 4px;
+  }
+
+  .input-group .fa {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0.5rem;
+  }
+
+  .input-group input:focus {
+    outline: none;
+    border-color: var(--Colors-primary-blue-500);
+  }
+
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #error-message {
+    color: var(--Colors-semantic-error);
+    font-size: var(--ubuntu--label--13-medium-500);
+    margin-bottom: 1rem;
+  }
+
+  #registerButton {
+    background-color: var(--Colors-primary-blue-600);
+    color: var(--Colors-neutral-white);
+    font-size: var(--ubuntu--body--16-large-400);
+  }
+
+  #registerButton:hover {
+    background-color: var(--Colors-primary-blue-700);
+  }
+
+  .input-group input::placeholder {
+    color: var(--Colors-neutral-disable-300);
+  }
+
+  .registration p a {
+    color: var(--Colors-primary-blue-600);
+  }

@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <%- include('partials/header');%>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <%- include('partials/navbar');%>
-  </header>
+  <head>
+    <%- include('partials/header');%>
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar');%>
+    </header>
   <main>
-    <div class="container">
-      <h2 class="form-title">Registro de Usuario</h2>
+    <section class="registration">
+      <h2>Create your Profile</h2>
+      <p>By completing your profile, you'll unlock the full potential of our platform.</p>
+      <button type="button" class="continue-google"><i class="fab fa-google"></i> Continue with Google</button>
+      <button type="button" class="continue-x"><i class="fab fa-xing"></i> Continue with X</button>
+      <p>or</p>
       <form id="registrationForm">
-        <div class="form-group form-control">
-          <label for="fullName" class="form-label">Nombre completo</label>
-          <input type="text" id="fullName" name="fullName" class="form-input" required />
-          <div class="error" id="fullNameError"></div>
+        <div class="input-group">
+          <label for="fullname"><i class="fas fa-user"></i> Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="e.g Phanindra Kodnru" required>
         </div>
-        <div class="form-group form-control">
-          <label for="phone" class="form-label">Número de teléfono</label>
-          <input type="tel" id="phone" name="phone" class="form-input" required />
-          <div class="error" id="phoneError"></div>
+        <div class="input-group">
+          <label for="email"><i class="fas fa-envelope"></i> Gmail</label>
+          <input type="email" id="email" name="email" placeholder="phanikondru@gmail.com" required>
         </div>
-        <div class="form-group form-control">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" class="form-input" required />
-          <div class="error" id="emailError"></div>
+        <div class="input-group">
+          <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+57 300 0000000" required>
         </div>
-        <div class="form-group form-control">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" id="password" name="password" class="form-input" required />
-          <div class="error" id="passwordError"></div>
+        <div class="input-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <button type="button" class="toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye"></i></button>
         </div>
-        <div class="form-group form-control">
-          <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required />
-          <div class="error" id="confirmPasswordError"></div>
+        <div class="input-group">
+          <label for="dob"><i class="fas fa-calendar"></i> Date of Birth</label>
+          <div>
+            <select id="day" name="day" required>
+              <option value="" disabled selected>Day</option>
+              <!-- Options for day -->
+            </select>
+            <select id="month" name="month" required>
+              <option value="" disabled selected>Month</option>
+              <!-- Options for month -->
+            </select>
+            <select id="year" name="year" required>
+              <option value="" disabled selected>Year</option>
+              <!-- Options for year -->
+            </select>
+          </div>
         </div>
-        <div class="form-group form-control">
-          <label for="dob" class="form-label">Fecha de Nacimiento</label>
-          <input type="date" id="dob" name="dob" class="form-input" required />
-          <div class="error" id="dobError"></div>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="submit-button">Registrar</button>
-        </div>
+        <div id="error-message"></div>
+        <button type="submit" id="registerButton">Register</button>
       </form>
-    </div>
-  </main>
-
-  <!-- Start footer -->
-  <%- include('partials/footer');%>
-  <%- include('partials/scripts');%>
-  <!-- End footer -->
+      <p>By continuing you are agreeing to our <a href="#">Terms of Service</a> and <a href="#">Privacy policy</a></p>
+    </section>
+</main>
+    <!-- Start footer -->
+    <%- include('partials/footer');%>
+    <%- include('partials/scripts');%>
+    <!-- End footer -->
   <script src="/../js/registration.js"></script>
 </body>
 </html>
