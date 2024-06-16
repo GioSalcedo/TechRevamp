@@ -1,11 +1,13 @@
 const { Router } = require('express');
 
 const router = Router();
+// const authentication = require('./controllers/userControllers');
 
 // Ruta Inicial
 router.get("/", (req, res) => {
   res.render('index');
 });
+
 
 // Rutas
 router.get("/productos", (req, res) => {
@@ -48,10 +50,13 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
+router.post("/api/registrations");
+
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
 
+router.post("/api/login");
 
 //Tarea 7 - eliminar luego de evaluar
 router.get("/agregar-elementos", (req, res) => {

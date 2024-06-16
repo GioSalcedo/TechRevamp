@@ -1,51 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <%- include('partials/header');%>
-  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header>
     <%- include('partials/navbar');%>
   </header>
+
   <main>
-    <div class="container">
-      <h2 class="form-title">Registro de Usuario</h2>
-      <form id="registrationForm">
-        <div class="form-group form-control">
-          <label for="fullName" class="form-label">Nombre completo</label>
-          <input type="text" id="fullName" name="fullName" class="form-input" required />
-          <div class="error" id="fullNameError"></div>
-        </div>
-        <div class="form-group form-control">
-          <label for="phone" class="form-label">Número de teléfono</label>
-          <input type="tel" id="phone" name="phone" class="form-input" required />
-          <div class="error" id="phoneError"></div>
-        </div>
-        <div class="form-group form-control">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" class="form-input" required />
-          <div class="error" id="emailError"></div>
-        </div>
-        <div class="form-group form-control">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" id="password" name="password" class="form-input" required />
-          <div class="error" id="passwordError"></div>
-        </div>
-        <div class="form-group form-control">
-          <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required />
-          <div class="error" id="confirmPasswordError"></div>
-        </div>
-        <div class="form-group form-control">
-          <label for="dob" class="form-label">Fecha de Nacimiento</label>
-          <input type="date" id="dob" name="dob" class="form-input" required />
-          <div class="error" id="dobError"></div>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="submit-button">Registrar</button>
-        </div>
-      </form>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Crea tu cuenta</h2>
+        <p>Ya tienes una cuenta? <a href="/iniciar-sesion">Inicia Sesion</a></p>
+        <div class="profile-container">
+          <button class="google-btn">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_354_4753)">
+                      <path d="M5.31891 15.0035L4.4835 18.1222L1.43011 18.1868C0.517594 16.4943 0 14.5578 0 12.5C0 10.5101 0.483938 8.63362 1.34175 6.98132H1.34241L4.06078 7.4797L5.25159 10.1818C5.00236 10.9084 4.86652 11.6884 4.86652 12.5C4.86661 13.3809 5.02617 14.2249 5.31891 15.0035Z" fill="#EE9E1E"/>
+                      <path d="M23.7904 10.2583C23.9282 10.9842 24.0001 11.7339 24.0001 12.5001C24.0001 13.3592 23.9098 14.1972 23.7377 15.0056C23.1535 17.7563 21.6272 20.1583 19.5127 21.8581L19.512 21.8574L16.0881 21.6827L15.6035 18.6576C17.0065 17.8348 18.103 16.5471 18.6806 15.0056H12.2639V10.2583H23.7904Z" fill="#1BDEF5"/>
+                      <path d="M19.5119 21.8574L19.5126 21.858C17.4561 23.511 14.8438 24.5 12.0001 24.5C7.43018 24.5 3.457 21.9457 1.43018 18.1868L5.31897 15.0035C6.33236 17.7081 8.94138 19.6334 12.0001 19.6334C13.3148 19.6334 14.5465 19.278 15.6033 18.6576L19.5119 21.8574Z" fill="#008F5C"/>
+                      <path d="M19.6596 3.26262L15.7721 6.44525C14.6783 5.76153 13.3853 5.36656 12 5.36656C8.87213 5.36656 6.21431 7.38017 5.25169 10.1818L1.34245 6.98131H1.3418C3.33895 3.13077 7.36223 0.5 12 0.5C14.9117 0.5 17.5814 1.53716 19.6596 3.26262Z" fill="#E93828"/>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_354_4753">
+                          <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                  </defs>
+              </svg>
+              Continuar con Google
+          </button>
+          <p>o</p>
+          <button class="twitter-btn">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_354_4761)">
+                      <mask id="mask0_354_4761" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                          <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
+                      </mask>
+                      <g mask="url(#mask0_354_4761)">
+                          <path d="M21.1875 0.5H2.8125C1.2592 0.5 0 1.7592 0 3.3125V21.6875C0 23.2408 1.2592 24.5 2.8125 24.5H21.1875C22.7408 24.5 24 23.2408 24 21.6875V3.3125C24 1.7592 22.7408 0.5 21.1875 0.5Z" fill="#11485A"/>
+                          <path d="M16.6829 5.1875H19.1639L13.7437 11.3825L20.1202 19.8125H15.1274L11.2169 14.6998L6.74241 19.8125H4.25993L10.0574 13.1863L3.94043 5.1875H9.05991L12.5947 9.86075L16.6829 5.1875ZM15.8122 18.3275H17.1869L8.31291 6.5945H6.83766L15.8122 18.3275Z" fill="#FAFEFE"/>
+                      </g>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_354_4761">
+                          <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                  </defs>
+              </svg>
+              Continuar con Twitter
+          </button>
+      </div>
+        <form class="contact-form">
+          <label for="fullname">Nombre</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Ingrese su correo electronico">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electronico">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Ingrese una contraseña">
+          <label for="password">Repetir Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Repita su contraseña">
+          <button type="submit">Registrarse</button>
+          <p>Al continuar estas aceptando nuestos <a href="#">terminos de servicio</a> y <a href="#">politica de privacidad</a> </p>
+        </form>
+      </div>
+      <div class="contact-image">
+        <svg viewBox="0 0 630 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="629" height="679" rx="7.5" fill="#D2E1E5"/>
+          <rect x="0.5" y="0.5" width="629" height="679" rx="7.5" stroke="#097B95"/>
+          <path d="M169.5 181.5C169.5 178.664 170.223 176.121 171.365 174.302C172.511 172.476 174.032 171.444 175.629 171.444H454.026C455.622 171.444 457.143 172.476 458.289 174.302C459.431 176.121 460.154 178.664 460.154 181.5V492.896C460.154 495.731 459.431 498.275 458.289 500.094C457.143 501.92 455.622 502.952 454.026 502.952H175.629C174.032 502.952 172.511 501.92 171.365 500.094C170.223 498.275 169.5 495.731 169.5 492.896V181.5Z" fill="#F5F9FA" stroke="#097B95"/>
+          <path d="M346.905 360.117L346.906 360.119C347.344 360.853 347.395 361.565 347.21 362.056C347.036 362.518 346.634 362.85 345.959 362.85H281.84C281.164 362.85 280.766 362.52 280.597 362.063C280.416 361.577 280.471 360.869 280.916 360.138L280.917 360.137L299.448 329.418C299.448 329.418 299.448 329.418 299.448 329.418C299.891 328.691 300.482 328.312 301.044 328.236C301.596 328.16 302.202 328.363 302.724 328.971L302.726 328.973L306.468 333.275C306.468 333.275 306.468 333.276 306.469 333.276C307.179 334.103 308.115 334.507 309.061 334.447C310.004 334.388 310.894 333.873 311.529 332.983L311.529 332.983L320.521 320.334C320.521 320.334 320.521 320.334 320.521 320.334C321.005 319.654 321.567 319.4 322.052 319.423C322.539 319.446 323.085 319.753 323.522 320.482C323.523 320.483 323.523 320.483 323.523 320.484L346.905 360.117ZM341.736 324.85C337.983 324.85 334.827 321.315 334.827 316.799C334.827 312.279 337.985 308.744 341.736 308.744C345.488 308.744 348.646 312.281 348.646 316.799C348.646 321.315 345.488 324.85 341.736 324.85Z" fill="#D2E1E5" stroke="#097B95"/>
+          </svg>          
+      </div>
     </div>
   </main>
 
@@ -53,6 +81,7 @@
   <%- include('partials/footer');%>
   <%- include('partials/scripts');%>
   <!-- End footer -->
-  <script src="/../js/registration.js"></script>
+  <script src="/../js/login.js"></script>
 </body>
-</html>
+
+</html>    

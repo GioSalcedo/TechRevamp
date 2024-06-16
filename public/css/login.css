@@ -1,0 +1,150 @@
+.login-form {
+    background-color: var(--Colors-neutral-white);
+    padding: 20px;
+    max-width: 400px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--Colors-primary-blue-950);
+  }
+  
+  .login-title {
+    font-size: var(--ubuntu--headline--32-large-400);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: var(--ubuntu--body--14-medium-400);
+  }
+  
+  .login-subtitle a {
+    color: var(--Colors-primary-blue-950);
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: var(--ubuntu--body--14-medium-400);
+  }
+  
+  .input-field {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--Colors-primary-blue-700);
+    background: var(--Colors-neutral-white);
+    color: var(--Colors-primary-blue-950);
+    font-size: var(--ubuntu--body--14-medium-400);
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: var(--Colors-primary-blue-500);
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .checkbox {
+    margin-right: 0.5rem;
+  }
+  
+  .checkbox-label {
+    font-size: var(--ubuntu--body--14-medium-400);
+    color: var(--Colors-primary-blue-950);
+  }
+  
+  .login-button {
+    padding: 10px;
+    background-color: var(--Colors-primary-blue-principal-900);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.5s;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--Colors-primary-blue-800);
+    font-size: var(--ubuntu--body--13-small-400);
+  }
+  
+  .login-button:hover {
+    background-color: var(--Colors-primary-blue-800);
+  }
+  
+  .image-placeholder {
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .image-placeholder svg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  @media (min-width: 768px) {
+    .login-form {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px;
+      max-width: 700px;
+    }
+  
+    .form-section {
+      flex: 1;
+      margin-right: 20px;
+    }
+  
+    .image-section {
+      flex: 1.2; 
+      margin-top: 0;
+      padding-left: 20px;
+    }
+  
+    .login-title {
+      font-size: var(--ubuntu--display--36-small-400);
+    }
+  
+    .login-subtitle {
+      font-size: var(--ubuntu--body--18-xlarge-400);
+    }
+  
+    .login-button {
+      font-size: var(--ubuntu--body--20-xxlarge-400);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .login-form {
+      padding: 30px;
+      max-width: 900px;
+    }
+  }
+  
