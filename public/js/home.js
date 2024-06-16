@@ -1,5 +1,32 @@
-// Slider arrows functionality
+//animated banner
+const images = [
+  '/img/home/banner1.gif',
+  '/img/home/banner2.gif',
+  '/img/home/banner3.gif',
+];
 
+let currentImageIndex = 0;
+const bannerImgElement = document.getElementById('bannerImg');
+
+function changeBannerImage() {
+  bannerImgElement.classList.add('fade-out');
+
+  setTimeout(() => {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  bannerImgElement.src = images[currentImageIndex];
+  bannerImgElement.classList.remove('fade-out');
+  }, 1000);
+}
+
+// benner inicial
+bannerImgElement.src = images[0];
+
+setInterval(changeBannerImage, 5000);
+
+
+
+
+// Slider arrows functionality
 let nextButton = document.getElementById('next');
 let prevButton = document.getElementById('prev');
 let seeMoreButtons = document.querySelectorAll(".seeMore")
@@ -29,5 +56,14 @@ const showSlider = (type) => {
     //agrega el ultimo elemento al principio de la lista
     carousel.classList.add("prev");
  }
- 
 }
+
+//Scroll down B
+downButton= document.querySelector('.downB')
+downButton.addEventListener('click', function() {  
+  const y = carousel.getBoundingClientRect().top + window.scrollY;
+  window.scroll({
+    top: y,
+    behavior: 'smooth'
+  });
+});
