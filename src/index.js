@@ -1,8 +1,8 @@
 const express = require('express');
-const ejs = require('ejs');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
 const Routes = require('./routes/routes.js');
@@ -17,8 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../public'))); // Ruta correcta para archivos estáticos
-app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Rutas
 app.use(Routes);
@@ -27,5 +27,5 @@ app.use('/api', Routes);
 // Inicia el servidor
 const port = app.get('port');
 app.listen(port, function () {
-  console.log(`El servidor se está escuchando en: http://localhost:${port}`);
+    console.log(`El servidor se está escuchando en: http://localhost:${port}`);
 });
