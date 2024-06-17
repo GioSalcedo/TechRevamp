@@ -88,9 +88,10 @@ router.post("/api/registrations", (req, res) => {
   }
 
   // Validate password
-  const passwordPattern = /^(?=.*[<>^&*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+  const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
-      return res.status(400).json({ message: "La contraseña debe tener al menos 6 caracteres, incluyendo una mayúscula y un caracter especial !@#$%." });
+
+      return res.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }'});
   }
 
   // Validate repeat password
@@ -123,7 +124,7 @@ router.post("/api/registrations", (req, res) => {
           if (err) {
               return res.status(500).json({ message: "Error del servidor." });
           }
-          res.status(201).json({ message: "Registro exitoso." });
+          res.status(201).json({ success: true, message: "Registro exitoso." });
       });
   });
 });

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
-    const emailInput = document.getElementById('email');
     const nameInput = document.getElementById('fullname');
-    const passwordInput = document.getElementById('password');
     const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
     const repeatPasswordInput = document.getElementById('repeat-password');
     const submitButton = form.querySelector('button[type="submit"]');
     const errorParagraph = document.createElement('p');
@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorColor = 'var(--Colors-semantic-error, #e93828)';
 
     function clearErrorStyles() {
-        emailInput.style.borderColor = '';
         nameInput.style.borderColor = '';
         phoneInput.style.borderColor = '';
+        emailInput.style.borderColor = '';
         passwordInput.style.borderColor = '';
         repeatPasswordInput.style.borderColor = '';
         errorParagraph.innerHTML = '';
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return '';
     }
-
     
     function validatePhone() {
         const phoneValue = phoneInput.value.trim();
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return 'Los números de teléfono deben iniciar con 3.';
         }
         return '';
-        
     }
 
     function validateEmail() {
@@ -59,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validatePassword() {
         const passwordValue = passwordInput.value;
-        const passwordPattern = /^(?=.*[<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+        const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
         if (!passwordPattern.test(passwordValue)) {
             passwordInput.style.borderColor = errorColor;
-            return 'La contraseña debe tener al menos 6 caracteres, incluyendo una mayúscula y un caracter especial !@#$%.';
+            return 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }';
         }
         return '';
     }
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (passwordInput.value !== repeatPasswordInput.value) {
             console.log(passwordInput.value + " vs " + repeatPasswordInput.value);
             repeatPasswordInput.style.borderColor = errorColor;
-            return 'Las contraseñas no coinciden en el front.';
+            return 'Las contraseñas no coinciden.';
         }
         return '';
     }
@@ -95,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         clearErrorStyles();
-        let errorMessage = validateEmail();
+        let errorMessage;
 
         errorMessage = validateName();
         if (errorMessage) {
@@ -144,11 +142,17 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.message) {
-                alert(`Error en el registro: ${data.message}`);
-            } else {
+            // if (data.message) {
+            //     alert(`Error en el registro: ${data.message}`);
+            // }else {
+            //     alert('¡Registro exitoso!');
+            //     form.reset();
+            // }
+            if(data.success){
                 alert('¡Registro exitoso!');
                 form.reset();
+            }else{
+                alert(`Error en el registro: ${data.message}`);
             }
         })
         .catch(error => {
