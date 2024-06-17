@@ -20,10 +20,14 @@
     border: 1px solid var(--Colors-primary-blue-800);
     color: var(--Colors-primary-blue-950);
     background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .profile-container p {
-padding: 5px;
+  padding: 5px;
+  margin: 0;
 }
 
 .login-form {
