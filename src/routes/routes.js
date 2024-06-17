@@ -1,7 +1,8 @@
 const { Router } = require('express');
-const { productos } = require('../../public/js/products.js')
+const { productos } = require('../../public/js/products.js');
 
 const router = Router();
+const productosPorPagina = 4;
 
 // Ruta Inicial
 router.get("/", (req, res) => {
@@ -10,7 +11,30 @@ router.get("/", (req, res) => {
 
 // Rutas
 router.get("/productos", (req, res) => {
-  res.render("products", { productos: productos });
+  const pagina = parseInt(req.query.pagina) || 1;
+  const productosPorPagina = parseInt(req.query.productosPorPagina) || 4;
+  const totalProductos = productos.productos.length;
+  const totalPaginas = Math.ceil(totalProductos / productosPorPagina);
+
+  const inicio = (pagina - 1) * productosPorPagina;
+  const fin = inicio + productosPorPagina;
+
+  const productosPaginados = productos.productos.slice(inicio, fin);
+
+  if (req.xhr) { // Si la solicitud es AJAX
+    res.json({
+      productos: productosPaginados,
+      pagina: pagina,
+      totalPaginas: totalPaginas
+    });
+  } else { // Si es una solicitud normal
+    res.render("products", {
+      productos: productosPaginados,
+      pagina: pagina,
+      totalPaginas: totalPaginas,
+      productosPorPagina: productosPorPagina
+    });
+  }
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {
