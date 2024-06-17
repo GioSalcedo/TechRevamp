@@ -1,5 +1,6 @@
 const { Router } = require('express');
-
+const path = require('path');
+const fs = require('fs');
 const router = Router();
 // const authentication = require('./controllers/userControllers');
 
@@ -62,17 +63,22 @@ router.get("/agregar-elementos", (req, res) => {
   res.render('tarea-7-console');
 });
 
-// Manejo de rutas no encontradas (404)
-router.use((req, res) => {
-  res.status(404).send('No se encontró esta página');
-});
-
 router.post("/api/registrations", (req, res) => {
-  const { fullname, email, password, repeatPassword } = req.body;
+  const { fullname, email, password, phone, repeatPassword } = req.body;
 
   // Validate name
   if (!fullname || fullname.length < 4) {
       return res.status(400).json({ message: "El nombre debe tener al menos 4 caracteres." });
+  }
+
+  // Validate phone
+  const phoneNumberRegex = /^\d+$/;
+  if (!phoneNumberRegex.test(phone)) {
+    return res.status(400).json({ message: 'Por favor, ingrese un número de teléfono válido que contenga solo números.' });
+  } else if (phone.length !== 10) {
+    return res.status(400).json({ message: 'Por favor, ingrese un número de teléfono de 10 dígitos.' });
+  } else if (!phone.startsWith('3')) {
+    return res.status(400).json({ message: 'Los números de teléfono deben iniciar con 3.' });
   }
 
   // Validate email
@@ -82,30 +88,34 @@ router.post("/api/registrations", (req, res) => {
   }
 
   // Validate password
-  const passwordPattern = /^(?=.*[!@#$%])(?=.*[A-Z]).{6,}$/;
+  const passwordPattern = /^(?=.*[<>^&*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
       return res.status(400).json({ message: "La contraseña debe tener al menos 6 caracteres, incluyendo una mayúscula y un caracter especial !@#$%." });
   }
 
   // Validate repeat password
   if (password !== repeatPassword) {
-      return res.status(400).json({ message: "Las contraseñas no coinciden." });
+      return res.status(400).json({ message: `Las contraseñas no coinciden en el server. 1 - ${password}, 2-${repeatPassword}` });
   }
 
   // Read existing data from JSON file
-  const filePath = path.join(__dirname, 'users.json');
+  const filePath = path.join(__dirname, "../../api/users.json");
   fs.readFile(filePath, (err, data) => {
-      if (err && err.code !== 'ENOENT') {
-          return res.status(500).json({ message: "Error del servidor." });
-      }
+    if (err && err.code !== 'ENOENT') {
+      return res.status(500).json({ message: "Error del servidor al leer el archivo." });
+    }
 
-      let users = [];
-      if (data) {
-          users = JSON.parse(data);
+    let users = [];
+    if (data && data.length > 0) {
+      try {
+        users = JSON.parse(data);
+      } catch (parseError) {
+        return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
       }
+    }
 
       // Add new user
-      const newUser = { fullname, email, password };
+      const newUser = { fullname, phone, email, password };
       users.push(newUser);
 
       // Save updated users list back to the file
@@ -116,6 +126,11 @@ router.post("/api/registrations", (req, res) => {
           res.status(201).json({ message: "Registro exitoso." });
       });
   });
+});
+
+// Manejo de rutas no encontradas (404)
+router.use((req, res) => {
+  res.status(404).send('No se encontró esta página');
 });
 
 module.exports = router;

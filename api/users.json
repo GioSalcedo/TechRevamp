@@ -1,0 +1,35 @@
+[
+  {
+    "fullname": "Test User",
+    "email": "test.gabi@example.com",
+    "password": "Elsermon.3@"
+  },
+  {
+    "fullname": "Test User",
+    "email": "test.gabi@example.com",
+    "password": "LaPrueba.123@"
+  },
+  {
+    "fullname": "Gabriela",
+    "email": "fjnhsdjf@gmail.com",
+    "password": "LaPrueba.123@"
+  },
+  {
+    "fullname": "Test User",
+    "phone": "3216549870",
+    "email": "test.gabi@example.com",
+    "password": "LaPrueba.123@"
+  },
+  {
+    "fullname": "Gabriela",
+    "phone": "3216549870",
+    "email": "fjnhsdjf@gmail.com",
+    "password": "LaPrueba.123@"
+  },
+  {
+    "fullname": "Gabriela",
+    "phone": "3216549870",
+    "email": "fjnhsdjf@gmail.com",
+    "password": "Asdfg@32"
+  }
+]

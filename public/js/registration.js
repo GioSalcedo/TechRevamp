@@ -57,11 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return '';
     }
 
-    
-
     function validatePassword() {
         const passwordValue = passwordInput.value;
-        const passwordPattern = /^(?=.*[!@#$%])(?=.*[A-Z]).{6,}$/;
+        const passwordPattern = /^(?=.*[<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
         if (!passwordPattern.test(passwordValue)) {
             passwordInput.style.borderColor = errorColor;
             return 'La contraseña debe tener al menos 6 caracteres, incluyendo una mayúscula y un caracter especial !@#$%.';
@@ -71,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validateRepeatPassword() {
         if (passwordInput.value !== repeatPasswordInput.value) {
+            console.log(passwordInput.value + " vs " + repeatPasswordInput.value);
             repeatPasswordInput.style.borderColor = errorColor;
-            return 'Las contraseñas no coinciden.';
+            return 'Las contraseñas no coinciden en el front.';
         }
         return '';
     }
@@ -139,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 fullname: nameInput.value,
                 email: emailInput.value,
                 phone: phoneInput.value,
-                password: passwordInput.value
+                password: passwordInput.value,
+                repeatPassword: repeatPasswordInput.value
             })
         })
         .then(response => response.json())
