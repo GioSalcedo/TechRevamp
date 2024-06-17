@@ -1,3 +1,5 @@
+// import Swal from 'sweetalert2'
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
     const emailInput = document.getElementById('email');
@@ -71,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (passwordInput.value !== repeatPasswordInput.value) {
             console.log(passwordInput.value + " vs " + repeatPasswordInput.value);
             repeatPasswordInput.style.borderColor = errorColor;
-            return 'Las contraseñas no coinciden en el front.';
+            return 'Las contraseñas no coinciden.';
         }
         return '';
     }
@@ -144,10 +146,24 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.message) {
+            if (data.message !== "Registro exitoso.") {
                 alert(`Error en el registro: ${data.message}`);
+                // Swal.fire({
+                //     title: 'Error!',
+                //     text: 'Do you want to continue',
+                //     icon: 'error',
+                //     confirmButtonText: 'Cool'
+                // })
             } else {
-                alert('¡Registro exitoso!');
+                // alert('¡Registro exitoso!');
+                Swal.fire({
+                    title: "¡Registro exitoso, serás redirigido a la página principal!",
+                    padding: "3em",
+                    color: "var(--Colors-neutral-black, #010F14)",
+                    background: "var(--Colors-primary-blue-50, #EBFFFE)",
+                    showConfirmButton: true,
+                    confirmButtonText: "Ir al inicio"
+                });
                 form.reset();
             }
         })
