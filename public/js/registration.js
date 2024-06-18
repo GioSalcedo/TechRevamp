@@ -2,10 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
-    const emailInput = document.getElementById('email');
     const nameInput = document.getElementById('fullname');
-    const passwordInput = document.getElementById('password');
     const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
     const repeatPasswordInput = document.getElementById('repeat-password');
     const submitButton = form.querySelector('button[type="submit"]');
     const errorParagraph = document.createElement('p');
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorColor = 'var(--Colors-semantic-error, #e93828)';
 
     function clearErrorStyles() {
-        emailInput.style.borderColor = '';
         nameInput.style.borderColor = '';
         phoneInput.style.borderColor = '';
+        emailInput.style.borderColor = '';
         passwordInput.style.borderColor = '';
         repeatPasswordInput.style.borderColor = '';
         errorParagraph.innerHTML = '';
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return '';
     }
-
     
     function validatePhone() {
         const phoneValue = phoneInput.value.trim();
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return 'Los números de teléfono deben iniciar con 3.';
         }
         return '';
-        
     }
 
     function validateEmail() {
@@ -61,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validatePassword() {
         const passwordValue = passwordInput.value;
-        const passwordPattern = /^(?=.*[<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
+        const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
         if (!passwordPattern.test(passwordValue)) {
             passwordInput.style.borderColor = errorColor;
-            return 'La contraseña debe tener al menos 6 caracteres, incluyendo una mayúscula y un caracter especial !@#$%.';
+            return 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }';
         }
         return '';
     }
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         clearErrorStyles();
-        let errorMessage = validateEmail();
+        let errorMessage;
 
         errorMessage = validateName();
         if (errorMessage) {
@@ -146,25 +144,32 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.message !== "Registro exitoso.") {
+            if(data.success){
+                // alert('¡Registro exitoso!');
+                Swal.fire({
+                    title: "¡Bienvenido!\n¡Registro exitoso!",
+                    padding: "3em",
+                    color: "var(--Colors-neutral-black, #010F14)",
+                    background: "var(--Colors-primary-blue-50, #EBFFFE)",
+                    showConfirmButton: true,
+                    confirmButtonText: `
+                    <a href="/" style="color: var(--neutral-white, #FAFEFE);">Ir al inicio</a>
+                    `,
+                    confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
+                    backdrop: `
+                        rgba(25, 76, 110, 0.4)
+                    `
+                });
+                form.reset();
+            }else{
                 alert(`Error en el registro: ${data.message}`);
+                //     alert(`Error en el registro: ${data.message}`);
                 // Swal.fire({
                 //     title: 'Error!',
                 //     text: 'Do you want to continue',
                 //     icon: 'error',
                 //     confirmButtonText: 'Cool'
                 // })
-            } else {
-                // alert('¡Registro exitoso!');
-                Swal.fire({
-                    title: "¡Registro exitoso, serás redirigido a la página principal!",
-                    padding: "3em",
-                    color: "var(--Colors-neutral-black, #010F14)",
-                    background: "var(--Colors-primary-blue-50, #EBFFFE)",
-                    showConfirmButton: true,
-                    confirmButtonText: "Ir al inicio"
-                });
-                form.reset();
             }
         })
         .catch(error => {
