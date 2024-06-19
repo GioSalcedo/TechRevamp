@@ -21,11 +21,6 @@
 *, *::before, *::after{box-sizing: border-box;}
 input, button, textarea, select { font: inherit}
 
-img, video, svg { 
-  height: auto;
-  width: auto;
-}
-
 :root {
   /* Variables colores  */
   --Colors-neutral-black: #010F14;
