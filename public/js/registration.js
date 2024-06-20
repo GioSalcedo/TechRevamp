@@ -1,3 +1,5 @@
+// import Swal from 'sweetalert2'
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
     const nameInput = document.getElementById('fullname');
@@ -144,11 +146,32 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             if(data.success){
-                alert('¡Registro exitoso!');
+                // alert('¡Registro exitoso!');
+                Swal.fire({
+                    title: "¡Bienvenido!\n¡Registro exitoso!",
+                    padding: "3em",
+                    color: "var(--Colors-neutral-black, #010F14)",
+                    background: "var(--Colors-primary-blue-50, #EBFFFE)",
+                    showConfirmButton: true,
+                    confirmButtonText: `
+                    <a href="/" style="color: var(--neutral-white, #FAFEFE);">Ir al inicio</a>
+                    `,
+                    confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
+                    backdrop: `
+                        rgba(25, 76, 110, 0.4)
+                    `
+                });
                 form.reset();
                 window.location.href = '/iniciar-sesion';
             }else{
                 alert(`Error en el registro: ${data.message}`);
+                //     alert(`Error en el registro: ${data.message}`);
+                // Swal.fire({
+                //     title: 'Error!',
+                //     text: 'Do you want to continue',
+                //     icon: 'error',
+                //     confirmButtonText: 'Cool'
+                // })
                 emailInput.value = "";
             }
         })

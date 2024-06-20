@@ -1,5 +1,21 @@
 [
   {
+    "fullname": "Test User",
+    "email": "test.gabi@example.com",
+    "password": "Elsermon.3@"
+  },
+  {
+    "fullname": "Gabriela",
+    "email": "fjnhsdjf@gmail.com",
+    "password": "LaPrueba.123@"
+  },
+  {
+    "fullname": "Gabriela",
+    "phone": "3216549870",
+    "email": "fjnhsdjf@gmail.com",
+    "password": "LaPrueba.123@"
+  },
+  {
     "fullname": "Testuser",
     "phone": "31234567890",
     "email": "test@testing.com",
