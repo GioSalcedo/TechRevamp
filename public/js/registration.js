@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     `
                 });
                 form.reset();
-                window.location.href = '/iniciar-sesion';
+    
             }else{
                 alert(`Error en el registro: ${data.message}`);
                 //     alert(`Error en el registro: ${data.message}`);
