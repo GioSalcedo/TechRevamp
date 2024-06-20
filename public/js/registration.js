@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        errorMessage = validateEmail();
         if (errorMessage) {
             showError(errorMessage);
             return;
