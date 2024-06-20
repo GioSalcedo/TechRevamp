@@ -51,12 +51,39 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
+router.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
+  const filePath = path.join(__dirname, "../../api/users.json");
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: "Error del servidor al leer el archivo." });
+    }
+
+    let users = [];
+    if (data && data.length > 0) {
+      try {
+        users = JSON.parse(data);
+      } catch (parseError) {
+        return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
+      }
+    }
+
+    const user = users.find(user => user.email === email && user.password === password);
+
+    if (user) {
+      // Iniciar sesión exitoso
+      res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+    } else {
+      // Credenciales incorrectas
+      res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
+    }
+  });
+});
 
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
-
-router.post("/api/login");
 
 //Tarea 7 - eliminar luego de evaluar
 router.get("/agregar-elementos", (req, res) => {
@@ -115,6 +142,11 @@ router.post("/api/registrations", (req, res) => {
       }
     }
 
+    const user = users.find(user => user.email === email);
+
+    if(user){
+      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+    }else{
       // Add new user
       const newUser = { fullname, phone, email, password };
       users.push(newUser);
@@ -126,6 +158,8 @@ router.post("/api/registrations", (req, res) => {
           }
           res.status(201).json({ success: true, message: "Registro exitoso." });
       });
+    }
+      
   });
 });
 

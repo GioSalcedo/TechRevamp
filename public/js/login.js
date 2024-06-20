@@ -25,11 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validatePassword() {
       const passwordValue = passwordInput.value;
-      const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
-    //   if (!passwordPattern.test(passwordValue)) {
-    //       passwordInput.style.borderColor = errorColor;
-    //       return 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }';
-    //   }
+      if (passwordValue == "") {
+          passwordInput.style.borderColor = errorColor;
+          return 'La contraseña no puede estar vacía';
+      }
       return '';
   }
 
@@ -57,18 +56,31 @@ document.addEventListener('DOMContentLoaded', function () {
       
       errorParagraph.innerHTML = '';
 
-      // Send the data to the server
-      fetch("http://localhost:4000/api/registrations", {
-          method: "GET",
-          headers: {
-              "Content-Type": "application/json"
-          },
+    // Send the data to the server
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          email: emailInput.value,
+          password: passwordInput.value
       })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => {
-          console.error('Error:', error);
-          alert('Hubo un problema con el registro.');
-      });
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Redirigir a la página principal u otra acción
+        alert('Inicio de sesión exitoso.');
+        window.location.href = '/';
+      } else {
+        showError(data.message);
+      }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showError('Hubo un problema con el inicio de sesión.');
+    });
+
   });
 });

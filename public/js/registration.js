@@ -143,17 +143,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
-            // if (data.message) {
-            //     alert(`Error en el registro: ${data.message}`);
-            // }else {
-            //     alert('¡Registro exitoso!');
-            //     form.reset();
-            // }
             if(data.success){
                 alert('¡Registro exitoso!');
                 form.reset();
+                window.location.href = '/iniciar-sesion';
             }else{
                 alert(`Error en el registro: ${data.message}`);
+                emailInput.value = "";
             }
         })
         .catch(error => {
