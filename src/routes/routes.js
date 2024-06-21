@@ -3,6 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const router = Router();
 // const authentication = require('./controllers/userControllers');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Ruta Inicial
 router.get("/", (req, res) => {
@@ -52,7 +54,7 @@ router.get("/registro", (req, res) => {
 });
 
 router.post("/api/login", (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, rememberMe } = req.body;
   const filePath = path.join(__dirname, "../../api/users.json");
 
   fs.readFile(filePath, (err, data) => {
@@ -69,18 +71,34 @@ router.post("/api/login", (req, res) => {
       }
     }
 
-    const user = users.find(user => user.email === email && user.password === password);
-
+    const user = users.find(user => user.email === email);
     if (user) {
-      // Iniciar sesión exitoso
-      res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+      // Comparar la contraseña ingresada con el hash almacenado
+      bcrypt.compare(password, user.password, function(err, result) {
+        if (err) {
+          return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
+        } else if (result) {
+          if(rememberMe){
+            // Si se marcó "Recuérdame", guardar los datos en localStorage
+            localStorage.setItem('userData', JSON.stringify({ email, password }));
+          }
+          // Contraseña correcta
+          return res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+        } else {
+          // Contraseña incorrecta
+          return res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
+        }
+      });
     } else {
-      // Credenciales incorrectas
-      res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
+      // Usuario no encontrado
+      return res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
     }
   });
 });
 
+router.get("/cerrar-sesion", (req, res) => {
+  res.redirect('/iniciar-sesion');
+});
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
@@ -95,7 +113,7 @@ router.post("/api/registrations", (req, res) => {
 
   // Validate name
   if (!fullname || fullname.length < 4) {
-      return res.status(400).json({ message: "El nombre debe tener al menos 4 caracteres." });
+    return res.status(400).json({ message: "El nombre debe tener al menos 4 caracteres." });
   }
 
   // Validate phone
@@ -111,56 +129,59 @@ router.post("/api/registrations", (req, res) => {
   // Validate email
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   if (!emailPattern.test(email)) {
-      return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
+     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
 
   // Validate password
   const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
-
-      return res.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }'});
+    return res.status(400).json({ message: 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula y un caracter especial: % # $ < > & ^ * @ ( ) - _ + = { }'});
   }
 
   // Validate repeat password
   if (password !== repeatPassword) {
-      return res.status(400).json({ message: `Las contraseñas no coinciden en el server. 1 - ${password}, 2-${repeatPassword}` });
+    return res.status(400).json({ message: `Las contraseñas no coinciden en el server. 1 - ${password}, 2-${repeatPassword}` });
   }
 
-  // Read existing data from JSON file
-  const filePath = path.join(__dirname, "../../api/users.json");
-  fs.readFile(filePath, (err, data) => {
-    if (err && err.code !== 'ENOENT') {
-      return res.status(500).json({ message: "Error del servidor al leer el archivo." });
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+    if (err) {
+      return res.status(500).json({ message: "Error al encriptar la contraseña." });
     }
-
-    let users = [];
-    if (data && data.length > 0) {
-      try {
-        users = JSON.parse(data);
-      } catch (parseError) {
-        return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
+    // Read existing data from JSON file
+    const filePath = path.join(__dirname, "../../api/users.json");
+    fs.readFile(filePath, (err, data) => {
+      if (err && err.code !== 'ENOENT') {
+        return res.status(500).json({ message: "Error del servidor al leer el archivo." });
       }
-    }
 
-    const user = users.find(user => user.email === email);
+      let users = [];
+      if (data && data.length > 0) {
+        try {
+          users = JSON.parse(data);
+        } catch (parseError) {
+          return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
+        }
+      }
 
-    if(user){
-      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
-    }else{
-      // Add new user
-      const newUser = { fullname, phone, email, password };
-      users.push(newUser);
+      const user = users.find(user => user.email === email);
 
-      // Save updated users list back to the file
-      fs.writeFile(filePath, JSON.stringify(users, null, 2), (err) => {
+      if(user){
+        res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+      }else{
+        // Add new user
+        const newUser = { fullname, phone, email, password: hash };
+        users.push(newUser);
+
+        // Save updated users list back to the file
+        fs.writeFile(filePath, JSON.stringify(users, null, 2), (err) => {
           if (err) {
-              return res.status(500).json({ message: "Error del servidor." });
+            return res.status(500).json({ message: "Error del servidor." });
           }
           res.status(201).json({ success: true, message: "Registro exitoso." });
-      });
-    }
-      
-  });
+        });
+      } 
+    });
+  });  
 });
 
 // Manejo de rutas no encontradas (404)

@@ -2,11 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.contact-form');
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
+  const checkbox = document.getElementById('checkbox');
   const submitButton = form.querySelector('button[type="submit"]');
   const errorParagraph = document.createElement('p');
   errorParagraph.style.color = 'var(--Colors-semantic-error, #e93828)';
   submitButton.insertAdjacentElement('afterend', errorParagraph);
   const errorColor = 'var(--Colors-semantic-error, #e93828)';
+
+  emailInput.value = '';
+  passwordInput.value = '';
 
   function clearErrorStyles() {
       emailInput.style.borderColor = '';
@@ -16,10 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validateEmail() {
       const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;
-      if (!emailRegex.test(emailInput.value)) {
-          emailInput.style.borderColor = errorColor;
-          return 'Por favor, ingrese un correo electrónico válido.';
-      }
+      const emailValue = emailInput.value;
+      if(emailValue== ""){
+        emailInput.style.borderColor = errorColor;
+          return 'El correo no puede estar vacío.';
+      }else if (!emailRegex.test(emailInput.value)) {
+        emailInput.style.borderColor = errorColor;
+        return 'Por favor, ingrese un correo electrónico válido.';
+    }
       return '';
   }
 
@@ -81,6 +89,31 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error:', error);
         showError('Hubo un problema con el inicio de sesión.');
     });
+  });
+  //Autocompletar si se encuentran credenciales en local storage despues de seleccionar un correo
+  // El local storage solo se está usando para la funcionalidad del checkbox "Recuérdame", la validación se está hacienco con el JSON.
+  emailInput.addEventListener('blur', function() {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const { email, password, rememberMe } = JSON.parse(userData);
+      if(emailInput.value === email){
+        passwordInput.value = password;
+        checkbox.checked = rememberMe === 'true';
+      };
+    }
+  });
 
+  //funcionalidad del checkbox
+  checkbox.addEventListener('change', function () {
+    console.log('Checkbox marcado:', checkbox.checked);
+    if (checkbox.checked) {
+      localStorage.setItem('userData', JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+        rememberMe: checkbox.checked.toString()
+      }));
+    } else {
+      localStorage.removeItem('userData');
+    }
   });
 });

@@ -63,9 +63,15 @@
     border: none;
     cursor: pointer;
   }
-  
-  .checkbox {
+  .checkbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  #checkbox {
     margin-right: 0.5rem;
+    position: relative;
   }
   
   .checkbox-label {
