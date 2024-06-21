@@ -32,5 +32,11 @@
     "phone": "3123456789",
     "email": "testing5@test.com",
     "password": "$2b$10$7FBIgi2mBR3pzv6wC4App.pNWJgLhEWZcXe1ZMwQnVzFpDrq158e6"
+  },
+  {
+    "fullname": "tester",
+    "phone": "3123456789",
+    "email": "tester@test.com",
+    "password": "$2b$10$z55g8BeiKAolBT2KHHhgFeuI.HrVWyIsNP78Cge08dnWr9MEDevpC"
   }
 ]

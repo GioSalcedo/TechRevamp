@@ -86,7 +86,7 @@ router.post("/api/login", (req, res) => {
           return res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
         } else {
           // Contraseña incorrecta
-          return res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
+          return res.status(401).json({ success: false, message: "Contraseña incorrecta." });
         }
       });
     } else {
