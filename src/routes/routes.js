@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const { productos } = require('../../public/js/products.js');
 const fs = require("fs")
 const router = Router();
 // const productosPorPagina = 4;
@@ -11,37 +10,8 @@ router.get("/", (req, res) => {
 
 // Rutas
 router.get("/productos", (req, res) => {
-  const file = fs.readFileSync("api/products.json", "UTF-8")
-  res.setHeader("Content-type", "text/json");
-  res.send(file);
+  res.render("products");
 });
-
-
-// const pagina = parseInt(req.query.pagina) || 1;
-// const productosPorPagina = parseInt(req.query.productosPorPagina) || 4;
-// const totalProductos = productos.productos.length;
-// const totalPaginas = Math.ceil(totalProductos / productosPorPagina);
-
-// const inicio = (pagina - 1) * productosPorPagina;
-// const fin = inicio + productosPorPagina;
-
-// const productosPaginados = productos.productos.slice(inicio, fin);
-
-// if (req.xhr) { // Si la solicitud es AJAX
-//   res.json({
-//     productos: productosPaginados,
-//     pagina: pagina,
-//     totalPaginas: totalPaginas
-//   });
-// } else { // Si es una solicitud normal
-//   res.render("products", {
-//     productos: productosPaginados,
-//     pagina: pagina,
-//     totalPaginas: totalPaginas,
-//     productosPorPagina: productosPorPagina
-//   });
-// }
-
 
 router.get("/acerca-de-nosotros", (req, res) => {
   res.render('about-us');
