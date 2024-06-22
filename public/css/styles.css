@@ -10,12 +10,15 @@
 @import url(footer.css);
 @import url(intro-about-us.css);
 @import url(form-new-products.css);
+@import url(registration.css);
+@import url(login.css);
 
 *{
   padding: 0;
   margin: 0;
   text-decoration: none;
   list-style-type: none;
+  font-family: "Ubuntu", sans-serif;
 }
 
 *, *::before, *::after{box-sizing: border-box;}
@@ -85,4 +88,3 @@ input, button, textarea, select { font: inherit}
 h2 {
   text-align: center;
 }
-
