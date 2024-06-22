@@ -18,8 +18,13 @@
         <form class="contact-form">
           <label for="email">Correo electrónico</label>
           <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
+          <div class="password-container">
+            <label for="password">Contraseña</label>
+            <div class="input-icon-wrapper">
+              <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+              <i class="fa-solid fa-eye" id="password-icon"></i>
+            </div>
+          </div>
           <div class="checkbox-container">
             <input type="checkbox" name="checkbox" id="checkbox">
             <label for="checkbox">Recuérdame</label>
@@ -37,6 +42,7 @@
   <%- include('partials/footer');%>
   <%- include('partials/scripts');%>
   <!-- End footer -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/../js/login.js"></script>
 </body>
 

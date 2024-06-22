@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
+    const passwordIcon = document.getElementById('password-icon')
     const repeatPasswordInput = document.getElementById('repeat-password');
+    const repeatpasswordIcon = document.getElementById('repeat-password-icon')
     const submitButton = form.querySelector('button[type="submit"]');
     const errorParagraph = document.createElement('p');
     errorParagraph.style.color = 'var(--Colors-semantic-error, #e93828)';
@@ -75,6 +77,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return '';
     }
+
+    //Función botón ver contraseña.
+    passwordIcon.addEventListener('click', (e) => {
+        if(passwordInput.type === 'password'){
+        passwordIcon.className = "fa-solid fa-eye-slash";
+        passwordInput.type = 'text';
+        } else{
+        passwordIcon.className = 'fa-solid fa-eye';
+        passwordInput.type = 'password';
+        }
+    })
+
+    repeatpasswordIcon.addEventListener('click', (e) => {
+        if(repeatPasswordInput.type === 'password'){
+            repeatpasswordIcon.className = "fa-solid fa-eye-slash";
+            repeatPasswordInput.type = 'text';
+        } else{
+            repeatpasswordIcon.className = 'fa-solid fa-eye';
+            repeatPasswordInput.type = 'password';
+            console.log("holaaaa");
+        }
+    })
 
 
     //Restricts user from entering letters to the phone field

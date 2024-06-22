@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('.contact-form');
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
+  const passwordIcon = document.getElementById('password-icon')
   const checkbox = document.getElementById('checkbox');
   const submitButton = form.querySelector('button[type="submit"]');
   const errorParagraph = document.createElement('p');
@@ -44,6 +45,18 @@ document.addEventListener('DOMContentLoaded', function () {
       errorParagraph.innerHTML = message;
   }
 
+  //Función botón ver contraseña.
+  passwordIcon.addEventListener('click', (e) => {
+    if(passwordInput.type === 'password'){
+      passwordIcon.className = "fa-solid fa-eye-slash";
+      passwordInput.type = 'text';
+    } else{
+      passwordIcon.className = 'fa-solid fa-eye';
+      passwordInput.type = 'password';
+    }
+  })
+  
+
   form.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -79,8 +92,22 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => {
       if (data.success) {
         // Redirigir a la página principal u otra acción
-        alert('Inicio de sesión exitoso.');
-        window.location.href = '/';
+        // alert('Inicio de sesión exitoso.');
+        Swal.fire({
+          title: "¡Nos encanta tenerte de nuevo!",
+          padding: "3em",
+          color: "var(--Colors-neutral-black, #010F14)",
+          background: "var(--Colors-primary-blue-50, #EBFFFE)",
+          showConfirmButton: true,
+          confirmButtonText: `
+          <a href="/productos" style="color: var(--neutral-white, #FAFEFE);">Explorar productos</a>
+          `,
+          confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
+          backdrop: `
+              rgba(25, 76, 110, 0.4)
+          `
+      });
+        // window.location.href = '/';
       } else {
         showError(data.message);
       }
@@ -117,3 +144,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+

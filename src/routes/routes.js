@@ -91,7 +91,7 @@ router.post("/api/login", (req, res) => {
       });
     } else {
       // Usuario no encontrado
-      return res.status(401).json({ success: false, message: "Correo electrónico o contraseña incorrectos." });
+      return res.status(401).json({ success: false, message: "Correo electrónico inválido." });
     }
   });
 });
