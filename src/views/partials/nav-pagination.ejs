@@ -1,0 +1,33 @@
+<nav aria-label="Page navigation example" class="my-4">
+  <ul class="pagination justify-content-center">
+    <% if (page > 1) { %>
+      <li class="page-item">
+        <a class="page-link" href="?page=<%= page - 1 %>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    <% } else { %>
+      <li class="page-item disabled">
+        <span class="page-link" aria-hidden="true">&laquo;</span>
+      </li>
+    <% } %>
+
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <li class="page-item <%= i === page ? 'active' : '' %>">
+        <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+      </li>
+    <% } %>
+
+    <% if (page < totalPages) { %>
+      <li class="page-item">
+        <a class="page-link" href="?page=<%= page + 1 %>" aria-label="Next" id="btn-next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    <% } else { %>
+      <li class="page-item disabled">
+        <span class="page-link" aria-hidden="true">&raquo;</span>
+      </li>
+    <% } %>
+  </ul>
+</nav>

@@ -15,44 +15,16 @@
       <h2>Hello, ‘@Username’</h2>
       <p>Tenemos algunas recomendaciones para usted</p>
     </div>
-    <div class="header-botton-recomendation">
-      <p>Sólo para ti</p>
-      <a href="#">Ver Todo</a>
+    <div class="container-products" id="container-products">
+      <% productos.forEach(producto => { %> 
+        <%- include('partials/card-product', { producto: producto }); %> 
+      <% }); %>
     </div>
-    <div class="card-container-recommendation">
-      <% productos.forEach(function(producto) { %> <% if (producto &&
-      producto.nombre) { %>
-      <!-- <%- include('partials/card-recommendation', { producto: producto }); %> -->
-      <% } %> <% }); %>
-    </div>
-    <h3>Ofertas</h3>
-    <section class="galery-products">
-      <div class="container-products" id="container-products">
-        <% productos.forEach(function(producto) { %> <% if (producto &&
-        producto.nombre) { %> <%- include('partials/card-product', { producto:
-        producto }); %> <% } %> <% }); %>
 
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
-        <div class="buttons-segmentation" id="buttons-segmentation">
-          <% if (pagina > 1) { %>
-          <a href="/productos?pagina=<%= pagina - 1 %>">Anterior</a>
-          <% } %> <% if (pagina < totalPaginas) { %>
-          <a href="/productos?pagina=<%= pagina + 1 %>">Siguiente</a>
-          <% } %>
-        </div>
-      </div>
-    </section>
-
+    <%- include('partials/nav-pagination'); %>
+    
+    
+  </div>
     <!-- <%- // include('partials/arrow-button'); %> -->
     <!-- <%- // include('partials/categories'); %> -->
     <%- include('partials/footer'); %> <%- include('partials/scripts'); %>
