@@ -10,6 +10,8 @@
 @import url(footer.css);
 @import url(intro-about-us.css);
 @import url(form-new-products.css);
+@import url(registration.css);
+@import url(login.css);
 @import url(shopping-cart.css);
 
 *{
@@ -87,4 +89,3 @@ input, button, textarea, select { font: inherit}
 h2 {
   text-align: center;
 }
-

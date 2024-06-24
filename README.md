@@ -26,3 +26,8 @@ Instala las dependencias:
 Para empezar a desarollar en tu propio servidor local, usa:
 
     npm run dev
+
+## Registro de usuarios 
+
+#localhost:4000/registro
+Usar localhost:4000/api/registrations para ver el json generado

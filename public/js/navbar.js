@@ -6,3 +6,10 @@ function toggleMenu() {
   navbar.classList.toggle('active');
   search.classList.toggle('hidden');
 }
+
+//Cerrar sesión
+document.getElementById('logout').addEventListener('click', function(event) {
+  event.preventDefault(); 
+  // localStorage.removeItem('userData');
+  window.location.href = '/iniciar-sesion';
+});
