@@ -1,22 +1,14 @@
-const btnNext = document.querySelector('btn-next');
+window.addEventListener("hashchange", () =>{
+  console.log(window.location.hash);
+})
 
-// btnNext.addEventListener("click",()  => {
-//  alert("Hola")
-// }) 
-
-function loadProducts() {
-  fetch('/products', { method: "GET"})
-  .then(res => res.json())
-  .then(data =>{
-    const products = document.getElementById("container-products");
-    let html = " ";
-    data.products.forEach(product => {
-      html += `
-      <%- include('partials/card-product', { producto: producto }); %> 
-      `;
-    });
-    products.innerHTML = html;
-  });
-}
-
-loadProducts();
+// const router = (route) => {
+//   switch(route) {
+//     case "productos?page=3":
+//     return console.log("Page 3");
+//     case "productos?page=2":
+//       return console.log("Page 3");
+//     default:
+//       return console.log("Page 1");
+//   }
+// };

@@ -11,17 +11,17 @@ router.get('/productos', (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
   const json = JSON.parse(file);
   const productos = json.productos;
-
+  
   const page = parseInt(req.query.page) || 1;
   const perPage = 4;
-
+  
   const start = (page - 1) * perPage;
   const end = start + perPage;
-
+  
   const paginatedProducts = productos.slice(start, end);
-
+  
   const totalPages = Math.ceil(productos.length / perPage);
-
+  
   res.render('products', { productos: paginatedProducts, page, totalPages });
 });
 

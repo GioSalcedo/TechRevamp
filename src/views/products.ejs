@@ -15,11 +15,13 @@
       <h2>Hello, ‘@Username’</h2>
       <p>Tenemos algunas recomendaciones para usted</p>
     </div>
+    
     <div class="container-products" id="container-products">
       <% productos.forEach(producto => { %> 
         <%- include('partials/card-product', { producto: producto }); %> 
       <% }); %>
     </div>
+    
 
     <%- include('partials/nav-pagination'); %>
     

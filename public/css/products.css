@@ -107,6 +107,15 @@
   align-self: stretch;
 }
 
+
+.container-products {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.container-products.hidden {
+  opacity: 0;
+}
+
 .products-recommendation {
 }
 
