@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('partials/header');%>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/navbar');%>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Crea tu cuenta</h2>
+        <p>Ya tienes una cuenta? <a href="/iniciar-sesion">Inicia Sesión</a></p>
+        <div class="profile-container">
+          <button class="google-btn">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_354_4753)">
+                      <path d="M5.31891 15.0035L4.4835 18.1222L1.43011 18.1868C0.517594 16.4943 0 14.5578 0 12.5C0 10.5101 0.483938 8.63362 1.34175 6.98132H1.34241L4.06078 7.4797L5.25159 10.1818C5.00236 10.9084 4.86652 11.6884 4.86652 12.5C4.86661 13.3809 5.02617 14.2249 5.31891 15.0035Z" fill="#EE9E1E"/>
+                      <path d="M23.7904 10.2583C23.9282 10.9842 24.0001 11.7339 24.0001 12.5001C24.0001 13.3592 23.9098 14.1972 23.7377 15.0056C23.1535 17.7563 21.6272 20.1583 19.5127 21.8581L19.512 21.8574L16.0881 21.6827L15.6035 18.6576C17.0065 17.8348 18.103 16.5471 18.6806 15.0056H12.2639V10.2583H23.7904Z" fill="#1BDEF5"/>
+                      <path d="M19.5119 21.8574L19.5126 21.858C17.4561 23.511 14.8438 24.5 12.0001 24.5C7.43018 24.5 3.457 21.9457 1.43018 18.1868L5.31897 15.0035C6.33236 17.7081 8.94138 19.6334 12.0001 19.6334C13.3148 19.6334 14.5465 19.278 15.6033 18.6576L19.5119 21.8574Z" fill="#008F5C"/>
+                      <path d="M19.6596 3.26262L15.7721 6.44525C14.6783 5.76153 13.3853 5.36656 12 5.36656C8.87213 5.36656 6.21431 7.38017 5.25169 10.1818L1.34245 6.98131H1.3418C3.33895 3.13077 7.36223 0.5 12 0.5C14.9117 0.5 17.5814 1.53716 19.6596 3.26262Z" fill="#E93828"/>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_354_4753">
+                          <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                  </defs>
+              </svg>
+              Continuar con Google
+          </button>
+          <p>o</p>
+          <button class="twitter-btn">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_354_4761)">
+                      <mask id="mask0_354_4761" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
+                          <path d="M24 0.5H0V24.5H24V0.5Z" fill="white"/>
+                      </mask>
+                      <g mask="url(#mask0_354_4761)">
+                          <path d="M21.1875 0.5H2.8125C1.2592 0.5 0 1.7592 0 3.3125V21.6875C0 23.2408 1.2592 24.5 2.8125 24.5H21.1875C22.7408 24.5 24 23.2408 24 21.6875V3.3125C24 1.7592 22.7408 0.5 21.1875 0.5Z" fill="#11485A"/>
+                          <path d="M16.6829 5.1875H19.1639L13.7437 11.3825L20.1202 19.8125H15.1274L11.2169 14.6998L6.74241 19.8125H4.25993L10.0574 13.1863L3.94043 5.1875H9.05991L12.5947 9.86075L16.6829 5.1875ZM15.8122 18.3275H17.1869L8.31291 6.5945H6.83766L15.8122 18.3275Z" fill="#FAFEFE"/>
+                      </g>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_354_4761">
+                          <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                  </defs>
+              </svg>
+              Continuar con Twitter
+          </button>
+      </div>
+        <form id="registration-Form" class="contact-form">
+          <label for="fullname">Nombre</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Ingrese su nombre completo">
+          <label for="phone">Número de teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de teléfono">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+          <div class="password-container">
+            <label for="password">Contraseña</label>
+            <div class="input-icon-wrapper">
+              <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+              <i class="fa-solid fa-eye" id="password-icon"></i>
+            </div>
+            <label for="repeat-password">Repetir Contraseña</label>
+            <div class="input-icon-wrapper">
+              <input type="password" id="repeat-password" name="repeat-password" placeholder="Repita su contraseña" required>
+              <i class="fa-solid fa-eye" id="repeat-password-icon"></i>
+            </div>
+          </div>
+          <button type="submit">Registrarse</button>
+          <p>Al continuar estas aceptando nuestos <a href="#">términos de servicio</a> y <a href="#">política de privacidad</a> </p>
+        </form>
+      </div>
+      <div class="contact-image">
+        <img src="/img/forms_img/One-Time-Password-security.svg" alt="contact">      
+      </div>
+    </div>
+  </main>
+
+  <!-- Start footer -->
+  <%- include('partials/footer');%>
+  <%- include('partials/scripts');%>
+  <!-- End footer -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/../js/registration.js"></script>
+</body>
+
+</html>    

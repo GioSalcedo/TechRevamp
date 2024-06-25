@@ -5,6 +5,7 @@
     margin: 30px auto;
     display: flex;
     flex-direction: column;
+    color: var(  --Colors-primary-blue-principal-900, #11485A);
   }
   
   .contact-container h2 {

@@ -1,5 +1,6 @@
-const productos = [
-    {
+const productos = {
+    productos: [
+        {
         id: 1,
         nombre: "Laptop Dell Inspiron",
         precio: 1000,
@@ -79,7 +80,8 @@ const productos = [
         categoria: "Teclados",
         imagen: "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
     }
-];
+    ]
+};
 
 function listarProductos() {
     return JSON.stringify(productos, null, 2);
@@ -87,18 +89,20 @@ function listarProductos() {
 
 function agregarProducto(nombre, precio, categoria, descripcion, imagen) {
     const nuevoProducto = {
-        id: productos.length + 1,
+        id: productos.productos.length + 1,
         nombre: nombre,
         precio: precio,
         categoria: categoria,
-        descripcion: descripcion, 
+        descripcion: descripcion,
         imagen: imagen
     };
-    productos.push(nuevoProducto);
+    productos.productos.push(nuevoProducto);
     console.log(`Listado de productos completo: \n${listarProductos()}`);
     console.log("Producto agregado exitosamente:");
     console.log(JSON.stringify(nuevoProducto, null, 2));
 }
 
 // Ejemplo de uso
-agregarProducto("Disco Duro Externo Seagate", 100, "Laptops", "Disco Duro Externo Seagate de 2TB, USB 3.0", "/img/products/recommendation_photo.png}");
+agregarProducto("Disco Duro Externo Seagate", 600, "Laptops", "Disco Duro Externo Seagate de 2TB, USB 3.0", "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg");
+
+module.exports.productos = productos;
