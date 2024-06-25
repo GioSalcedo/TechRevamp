@@ -107,7 +107,6 @@
   align-self: stretch;
 }
 
-
 .container-products {
   transition: opacity 0.5s ease-in-out;
 }
@@ -129,6 +128,18 @@
   gap: var(--Border-radius-border-4, 6px);
   align-self: stretch;
   padding: 50px;
+}
+
+#container-products {
+  transition: opacity 0.1s ease-in-out;
+}
+
+#container-products.fade-out {
+  opacity: 0;
+}
+
+#container-products.fade-in {
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {
