@@ -1,6 +1,9 @@
 const { Router } = require('express');
 const path = require('path');
 const fs = require('fs');
+
+const { productos } = require('../../public/js/products.js')
+
 const router = Router();
 // const authentication = require('./controllers/userControllers');
 const bcrypt = require('bcrypt');
@@ -14,7 +17,7 @@ router.get("/", (req, res) => {
 
 // Rutas
 router.get("/productos", (req, res) => {
-  res.render('products');
+  res.render("products", { productos: productos });
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {
@@ -37,8 +40,8 @@ router.get("/servicio-reparacion", (req, res) => {
   res.render('repair-form');
 });
 
-router.get("/carrito", (req, res) => {
-  res.render('cart');
+router.get("/carro-compras", (req, res) => {
+  res.render('shopping-cart', { productos: productos });
 });
 
 router.get("/faqs", (req, res) => {
