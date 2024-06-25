@@ -1,4 +1,32 @@
 <script src="../js/app.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="/../js/products.js"></script>
-<script src="/../js/pagination.js"></script>
+<script src="/../js/pagination.js" type="module" src=""></script>
+
+<script>
+  $(document).ready(function () {
+    $("body").on("click", ".page-link", function (event) {
+      event.preventDefault();
+      const page = $(this).attr("href").split("=")[1];
+
+      $.ajax({
+        url: `/productos-parcial?page=${page}`,
+        method: "GET",
+        success: function (response) {
+          $("#container-products").html(response);
+          // Actualizar también la paginación si es necesario
+          $.ajax({
+            url: `/productos?page=${page}`,
+            method: "GET",
+            success: function (response) {
+              $(".pagination").html($(response).find(".pagination").html());
+            },
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error(`Error: ${error}`);
+        },
+      });
+    });
+  });
+</script>

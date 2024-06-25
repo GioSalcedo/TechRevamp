@@ -1,29 +1,49 @@
 const { Router } = require('express');
 const fs = require("fs")
 const router = Router();
-// const productosPorPagina = 4;
 
 router.get("/", (req, res) => {
   res.render('index');
 });
 
+// routes.js
 router.get('/productos', (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
   const json = JSON.parse(file);
   const productos = json.productos;
-  
+
   const page = parseInt(req.query.page) || 1;
   const perPage = 4;
-  
+
   const start = (page - 1) * perPage;
   const end = start + perPage;
-  
+
   const paginatedProducts = productos.slice(start, end);
-  
+
   const totalPages = Math.ceil(productos.length / perPage);
-  
+
+  // Render the main products page
   res.render('products', { productos: paginatedProducts, page, totalPages });
 });
+
+router.get('/productos-parcial', (req, res) => {
+  const file = fs.readFileSync('api/products.json', 'UTF-8');
+  const json = JSON.parse(file);
+  const productos = json.productos;
+
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 4;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  const paginatedProducts = productos.slice(start, end);
+
+  const totalPages = Math.ceil(productos.length / perPage);
+
+  res.render('partials/container-products', { productos: paginatedProducts });
+});
+
 
 router.get("/acerca-de-nosotros", (req, res) => {
   res.render('about-us');

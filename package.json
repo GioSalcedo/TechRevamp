@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "about-us.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
     "install-deps": "npm install"
   },
@@ -24,5 +23,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^3.1.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jquery": "^3.7.1"
+  }
 }
