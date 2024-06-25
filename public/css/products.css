@@ -1,3 +1,5 @@
+@import url(card-product.css);
+
 .title-recommendation {
   font-size: var(--ubuntu--headline--32-large-400);
   font-style: normal;
@@ -32,9 +34,18 @@
   text-decoration: none;
 }
 
+.card-container-recommendation {
+  display: flex;
+  width: 150%;
+  gap: 16px;
+  overflow: hidden;
+}
+
 .card-product-recommendation {
   text-align: center;
-  height: 400px;
+  border: solid 2px gray;
+  padding: 16px;
+  border-radius: 10px;
 }
 
 .card-product-recommendation div {
@@ -50,100 +61,26 @@
   background: var(--primary-blue-50, #ebfffe);
 }
 
-.galery-recommendation img {
-  width: 100%;
+.galery-recommendation {
+  width: 500%;
   height: 75%;
 }
 
-.galery-products {
-  display: flex;
-  padding: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.card-product {
-  border: solid #11485a 1px;
-  border-radius: 10px;
-  height: 40%;
-  width: 40%;
-  overflow: hidden;
-}
-
-.card-product img {
+.galery-recommendation img {
   width: 100%;
   height: 100%;
 }
 
-.info-card-product {
-  display: flex;
-  flex-direction: column;
-  background: var(--primary-blue-principal-900, #11485a);
-  padding: 16px;
-  border-radius: 10px;
-  color: var(--neutral-white, #fafefe);
-  font-size: var(--ubuntu--body--16-large-400);
+.card-product-recommendation img {
+  width: 100%;
+  height: 100%;
 }
 
-.info-card-product h3 {
-  font-size: var(--ubuntu--body--16-large-400);
-  height: 30px;
-  margin-bottom: 30px;
+.galery-recommendation {
+  /* display: flex; */
 }
 
-.info-card-product .price-and-discount {
-  display: flex;
-  justify-content: space-between;
-  font-size: var(--ubuntu--body--13-small-400);
-}
-
-.info-card-product .price-1 {
-  text-decoration-line: line-through;
-  color: var(--neutral-disable-300, #abc9ce);
-}
-
-.info-card-product .price-2 {
-  font-size: var(--ubuntu--body--16-large-400);
-}
-
-.info-card-product .discount {
-  color: var(--secondary-green-principal-200, #c1fd93);
-  font-size: 11px;
-}
-
-
-.info-card-product a {
-  color: var(--primary-blue-300, #62F0FE);
-  font-size: var(--ubuntu--body--13-small-400);
-  }
-
-.info-card-product .botton-info-card-product {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.info-card-product a {
-  color: var(--primary-blue-300, #62f0fe);
-  font-family: Ubuntu;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: none;
-}
-
-.info-card-product button {
-  display: flex;
-  padding: 6px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-  border: 0.5px solid var(--primary-blue-700, #097b95);
-  background: var(--secondary-green-principal-200, #c1fd93);
-}
-/* .galery-recommendation p {
+.galery-recommendation p {
   font-size: var(--ubuntu--body--20-xxlarge-400);
   color: var(--Colors-primary-blue-800);
 }
@@ -152,9 +89,9 @@
   font-size: var(--ubuntu--body--20-xxlarge-400);
   color: var(--Colors-primary-blue-600);
   text-decoration: none;
-} */
+}
 
-/* .card-recommendation {
+.card-recommendation {
   display: flex;
   padding: 10px 12px;
   flex-direction: column;
@@ -168,23 +105,22 @@
   align-items: flex-start;
   flex: 1 0 0;
   align-self: stretch;
-} */
-
-/* .products-recommendation {
-
 }
 
-.title-products-recommendation{
-
+.container-products {
+  transition: opacity 0.5s ease-in-out;
 }
 
-.title-categories {
-
+.container-products.hidden {
+  opacity: 0;
 }
 
-.buttons-categories {
+.products-recommendation {
+}
 
-} */
+.title-products-recommendation {
+}
+
 .arrow_button {
   display: flex;
   justify-content: center;
@@ -194,27 +130,19 @@
   padding: 50px;
 }
 
-.container-categories button {
-  font-size: var(--ubuntu--tittle--14-small-500);
-  font-weight: 800;
-  color: var(--Colors-primary-blue-950);
+#container-products {
+  transition: opacity 0.1s ease-in-out;
+}
+
+#container-products.fade-out {
+  opacity: 0;
+}
+
+#container-products.fade-in {
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {
-  .galery-products {
-    display: flex;
-    padding: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .card-product {
-    border: solid #11485a 1px;
-    border-radius: 10px;
-    height: 40%;
-    width: 20%;
-    overflow: hidden;
-  }
 }
 
 @media only screen and (min-width: 1200px) {

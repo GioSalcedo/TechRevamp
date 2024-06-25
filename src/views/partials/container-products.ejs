@@ -1,0 +1,8 @@
+<!-- container-products.ejs -->
+<% if (productos && productos.length > 0) { %>
+  <% productos.forEach(producto => { %> 
+    <%- include('card-product', { producto: producto }); %> 
+  <% }); %>
+<% } else { %>
+  <p>No hay productos disponibles.</p>
+<% } %>
