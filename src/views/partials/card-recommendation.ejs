@@ -1,0 +1,12 @@
+<div class="galery-recommendation">
+  <div class="card-product-recommendation">
+    <img src="<%= producto.imagen %>" alt="Imagen de producto" />
+    <div>
+      <h3><%= producto.nombre %></h3>
+      <p>$<%= (producto.precio * 1.25).toFixed(2) %></p>
+      <p>$<%= producto.precio.toFixed(2) %></p>
+      <a href="">Link de producto</a>
+      <button>agregar al carrito</button>
+    </div>
+  </div>
+</div>

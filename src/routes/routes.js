@@ -2,22 +2,73 @@ const { Router } = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const { productos } = require('../../public/js/products.js')
-
 const router = Router();
 // const authentication = require('./controllers/userControllers');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-// Ruta Inicial
 router.get("/", (req, res) => {
   res.render('index');
 });
 
 
-// Rutas
-router.get("/productos", (req, res) => {
-  res.render("products", { productos: productos });
+// routes.js
+router.get('/productos', (req, res) => {
+  const file = fs.readFileSync('api/products.json', 'UTF-8');
+  const json = JSON.parse(file);
+  const productos = json.productos;
+
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 8;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  const paginatedProducts = productos.slice(start, end);
+
+  const totalPages = Math.ceil(productos.length / perPage);
+
+  // Obtener usuario sesión iniciada
+  const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
+  const userData = JSON.parse(fileUser);
+  const userName = userData.fullname;
+
+  // Render the main products page
+  res.render('products', { productos: paginatedProducts, page, totalPages, userName });
+});
+
+router.get('/productos-parcial', (req, res) => {
+  const file = fs.readFileSync('api/products.json', 'UTF-8');
+  const json = JSON.parse(file);
+  const productos = json.productos;
+
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 8;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  const paginatedProducts = productos.slice(start, end);
+
+  const totalPages = Math.ceil(productos.length / perPage);
+
+  res.render('partials/container-products', { productos: paginatedProducts });
+});
+
+router.get("/carro-compras", (req, res) => {
+  const file = fs.readFileSync('api/products.json', 'UTF-8');
+  const json = JSON.parse(file);
+  const productos = json.productos;
+
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 4;
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  const paginatedProducts = productos.slice(start, end);
+
+  res.render('shopping-cart', { productos: paginatedProducts});
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {
@@ -40,10 +91,6 @@ router.get("/servicio-reparacion", (req, res) => {
   res.render('repair-form');
 });
 
-router.get("/carro-compras", (req, res) => {
-  res.render('shopping-cart', { productos: productos });
-});
-
 router.get("/faqs", (req, res) => {
   res.render('faqs');
 });
@@ -59,6 +106,7 @@ router.get("/registro", (req, res) => {
 router.post("/api/login", (req, res) => {
   const { email, password, rememberMe } = req.body;
   const filePath = path.join(__dirname, "../../api/users.json");
+  const fileUserLogged = path.join(__dirname, "../../api/userLogged.json");
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -86,7 +134,13 @@ router.post("/api/login", (req, res) => {
             localStorage.setItem('userData', JSON.stringify({ email, password }));
           }
           // Contraseña correcta
-          return res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+          //Escribe un archivo temporal con usuario logueado
+          fs.writeFile(fileUserLogged, JSON.stringify(user, null, 2), (err) => {
+            if (err) {
+              return res.status(500).json({ message: "Error del servidor al guardar el usuario logueado" });
+            }
+            res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+          })
         } else {
           // Contraseña incorrecta
           return res.status(401).json({ success: false, message: "Contraseña incorrecta." });
