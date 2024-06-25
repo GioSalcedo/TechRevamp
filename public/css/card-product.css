@@ -88,6 +88,18 @@
   background: var(--secondary-green-principal-200, #c1fd93);
 }
 
+#container-products {
+  transition: opacity 0.1s ease-in-out;
+}
+
+#container-products.fade-out {
+  opacity: 0;
+}
+
+#container-products.fade-in {
+  opacity: 1;
+}
+
 @media only screen and (min-width: 768px) {
   .galery-products {
     height: 620px;
