@@ -165,4 +165,14 @@
     border: 0.5px solid var(--primary-blue-700, #097b95);
     background: var(--secondary-green-principal-200, #c1fd93);
   }
+  .card-product{
+     flex: 0 0 0 30%;
+  }
+  /* .card-product img{
+    max-height: 245px;
+  } */
+  .card-product:nth-child(2n+1) {
+    clear: left;
+  }
+  
 }

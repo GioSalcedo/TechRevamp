@@ -6,9 +6,10 @@ const priceInput = document.getElementById('price');
 const categorySelect = document.getElementById('category');
 const messageTextarea = document.getElementById('description');
 const submitButton = form.querySelector('button[type="submit"]');
-const imagesAttached = document.getElementById("input-images")
+let imagesAttached = document.getElementById("input-images")
 const preview = document.querySelector(".preview");
-const curFiles = imagesAttached.files;
+let curFiles = imagesAttached.files;
+let contadorImages = 0;
 
 const btnSubmit = document.getElementById('btn-add-product')
 
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function validateImages() {
-        const curFiles = imagesAttached.files;
+        curFiles = imagesAttached.files;
         if (curFiles.length === 0) {
             imagesAttached.style.borderColor = errorColor;
             return 'Por favor añada imágenes de su producto.';
@@ -261,8 +262,10 @@ function agregarProducto() {
 }
 
 function updateImageDisplay(){
-    
-    if (curFiles.length > 0) {
+    contadorImages = contadorImages + imagesAttached.files.length
+    curFiles = imagesAttached.files;
+
+    if (contadorImages > 0) {
         const list = document.createElement("ol");
         preview.appendChild(list)
         preview.classList.add('active');
