@@ -26,6 +26,10 @@
   border-radius: 10px;
 }
 
+.card-product-recommendation:hover {
+  border: solid 2px gray;
+}
+
 .card-product-recommendation img {
   width: 75%;
   height: 300px;
@@ -48,7 +52,7 @@
   color: var(--primary-blue-950, #063646);
   font-size: var(--ubuntu--headline--29-medium-400);
   height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
 }
 
 .header-botton-recommendation .price-and-discount {

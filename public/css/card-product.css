@@ -14,11 +14,15 @@
 .card-product {
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 20px;
   border: 0.5px solid var(--primary-blue-principal-900, #11485a);
   height: 40%;
   width: 40%;
   overflow: hidden;
+}
+
+.card-product:hover {
+  transform: scale(1.05);
 }
 
 .card-product img {
@@ -27,6 +31,10 @@
   width: 100%;
   height: 100%;
 }
+
+/* .card-product img:hover {
+  transform: scale(1.05);
+} */
 
 .info-card-product {
   display: flex;
@@ -40,6 +48,7 @@
 .info-card-product h3 {
   font-size: var(--ubuntu--label--14-large-500);
   height: 30px;
+  margin-bottom: 10px !important;
 }
 
 .info-card-product .price-and-discount {
