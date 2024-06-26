@@ -17,7 +17,7 @@ function updateActiveDock(index) {
 }
 
 function updateContainerPosition() {
-  let operation = currentIndex * -34;
+  let operation = currentIndex * -33.33; 
   containerRecommendation.style.transform = `translateX(${operation}%)`;
 }
 
@@ -29,8 +29,9 @@ docks.forEach((dock, i) => {
   });
 });
 
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % docks.length;
-  updateContainerPosition();
-  updateActiveDock(currentIndex);
-}, 6000);
+// Descomenta si deseas la rotación automática del carrusel
+// setInterval(() => {
+//   currentIndex = (currentIndex + 1) % docks.length;
+//   updateContainerPosition();
+//   updateActiveDock(currentIndex);
+// }, 6000);
