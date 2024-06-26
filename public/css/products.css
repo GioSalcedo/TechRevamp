@@ -5,8 +5,9 @@
 
 * {
   margin-bottom: 0px !important;
+}
 
-.recomendations-container{
+.recomendations-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,19 +19,18 @@
   align-self: center;
 }
 
-.header-recomendation  h2{
+.header-recomendation h2 {
   font-size: 32px;
   padding: 32px 0px 20px 0px;
   font-weight: normal;
   color: #11485a;
 }
-.header-recomendation  p{
+.header-recomendation p {
   align-self: flex-start;
   font-size: 22px;
   padding: 20px;
   font-weight: normal;
   /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); */
-
 }
 
 .container-products {
@@ -62,23 +62,22 @@
 #container-products.fade-in {
   opacity: 1;
 }
-.page-link{
+.page-link {
   color: #11485a !important;
 }
-.page-link:hover{
-  background-color: #E1FEC9 !important;
+.page-link:hover {
+  background-color: #e1fec9 !important;
 }
 
-.active>.page-link{
+.active > .page-link {
   background-color: #11485a !important;
   border-color: #11485a !important;
   color: white !important;
 }
 
-
 .container-categories {
   padding-bottom: 20px;
-  color: var(--Colors-primary-blue-principal-900)!important;
+  color: var(--Colors-primary-blue-principal-900) !important;
 }
 
 .category-link {
@@ -92,36 +91,36 @@
 .category-link:hover {
   transform: scale(1.01);
   background-color: var(--Colors-primary-blue-principal-900) !important;
-  color: var(--Colors-neutral-white)!important;
+  color: var(--Colors-neutral-white) !important;
 }
 
-.container-categories p{
+.container-categories p {
   color: var(--Colors-primary-blue-800);
   font-weight: 500;
 }
 
-.container-categories a{
+.container-categories a {
   font-weight: 500;
   color: var(--Colors-primary-blue-600);
   text-decoration: none;
 }
 
-.container-categories a:hover{
+.container-categories a:hover {
   transform: scale(1.1);
-.card-product:nth-child(2n+1) {
+}
+
+.card-product:nth-child(2n + 1) {
   clear: left;
 }
 
-
-
 @media only screen and (min-width: 768px) {
-  .container-categories{
+  .container-categories {
     font-size: var(--ubuntu--body--20-xxlarge-400);
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .container-categories{
+  .container-categories {
     font-size: var(--ubuntu--headline--23-small-400);
   }
 }
