@@ -141,7 +141,7 @@
 
 @media only screen and (min-width: 1200px) {
   .card-product-recommendation img {
-    width: 40%;
-    height: 400px;
+    width: 35%;
+    height: 500px;
   }
 }
