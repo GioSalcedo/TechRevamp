@@ -29,9 +29,8 @@ docks.forEach((dock, i) => {
   });
 });
 
-// Descomenta si deseas la rotación automática del carrusel
-// setInterval(() => {
-//   currentIndex = (currentIndex + 1) % docks.length;
-//   updateContainerPosition();
-//   updateActiveDock(currentIndex);
-// }, 6000);
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % docks.length;
+  updateContainerPosition();
+  updateActiveDock(currentIndex);
+}, 6000);
