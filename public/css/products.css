@@ -126,16 +126,11 @@
   cursor: pointer;
   z-index: 1000;
   display: none;
-  background-color: var(--Colors-secondary-green-principal-200);
+  background-color: var(--Colors-primary-blue-principal-900);
 }
-
-.scroll-to-top svg {
-  color: var(--Colors-primary-blue-principal-900);
-}
-
 
 .scroll-to-top:hover {
-  background-color: var(--Colors-primary-blue-principal-900);
+  background-color: var(--Colors-primary-blue-700);
 }
 
 .show-scroll-to-top {
