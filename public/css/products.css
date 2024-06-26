@@ -1,5 +1,35 @@
 @import url(card-product.css);
 
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.recomendations-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-recomendation {
+  justify-content: center;
+  width: 1440px;
+  align-self: center;
+}
+.header-recomendation  h2{
+  font-size: 32px;
+  padding: 32px 0px 20px 0px;
+  font-weight: normal;
+  color: #11485a;
+}
+.header-recomendation  p{
+  align-self: flex-start;
+  font-size: 22px;
+  padding: 20px;
+  font-weight: normal;
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); */
+
+}
 .title-recommendation {
   font-size: var(--ubuntu--headline--32-large-400);
   font-style: normal;
@@ -109,6 +139,7 @@
 
 .container-products {
   transition: opacity 0.5s ease-in-out;
+  max-width: 1440px;
 }
 
 .container-products.hidden {
@@ -152,6 +183,11 @@
   border-color: #11485a !important;
   color: white !important;
 }
+.card-product:nth-child(2n+1) {
+  clear: left;
+}
+
+
 
 @media only screen and (min-width: 768px) {
 }
