@@ -1,6 +1,7 @@
 .container-recommendation {
-  width: 100%;
+  width: 90%;
   overflow: hidden;
+  margin: auto;
 }
 
 .galery-recommendation {
@@ -9,7 +10,7 @@
   flex-wrap: row nowrap;
   transition: transform 0.5s ease-in-out;
   transform: translateX(0%);
-  justify-content: space-between;
+
 }
 
 .card-product-recommendation {
@@ -40,7 +41,7 @@
   display: flex;
   padding: 10px 12px;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   gap: var(--Border-radius-border-4, 6px);
   border-radius: 8px;
   border: 0.2px solid var(--primary-blue-principal-900, #11485a);
@@ -87,7 +88,7 @@
 
 .header-botton-recommendation .botton-info-card-product {
   display: flex;
-  width: 100%;
+  width: 80%;
   justify-content: space-between;
   font-size: var(--ubuntu--headline--23-small-400);
   margin-bottom: 0px;
