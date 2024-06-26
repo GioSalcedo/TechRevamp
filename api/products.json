@@ -78,6 +78,7 @@
       "precio": 365895,
       "descripcion": "Teclado mecánico Corsair K95 con retroiluminación RGB y interruptores Cherry MX Speed, diseñado para los gamers más exigentes. Con teclas programables, memoria integrada para perfiles y un reposamuñecas desmontable, este teclado ofrece una experiencia de juego personalizada y cómoda, perfecta para largas sesiones de juego.",
       "categoria": "Teclados",
+      "tittle": "LO ÚLTIMO",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/10-teclado.webp"
     }
   ],
@@ -86,39 +87,43 @@
       "id": 1,
       "nombre": "Auriculares Inalámbricos ANC 2",
       "precio": 685978,
-      "descripcion": "Disfruta de una experiencia auditiva superior con los Auriculares Inalámbricos ANC 2. Equipados con tecnología de cancelación activa de ruido (ANC), estos auriculares ofrecen un sonido claro y envolvente, ideal para música, llamadas y más. Con conectividad Bluetooth, controles táctiles intuitivos y una batería de larga duración, son perfectos para usar en casa, viajes o en el trabajo.",
+      "descripcion": "Disfruta de una experiencia auditiva superior con los Auriculares Inalámbricos ANC 2. Equipados con tecnología de cancelación activa de ruido (ANC), estos auriculares ofrecen un sonido claro y envolvente, ideal para música, llamadas y más.",
       "categoria": "Auriculares",
+      "tittle": "COMODIDAD Y ESTILO",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/1-auriculares.webp"
     },
     {
       "id": 2,
       "nombre": "Teclado Bluetooth Logitech",
       "precio": 360965,
-      "descripcion": "El Teclado Bluetooth Logitech combina comodidad y rendimiento en un diseño elegante y compacto. Conecta fácilmente con dispositivos Bluetooth, ofreciendo una experiencia de escritura silenciosa y precisa. Ideal para trabajar desde casa o en movimiento, este teclado cuenta con teclas de acceso rápido y una duración de batería prolongada.",
+      "descripcion": "El Teclado Bluetooth Logitech combina comodidad y rendimiento en un diseño elegante y compacto. Conecta fácilmente con dispositivos Bluetooth, ofreciendo una experiencia de escritura silenciosa y precisa. Ideal para trabajar desde casa o en movimiento.",
       "categoria": "Teclados",
+      "tittle": "AHORRO ÚNICO",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361285/home/2-teclado.webp"
     },
     {
       "id": 3,
       "nombre": "Reloj Inteligente Whatsapp Watch",
       "precio": 120589,
-      "descripcion": "El Reloj Inteligente Whatsapp Watch combina estilo y funcionalidad con su pantalla táctil a color y conectividad Bluetooth. Diseñado para mantenerse al día con tus mensajes, notificaciones y actividad física, este reloj inteligente es perfecto para usuarios que buscan comodidad y versatilidad en un dispositivo compacto. Compatible con dispositivos iOS y Android.",
+      "descripcion": "El Reloj Inteligente Whatsapp Watch combina estilo y funcionalidad con su pantalla táctil a color y conectividad Bluetooth. Diseñado para mantenerse al día con tus mensajes, notificaciones y actividad física, perfecto para usuarios que buscan comodidad.",
       "categoria": "Relojes Inteligentes",
+      "tittle": "TENDENCIA",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/3-reloj.webp"
     },
     {
       "id": 4,
       "nombre": "Apple iPhone 14 Plus",
       "precio": 3659856,
-      "descripcion": "El Apple iPhone 14 Plus en color Azul combina elegancia y rendimiento avanzado. Con 128 GB de almacenamiento, este smartphone ofrece una experiencia fluida y rápida con su procesador A17 Bionic y pantalla Super Retina XDR. Equipado con un sistema de cámara avanzado que captura fotos y videos de alta calidad, es ideal para usuarios que valoran la innovación y el diseño.",
+      "descripcion": "El Apple iPhone 14 Plus en color Azul combina elegancia y rendimiento avanzado. Con 128 GB de almacenamiento, este smartphone ofrece una experiencia fluida y rápida con su procesador A17 Bionic y pantalla Super Retina XDR.",
       "categoria": "Smartphones",
+      "tittle": "EXCLUSIVO",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361285/home/4-telefono.webp"
     },
     {
       "id": 5,
       "nombre": "Portátil LG Gram 16 Oled",
       "precio": 4259856,
-      "descripcion": "El Portátil LG Gram 16 Oled es la combinación perfecta de portabilidad y rendimiento. Con una pantalla OLED de 16 pulgadas, este ultrabook ofrece colores vibrantes y negros profundos. Equipado con un procesador Intel Core i7 de última generación, 16 GB de RAM y 1 TB de almacenamiento SSD, es ideal para profesionales y usuarios exigentes que necesitan potencia y durabilidad en un diseño ligero y elegante.",
+      "descripcion": "El Portátil LG Gram 16 Oled es la combinación perfecta de portabilidad y rendimiento. Con una pantalla OLED de 16 pulgadas, este ultrabook ofrece colores vibrantes y negros profundos. Equipado con un procesador Intel Core i7 de última generación, 16 GB de RAM y 1 TB de almacenamiento SSD.",
       "categoria": "Smartphones",
       "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/5-portatil.webp"
     }
