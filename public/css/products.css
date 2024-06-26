@@ -113,6 +113,35 @@
   clear: left;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  background-color: var(--Colors-secondary-green-principal-200);
+}
+
+.scroll-to-top svg {
+  color: var(--Colors-primary-blue-principal-900);
+}
+
+
+.scroll-to-top:hover {
+  background-color: var(--Colors-primary-blue-principal-900);
+}
+
+.show-scroll-to-top {
+  display: block;
+}
+
 @media only screen and (min-width: 768px) {
   .container-categories {
     font-size: var(--ubuntu--body--20-xxlarge-400);
