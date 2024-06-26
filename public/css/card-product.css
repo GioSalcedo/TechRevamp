@@ -21,9 +21,9 @@
   overflow: hidden;
 }
 
-.card-product:hover {
+/* .card-product:hover {
   transform: scale(1.05);
-}
+} */
 
 .card-product img {
   padding: 12px var(--Gap-gap-9, 16px);
@@ -32,9 +32,9 @@
   height: 100%;
 }
 
-/* .card-product img:hover {
+.card-product img:hover {
   transform: scale(1.05);
-} */
+}
 
 .info-card-product {
   display: flex;
