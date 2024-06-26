@@ -10,7 +10,6 @@
       <p class="price-2">$<%= producto.precio.toFixed(2) %></p>
       <button id="btn-detail">
         <svg
-          
           width="34"
           height="30"
           viewBox="0 0 34 30"
@@ -27,5 +26,8 @@
     </div>
   </div>
 </div>
-<h3>Descripción de Producto</h3>
-<p><%= producto.descripcion %></p>
+<div class="content-description">
+  <h3>Descripción de Producto</h3>
+  <p><%= producto.descripcion %></p>
+  <%- include('perks'); %>
+</div>

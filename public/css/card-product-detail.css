@@ -5,13 +5,7 @@
 }
 
 .galery-detail {
-  width: 300%;
-  display: flex;
-  flex-wrap: row nowrap;
-  justify-content: space-around;
-  gap: 30px;
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(-33%);
+  width: 100%;
 }
 
 .card-product-detail {
@@ -104,28 +98,9 @@
   background-color: transparent ;
 }
 
-.container-detail .docks {
-  width: 100%;
-  padding: .4em;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+.content-description {
+  padding: 16px;
 }
-
-.container-detail .dock {
-  width: 2em;
-  height: 2em;
-  margin: 1em .2em 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-detail .dock.active svg circle {
-  fill: #11485A;
-}
-
 
 @media only screen and (min-width: 768px) {
   .card-product-detail img {
