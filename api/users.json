@@ -56,5 +56,17 @@
     "phone": "3213216542",
     "email": "testing1@gmail.com",
     "password": "$2b$10$QGjgRMu8wM55TX.hJRF.hOtkDO1XozyBEpnYF/4QOFTvm6PSxDgb2"
+  },
+  {
+    "fullname": "TESTER",
+    "phone": "3123456789",
+    "email": "testing0@test.com",
+    "password": "$2b$10$kwDjkggOr1trwuEOpwsm9.KMM2bdW/.q1UHG4iJbJOfpqXWgXH/T6"
+  },
+  {
+    "fullname": "testingagain",
+    "phone": "3123456789",
+    "email": "tester3@test.com",
+    "password": "$2b$10$MtMC0DROe8UURy0.rjrj..YKnwRC3tLV648hQZY.dA8c49plK1TR6"
   }
 ]

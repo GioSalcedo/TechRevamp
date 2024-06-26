@@ -141,6 +141,17 @@
 #container-products.fade-in {
   opacity: 1;
 }
+.page-link{
+  color: #11485a !important;
+}
+.page-link:hover{
+  background-color: #E1FEC9 !important;
+}
+.active>.page-link{
+  background-color: #11485a !important;
+  border-color: #11485a !important;
+  color: white !important;
+}
 
 @media only screen and (min-width: 768px) {
 }
