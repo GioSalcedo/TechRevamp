@@ -17,7 +17,7 @@ function updateActiveDock(index) {
 }
 
 function updateContainerPosition() {
-  let operation = currentIndex * -34;
+  let operation = currentIndex * -33.33; 
   containerRecommendation.style.transform = `translateX(${operation}%)`;
 }
 

@@ -1,7 +1,5 @@
 .container-recommendation {
   width: 100%;
-  padding: 10px 12px;
-  gap: 16px;
   overflow: hidden;
 }
 
@@ -9,24 +7,27 @@
   width: 300%;
   display: flex;
   flex-wrap: row nowrap;
-  justify-content: space-around;
-  gap: 30px;
   transition: transform 0.5s ease-in-out;
-  transform: translateX(-33%);
+  transform: translateX(0%);
+  justify-content: space-between;
 }
 
 .card-product-recommendation {
   display: flex;
+  gap: 20px;
   flex-direction: column;
   padding: 10px 12px;
   align-items: center;
-  justify-content: center;
   gap: var(--Border-radius-border-4, 6px);
   align-self: stretch;
   height: 100%;
   width: calc(100% / 3);
-  border: solid 2px gray;
+  /* border: solid 2px gray; */
   border-radius: 10px;
+}
+
+.card-product-recommendation:hover {
+  border: solid 2px gray;
 }
 
 .card-product-recommendation img {
@@ -51,7 +52,7 @@
   color: var(--primary-blue-950, #063646);
   font-size: var(--ubuntu--headline--29-medium-400);
   height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
 }
 
 .header-botton-recommendation .price-and-discount {
@@ -105,12 +106,12 @@
   border-style: none;
   border-color: transparent !important;
   border-image: none;
-  background-color: transparent ;
+  background-color: transparent;
 }
 
 .container-recommendation .docks {
   width: 100%;
-  padding: .4em;
+  padding: 0.4em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -120,23 +121,21 @@
 .container-recommendation .dock {
   width: 2em;
   height: 2em;
-  margin: 1em .2em 0;
+  margin: 1em 0.2em 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container-recommendation .dock.active svg circle {
-  fill: #11485A;
+  fill: #11485a;
 }
-
 
 @media only screen and (min-width: 768px) {
   .card-product-recommendation img {
     width: 45%;
     height: 400px;
   }
-
 }
 
 @media only screen and (min-width: 1200px) {

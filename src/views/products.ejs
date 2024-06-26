@@ -11,22 +11,19 @@
     />
   </head>
   <body>
-    <header><%- include('partials/navbar'); %></header>
-    <div class="header-recomendation">
-      <h2>Hola, <%= userName %></h2>
-      <p>Tenemos algunas recomendaciones para tí</p>
-    </div>
-
-    <%- include('partials/carrusel')%>
-
+    <header>
+      <%- include('partials/navbar'); %>
+    </header>
+    <%- include('partials/header-recommendation'); %>
+    <%- include('partials/carrusel')%> 
+    <%- include('partials/nav-pagination', {page: page, totalPages: totalPages }); %>
     <div class="container-products" id="container-products">
       <%- include('partials/container-products', { productos: productos }); %>
     </div>
+    <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
+    }); %> 
     <%- include('partials/categories')%> 
-    <%- include('partials/nav-pagination',
-    { page: page, totalPages: totalPages }); %> 
-    <%- include('partials/footer');
-    %> 
+    <%- include('partials/footer');%> 
     <%- include('partials/scripts'); %>
     <script src="/../js/carrusel.js"></script>
   </body>

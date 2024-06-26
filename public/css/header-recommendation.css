@@ -1,0 +1,64 @@
+.recommendations-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-recommendation {
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+}
+
+.header-recommendation  h2{
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.header-recommendation  p{
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: normal;
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); */
+}
+
+.title-recommendation {
+  font-size: var(--ubuntu--headline--32-large-400);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.buttom-recommendation{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--ubuntu--label--14-large-700);
+}
+
+.buttom-recommendation p{
+  color: var(--Colors-primary-blue-800);
+  font-weight: 500;
+}
+
+.buttom-recommendation a{
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--Colors-primary-blue-600);
+}
+
+.buttom-recommendation a:hover{
+  transform: scale(1.1);
+}
+
+@media only screen and (min-width: 768px) {
+  .buttom-recommendation{
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .buttom-recommendation{
+    font-size: var(--ubuntu--headline--23-small-400);
+  }
+}
