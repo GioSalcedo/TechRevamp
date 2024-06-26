@@ -140,6 +140,9 @@
     background: var(--Colors-secondary-green-principal-200, #c1fd93);
 }
 
+#logout{
+    display: none;
+}
 /* ----------------MEDIA QUERIES FOR RESPONSIVE DESIGN---------------- */
 
 /* MQ for tablets ((min-width: 768px) */

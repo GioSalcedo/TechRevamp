@@ -15,7 +15,7 @@
   }
   
   .contact-container p {
-    text-align: center;
+    text-align: left;
     margin: 10px 0px;
   }
   
@@ -28,6 +28,7 @@
     flex-direction: column;
     gap: 10px;
     font-size: 18px;
+    padding: 16px 0;
   }
   
   .contact-form label {
