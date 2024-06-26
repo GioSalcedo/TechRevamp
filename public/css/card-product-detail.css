@@ -116,6 +116,7 @@
 .top-perk {
   display: flex;
   align-items: center;
+  padding-block: 10px;
 }
 
 .top-perk svg {
@@ -198,7 +199,7 @@
 }
 
 .reviews {
-  margin-block: 16px;
+  margin-block: 30px !important;
   color: var(--primary-blue-950, #063646);
 }
 
@@ -254,11 +255,38 @@
     width:80px;
   }
 
+  .container-detail {
+    display: flex;
+    align-items: self-start;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .container-detail h4{
+    font-size: var(--ubuntu--body--20-xxlarge-400);
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .card-product-detail img {
     width: 35%;
     height: 500px;
+  }
+
+  .reviews {
+    display: flex;
+    width: 80%;
+    margin-inline: auto;
+    gap: 16px;
+  }
+
+  .container-detail {
+    justify-content: space-around;
+    gap: 16px;
+  }
+
+  .add-to-shopping-cart {
+    width: 80%;
+    margin-inline: auto;
   }
 }
