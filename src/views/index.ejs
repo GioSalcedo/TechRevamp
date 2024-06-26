@@ -19,7 +19,8 @@
       </div>
       <!-- carousel -->
       <div class="carousel" id="carousel">
-        <div class="list">
+        <%- include('partials/container-home-products', { productos: productos }); %>
+        <!-- <div class="list">
           <div class="item">
             <img src="/img/home/img5.webp">
             <div class="intro">
@@ -115,7 +116,7 @@
               </a>              
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="arrows">
           <button id="prev"><</button>
           <button id="next">></button>
@@ -123,7 +124,6 @@
       </div>
     <%- include('partials/footer');%>
     <%- include('partials/scripts');%>
-    <script src="../js/home.js"></script>
   </body>
 </html>
 
