@@ -9,13 +9,13 @@
   padding: 24px 16px;
   border-bottom: 1px solid var(--neutral-disable-300, #ABC9CE);
   background: var(--primary-blue-50, #EBFFFE);
-
+  display: none;
   a{
     display: flex;
     width: 24px;
     height: 24px;
     align-items: center;
-  }
+  }  
 }
 
 .principal-container{
