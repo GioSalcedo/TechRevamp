@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     background: "var(--Colors-primary-blue-50, #EBFFFE)",
                     showConfirmButton: true,
                     confirmButtonText: `
-                    <a href="/iniciar-sesion" style="color: var(--neutral-white, #FAFEFE);">Iniciar sesión</a>
+                    <a href="/" style="color: var(--neutral-white, #FAFEFE);">Ir al inicio</a>
                     `,
                     confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
                     backdrop: `
