@@ -141,6 +141,19 @@
     border-radius: 8px;
   }
   
+  #email, #name, #phone, #topic, #message{
+    font-size: 18px;
+  }
+  #email::placeholder,
+  #name::placeholder,
+  #phone::placeholder,
+  #topic::placeholder,
+  #fullname::placeholder,
+  #password::placeholder,
+  #repeat-password::placeholder{
+    font-size: 18px;
+
+  }
   @media (min-width: 768px) {
     .login-form {
       flex-direction: row;

@@ -16,7 +16,7 @@
   
   .contact-container p {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 10px 0px;
   }
   
   .contact-form-container {
@@ -27,13 +27,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-size: 18px;
   }
   
   .contact-form label {
     text-align: left;
     font-weight: bold;
   }
-  
+
   .contact-form input, 
   .contact-form select, 
   .contact-form textarea {
@@ -41,6 +42,12 @@
     border-radius: 4px;
     border: 1px solid var(--primary-blue-700, #097B95);
     background: var(--neutral-white, #FAFEFE);
+  }
+  .contact-form select{
+    color: #7d7d7d ;
+  }
+  .contact-form select:focus{
+    color: black;
   }
   .form-control.error input,
   .form-control.error select,
@@ -89,7 +96,7 @@
     outline: none;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border: 1px solid var(--Colors-primary-blue-800, #126378);
-    font-size: var(--ubuntu--body--13-small-400);
+    font-size: 18px;
   }
   
   .contact-form button:hover {
@@ -115,6 +122,23 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+  }
+   
+  input::placeholder{
+    font-size: 18px;
+  }
+  
+  #email, #name, #phone, #topic, #message{
+    font-size: 18px;
+  }
+  #email::placeholder,
+  #name::placeholder,
+  #phone::placeholder,
+  #topic::placeholder
+  #fullname::placeholder
+  #password::placeholder
+  #repeat-password::placeholder{
+    font-size: 18px;
   }
   
   @media (min-width: 768px) {

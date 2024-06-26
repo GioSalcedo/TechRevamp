@@ -1,12 +1,15 @@
 .container-intro-about {
   width: 100%;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-intro-about p {
   margin: 40px 20px;
   padding: 0 20px;
-  font-size: var(--ubuntu--body--18-xlarge-400);
+  /* font-size: var(--ubuntu--body--18-xlarge-400); */
   text-align: center;
 }
 
@@ -38,6 +41,13 @@
   flex-direction: column;
 }
 
+.introtext{
+  max-width: 1500px;
+}
+.who-we-are{
+  font-weight: normal;
+}
+
 .team-work img {
   width: 100%;
   max-width: 826px;
@@ -61,6 +71,9 @@
 @media only screen and (min-width: 1200px) {
   .about-us-banner h2 {
     font-size: var(--ubuntu--display--36-small-400);
+  }
+  .who-we-are{
+    font-size: var( --ubuntu--headline--23-small-400);
   }
 }
 
