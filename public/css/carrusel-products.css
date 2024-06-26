@@ -88,7 +88,7 @@
 
 .header-botton-recommendation .botton-info-card-product {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   font-size: var(--ubuntu--headline--23-small-400);
   margin-bottom: 0px;
