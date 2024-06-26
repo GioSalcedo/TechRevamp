@@ -1,5 +1,6 @@
 @import url(card-product.css);
 @import url(carrusel-products.css);
+@import url(card-product-detail.css);
 
 .container-products {
   transition: opacity 0.5s ease-in-out;

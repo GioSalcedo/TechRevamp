@@ -22,7 +22,6 @@ router.get('/productos', (req, res) => {
 
   const totalPages = Math.ceil(productos.length / perPage);
 
-  // Render the main products page
   res.render('products', { productos: paginatedProducts, page, totalPages });
 });
 
@@ -39,11 +38,23 @@ router.get('/productos-parcial', (req, res) => {
 
   const paginatedProducts = productos.slice(start, end);
 
-  const totalPages = Math.ceil(productos.length / perPage);
-
   res.render('partials/container-products', { productos: paginatedProducts });
 });
 
+router.get('/productos/:id', (req, res) => {
+  const file = fs.readFileSync('api/products.json', 'UTF-8');
+  const json = JSON.parse(file);
+  const productos = json.productos;
+
+  const productId = req.params.id;
+  const product = productos.find(p => p.id == productId);
+
+  if (product) {
+    res.render('product-detail', { producto: product });
+  } else {
+    res.status(404).send('Producto no encontrado');
+  }
+});
 
 router.get("/acerca-de-nosotros", (req, res) => {
   res.render('about-us');

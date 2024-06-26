@@ -22,9 +22,11 @@
     <div class="container-products" id="container-products">
       <%- include('partials/container-products', { productos: productos }); %>
     </div>
-
+    
     <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
-    }); %> <%- include('partials/footer'); %> <%- include('partials/scripts');
+    }); %> <%- include('partials/footer'); %> 
+    <%- include('partials/scripts');
     %>
+    <script src="/../js/carrusel.js"></script>
   </body>
 </html>

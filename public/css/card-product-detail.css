@@ -1,0 +1,143 @@
+.container-detail {
+  width: 100%;
+  padding: 10px 12px;
+  gap: 16px;
+}
+
+.galery-detail {
+  width: 300%;
+  display: flex;
+  flex-wrap: row nowrap;
+  justify-content: space-around;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-33%);
+}
+
+.card-product-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--Border-radius-border-4, 6px);
+  align-self: stretch;
+  height: 100%;
+}
+
+.card-product-detail img {
+  width: 75%;
+  height: 300px;
+  margin: auto;
+}
+
+.header-botton-detail {
+  display: flex;
+  padding: 10px 12px;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--Border-radius-border-4, 6px);
+  border-radius: 8px;
+  border: 0.2px solid var(--primary-blue-principal-900, #11485a);
+  background: var(--primary-blue-50, #ebfffe);
+  color: var(--primary-blue-950, #063646);
+}
+
+.header-botton-detail h3 {
+  color: var(--primary-blue-950, #063646);
+  font-size: var(--ubuntu--headline--29-medium-400);
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.header-botton-detail .price-and-discount {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: var(--ubuntu--headline--23-small-400);
+  margin-bottom: 0px;
+}
+
+.header-botton-detail .price-1 {
+  text-decoration-line: line-through;
+  color: var(--neutral-disable-300, #abc9ce);
+  margin-bottom: 0px;
+}
+
+.info-card-product .price-1 {
+  text-decoration-line: line-through;
+  color: var(--neutral-disable-300, #abc9ce);
+  margin-bottom: 0px;
+}
+
+.header-botton-detail .price-2 {
+  font-size: var(--ubuntu--headline--29-medium-400);
+  margin-bottom: 0px;
+}
+
+.header-botton-detail .discount {
+  color: var(--secondary-green-600, #42aa06);
+  margin-bottom: 0px;
+}
+
+.header-botton-detail .botton-info-card-product {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: var(--ubuntu--headline--23-small-400);
+  margin-bottom: 0px;
+}
+
+.header-botton-detail a {
+  font-size: var(--ubuntu--body--20-xxlarge-400);
+  color: var(--Colors-primary-blue-600);
+  text-decoration: none;
+}
+
+.header-botton-detail #btn-detail {
+  padding-block: 0px;
+  padding-inline: 0px;
+  border-width: 0px;
+  border-style: none;
+  border-color: transparent !important;
+  border-image: none;
+  background-color: transparent ;
+}
+
+.container-detail .docks {
+  width: 100%;
+  padding: .4em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-detail .dock {
+  width: 2em;
+  height: 2em;
+  margin: 1em .2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-detail .dock.active svg circle {
+  fill: #11485A;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .card-product-detail img {
+    width: 45%;
+    height: 400px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-product-detail img {
+    width: 35%;
+    height: 500px;
+  }
+}
