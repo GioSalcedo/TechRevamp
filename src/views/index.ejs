@@ -20,101 +20,7 @@
       <!-- carousel -->
       <div class="carousel" id="carousel">
         <div class="list">
-          <div class="item">
-            <img src="/img/home/img5.webp">
-            <div class="intro">
-              <div class="title">
-                LO ÚLTIMO
-              </div>
-              <div class="topic">
-                Product 1
-              </div>
-              <div class="description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quis provident fugiat animi? Ut perferendis laboriosam molestias quaerat quibusdam? Quaerat reiciendis dignissimos illum doloribus possimus nam sunt omnis perferendis voluptatem?
-              </div>
-              <a href="#">
-                <button class="seeMore">
-                  Ver más &#8599
-                </button>
-              </a>              
-            </div>
-          </div>
-          <div class="item">
-            <img src="/img/home/img1.webp">
-            <div class="intro">
-              <div class="title">
-                COMODIDAD Y ESTILO
-              </div>
-              <div class="topic">
-                Product 2
-              </div>
-              <div class="description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quis provident fugiat animi? Ut perferendis laboriosam molestias quaerat quibusdam? Quaerat reiciendis dignissimos illum doloribus possimus nam sunt omnis perferendis voluptatem?
-              </div>
-              <a href="#">
-                <button class="seeMore">
-                  Ver más &#8599
-                </button>
-              </a>              
-            </div>
-          </div>
-          <div class="item">
-            <img src="/img/home/img2.webp">
-            <div class="intro">
-              <div class="title">
-                AHORRO ÚNICO
-              </div>
-              <div class="topic">
-                Product 3
-              </div>
-              <div class="description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quis provident fugiat animi? Ut perferendis laboriosam molestias quaerat quibusdam? Quaerat reiciendis dignissimos illum doloribus possimus nam sunt omnis perferendis voluptatem?
-              </div>
-              <a href="#">
-                <button class="seeMore">
-                  Ver más &#8599
-                </button>
-              </a>              
-            </div>
-          </div>
-          <div class="item">
-            <img src="/img/home/img3.webp">
-            <div class="intro">
-              <div class="title">
-                TENDENCIA
-              </div>
-              <div class="topic">
-                Product 4
-              </div>
-              <div class="description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quis provident fugiat animi? Ut perferendis laboriosam molestias quaerat quibusdam? Quaerat reiciendis dignissimos illum doloribus possimus nam sunt omnis perferendis voluptatem?
-              </div>
-              <a href="#">
-                <button class="seeMore">
-                  Ver más &#8599
-                </button>
-              </a>              
-            </div>
-          </div>
-          <div class="item">
-            <img src="/img/home/img4.webp">
-            <div class="intro">
-              <div class="title">
-                EXCLUSIVO
-              </div>
-              <div class="topic">
-                Product 5
-              </div>
-              <div class="description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quis provident fugiat animi? Ut perferendis laboriosam molestias quaerat quibusdam? Quaerat reiciendis dignissimos illum doloribus possimus nam sunt omnis perferendis voluptatem?
-              </div>
-              <a href="#">
-                <button class="seeMore">
-                  Ver más &#8599
-                </button>
-              </a>              
-            </div>
-          </div>
+          <%- include('partials/container-home-products', { productos: productos }); %>
         </div>
         <div class="arrows">
           <button id="prev"><</button>
@@ -123,7 +29,6 @@
       </div>
     <%- include('partials/footer');%>
     <%- include('partials/scripts');%>
-    <script src="../js/home.js"></script>
   </body>
 </html>
 

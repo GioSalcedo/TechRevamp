@@ -19,6 +19,7 @@
   width: 100%;
 }
 .text-container h1{
+  color: var(--primary-blue-principal-900, #11485A);
   text-align: center;
   padding: 32px;
   padding-top: 50px;
@@ -105,6 +106,9 @@
   transition: right 1.5s;
 }
 .intro{
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -179,14 +183,16 @@
   border: 1px solid #11485A;
   bottom: 20%;
   left: 10%;
-  color: #11485A;
+  color: var(--Colors-neutral-white, #FAFEFE);
+  background-color: var(--Colors-primary-blue-principal-900, #11485A);
 }
 #next{
   left: unset;
   right: 10%;
 }
 #next:hover, #prev:hover{
-  background: #c1fd93a9;
+  background-color: #c1fd93a9;
+  color: var(--Colors-primary-blue-principal-900, #11485A);
   cursor: pointer;
 }
 
@@ -196,22 +202,28 @@
   font-weight: 500;
   line-height: 1em;
   color: #11485A;
+  padding: 8px;
+  width: fit-content;
+  background-color: var(--Colors-secondary-green-300, #9EF85E);
+  border-radius: 4px;
 }
 .topic{
-  font-size: 4em;
+  font-size: var(--ubuntu--headline--32-large-400, 2rem);
   font-weight: 500;
   margin-bottom: 0.2em;
+  color: var(--Colors-primary-blue-principal-900, #11485A);
 }
 .description{
-  font-size: 18px;
+  font-size: var(--ubuntu--body--18-xlarge-400, 1.12rem);
   /* color: #5559; */
 }
 .seeMore{
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #555;
+  font-size: var(--ubuntu--body--16-large-400, 1rem);
   font-weight: bold;
-  margin-top: 1.2em;
+  margin-top: 0.88em;
   padding: 5px 0px;
   color: #11485A;
 
@@ -359,10 +371,10 @@
     font-size:25px ;
   }
   .topic{
-    font-size: 55px ;
+    font-size: var(--ubuntu--headline--32-large-400, 2rem);
   }
   .description{
-    font-size: medium;
+    font-size: var(--ubuntu--body--18-xlarge-400, 1.12rem);
   }
   .carousel::before{
     width:  500px;
@@ -378,15 +390,15 @@
     font-size: 1.2rem;
   }
   .text-container .downB{
-   height: 20px;
-   width: 20px;
-   font-size: 15px;
+  height: 20px;
+  width: 20px;
+  font-size: 15px;
   }
   .text-container .downB:hover{
     font-size: 20px;
   }
   .carousel{
-    height: 400px;
+    height: 500px;
     margin-bottom: 50px;
   }
   .item{
@@ -406,7 +418,7 @@
     padding-right: 0;
     height: 100px;
     overflow: auto;
-    font-size: small;
+    font-size: var(--ubuntu--body--16-large-400, 1rem);
   }
   .intro{
     width: 100%;
@@ -415,7 +427,7 @@
     font-size:clamp(16px, 2.5vw, 20px); ;
   }
   .topic{
-    font-size: clamp(35px, 6vw, 48px); ;
+    font-size: clamp(26px, 6vw, 48px); ;
   }
   .carousel::before{
     width:  300px;

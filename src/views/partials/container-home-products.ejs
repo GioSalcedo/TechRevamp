@@ -1,0 +1,8 @@
+<!-- container-home-products.ejs -->
+<% if (productos && productos.length > 0) { %>
+  <% productos.forEach(producto => { %> 
+    <%- include('home-product', { producto: producto }); %> 
+  <% }); %>
+<% } else { %>
+  <p>No hay productos disponibles.</p>
+<% } %>
