@@ -3,82 +3,82 @@
     {
       "id": 1,
       "nombre": "Laptop Dell Inspiron",
-      "precio": 1000,
-      "descripcion": "Laptop Dell Inspiron con 16GB RAM y 512GB SSD",
+      "precio": 1765998,
+      "descripcion": "Potente Laptop Dell Inspiron con 8GB de RAM y 512GB de almacenamiento SSD, ideal para tareas multitarea y almacenamiento rápido. Equipada con una pantalla Full HD de 15.6 pulgadas, procesador Intel Core i3 de octava generación y gráficos integrados, esta laptop es perfecta para profesionales y estudiantes que necesitan rendimiento y portabilidad.",
       "categoria": "Laptops",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/1-portatil.webp"
     },
     {
       "id": 2,
       "nombre": "Smartphone Samsung Galaxy S21",
-      "precio": 800,
-      "descripcion": "Smartphone Samsung Galaxy S21 con 128GB de almacenamiento",
+      "precio": 1259558,
+      "descripcion": "Elegante Smartphone Samsung Galaxy S21 con 128GB de almacenamiento para capturar y guardar tus mejores momentos. Cuenta con una cámara triple de 64MP, una pantalla Dynamic AMOLED 2X de 6.2 pulgadas y un procesador Exynos 2100. Diseñado para ofrecer una experiencia móvil fluida y avanzada, es ideal para usuarios que buscan calidad y rendimiento en un dispositivo compacto.",
       "categoria": "Smartphones",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/2-telefono.webp"
     },
     {
       "id": 3,
       "nombre": "Tablet Apple iPad Pro",
-      "precio": 1200,
-      "descripcion": "Apple iPad Pro de 12.9 pulgadas, 256GB",
+      "precio": 1086579,
+      "descripcion": "Impresionante Apple iPad Pro de 12.9 pulgadas y 256GB de almacenamiento, perfecto para creatividad y productividad en cualquier lugar. Equipado con el chip M1 de Apple, una pantalla Liquid Retina XDR y compatibilidad con el Apple Pencil y el Magic Keyboard, este iPad es ideal para artistas, diseñadores y profesionales que buscan un rendimiento excepcional.",
       "categoria": "Tablets",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/3-tablet.webp"
     },
     {
       "id": 4,
       "nombre": "Monitor LG UltraWide",
-      "precio": 300,
-      "descripcion": "Monitor LG UltraWide de 34 pulgadas, 2560x1080",
+      "precio": 958623,
+      "descripcion": "Monitor LG UltraWide de 34 pulgadas con resolución 2560x1080, ideal para una experiencia de visualización amplia y envolvente. Perfecto para multitarea, gaming y edición de video, este monitor ofrece una calidad de imagen superior con colores vibrantes y negros profundos, además de múltiples opciones de conectividad para mayor flexibilidad.",
       "categoria": "Monitores",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/4-monitor.webp"
     },
     {
       "id": 5,
       "nombre": "Auriculares Sony WH-1000XM4",
-      "precio": 350,
-      "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+      "precio": 1026598,
+      "descripcion": "Auriculares inalámbricos Sony WH-1000XM4 con cancelación de ruido, ofreciendo una experiencia de audio inmersiva y sin interrupciones. Con tecnología de sonido de alta resolución, micrófonos integrados para llamadas claras y una batería de larga duración que ofrece hasta 30 horas de reproducción, estos auriculares son ideales para viajes y uso diario.",
       "categoria": "Auriculares",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/5-auriculares.webp"
     },
     {
       "id": 6,
       "nombre": "Reloj Inteligente Apple Watch Series 6",
-      "precio": 500,
-      "descripcion": "Apple Watch Series 6 con GPS, 44mm",
+      "precio": 837958,
+      "descripcion": "Apple Watch Series 6 con GPS y pantalla de 44mm, monitoriza tu salud y actividad física con estilo. Equipado con sensores avanzados que miden el oxígeno en sangre, electrocardiogramas y seguimiento del sueño, este reloj inteligente te ayuda a mantenerte en forma y saludable. Además, ofrece una amplia gama de aplicaciones y notificaciones directamente en tu muñeca.",
       "categoria": "Relojes Inteligentes",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/6-reloj.webp"
     },
     {
       "id": 7,
       "nombre": "Cámara Canon EOS R",
-      "precio": 1800,
-      "descripcion": "Cámara sin espejo de fotograma completo, 30.3MP",
+      "precio": 3586258,
+      "descripcion": "Cámara Canon EOS R sin espejo de fotograma completo y 30.3MP, perfecta para fotógrafos profesionales y entusiastas. Con un sistema de enfoque automático Dual Pixel, capacidad de grabación 4K y una amplia gama de lentes intercambiables, esta cámara ofrece flexibilidad y calidad de imagen superior para capturar momentos únicos con precisión y detalle.",
       "categoria": "Cámaras",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/7-camara.webp"
     },
     {
       "id": 8,
       "nombre": "Impresora HP LaserJet Pro",
-      "precio": 250,
-      "descripcion": "Impresora láser monocromática inalámbrica",
+      "precio": 459865,
+      "descripcion": "Impresora HP LaserJet Pro, una solución eficiente y rápida para todas tus necesidades de impresión en blanco y negro. Con capacidad de impresión inalámbrica y una velocidad de impresión de hasta 30 páginas por minuto, esta impresora es ideal para oficinas pequeñas y medianas que buscan rendimiento y calidad en cada documento.",
       "categoria": "Impresoras",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/8-impresora.webp"
     },
     {
       "id": 9,
       "nombre": "Router Asus RT-AC86U",
-      "precio": 200,
-      "descripcion": "Router Wi-Fi de doble banda con tecnología MU-MIMO",
+      "precio": 835956,
+      "descripcion": "Router Asus RT-AC86U de doble banda con tecnología MU-MIMO, proporcionando una conexión Wi-Fi rápida y estable. Ideal para juegos en línea y streaming 4K, este router ofrece una cobertura amplia y una velocidad de hasta 2900 Mbps, además de opciones avanzadas de seguridad y configuración para una red doméstica optimizada.",
       "categoria": "Routers",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/9-router.webp"
     },
     {
       "id": 10,
       "nombre": "Teclado Mecánico Corsair K95",
-      "precio": 200,
-      "descripcion": "Teclado mecánico RGB con interruptores Cherry MX Speed",
+      "precio": 365895,
+      "descripcion": "Teclado mecánico Corsair K95 con retroiluminación RGB y interruptores Cherry MX Speed, diseñado para los gamers más exigentes. Con teclas programables, memoria integrada para perfiles y un reposamuñecas desmontable, este teclado ofrece una experiencia de juego personalizada y cómoda, perfecta para largas sesiones de juego.",
       "categoria": "Teclados",
-      "imagen": "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg"
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/10-teclado.webp"
     }
   ]
 }

@@ -19,6 +19,7 @@
   width: 100%;
 }
 .text-container h1{
+  color: var(--primary-blue-principal-900, #11485A);
   text-align: center;
   padding: 32px;
   padding-top: 50px;
