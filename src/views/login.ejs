@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('partials/header');%>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/navbar');%>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Inicia Sesión </h2>
+        <p>¿No tienes una cuenta? <a href="/registro">Regístrate Aquí</a></p>
+        <form class="contact-form">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+          <div class="password-container">
+            <label for="password">Contraseña</label>
+            <div class="input-icon-wrapper">
+              <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+              <i class="fa-solid fa-eye" id="password-icon"></i>
+            </div>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <label for="checkbox">Recuérdame</label>
+          </div>
+          <button type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+      <div class="contact-image">
+        <img src="/img/forms_img/login1.svg" alt="login">         
+      </div>
+    </div>
+  </main>
+
+  <!-- Start footer -->
+  <%- include('partials/footer');%>
+  <%- include('partials/scripts');%>
+  <!-- End footer -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/../js/login.js"></script>
+</body>
+
+</html>    
