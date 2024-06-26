@@ -95,7 +95,6 @@ router.get('/productos/:id', (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
   const json = JSON.parse(file);
   const productos = json.productos;
-
   const productId = req.params.id;
   const product = productos.find(p => p.id == productId);
 
