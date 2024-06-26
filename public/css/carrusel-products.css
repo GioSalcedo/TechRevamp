@@ -2,18 +2,16 @@
   width: 100%;
   padding: 10px 12px;
   gap: 16px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .galery-recommendation {
   width: 300%;
   display: flex;
   flex-wrap: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
-
-  transition: all .5s ease;
+  justify-content: space-around;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
   transform: translateX(-33%);
 }
 
@@ -22,6 +20,7 @@
   flex-direction: column;
   padding: 10px 12px;
   align-items: center;
+  justify-content: center;
   gap: var(--Border-radius-border-4, 6px);
   align-self: stretch;
   height: 100%;
@@ -33,11 +32,11 @@
 .card-product-recommendation img {
   width: 75%;
   height: 300px;
+  margin: auto;
 }
 
 .header-botton-recommendation {
   display: flex;
-  align-items: start;
   padding: 10px 12px;
   flex-direction: column;
   width: 100%;
@@ -129,4 +128,20 @@
 
 .container-recommendation .dock.active svg circle {
   fill: #11485A;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .card-product-recommendation img {
+    width: 45%;
+    height: 400px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-product-recommendation img {
+    width: 40%;
+    height: 400px;
+  }
 }

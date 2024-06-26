@@ -17,69 +17,7 @@
       <p>Tenemos algunas recomendaciones para usted</p>
     </div>
 
-    <div class="container-recommendation">
-      <div class="galery-recommendation">
-        <% productos.slice(0, 3).forEach(producto => { %> <%-
-        include('partials/card-recommendation', { producto: producto }); %> <%
-        }); %>
-      </div>
-      <ul class="docks">
-        <li class="dock">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <circle
-              cx="8"
-              cy="8"
-              r="7.73333"
-              fill="#D9D9D9"
-              stroke="#097B95"
-              stroke-width="0.533333"
-            />
-          </svg>
-        </li>
-        <li class="dock">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <circle
-              cx="8"
-              cy="8"
-              r="7.73333"
-              fill="#D9D9D9"
-              stroke="#097B95"
-              stroke-width="0.533333"
-            />
-          </svg>
-        </li>
-        <li class="dock">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <circle
-              cx="8"
-              cy="8"
-              r="7.73333"
-              fill="#D9D9D9"
-              stroke="#097B95"
-              stroke-width="0.533333"
-            />
-          </svg>
-        </li>
-      </ul>
-    </div>
+    <%- include('partials/carrusel')%>
 
     <div class="container-products" id="container-products">
       <%- include('partials/container-products', { productos: productos }); %>
