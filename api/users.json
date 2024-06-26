@@ -68,5 +68,11 @@
     "phone": "3123456789",
     "email": "tester3@test.com",
     "password": "$2b$10$MtMC0DROe8UURy0.rjrj..YKnwRC3tLV648hQZY.dA8c49plK1TR6"
+  },
+  {
+    "fullname": "Raccoon",
+    "phone": "3216548574",
+    "email": "raccoon@testing.com",
+    "password": "$2b$10$sAUhRr5dPHhQ3LiCJZuPOuJAxEKy1rhuSRDbR/oCpO2EewRYMrypO"
   }
 ]
