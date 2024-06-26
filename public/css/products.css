@@ -1,4 +1,7 @@
 @import url(card-product.css);
+@import url(carrusel-products.css);
+@import url(card-product-detail.css);
+
 
 .container{
   display: flex;
@@ -146,12 +149,6 @@
   opacity: 0;
 }
 
-.products-recommendation {
-}
-
-.title-products-recommendation {
-}
-
 .arrow_button {
   display: flex;
   justify-content: center;
@@ -186,8 +183,6 @@
 .card-product:nth-child(2n+1) {
   clear: left;
 }
-
-
 
 @media only screen and (min-width: 768px) {
 }

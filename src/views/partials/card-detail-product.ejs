@@ -1,17 +1,15 @@
-<div class="card-product-recommendation">
+<div class="card-product-detail">
   <img src="<%= producto.imagen %>" alt="Imagen de producto" />
-  <div class="header-botton-recommendation">
-    <h3 class="title-recommendation"><%= producto.nombre %></h3>
+  <div class="header-botton-detail">
+    <h3 class="title-detail"><%= producto.nombre %></h3>
     <div class="price-and-discount">
       <p class="price-1">$<%= (producto.precio * 1.25).toFixed(2) %></p>
       <p class="discount">25%</p>
     </div>
-    <p class="price-2">$<%= producto.precio.toFixed(2) %></p>
     <div class="botton-info-card-product">
-      <a href="">Ver más detalles</a>
-      <button id="btn-recommendation">
+      <p class="price-2">$<%= producto.precio.toFixed(2) %></p>
+      <button id="btn-detail">
         <svg
-          
           width="34"
           height="30"
           viewBox="0 0 34 30"
@@ -27,4 +25,9 @@
       </button>
     </div>
   </div>
+</div>
+<div class="content-description">
+  <h3>Descripción de Producto</h3>
+  <p><%= producto.descripcion %></p>
+  <%- include('perks'); %>
 </div>

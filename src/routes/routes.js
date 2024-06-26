@@ -88,9 +88,18 @@ router.get('/productos-parcial', (req, res) => {
 
   const paginatedProducts = productos.slice(start, end);
 
-  const totalPages = Math.ceil(productos.length / perPage);
-
   res.render('partials/container-products', { productos: paginatedProducts });
+});
+
+router.get('/productos/:id', (req, res) => {
+  const productId = req.params.id;
+  const product = productos.find(p => p.id == productId);
+
+  if (product) {
+    res.render('product-detail', { producto: product });
+  } else {
+    res.status(404).send('Producto no encontrado');
+  }
 });
 
 router.get("/carro-compras", (req, res) => {
