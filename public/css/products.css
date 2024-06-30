@@ -14,6 +14,7 @@
 }
 
 .header-recomendation {
+  padding: 16px 40px;
   justify-content: center;
   max-width: 1440px;
   align-self: center;
@@ -76,6 +77,7 @@
 }
 
 .container-categories {
+  padding: 16px 40px;
   padding-bottom: 20px;
   color: var(--Colors-primary-blue-principal-900) !important;
 }
