@@ -1,6 +1,8 @@
+// Constantes express
 const { Router } = require('express');
 const path = require('path');
 const fs = require('fs');
+const pool = require ("./database/connection-database.js");
 
 const router = Router();
 // const authentication = require('./controllers/userControllers');
@@ -153,6 +155,7 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
+//? inicio de sesión
 router.post("/api/login", (req, res) => {
   const { email, password, rememberMe } = req.body;
   const filePath = path.join(__dirname, "../../api/users.json");
@@ -185,12 +188,21 @@ router.post("/api/login", (req, res) => {
           }
           // Contraseña correcta
           //Escribe un archivo temporal con usuario logueado
-          fs.writeFile(fileUserLogged, JSON.stringify(user, null, 2), (err) => {
+          const updateUsersQuery = "UPDATE `users` SET `logged_in`='1' WHERE email = ?;"
+          pool.query(updateUsersQuery, [email], (err, result) => {
             if (err) {
-              return res.status(500).json({ message: "Error del servidor al guardar el usuario logueado" });
+              return res.status(500).json({ message: "Error al actualizar el estado de logueo del usuario." });
             }
-            res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
-          })
+            res.status(200).json({ success: true, message: "Inicio de sesión exitoso." })
+          });
+          // fs.writeFile(fileUserLogged, JSON.stringify(user, null, 2), (err) => {
+          //   if (err) {
+          //     return res.status(500).json({ message: "Error del servidor al guardar el usuario logueado" });
+          //   }
+
+          //   res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
+          // })
+          
         } else {
           // Contraseña incorrecta
           return res.status(401).json({ success: false, message: "Contraseña incorrecta." });
@@ -210,10 +222,7 @@ router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
 
-//Tarea 7 - eliminar luego de evaluar
-router.get("/agregar-elementos", (req, res) => {
-  res.render('tarea-7-console');
-});
+//? Registro de usuarios
 
 router.post("/api/registrations", (req, res) => {
   const { fullname, email, password, phone, repeatPassword } = req.body;
@@ -236,7 +245,7 @@ router.post("/api/registrations", (req, res) => {
   // Validate email
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   if (!emailPattern.test(email)) {
-     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
+    return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
 
   // Validate password
