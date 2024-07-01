@@ -2,7 +2,7 @@
 const { Router } = require('express');
 const path = require('path');
 const fs = require('fs');
-const pool = require ("./database/connection-database.js");
+const pool = require ("./../database/connection-database");
 
 const router = Router();
 // const authentication = require('./controllers/userControllers');

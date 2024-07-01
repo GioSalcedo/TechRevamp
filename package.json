@@ -4,6 +4,7 @@
   "main": "about-us.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "db": "nodemon src/mysql.js",
     "install-deps": "npm install"
   },
   "repository": {
@@ -23,7 +24,9 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-validator": "^7.1.0",
+    "mkdirp": "^3.0.1",
     "morgan": "^1.10.0",
+    "mysql2": "^3.10.1",
     "nodemon": "^3.1.2"
   },
   "description": "",
