@@ -88,28 +88,32 @@ document.addEventListener('DOMContentLoaded', function () {
           password: passwordInput.value
       })
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        // Redirigir a la página principal u otra acción
-        // alert('Inicio de sesión exitoso.');
-        Swal.fire({
-          title: "¡Nos encanta tenerte de nuevo!",
-          padding: "3em",
-          color: "var(--Colors-neutral-black, #010F14)",
-          background: "var(--Colors-primary-blue-50, #EBFFFE)",
-          showConfirmButton: true,
-          confirmButtonText: `
-          <a href="/productos" style="color: var(--neutral-white, #FAFEFE);">Explorar productos</a>
-          `,
-          confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
-          backdrop: `
-              rgba(25, 76, 110, 0.4)
-          `
-      });
-        // window.location.href = '/';
-      } else {
-        showError(data.message);
+    .then( async response =>{
+      const data = await response.json();
+      console.log("Respuesta: ", data);
+      if (response.ok){
+        if(data.success){
+          // Redirigir a la página principal u otra acción
+          // alert('Inicio de sesión exitoso.');
+          Swal.fire({
+            title: "¡Nos encanta tenerte de nuevo!",
+            padding: "3em",
+            color: "var(--Colors-neutral-black, #010F14)",
+            background: "var(--Colors-primary-blue-50, #EBFFFE)",
+            showConfirmButton: true,
+            confirmButtonText: `
+            <a href="/productos" style="color: var(--neutral-white, #FAFEFE);">Explorar productos</a>
+            `,
+            confirmButtonColor: "var(--Colors-primary-blue-950, #063646)",
+            backdrop: `
+                rgba(25, 76, 110, 0.4)
+            `
+          });
+        } else{
+          showError(data.message);
+        }
+      } else{
+        showError(data.message || 'Hubo un problema con el inicio de sesión.');
       }
     })
     .catch(error => {
