@@ -34,7 +34,7 @@ const getUsersRegistered = async (email) => {
 
 // Actualizar estado login user
 const updateLoginStateUser = async (state, email) => {
-  const updateUsersQuery = "UPDATE `users` SET `logged_in`= ? WHERE email = ?;";
+  const updateUsersQuery = "UPDATE `users` SET `is_logged_in`= ? WHERE email = ?;";
   try{
     await pool.query(updateUsersQuery, [state, email]);
   } catch(error){
@@ -45,7 +45,7 @@ const updateLoginStateUser = async (state, email) => {
 
 // Registrar usuario nuevo
 const registerUser = async (fullname, email, hash, phone, state) => {
-  const insertUserQuery = "INSERT INTO `users` (first_name, last_name, email, password, phone, logged_in) VALUES (?, ?, ?, ?, ?, ?);";
+  const insertUserQuery = "INSERT INTO `users` (first_name, last_name, email, password, phone, is_logged_in) VALUES (?, ?, ?, ?, ?, ?);";
   try {
     await pool.query(insertUserQuery, [fullname, fullname, email, hash, phone, state]);
   } catch (error) {
