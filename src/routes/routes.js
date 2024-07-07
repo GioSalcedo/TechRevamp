@@ -1,11 +1,17 @@
+// Constantes express
 const { Router } = require('express');
+const router = Router();
 const path = require('path');
 const fs = require('fs');
 
-const router = Router();
-// const authentication = require('./controllers/userControllers');
+// Manejo de base de datos
+const pool = require ("./../database/connection-database");
+const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../mysql.js');
+
+// Autenticación
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+let state = 0;
 
 router.get("/", (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
@@ -153,54 +159,42 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
-router.post("/api/login", (req, res) => {
+router.post("/api/login", async (req, res) => {
   const { email, password, rememberMe } = req.body;
-  const filePath = path.join(__dirname, "../../api/users.json");
-  const fileUserLogged = path.join(__dirname, "../../api/userLogged.json");
-
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      return res.status(500).json({ message: "Error del servidor al leer el archivo." });
-    }
-
-    let users = [];
-    if (data && data.length > 0) {
-      try {
-        users = JSON.parse(data);
-      } catch (parseError) {
-        return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
-      }
-    }
-
-    const user = users.find(user => user.email === email);
+  try {
+    const user = await getUsersRegistered(email);
+    // Validar que el usuario no sea null ni undefined
     if (user) {
       // Comparar la contraseña ingresada con el hash almacenado
-      bcrypt.compare(password, user.password, function(err, result) {
-        if (err) {
+      bcrypt.compare(password, user.password, async (compareErr, compareResult) => {
+        if (compareErr) {
           return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
-        } else if (result) {
-          if(rememberMe){
-            // Si se marcó "Recuérdame", guardar los datos en localStorage
+        }
+
+        if (compareResult) {
+          if (rememberMe) {
             localStorage.setItem('userData', JSON.stringify({ email, password }));
           }
-          // Contraseña correcta
-          //Escribe un archivo temporal con usuario logueado
-          fs.writeFile(fileUserLogged, JSON.stringify(user, null, 2), (err) => {
-            if (err) {
-              return res.status(500).json({ message: "Error del servidor al guardar el usuario logueado" });
-            }
-            res.status(200).json({ success: true, message: "Inicio de sesión exitoso." });
-          })
+          try {
+            // Actualizar el estado de logueo del usuario
+            state = 1;
+            await updateLoginStateUser(state, email);
+            res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
+          } catch (err) {
+            res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${state}, error catch ${err}, ` });
+          }
+
         } else {
-          // Contraseña incorrecta
-          return res.status(401).json({ success: false, message: "Contraseña incorrecta." });
+          res.status(401).json({ success: false, message: `Contraseña incorrecta.\n password digitada: ${password} \n password bd: ${user.password}, user: ${user}`});
         }
       });
     } else {
-      // Usuario no encontrado
-      return res.status(401).json({ success: false, message: "Correo electrónico inválido." });
+      res.status(401).json({ success: false, message: "Correo electrónico inválido." });
     }
-  });
+  } catch (error) {
+    console.error("Error al intentar iniciar sesión:", error);
+    res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
+  }
 });
 
 router.get("/cerrar-sesion", (req, res) => {
@@ -210,12 +204,9 @@ router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
 
-//Tarea 7 - eliminar luego de evaluar
-router.get("/agregar-elementos", (req, res) => {
-  res.render('tarea-7-console');
-});
+//? Registro de usuarios
 
-router.post("/api/registrations", (req, res) => {
+router.post("/api/registrations", async (req, res) => {
   const { fullname, email, password, phone, repeatPassword } = req.body;
 
   // Validate name
@@ -236,7 +227,7 @@ router.post("/api/registrations", (req, res) => {
   // Validate email
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   if (!emailPattern.test(email)) {
-     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
+    return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
 
   // Validate password
@@ -249,46 +240,22 @@ router.post("/api/registrations", (req, res) => {
   if (password !== repeatPassword) {
     return res.status(400).json({ message: `Las contraseñas no coinciden en el server. 1 - ${password}, 2-${repeatPassword}` });
   }
-
-  bcrypt.hash(password, saltRounds, function(err, hash) {
-    if (err) {
-      return res.status(500).json({ message: "Error al encriptar la contraseña." });
+  try{
+    const user = await getUsersRegistered(email);
+    // Validar que el usuario no sea null ni undefined
+    if (user) {
+      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+    }else {
+      // Add new user
+      const hash = await bcrypt.hash(password, saltRounds);
+      state = 0;
+      await registerUser(fullname, email, hash, phone, state);
+      res.status(201).json({ success: true, message: "Registro exitoso." });
     }
-    // Read existing data from JSON file
-    const filePath = path.join(__dirname, "../../api/users.json");
-    fs.readFile(filePath, (err, data) => {
-      if (err && err.code !== 'ENOENT') {
-        return res.status(500).json({ message: "Error del servidor al leer el archivo." });
-      }
-
-      let users = [];
-      if (data && data.length > 0) {
-        try {
-          users = JSON.parse(data);
-        } catch (parseError) {
-          return res.status(500).json({ message: "Error del servidor al analizar el archivo." });
-        }
-      }
-
-      const user = users.find(user => user.email === email);
-
-      if(user){
-        res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
-      }else{
-        // Add new user
-        const newUser = { fullname, phone, email, password: hash };
-        users.push(newUser);
-
-        // Save updated users list back to the file
-        fs.writeFile(filePath, JSON.stringify(users, null, 2), (err) => {
-          if (err) {
-            return res.status(500).json({ message: "Error del servidor." });
-          }
-          res.status(201).json({ success: true, message: "Registro exitoso." });
-        });
-      } 
-    });
-  });  
+  } catch (error){
+    console.error("Error al registrar el usuario:", error);
+    res.status(500).json({ message: "Error del servidor al registrar el usuario." });
+  }
 });
 
 // Manejo de rutas no encontradas (404)
