@@ -3,6 +3,7 @@ const { Router } = require('express');
 const router = Router();
 const path = require('path');
 const fs = require('fs');
+// const fetch = require('node-fetch');
 
 // Manejo de base de datos
 const pool = require ("./../database/connection-database");
@@ -12,6 +13,8 @@ const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../m
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 let state = 0;
+
+const BASE_URL = 'http://localhost:8080/api/v1';
 
 router.get("/", (req, res) => {
   const file = fs.readFileSync('api/products.json', 'UTF-8');
@@ -205,7 +208,6 @@ router.get("/iniciar-sesion", (req, res) => {
 });
 
 //? Registro de usuarios
-
 router.post("/api/registrations", async (req, res) => {
   const { fullname, email, password, phone, repeatPassword } = req.body;
 
@@ -240,22 +242,52 @@ router.post("/api/registrations", async (req, res) => {
   if (password !== repeatPassword) {
     return res.status(400).json({ message: `Las contraseñas no coinciden en el server. 1 - ${password}, 2-${repeatPassword}` });
   }
+
   try{
-    const user = await getUsersRegistered(email);
-    // Validar que el usuario no sea null ni undefined
-    if (user) {
-      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
-    }else {
-      // Add new user
-      const hash = await bcrypt.hash(password, saltRounds);
-      state = 0;
-      await registerUser(fullname, email, hash, phone, state);
+    const hash = await bcrypt.hash(password, saltRounds);
+    // Pendiente *modificar firstname y lastname en form registro. 
+    const newUser = {
+      firstName: fullname.split(" ")[0],
+      lastName: fullname.split(" ").slice(1).join(" "),
+      email,
+      password: hash,
+      phone, 
+      isLoggedIn: true
+    };
+
+    const response = await fetch(`${BASE_URL}/users/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser)
+    });
+
+    if(response.ok){
       res.status(201).json({ success: true, message: "Registro exitoso." });
+    } else{
+      throw new Error('Error al registrar usuario en la API Spring Boot');
     }
   } catch (error){
     console.error("Error al registrar el usuario:", error);
     res.status(500).json({ message: "Error del servidor al registrar el usuario." });
   }
+
+    // const user = await getUsersRegistered(email);
+    // // Validar que el usuario no sea null ni undefined
+    // if (user) {
+    //   res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+    // }else {
+    //   // Add new user
+    //   const hash = await bcrypt.hash(password, saltRounds);
+    //   state = 0;
+    //   await registerUser(fullname, email, hash, phone, state);
+    //   res.status(201).json({ success: true, message: "Registro exitoso." });
+    // }
+  // } catch (error){
+  //   console.error("Error al registrar el usuario:", error);
+  //   res.status(500).json({ message: "Error del servidor al registrar el usuario." });
+  // }
 });
 
 // Manejo de rutas no encontradas (404)
