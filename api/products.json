@@ -1,0 +1,132 @@
+{
+  "productos":[
+    {
+      "id": 1,
+      "nombre": "Laptop Dell Inspiron",
+      "precio": 1765000,
+      "descripcion": "Potente Laptop Dell Inspiron con 8GB de RAM y 512GB de almacenamiento SSD, ideal para tareas multitarea y almacenamiento rápido. Equipada con una pantalla Full HD de 15.6 pulgadas, procesador Intel Core i3 de octava generación y gráficos integrados, esta laptop es perfecta para profesionales y estudiantes que necesitan rendimiento y portabilidad.",
+      "categoria": "Laptops",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/1-portatil.webp"
+    },
+    {
+      "id": 2,
+      "nombre": "Smartphone Samsung Galaxy S21",
+      "precio": 1259000,
+      "descripcion": "Elegante Smartphone Samsung Galaxy S21 con 128GB de almacenamiento para capturar y guardar tus mejores momentos. Cuenta con una cámara triple de 64MP, una pantalla Dynamic AMOLED 2X de 6.2 pulgadas y un procesador Exynos 2100. Diseñado para ofrecer una experiencia móvil fluida y avanzada, es ideal para usuarios que buscan calidad y rendimiento en un dispositivo compacto.",
+      "categoria": "Smartphones",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/2-telefono.webp"
+    },
+    {
+      "id": 3,
+      "nombre": "Tablet Apple iPad Pro",
+      "precio": 1086000,
+      "descripcion": "Impresionante Apple iPad Pro de 12.9 pulgadas y 256GB de almacenamiento, perfecto para creatividad y productividad en cualquier lugar. Equipado con el chip M1 de Apple, una pantalla Liquid Retina XDR y compatibilidad con el Apple Pencil y el Magic Keyboard, este iPad es ideal para artistas, diseñadores y profesionales que buscan un rendimiento excepcional.",
+      "categoria": "Tablets",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/3-tablet.webp"
+    },
+    {
+      "id": 4,
+      "nombre": "Monitor LG UltraWide",
+      "precio": 950000,
+      "descripcion": "Monitor LG UltraWide de 34 pulgadas con resolución 2560x1080, ideal para una experiencia de visualización amplia y envolvente. Perfecto para multitarea, gaming y edición de video, este monitor ofrece una calidad de imagen superior con colores vibrantes y negros profundos, además de múltiples opciones de conectividad para mayor flexibilidad.",
+      "categoria": "Monitores",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/4-monitor.webp"
+    },
+    {
+      "id": 5,
+      "nombre": "Auriculares Sony WH-1000XM4",
+      "precio": 1026000,
+      "descripcion": "Auriculares inalámbricos Sony WH-1000XM4 con cancelación de ruido, ofreciendo una experiencia de audio inmersiva y sin interrupciones. Con tecnología de sonido de alta resolución, micrófonos integrados para llamadas claras y una batería de larga duración que ofrece hasta 30 horas de reproducción, estos auriculares son ideales para viajes y uso diario.",
+      "categoria": "Auriculares",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/5-auriculares.webp"
+    },
+    {
+      "id": 6,
+      "nombre": "Reloj Inteligente Apple Watch Series 6",
+      "precio": 837000,
+      "descripcion": "Apple Watch Series 6 con GPS y pantalla de 44mm, monitoriza tu salud y actividad física con estilo. Equipado con sensores avanzados que miden el oxígeno en sangre, electrocardiogramas y seguimiento del sueño, este reloj inteligente te ayuda a mantenerte en forma y saludable. Además, ofrece una amplia gama de aplicaciones y notificaciones directamente en tu muñeca.",
+      "categoria": "Relojes Inteligentes",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/6-reloj.webp"
+    },
+    {
+      "id": 7,
+      "nombre": "Cámara Canon EOS R",
+      "precio": 3586000,
+      "descripcion": "Cámara Canon EOS R sin espejo de fotograma completo y 30.3MP, perfecta para fotógrafos profesionales y entusiastas. Con un sistema de enfoque automático Dual Pixel, capacidad de grabación 4K y una amplia gama de lentes intercambiables, esta cámara ofrece flexibilidad y calidad de imagen superior para capturar momentos únicos con precisión y detalle.",
+      "categoria": "Cámaras",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/7-camara.webp"
+    },
+    {
+      "id": 8,
+      "nombre": "Impresora HP LaserJet Pro",
+      "precio": 450000,
+      "descripcion": "Impresora HP LaserJet Pro, una solución eficiente y rápida para todas tus necesidades de impresión en blanco y negro. Con capacidad de impresión inalámbrica y una velocidad de impresión de hasta 30 páginas por minuto, esta impresora es ideal para oficinas pequeñas y medianas que buscan rendimiento y calidad en cada documento.",
+      "categoria": "Impresoras",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360210/products/8-impresora.webp"
+    },
+    {
+      "id": 9,
+      "nombre": "Router Asus RT-AC86U",
+      "precio": 835000,
+      "descripcion": "Router Asus RT-AC86U de doble banda con tecnología MU-MIMO, proporcionando una conexión Wi-Fi rápida y estable. Ideal para juegos en línea y streaming 4K, este router ofrece una cobertura amplia y una velocidad de hasta 2900 Mbps, además de opciones avanzadas de seguridad y configuración para una red doméstica optimizada.",
+      "categoria": "Routers",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/9-router.webp"
+    },
+    {
+      "id": 10,
+      "nombre": "Teclado Mecánico Corsair K95",
+      "precio": 365000,
+      "descripcion": "Teclado mecánico Corsair K95 con retroiluminación RGB y interruptores Cherry MX Speed, diseñado para los gamers más exigentes. Con teclas programables, memoria integrada para perfiles y un reposamuñecas desmontable, este teclado ofrece una experiencia de juego personalizada y cómoda, perfecta para largas sesiones de juego.",
+      "categoria": "Teclados",
+      "tittle": "LO ÚLTIMO",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719360209/products/10-teclado.webp"
+    }
+  ],
+  "home":[
+    {
+      "id": 1,
+      "nombre": "Auriculares Inalámbricos ANC 2",
+      "precio": 685000,
+      "descripcion": "Disfruta de una experiencia auditiva superior con los Auriculares Inalámbricos ANC 2. Equipados con tecnología de cancelación activa de ruido (ANC), estos auriculares ofrecen un sonido claro y envolvente, ideal para música, llamadas y más.",
+      "categoria": "Auriculares",
+      "tittle": "COMODIDAD Y ESTILO",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/1-auriculares.webp"
+    },
+    {
+      "id": 2,
+      "nombre": "Teclado Bluetooth Logitech",
+      "precio": 360000,
+      "descripcion": "El Teclado Bluetooth Logitech combina comodidad y rendimiento en un diseño elegante y compacto. Conecta fácilmente con dispositivos Bluetooth, ofreciendo una experiencia de escritura silenciosa y precisa. Ideal para trabajar desde casa o en movimiento.",
+      "categoria": "Teclados",
+      "tittle": "AHORRO ÚNICO",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361285/home/2-teclado.webp"
+    },
+    {
+      "id": 3,
+      "nombre": "Reloj Inteligente Whatsapp Watch",
+      "precio": 120000,
+      "descripcion": "El Reloj Inteligente Whatsapp Watch combina estilo y funcionalidad con su pantalla táctil a color y conectividad Bluetooth. Diseñado para mantenerse al día con tus mensajes, notificaciones y actividad física, perfecto para usuarios que buscan comodidad.",
+      "categoria": "Relojes Inteligentes",
+      "tittle": "TENDENCIA",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/3-reloj.webp"
+    },
+    {
+      "id": 4,
+      "nombre": "Apple iPhone 14 Plus",
+      "precio": 3659000,
+      "descripcion": "El Apple iPhone 14 Plus en color Azul combina elegancia y rendimiento avanzado. Con 128 GB de almacenamiento, este smartphone ofrece una experiencia fluida y rápida con su procesador A17 Bionic y pantalla Super Retina XDR.",
+      "categoria": "Smartphones",
+      "tittle": "EXCLUSIVO",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361285/home/4-telefono.webp"
+    },
+    {
+      "id": 5,
+      "nombre": "Portátil LG Gram 16 Oled",
+      "precio": 4259000,
+      "descripcion": "El Portátil LG Gram 16 Oled es la combinación perfecta de portabilidad y rendimiento. Con una pantalla OLED de 16 pulgadas, este ultrabook ofrece colores vibrantes y negros profundos. Equipado con un procesador Intel Core i7 de última generación, 16 GB de RAM y 1 TB de almacenamiento SSD.",
+      "categoria": "Smartphones",
+      "tittle": "TENDENCIA",
+      "imagen": "https://res.cloudinary.com/dxtiy4bsk/image/upload/v1719361286/home/5-portatil.webp"
+    }
+  ]
+}

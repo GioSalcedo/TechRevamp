@@ -1,0 +1,46 @@
+<script src="../js/app.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="/../js/products.js"></script>
+<script src="/../js/pagination.js" type="module" src=""></script>
+<script src="../js/home.js"></script>
+
+
+<script>
+  $(document).ready(function() {
+  $('body').on('click', '.page-link', function(event) {
+    event.preventDefault();
+    const page = $(this).attr('href').split('=')[1];
+
+    // Añadir clase fade-out para la animación de salida
+    $('#container-products').addClass('fade-out');
+
+    $.ajax({
+      url: `/productos-parcial?page=${page}`,
+      method: 'GET',
+      success: function(response) {
+        setTimeout(function() {
+          $('#container-products').html(response);
+
+          $('#container-products').removeClass('fade-out').addClass('fade-in');
+
+          setTimeout(function() {
+            $('#container-products').removeClass('fade-in');
+          }, 150); 
+        }, 150);
+
+        $.ajax({
+          url: `/productos?page=${page}`,
+          method: 'GET',
+          success: function(response) {
+            $('.pagination').html($(response).find('.pagination').html());
+          }
+        });
+      },
+      error: function(xhr, status, error) {
+        console.error(`Error: ${error}`);
+      }
+    });
+  });
+});
+
+</script>

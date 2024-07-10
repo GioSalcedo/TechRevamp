@@ -1,0 +1,30 @@
+<!-- products.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('partials/header'); %>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar'); %>
+    </header>
+    <%- include('partials/header-recommendation'); %>
+    <%- include('partials/carrusel')%> 
+    <%- include('partials/nav-pagination', {page: page, totalPages: totalPages }); %>
+    <div class="container-products" id="container-products">
+      <%- include('partials/container-products', { productos: productos }); %>
+    </div>
+    <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
+    }); %> 
+    <%- include('partials/categories')%> 
+    <%- include('partials/footer');%> 
+    <%- include('partials/scripts'); %>
+    <script src="/../js/carrusel.js"></script>
+  </body>
+</html>

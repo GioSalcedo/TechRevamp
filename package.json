@@ -1,0 +1,36 @@
+{
+  "name": "project-generation",
+  "version": "1.0.0",
+  "main": "about-us.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "db": "nodemon src/mysql.js",
+    "install-deps": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GioSalcedo/project-generation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GioSalcedo/project-generation/issues"
+  },
+  "homepage": "https://github.com/GioSalcedo/project-generation#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "mkdirp": "^3.0.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.10.1",
+    "nodemon": "^3.1.2"
+  },
+  "description": "",
+  "devDependencies": {
+    "jquery": "^3.7.1"
+  }
+}

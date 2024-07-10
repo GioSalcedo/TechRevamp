@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('partials/header');%>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/navbar');%>
+  </header>
+  <main>
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <h2>Solicitar Reparación</h2>
+        <p>Un miembro de nuestro equipo se pondrá en contacto contigo pronto para coordinar la reparación de tu dispositivo
+          electrónico.</p>
+        <form class="contact-form" id="forms">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico">
+
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Ingresa tu nombre">
+
+          <label for="phone">Número de teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ingresa tu número de telefono">
+
+          <label for="topic">Elige un dispositivo</label>
+          <select id="topic" name="topic">
+            <option value="">Selecciona un dispositivo</option>
+            <option value="soporte">Portatil</option>
+            <option value="ventas">Celular</option>
+            <option value="ventas">Tablet</option>
+            <option value="otros">Otros</option>
+          </select>
+
+          <label for="message">Detalla qué necesitas reparar</label>
+          <textarea id="message" name="message" required
+            placeholder="Ingresa un breve mensaje de cómo se dañó el dispositivo"></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+        <p>Al hacer clic en "Enviar" aceptas nuestros <a href="#">Términos de servicio</a> y <a href="#">Política de
+            privacidad</a>.</p>
+      </div>
+      <div class="contact-image">
+        <img src="/img/forms_img/repair-showcase.png" alt="img placeholder">
+      </div>
+    </div>
+  </main>
+  <%- include('partials/footer');%>
+  <%- include('partials/scripts');%>
+  <script src="/assets/js/form.js"></script>
+</body>
+
+</html>

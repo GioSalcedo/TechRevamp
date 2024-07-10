@@ -1,0 +1,154 @@
+/* ---------VISTA CELULARES--------- */
+
+.mission-container,
+.vision-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  margin-bottom: clamp(1rem, 5vw, 1.8rem);
+}
+.vision-container {
+  padding-top: 0;
+}
+.mission-img,
+.vision-img {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  border-radius: 40% 65% 35% 65% / 57% 59% 41% 43%;
+}
+.mission-img img,
+.vision-img img {
+  width: 100%;
+  border-radius: 40% 65% 35% 65% / 57% 59% 41% 43%;
+}
+.mission-text,
+.vision-text {
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(355, 355, 355, 0.9);
+  border-radius: 40% 65% 35% 65% / 57% 59% 41% 43%;
+  border: solid 1px transparent;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  transition: 0.5s ease-in-out;
+  padding: 20px;
+}
+.mission-text:hover,
+.vision-text:hover {
+  border-radius: 50%;
+}
+.mission-title, .vision-title {
+  text-align: center;
+}
+.mission-description,
+.vision-description {
+  font-size: clamp(var(--ubuntu--body--16-large-400), 4vw, var(--ubuntu--body--18-xlarge-400));
+  line-height: 1.3;
+  justify-content: center;
+  text-align: center;
+  border-radius: 40% 65% 35% 65% / 57% 59% 41% 43%;
+  border: solid 1px transparent;
+  color: var(--Colors-primary-blue-950);
+  position: relative;
+  height: fit-content;
+}
+.mission-description p,
+.vision-description p{
+  border-radius: 40% 65% 35% 65% / 57% 59% 41% 43%;
+  height: 100%;
+  border: solid 1px transparent;
+  padding-top: clamp(10px, 3vw, 20px);
+  padding-right: clamp(20px, 7vw, 40px);
+  padding-bottom: 20px;
+  padding-left: clamp(15px, 5vw, 40px);
+}
+.vision-description p{
+  padding-bottom: clamp(10px, 4vw, 25px);
+}
+
+/* ---------VISTA TABLETS--------- */
+@media only screen and (min-width: 768px) { 
+  .mission-container,
+  .vision-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+    align-items: stretch;
+    margin-bottom: 0;
+  }
+  .vision-container {
+    direction: rtl;
+    margin-bottom: 1.5rem;
+  }  
+  .mission-text,
+  .vision-text {
+    padding: 20px;
+    min-width: 350px;
+    max-width: 364px;
+    min-height: 250px;
+  }
+  .mission-description,
+  .vision-description {
+    font-size: clamp(var(--ubuntu--body--16-large-400), 1.85vw, var(--ubuntu--body--18-xlarge-400));
+  }
+  .mission-description p,
+  .vision-description p{
+    padding-top: clamp(20px, 2vw, 25px);
+    padding-right: 24px;
+    padding-bottom: 0px;
+    padding-left: clamp(20px, 2vw, 25px);
+  }
+  .vision-description p{
+    padding-left: 30px;
+    padding-bottom: 20px;
+  }
+  .text-ltr {
+    direction: ltr;
+  }
+}
+/* ---------VISTA ESCRITORIO--------- */
+ @media only screen and (min-width: 1200px) {
+  .mission-container,
+  .vision-container {
+    padding: 2rem;
+    gap: clamp(20px, 4vw, 70px);
+    max-width: 1500px;
+  }
+  .mission-container{
+    justify-content: left;
+  }
+  .vision-container{
+    justify-content: right;
+  }
+  .mission-img{
+    padding-left: clamp(2rem ,7vw, 10rem);
+  }
+  .vision-img{
+    padding-right:  clamp(2rem ,7vw, 10rem);
+  }
+  .vision-container {
+    margin-bottom: 2rem;
+  }  
+  .mission-img,
+  .vision-img {
+  height: clamp(333px, 10vw, 500px);  
+  max-width: none;
+  }
+  .mission-text,
+  .vision-text {
+    padding: 24px;
+    max-width: 500px;
+  }
+  .mission-description,
+  .vision-description {
+    font-size: 20px;
+  }
+}
