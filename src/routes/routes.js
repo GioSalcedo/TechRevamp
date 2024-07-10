@@ -272,22 +272,6 @@ router.post("/api/registrations", async (req, res) => {
     console.error("Error al registrar el usuario:", error);
     res.status(500).json({ message: "Error del servidor al registrar el usuario." });
   }
-
-    // const user = await getUsersRegistered(email);
-    // // Validar que el usuario no sea null ni undefined
-    // if (user) {
-    //   res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
-    // }else {
-    //   // Add new user
-    //   const hash = await bcrypt.hash(password, saltRounds);
-    //   state = 0;
-    //   await registerUser(fullname, email, hash, phone, state);
-    //   res.status(201).json({ success: true, message: "Registro exitoso." });
-    // }
-  // } catch (error){
-  //   console.error("Error al registrar el usuario:", error);
-  //   res.status(500).json({ message: "Error del servidor al registrar el usuario." });
-  // }
 });
 
 // Manejo de rutas no encontradas (404)
