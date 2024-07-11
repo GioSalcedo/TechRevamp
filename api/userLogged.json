@@ -1,5 +1,6 @@
 {
-  "fullname": "Raccoon",
+  "firstName": "Raccoon",
+  "lastName": "Java5",
   "phone": "3216548574",
   "email": "raccoon@testing.com",
   "password": "$2b$10$sAUhRr5dPHhQ3LiCJZuPOuJAxEKy1rhuSRDbR/oCpO2EewRYMrypO"

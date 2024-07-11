@@ -6,7 +6,7 @@ const fs = require('fs');
 // const fetch = require('node-fetch');
 
 // Manejo de base de datos
-const pool = require ("./../database/connection-database");
+//const pool = require ("./../database/connection-database");
 const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../mysql.js');
 
 // Autenticación
@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
   // Obtener usuario sesión iniciada
   const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
   const userData = JSON.parse(fileUser);
-  const userName = userData.fullname;
+  const userName = userData.name;
   // Render the main products page
   res.render('index', { productos: paginatedProducts, page, totalPages, userName });
 });
@@ -78,7 +78,7 @@ router.get('/productos', (req, res) => {
   // Obtener usuario sesión iniciada
   const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
   const userData = JSON.parse(fileUser);
-  const userName = userData.fullname;
+  const userName = userData.name;
 
   // Render the main products page
   res.render('products', { productos: paginatedProducts, page, totalPages, userName });
@@ -209,11 +209,15 @@ router.get("/iniciar-sesion", (req, res) => {
 
 //? Registro de usuarios
 router.post("/api/registrations", async (req, res) => {
-  const { fullname, email, password, phone, repeatPassword } = req.body;
+  const { firstName, lastName, email, password, phone, repeatPassword } = req.body;
 
-  // Validate name
-  if (!fullname || fullname.length < 4) {
+  // Validate first name
+  if (!firstName || firstName.length < 4) {
     return res.status(400).json({ message: "El nombre debe tener al menos 4 caracteres." });
+  }
+  // Validate last name
+  if (!lastName || lastName.length < 4) {
+    return res.status(400).json({ message: "El apellido debe tener al menos 4 caracteres." });
   }
 
   // Validate phone
@@ -247,8 +251,8 @@ router.post("/api/registrations", async (req, res) => {
     const hash = await bcrypt.hash(password, saltRounds);
     // Pendiente *modificar firstname y lastname en form registro. 
     const newUser = {
-      firstName: fullname.split(" ")[0],
-      lastName: fullname.split(" ").slice(1).join(" "),
+      firstName,
+      lastName,
       email,
       password: hash,
       phone, 
