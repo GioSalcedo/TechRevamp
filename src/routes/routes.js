@@ -236,6 +236,8 @@ router.post("/api/registrations", async (req, res) => {
     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
 
+
+
   // Validate password
   const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
@@ -248,6 +250,19 @@ router.post("/api/registrations", async (req, res) => {
   }
 
   try{
+    const user = await fetch(`${BASE_URL}/users/email/${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      //body: JSON.stringify(newUser)
+    });
+    // Validar que el usuario no sea null ni undefined
+    if (user) {
+      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+    }else {
+      // Add new user
+
     const hash = await bcrypt.hash(password, saltRounds);
     // Pendiente *modificar firstname y lastname en form registro. 
     const newUser = {
@@ -272,7 +287,7 @@ router.post("/api/registrations", async (req, res) => {
     } else{
       throw new Error('Error al registrar usuario en la API Spring Boot');
     }
-  } catch (error){
+  }} catch (error){
     console.error("Error al registrar el usuario:", error);
     res.status(500).json({ message: "Error del servidor al registrar el usuario." });
   }
