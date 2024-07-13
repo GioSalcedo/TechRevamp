@@ -1,0 +1,47 @@
+<div class="shopping-product">
+  <div class="product-image">
+    <img src="<%= producto.imagen %>" alt="Imagen de producto">
+  </div>
+  <div class="inf-product">
+    <div class="info-selected">
+      <h4><%= producto.nombre %></h4>
+      <div class="color-selected">
+        <span class="color-circle"></span>
+        <select class="color" name="color">
+          <option value="">Color</option>
+          <option value="gris">Gris</option>
+          <option value="negro">Negro</option>
+          <option value="blanco">Blanco</option>
+        </select>
+      </div>
+      <div class="cant-selected">
+        <span class="minus">-</span>
+        <span class="quantity">1</span>
+        <span class="plus">+</span>
+      </div>
+    </div>
+    <div class="info-price">
+      <div class="price">
+        <span class="discount">
+          <p class="discount-percentage">-28%</p>
+          <% function formatCurrency(amount) { %>
+            <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
+          <p class="original-price"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
+        </span>
+        <p class="discount-price"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
+      </div>
+      <button class="delete-product">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <g clip-path="url(#clip0_1230_850)">
+            <path d="M11.5504 8.23587L9.97888 6.66339H11.3343L13.4951 2.73219H6.05019L4.47871 1.15971H14.7915C15.0927 1.15971 15.3252 1.28747 15.4889 1.543C15.6526 1.79853 15.6558 2.07699 15.4987 2.37838L12.7093 7.41032C12.5653 7.6724 12.3787 7.87551 12.1495 8.01966C11.9203 8.1638 11.7206 8.23587 11.5504 8.23587ZM4.61622 15.312C4.18406 15.312 3.81411 15.1581 3.50636 14.8501C3.19861 14.5422 3.04474 14.172 3.04474 13.7396C3.04474 13.3071 3.19861 12.9369 3.50636 12.629C3.81411 12.321 4.18406 12.1671 4.61622 12.1671C5.04837 12.1671 5.41832 12.321 5.72607 12.629C6.03382 12.9369 6.18769 13.3071 6.18769 13.7396C6.18769 14.172 6.03382 14.5422 5.72607 14.8501C5.41832 15.1581 5.04837 15.312 4.61622 15.312ZM14.6737 15.7838L10.2342 11.3808H5.08766C4.51145 11.3808 4.07275 11.1351 3.77155 10.6437C3.47035 10.1523 3.4507 9.638 3.71262 9.10074L4.53764 7.41032L3.12331 4.22604L0.216078 1.31695C0.0720261 1.17281 0 0.989353 0 0.766585C0 0.543817 0.0720261 0.36036 0.216078 0.216216C0.36013 0.0720721 0.543469 0 0.766095 0C0.988721 0 1.17206 0.0720721 1.31611 0.216216L15.7737 14.683C15.9178 14.8272 15.9931 15.0074 15.9996 15.2236C16.0062 15.4398 15.9309 15.6265 15.7737 15.7838C15.6297 15.9279 15.4463 16 15.2237 16C15.0011 16 14.8177 15.9279 14.6737 15.7838ZM8.66277 9.80835L7.09129 8.23587H5.8734L5.08766 9.80835H8.66277ZM12.4736 15.312C12.0414 15.312 11.6715 15.1581 11.3637 14.8501C11.056 14.5422 10.9021 14.172 10.9021 13.7396C10.9021 13.3071 11.056 12.9369 11.3637 12.629C11.6715 12.321 12.0414 12.1671 12.4736 12.1671C12.9058 12.1671 13.2757 12.321 13.5835 12.629C13.8912 12.9369 14.0451 13.3071 14.0451 13.7396C14.0451 14.172 13.8912 14.5422 13.5835 14.8501C13.2757 15.1581 12.9058 15.312 12.4736 15.312Z" fill="#E93828"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1230_850">
+              <rect width="16" height="16" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
