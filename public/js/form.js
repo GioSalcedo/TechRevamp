@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
     const emailInput = document.getElementById('email');
-    const nameInput = document.getElementById('name');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
     const phoneInput = document.getElementById('phone');
     const topicSelect = document.getElementById('topic');
     const messageTextarea = document.getElementById('message');
@@ -15,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function clearErrorStyles() {
         emailInput.style.borderColor = '';
-        nameInput.style.borderColor = '';
+        firstNameInput.style.borderColor = '';
+        lastNameInput.style.borderColor = '';
         phoneInput.style.borderColor = '';
         topicSelect.style.borderColor = '';
         messageTextarea.style.borderColor = '';
@@ -32,10 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return '';
     }
 
-    function validateName() {
-        if (nameInput.value.trim() === '') {
-            nameInput.style.borderColor = errorColor;
+    function validateFirstName() {
+        if (firstNameInput.value.trim() === '') {
+            firstNameInput.style.borderColor = errorColor;
             return 'Por favor, ingrese su nombre.';
+        }
+        return '';
+    }
+
+    function validateLastName() {
+        if (lastNameInput.value.trim() === '') {
+            lastNameInput.style.borderColor = errorColor;
+            return 'Por favor, ingrese su apellido.';
         }
         return '';
     }
@@ -97,7 +107,13 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        errorMessage = validateName();
+        errorMessage = validateFirstName();
+        if (errorMessage) {
+            showError(errorMessage);
+            return;
+        }
+
+        errorMessage = validateLastName();
         if (errorMessage) {
             showError(errorMessage);
             return;

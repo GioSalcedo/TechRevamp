@@ -203,7 +203,7 @@
   color: var(--primary-blue-950, #063646);
 }
 
-.fullname {
+.firstName, .lastName{
   font-weight: 700;
 }
 
