@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const subtotalElement = document.getElementById('subtotal');
   const totalElement = document.getElementById('total');
   const shippingCost = 25000;
-  const colorSelect = document.getElementById('color');
-  const colorCircle = document.getElementById('color-circle');
+  const colorSelects  = document.querySelectorAll('.color');
+  const colorCircles  = document.querySelectorAll('.color-circle');
   const deleteButtons = document.querySelectorAll('.delete-product');
 
   // Función para formatear números como moneda
@@ -65,9 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     minusButton.disabled = initialQuantity <= 1;
   });
 
-  colorSelect.addEventListener('change', function () {
-    const selectedColor = colorSelect.value;
-
+  // Función para actualizar el color del círculo seleccionado
+  function updateColorCircle(selectedColor, circle) {
     let circleColor;
     switch (selectedColor) {
       case 'gris':
@@ -83,8 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
         circleColor = 'transparent';
         break;
     }
+    circle.style.backgroundColor = circleColor;
+  }
 
-    colorCircle.style.backgroundColor = circleColor;
+  // Event listener para cada select de color
+  colorSelects.forEach((select, index) => {
+    select.addEventListener('change', function () {
+      const selectedColor = select.value;
+      updateColorCircle(selectedColor, colorCircles[index]);
+    });
   });
 
   // Funcionalidad eliminar del carrito 

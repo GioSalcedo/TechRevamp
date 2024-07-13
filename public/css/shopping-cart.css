@@ -135,7 +135,7 @@
   max-height: 100px;
 }
 
-.inf-product #color{
+.inf-product .color{
   display: flex;
   padding: 4px 8px;
   justify-content: center;
@@ -147,7 +147,7 @@
   color: var(--primary-blue-principal-900, #11485A);
 }
 
-.inf-product #color:focus{
+.inf-product .color:focus{
   border: 0.5px solid var(--primary-blue-800, #126378);
   outline: none;
 }
