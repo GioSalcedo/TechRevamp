@@ -294,6 +294,7 @@ router.post("/api/registrations", async (req, res) => {
     });
 
     if(response.ok){
+      userName = firstName;
       res.status(201).json({ success: true, message: "Registro exitoso." });
     } else{
       throw new Error('Error al registrar usuario en la API Spring Boot');
