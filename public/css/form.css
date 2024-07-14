@@ -1,3 +1,11 @@
+#repairText{
+  margin: 0 auto; 
+  max-width: 1200px; 
+  padding: 20px; 
+  line-height: 1.6; 
+  text-align: justify;
+  font-size: 20px;
+}
 .contact-container {
     background-color: var(--Colors-neutral-white, #fafefe);
     padding: 20px;
