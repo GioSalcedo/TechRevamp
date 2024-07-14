@@ -1,9 +1,9 @@
 //animated banner
 const images = [
-  '/img/home/banner 0.gif',
-  '/img/home/banner1.gif',
-  '/img/home/banner2.gif',
-  '/img/home/banner3.gif',
+  '/img/home/banner 0 fixed.gif',
+  '/img/home/banner 1 fixed.gif',
+  '/img/home/banner 2 fixed.gif',
+  '/img/home/banner 3 fixed.gif',
 ];
 
 let currentImageIndex = 0;

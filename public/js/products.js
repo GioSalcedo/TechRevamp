@@ -1,6 +1,6 @@
 //Banner Productos
 const videos = [
-    '/img/products/bannerProducts.mp4',
+    'https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4',
 ];
 
 // Banner inicial
