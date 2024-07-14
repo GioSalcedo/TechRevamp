@@ -3,11 +3,7 @@ const { Router } = require('express');
 const router = Router();
 const path = require('path');
 const fs = require('fs');
-// const fetch = require('node-fetch');
-
-// Manejo de base de datos
-//const pool = require ("./../database/connection-database");
-const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../mysql.js');
+let userName;
 
 // Autenticación
 const bcrypt = require('bcrypt');
@@ -32,10 +28,6 @@ router.get("/", (req, res) => {
 
   const totalPages = Math.ceil(productos.length / perPage);
 
-  // Obtener usuario sesión iniciada
-  const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
-  const userData = JSON.parse(fileUser);
-  const userName = userData.name;
   // Render the main products page
   res.render('index', { productos: paginatedProducts, page, totalPages, userName });
 });
@@ -75,11 +67,6 @@ router.get('/productos', (req, res) => {
   const paginatedProducts = productos.slice(start, end);
 
   const totalPages = Math.ceil(productos.length / perPage);
-
-  // Obtener usuario sesión iniciada
-  const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
-  const userData = JSON.parse(fileUser);
-  const userName = userData.name;
 
   // Render the main products page
   res.render('products', { productos: paginatedProducts, page, totalPages, userName });
@@ -187,7 +174,8 @@ router.post("/api/login", async (req, res) => {
 
       if (compareResult) {
         if (rememberMe) {
-          localStorage.setItem('userData', JSON.stringify({ email, password }));
+          const firstame = data.firstName;
+          localStorage.setItem('userData', JSON.stringify({ firstame, email, password}));
         }
         try {
           // Actualizar el estado de logueo del usuario
@@ -199,6 +187,9 @@ router.post("/api/login", async (req, res) => {
             },
             body: JSON.stringify(data)
           });
+
+          //asignar nombre logueado a userName impreso 
+          userName = data.firstName;
 
           res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
         } catch (err) {
