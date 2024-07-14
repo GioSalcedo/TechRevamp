@@ -1,5 +1,6 @@
 //animated banner
 const images = [
+  '/img/home/banner 0.gif',
   '/img/home/banner1.gif',
   '/img/home/banner2.gif',
   '/img/home/banner3.gif',

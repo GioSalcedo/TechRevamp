@@ -162,43 +162,45 @@ router.get("/registro", (req, res) => {
   res.render('registration');
 });
 
+//!LOGIN
 router.post("/api/login", async (req, res) => {
   const { email, password, rememberMe } = req.body;
   try {
-    const user = await getUsersRegistered(email);
-    // Validar que el usuario no sea null ni undefined
-    if (user) {
-      // Comparar la contraseña ingresada con el hash almacenado
-      bcrypt.compare(password, user.password, async (compareErr, compareResult) => {
-        if (compareErr) {
-          return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
-        }
+    const user = await fetch(`${BASE_URL}/users/email/${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });  
+    console.log(user);
+    // Validar que el usuario esté registrado
+    if (user.ok) {
+      const response = await fetch(`${BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(email, password)
+      }); 
 
-        if (compareResult) {
+      // Comparar la contraseña ingresada con el hash almacenado
+     // bcrypt.compare(password, user.password, async (compareErr, compareResult) => {
+        if (response.ok) {
           if (rememberMe) {
             localStorage.setItem('userData', JSON.stringify({ email, password }));
           }
-          try {
-            // Actualizar el estado de logueo del usuario
-            state = 1;
-            await updateLoginStateUser(state, email);
-            res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
-          } catch (err) {
-            res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${state}, error catch ${err}, ` });
-          }
-
+          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user: data });
+        } else if (response.status === 401) {
+            const errorData = await response.json();
+            res.status(401).json({ success: false, message: errorData.message });
         } else {
-          res.status(401).json({ success: false, message: `Contraseña incorrecta.\n password digitada: ${password} \n password bd: ${user.password}, user: ${user}`});
+            throw new Error('Error del servidor al iniciar sesión.');
         }
-      });
-    } else {
-      res.status(401).json({ success: false, message: "Correo electrónico inválido." });
+    }} catch (error) {
+        console.error("Error al intentar iniciar sesión:", error);
+        res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
     }
-  } catch (error) {
-    console.error("Error al intentar iniciar sesión:", error);
-    res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
-  }
-});
+});  
 
 router.get("/cerrar-sesion", (req, res) => {
   res.redirect('/iniciar-sesion');
@@ -236,6 +238,8 @@ router.post("/api/registrations", async (req, res) => {
     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
 
+
+
   // Validate password
   const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
   if (!passwordPattern.test(password)) {
@@ -248,6 +252,18 @@ router.post("/api/registrations", async (req, res) => {
   }
 
   try{
+    const user = await fetch(`${BASE_URL}/users/email/${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    // Validar que el usuario no sea null ni undefined
+    if (user.ok) {
+      res.status(400).json({message: "El correo electrónico ya se encuentra registrado"})
+    }else {
+      // Add new user
+
     const hash = await bcrypt.hash(password, saltRounds);
     // Pendiente *modificar firstname y lastname en form registro. 
     const newUser = {
@@ -259,6 +275,7 @@ router.post("/api/registrations", async (req, res) => {
       isLoggedIn: true
     };
 
+    //REGISTRA USUARIO.
     const response = await fetch(`${BASE_URL}/users/register`, {
       method: 'POST',
       headers: {
@@ -272,7 +289,7 @@ router.post("/api/registrations", async (req, res) => {
     } else{
       throw new Error('Error al registrar usuario en la API Spring Boot');
     }
-  } catch (error){
+  }} catch (error){
     console.error("Error al registrar el usuario:", error);
     res.status(500).json({ message: "Error del servidor al registrar el usuario." });
   }
