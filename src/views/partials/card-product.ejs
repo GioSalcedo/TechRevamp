@@ -1,16 +1,16 @@
 <div class="card-product">
-  <img src="<%= producto.imagen %>" alt="Imagen de producto" />
+  <img src="<%= producto.image %>" alt="Imagen de producto" />
   <% function formatCurrency(amount) { %>
     <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
   <div class="info-card-product">
-    <h3><%= producto.nombre %></h3>
+    <h3><%= producto.name %></h3>
     <div class="price-and-discount">
-      <p class="price-1"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
+      <p class="price-1"><%= formatCurrency((producto.price * 1.25).toFixed(2)) %></p>
       <p class="discount">25%</p>
     </div>
-    <p class="price-2"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
+    <p class="price-2"><%= formatCurrency(producto.price.toFixed(2)) %></p>
     <div class="botton-info-card-product">
-      <a href="/productos/<%= producto.id %>">Ver Detalle</a>
+      <a href="/productos/<%= producto.productId %>">Ver Detalle</a>
       <button>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M8.95461 6.09524C9.40234 6.09524 9.76866 5.75238 9.76866 5.33333V3.80952H11.3968C11.8445 3.80952 12.2108 3.46667 12.2108 3.04762C12.2108 2.62857 11.8445 2.28571 11.3968 2.28571H9.76866V0.761905C9.76866 0.342857 9.40234 0 8.95461 0C8.50688 0 8.14055 0.342857 8.14055 0.761905V2.28571H6.51244C6.06471 2.28571 5.69839 2.62857 5.69839 3.04762C5.69839 3.46667 6.06471 3.80952 6.51244 3.80952H8.14055V5.33333C8.14055 5.75238 8.50688 6.09524 8.95461 6.09524ZM4.88433 12.9524C3.98887 12.9524 3.26436 13.6381 3.26436 14.4762C3.26436 15.3143 3.98887 16 4.88433 16C5.77979 16 6.51244 15.3143 6.51244 14.4762C6.51244 13.6381 5.77979 12.9524 4.88433 12.9524ZM13.0249 12.9524C12.1294 12.9524 11.4049 13.6381 11.4049 14.4762C11.4049 15.3143 12.1294 16 13.0249 16C13.9203 16 14.653 15.3143 14.653 14.4762C14.653 13.6381 13.9203 12.9524 13.0249 12.9524ZM5.77979 9.14286H11.8445C12.455 9.14286 12.9923 8.83048 13.2691 8.3581L15.9066 3.68C16.1101 3.31429 15.9718 2.85714 15.581 2.65905C15.1821 2.45333 14.6856 2.5981 14.4739 2.97143L11.8445 7.61905H6.12983L2.66196 0.761905H0.814055C0.366325 0.761905 0 1.10476 0 1.52381C0 1.94286 0.366325 2.28571 0.814055 2.28571H1.62811L4.55871 8.06857L3.45973 9.92762C2.86547 10.9486 3.64697 12.1905 4.88433 12.1905H13.8389C14.2867 12.1905 14.653 11.8476 14.653 11.4286C14.653 11.0095 14.2867 10.6667 13.8389 10.6667H4.88433L5.77979 9.14286Z" fill="#11485A"/>
