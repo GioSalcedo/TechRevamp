@@ -1,16 +1,16 @@
 <div class="card-product-detail">
-  <img src="<%= producto.imagen %>" alt="Imagen de producto" />
+  <img src="<%= producto.image %>" alt="Imagen de producto" />
   <div class="product-info">
     <% function formatCurrency(amount) { %>
       <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
     <div class="header-botton-detail">
-      <h4 class="title-detail"><%= producto.nombre %></h4>
+      <h4 class="title-detail"><%= producto.name %></h4>
       <div class="price-and-discount">
-        <p class="price-1"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
+        <p class="price-1"><%= formatCurrency((producto.price * 1.25).toFixed(2)) %></p>
         <p class="discount">-25%</p>
       </div>
       <div class="botton-info-card-product">
-        <p class="price-2"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
+        <p class="price-2"><%= formatCurrency(producto.price.toFixed(2)) %></p>
         <button class="add-to-shopping-cart" href="/carro-compras">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@
     </div>
     <div class="content-description">
       <h3>Descripción de Producto</h3>
-      <p><%= producto.descripcion %></p>
+      <p><%= producto.description %></p>
     </div>
   </div>
 </div>
