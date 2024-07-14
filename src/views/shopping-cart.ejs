@@ -22,7 +22,7 @@
             </svg>
           </a>
         </div>
-        <h3>Carrito de compras</h2>
+        <h3>Carrito de compras</h3>
         <div class="close">
           <a href="/">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -40,70 +40,61 @@
       </div>
       <!-- End of the cart nav -->
     </header>
-    <!-- Start of the cart page -->
+    <!-- Start of the cart page  totalProductsCart -->
     <main>
       <div class="principal-container">
-        <section class="empty-cart-section">
-          <div class="empty-cart-container">
-            <p>No tienes productos en tu carrito de compras</p>
-            <div class="empty-cart-image">
-              <img src="/img/shopping-cart/empty-cart.png" alt="img placeholder">
-            </div>
-            <button id="btn-explore-products" class="btn-primary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-              <path d="M13.1986 12.108H12.3645L12.0688 11.8231C13.3359 10.3458 13.9905 8.33036 13.6315 6.18827C13.1352 3.25477 10.6857 0.912194 7.72937 0.553421C3.26319 0.00470889 -0.495582 3.76128 0.0534522 8.22484C0.412436 11.1794 2.75639 13.6275 5.69161 14.1235C7.83495 14.4823 9.8516 13.828 11.3298 12.5618L11.6148 12.8572V13.6909L16.1021 18.1755C16.535 18.6082 17.2424 18.6082 17.6753 18.1755C18.1082 17.7429 18.1082 17.0359 17.6753 16.6032L13.1986 12.108ZM6.86358 12.108C4.23456 12.108 2.11233 9.98705 2.11233 7.35956C2.11233 4.73207 4.23456 2.61109 6.86358 2.61109C9.49261 2.61109 11.6148 4.73207 11.6148 7.35956C11.6148 9.98705 9.49261 12.108 6.86358 12.108Z" fill="#FAFEFE"/>
-            </svg>Explorar productos</button>
+        <h1>Carrito de compras</h1>
+        <h3>Productos en carrito:</h3>
+        <div class="empty-cart-container hide">
+          <p>No tienes productos en tu carrito de compras</p>
+          <div class="empty-cart-image">
+            <img src="/img/shopping-cart/empty-cart.png" alt="img placeholder">
           </div>
-          <div class="recommended-products">
-            <!-- Start of the carrousel product cards-->
-            <h3>Productos recomendados</h3>
-            <div class="container-products" id="container-products">
-              <%- include('partials/container-products', { productos: productos }); %>
-            </div>
-            <!-- End of the carrousel product cards-->
-          </div>
-        </section>
+          <button id="btn-explore-products" class="btn-primary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+            <path d="M13.1986 12.108H12.3645L12.0688 11.8231C13.3359 10.3458 13.9905 8.33036 13.6315 6.18827C13.1352 3.25477 10.6857 0.912194 7.72937 0.553421C3.26319 0.00470889 -0.495582 3.76128 0.0534522 8.22484C0.412436 11.1794 2.75639 13.6275 5.69161 14.1235C7.83495 14.4823 9.8516 13.828 11.3298 12.5618L11.6148 12.8572V13.6909L16.1021 18.1755C16.535 18.6082 17.2424 18.6082 17.6753 18.1755C18.1082 17.7429 18.1082 17.0359 17.6753 16.6032L13.1986 12.108ZM6.86358 12.108C4.23456 12.108 2.11233 9.98705 2.11233 7.35956C2.11233 4.73207 4.23456 2.61109 6.86358 2.61109C9.49261 2.61109 11.6148 4.73207 11.6148 7.35956C11.6148 9.98705 9.49261 12.108 6.86358 12.108Z" fill="#FAFEFE"/>
+          </svg>Explorar productos</button>
+        </div>
         <div class="cart-with-products-container">
-          <p>Tus productos:</p>
           <div class="products-selected-list">
-            <div class="product-selected-card">
-              <div class="product-image">
-                <img src="/img/products/mac.png" alt="img placeholder">
-              </div>
-              <div class="inf-product">
-                <h4>MacBook Pro 2020</h2>
-                <div class="color-selected">
-                  <select id="color" name="color">
-                    <option value="">Color</option>
-                    <option value="gris">Gris</option>
-                    <option value="negro">Negro</option>
-                    <option value="blanco">Blanco</option>
-                  </select>
-                </div>
-                <div class="cant-selected">
-                  <span class="minus">-</span>
-                  <span class="quantity">01</span>
-                  <span class="plus">+</span>
-                </div>
-                <div class="price">
-                  <span class="discount">-28%</span>
-                  <span class="original-price">$ 2800000</span>
-                  <span class="discount-price">$ 2000000</span>
-                </div>
-                <i class="delete-product-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <g clip-path="url(#clip0_1230_850)">
-                      <path d="M11.5504 8.23587L9.97888 6.66339H11.3343L13.4951 2.73219H6.05019L4.47871 1.15971H14.7915C15.0927 1.15971 15.3252 1.28747 15.4889 1.543C15.6526 1.79853 15.6558 2.07699 15.4987 2.37838L12.7093 7.41032C12.5653 7.6724 12.3787 7.87551 12.1495 8.01966C11.9203 8.1638 11.7206 8.23587 11.5504 8.23587ZM4.61622 15.312C4.18406 15.312 3.81411 15.1581 3.50636 14.8501C3.19861 14.5422 3.04474 14.172 3.04474 13.7396C3.04474 13.3071 3.19861 12.9369 3.50636 12.629C3.81411 12.321 4.18406 12.1671 4.61622 12.1671C5.04837 12.1671 5.41832 12.321 5.72607 12.629C6.03382 12.9369 6.18769 13.3071 6.18769 13.7396C6.18769 14.172 6.03382 14.5422 5.72607 14.8501C5.41832 15.1581 5.04837 15.312 4.61622 15.312ZM14.6737 15.7838L10.2342 11.3808H5.08766C4.51145 11.3808 4.07275 11.1351 3.77155 10.6437C3.47035 10.1523 3.4507 9.638 3.71262 9.10074L4.53764 7.41032L3.12331 4.22604L0.216078 1.31695C0.0720261 1.17281 0 0.989353 0 0.766585C0 0.543817 0.0720261 0.36036 0.216078 0.216216C0.36013 0.0720721 0.543469 0 0.766095 0C0.988721 0 1.17206 0.0720721 1.31611 0.216216L15.7737 14.683C15.9178 14.8272 15.9931 15.0074 15.9996 15.2236C16.0062 15.4398 15.9309 15.6265 15.7737 15.7838C15.6297 15.9279 15.4463 16 15.2237 16C15.0011 16 14.8177 15.9279 14.6737 15.7838ZM8.66277 9.80835L7.09129 8.23587H5.8734L5.08766 9.80835H8.66277ZM12.4736 15.312C12.0414 15.312 11.6715 15.1581 11.3637 14.8501C11.056 14.5422 10.9021 14.172 10.9021 13.7396C10.9021 13.3071 11.056 12.9369 11.3637 12.629C11.6715 12.321 12.0414 12.1671 12.4736 12.1671C12.9058 12.1671 13.2757 12.321 13.5835 12.629C13.8912 12.9369 14.0451 13.3071 14.0451 13.7396C14.0451 14.172 13.8912 14.5422 13.5835 14.8501C13.2757 15.1581 12.9058 15.312 12.4736 15.312Z" fill="#E93828"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_1230_850">
-                        <rect width="16" height="16" fill="white"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </i>
-              </div>
-            </div>
+            <%- include('partials/container-cart-products', { productos: productos }); %>
           </div>
+          <div class="products-selected-total">
+            <% function formatCurrency(amount) { %>
+              <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
+            <% if (productos && productos.length > 0) { %>
+              <% let subtotal = 0; %>
+              <% productos.forEach(producto => { %> 
+                <% subtotal += producto.precio; %>
+              <% }); %>
+              <% 
+                const precioEnvio = 25000;
+                const total = subtotal + precioEnvio;
+              %>
+              <div class="subtotal-cart">
+                <p>Subtotal:</p>
+                <p class="price-value" id="subtotal"><%= formatCurrency(subtotal.toFixed(2)) %></p>
+              </div>
+              <div class="envio-cart">
+                <p>Precio de envío:</p>
+                <p class="price-value"><%= formatCurrency(precioEnvio.toFixed(2)) %></p>
+              </div>
+              <div class="total-cart">
+                <p>Total:</p>
+                <p class="price-value" id="total"><%= formatCurrency(total.toFixed(2)) %></p>
+              </div>
+            <% } else { %>
+              <p>No hay productos disponibles.</p>
+            <% } %>
+            <button class="btn-pay">Ir a pagar</button>
+          </div>
+        </div>
+        <div class="recommended-products">
+          <!-- Start of the carrousel product cards-->
+          <h3>Productos recomendados</h3>
+          <div class="container-products" id="container-products">
+            <%- include('partials/container-products', { productos: productos }); %>
+          </div>
+          <!-- End of the carrousel product cards-->
         </div>
       </div>
     </main>

@@ -13,31 +13,38 @@
 
 #navsuperior{
     width: 100%;
+    max-width: 1376px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
 .logo{
     height: 40px;
     cursor: pointer;  
 }
-.icons{
+.icons, .login-nav{
     display: flex;
     align-items: center;
     gap: 16px;
 }
-.icons svg{
+.icons svg, .login-nav svg{
     width:26px;
     height: 26px;
     cursor: pointer;
+}
+
+.login-nav a{
+    display: none;
 }
 
 .menu{
     display: none;
     justify-content: center;
     align-items: center;
+    max-width: 1376px;
 }
-.menu a{
+.menu a, .login-user, .login-text{
     text-align: left;
     color: var(--Colors-neutral-white, #FAFEFE);
     text-decoration: none;
@@ -155,9 +162,26 @@
     .logo{
         height: 60px;
     }
-    .icons svg{
+    .icons svg, .login-nav svg{
         width:32px;
         height: 32px;
+    }
+
+    .login-nav a{
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 12px;
+        min-width: 210px;
+    }
+
+    .toggle{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+        width: 100%;
     }
 
     .searchbar-hiddenonphone{
@@ -178,17 +202,17 @@
         width: 24px;
     }
 
-    .menu a,
+    .menu a, .login-user, .login-text,
     input,
     input::placeholder
     {
         font-size: 1.15rem; 
     }           
     .menu-list{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        row-gap: 10px;
-        column-gap: 50px; 
+        display: flex;
+        gap: 16px;
+        width: 100%;
+        justify-content: space-evenly;
     }
     .menu-list a{
         display: flex;
@@ -204,20 +228,20 @@
 
 @media (min-width: 1200px){
     .navbar-blue{
-        padding: 32px;
-        gap:32px;
+        padding: 16px 50px;
+        gap: 24px;
     }
 
     .logo{
         height: 70px;
     }
-    .icons svg{
+    .icons svg, .login-nav svg{
         width:40px;
         height:40px;
     }
 
     .searchbar-hiddenonphone{
-        margin: 0 32px;
+        /* margin: 0 32px; */
     }
     .searchbar-hiddenonphone input{
         height: 44px;
@@ -238,7 +262,7 @@
         display: block;
         width: 100%;
     }
-    .menu a,
+    .menu a, .login-user, .login-text,
     input,
     input::placeholder
     {
