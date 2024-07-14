@@ -1,3 +1,13 @@
+//Banner Productos
+const videos = [
+    'https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4',
+];
+
+// Banner inicial
+videoSourceElement.src = videos[0];
+bannerVideoElement.load();
+bannerVideoElement.play();
+
 const productos = {
     productos: [
         {
@@ -104,3 +114,4 @@ function agregarProducto(nombre, precio, categoria, descripcion, imagen) {
 
 // Ejemplo de uso
 agregarProducto("Disco Duro Externo Seagate", 600, "Laptops", "Disco Duro Externo Seagate de 2TB, USB 3.0", "https://exitocol.vteximg.com.br/arquivos/ids/22241706/Celular-XIAOMI-Redmi-Note-13-PRO-256-GB-8-GB-RAM-LILA-3497841_a.jpg");
+

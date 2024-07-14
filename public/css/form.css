@@ -1,3 +1,10 @@
+#repairText{
+  text-align: justify;
+  font-size: 18px;
+}
+#leftSize-form{
+  max-width: 600px;
+}
 .contact-container {
     background-color: var(--Colors-neutral-white, #fafefe);
     padding: 20px;
@@ -6,11 +13,12 @@
     display: flex;
     flex-direction: column;
     color: var(  --Colors-primary-blue-principal-900, #11485A);
+    gap: 100px;
   }
   
   .contact-container h2 {
     font-size: var(--ubuntu--headline--32-large-400);
-    text-align: center;
+    text-align: left;
     margin-bottom: 10px;
   }
   
@@ -129,14 +137,14 @@
     font-size: 18px;
   }
   
-  #email, #name, #phone, #topic, #message{
+  #email, #firstName, #phone, #topic, #message{
     font-size: 18px;
   }
   #email::placeholder,
-  #name::placeholder,
+  #firstName::placeholder,
+  #lastName::placeholder
   #phone::placeholder,
   #topic::placeholder
-  #fullname::placeholder
   #password::placeholder
   #repeat-password::placeholder{
     font-size: 18px;

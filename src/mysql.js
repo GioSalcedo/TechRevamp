@@ -1,5 +1,5 @@
 // importar pool de conexiones bd
-const pool = require ("./database/connection-database.js")
+//const pool = require ("./database/connection-database.js")
 // encriptación
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -44,10 +44,10 @@ const updateLoginStateUser = async (state, email) => {
 }
 
 // Registrar usuario nuevo
-const registerUser = async (fullname, email, hash, phone, state) => {
+const registerUser = async (firstName, lastName, email, hash, phone, state) => {
   const insertUserQuery = "INSERT INTO `users` (first_name, last_name, email, password, phone, is_logged_in) VALUES (?, ?, ?, ?, ?, ?);";
   try {
-    await pool.query(insertUserQuery, [fullname, fullname, email, hash, phone, state]);
+    await pool.query(insertUserQuery, [firstName, lastName, email, hash, phone, state]);
   } catch (error) {
     console.error('Error al registrar el usuario:', error);
     throw new Error('Error al registrar el usuario.');

@@ -2,7 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form');
-    const nameInput = document.getElementById('fullname');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -17,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const errorColor = 'var(--Colors-semantic-error, #e93828)';
 
     function clearErrorStyles() {
-        nameInput.style.borderColor = '';
+        firstNameInput.style.borderColor = '';
+        lastNameInput.style.borderColor = '';
         phoneInput.style.borderColor = '';
         emailInput.style.borderColor = '';
         passwordInput.style.borderColor = '';
@@ -25,10 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
         errorParagraph.innerHTML = '';
     }
 
-    function validateName() {
-        if (nameInput.value.trim().length < 4) {
-            nameInput.style.borderColor = errorColor;
+    function validateFirstName() {
+        if (firstNameInput.value.trim().length < 4) {
+            firstNameInput.style.borderColor = errorColor;
             return 'El nombre debe tener al menos 4 caracteres.';
+        }
+        return '';
+    }
+
+    function validateLastName() {
+        if (lastNameInput.value.trim().length < 4) {
+            lastNameInput.style.borderColor = errorColor;
+            return 'El apellido debe tener al menos 4 caracteres.';
         }
         return '';
     }
@@ -121,7 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearErrorStyles();
         let errorMessage;
 
-        errorMessage = validateName();
+        errorMessage = validateFirstName();
+        if (errorMessage) {
+            showError(errorMessage);
+            return;
+        }
+
+        errorMessage = validateLastName();
         if (errorMessage) {
             showError(errorMessage);
             return;
@@ -160,7 +176,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fullname: nameInput.value,
+                firstName: firstNameInput.value,
+                lastName: lastNameInput.value,
                 email: emailInput.value,
                 phone: phoneInput.value,
                 password: passwordInput.value,
@@ -195,8 +212,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 //     text: 'Do you want to continue',
                 //     icon: 'error',
                 //     confirmButtonText: 'Cool'
-                // })
-                emailInput.value = "";
+                // })   
+               // emailInput.value = "";
             }
         })
         .catch(error => {

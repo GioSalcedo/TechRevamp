@@ -141,14 +141,14 @@
     border-radius: 8px;
   }
   
-  #email, #name, #phone, #topic, #message{
+  #email, #firstName, #lastName, #phone, #topic, #message{
     font-size: 18px;
   }
   #email::placeholder,
-  #name::placeholder,
+  #firstName::placeholder,
+  #lastName::placeholder,
   #phone::placeholder,
   #topic::placeholder,
-  #fullname::placeholder,
   #password::placeholder,
   #repeat-password::placeholder{
     font-size: 18px;

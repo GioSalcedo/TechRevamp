@@ -1,12 +1,14 @@
 <div class="card-product">
   <img src="<%= producto.imagen %>" alt="Imagen de producto" />
+  <% function formatCurrency(amount) { %>
+    <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
   <div class="info-card-product">
     <h3><%= producto.nombre %></h3>
     <div class="price-and-discount">
-      <p class="price-1">$ <%= (producto.precio * 1.25).toFixed(2) %></p>
+      <p class="price-1"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
       <p class="discount">25%</p>
     </div>
-    <p class="price-2">$ <%= producto.precio.toFixed(2) %></p>
+    <p class="price-2"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
     <div class="botton-info-card-product">
       <a href="/productos/<%= producto.id %>">Ver Detalle</a>
       <button>

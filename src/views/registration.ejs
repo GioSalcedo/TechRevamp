@@ -54,26 +54,28 @@
           </button>
       </div>
         <form id="registration-Form" class="contact-form">
-          <label for="fullname">Nombre</label>
-          <input type="text" id="fullname" name="fullname" placeholder="Ingrese su nombre completo">
+          <label for="firstName">Nombre</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre" required>
+          <label for="lastName">Apellido</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido" required>
           <label for="phone">Número de teléfono</label>
-          <input type="tel" id="phone" name="phone" placeholder="Ingrese su numero de teléfono">
+          <input type="tel" id="phone" name="phone" placeholder="Ingresa tu número de teléfono" required>
           <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico">
+          <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
           <div class="password-container">
             <label for="password">Contraseña</label>
             <div class="input-icon-wrapper">
-              <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+              <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
               <i class="fa-solid fa-eye" id="password-icon"></i>
             </div>
             <label for="repeat-password">Repetir Contraseña</label>
             <div class="input-icon-wrapper">
-              <input type="password" id="repeat-password" name="repeat-password" placeholder="Repita su contraseña" required>
+              <input type="password" id="repeat-password" name="repeat-password" placeholder="Repite tu contraseña" required>
               <i class="fa-solid fa-eye" id="repeat-password-icon"></i>
             </div>
           </div>
           <button type="submit">Registrarse</button>
-          <p>Al continuar estas aceptando nuestos <a href="#">términos de servicio</a> y <a href="#">política de privacidad</a> </p>
+          <p>Al continuar estás aceptando nuestros <a href="#">términos de servicio</a> y <a href="#">política de privacidad</a> </p>
         </form>
       </div>
       <div class="contact-image">

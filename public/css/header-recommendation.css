@@ -5,17 +5,19 @@
 }
 
 .header-recommendation {
-  justify-content: center;
   width: 100%;
-  padding: 16px 40px;
+  max-width: 1376px;
+  padding: 16px 0;
+  margin: auto;
 }
 
-.header-recommendation  h2{
+/* .header-recommendation  h2{
   font-size: 32px;
   font-weight: normal;
-}
+} */
 
 .header-recommendation  p{
+  padding-top: 12px;
   align-self: flex-start;
   font-size: 22px;
   font-weight: normal;
@@ -23,9 +25,9 @@
 }
 
 .title-recommendation {
-  font-size: var(--ubuntu--headline--32-large-400);
+  font-size: var(--ubuntu--headline--23-small-400);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .buttom-recommendation{
