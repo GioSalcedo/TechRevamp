@@ -57,12 +57,16 @@ router.get("/home-parcial", (req, res) => {
   res.render('partials/container-home-products', { productos: paginatedProducts });
 });
 
+router.get('/productos', async (req, res) => {
+try {
+  const productosTesting = await fetch(`${BASE_URL}/products`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-// routes.js
-router.get('/productos', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
+  const productos = await productosTesting.json();
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
@@ -74,8 +78,11 @@ router.get('/productos', (req, res) => {
 
   const totalPages = Math.ceil(productos.length / perPage);
 
-  // Render the main products page
-  res.render('products', { productos: paginatedProducts, page, totalPages, userName });
+  res.render('products', { productos: paginatedProducts, page, totalPages });
+} catch (error) {
+    console.error("Error al traer los productos desde el backend", error);
+    res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+}
 });
 
 router.get('/productos-parcial', (req, res) => {
