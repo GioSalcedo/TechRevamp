@@ -19,18 +19,19 @@
               <rect width="24" height="24" fill="white"/>
             </clipPath>
           </defs>
-          </svg></i><span class="login-user"> 
-          <% if (userName) { %>
-            <span class="login-user">¡Hola, <%= userName %>!<svg onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M7 9L12 14L17 9" stroke="#FAFEFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg></span>
-            <div class="modal-account toggle">
-              <a href="/">Ver perfil</a>
-              <a id="logoutOption" href="/cerrar-sesion">Cerrar sesión</a>
-            </div>
-          <% } else { %>
-            <a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>
-          <% } %>  
+          </svg>
+        </i> 
+        <% if (userName) { %>
+          <span class="login-user">¡Hola, <%= userName %>!<svg onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M7 9L12 14L17 9" stroke="#FAFEFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></span>
+          <div class="modal-account toggle">
+            <a href="/">Ver perfil</a>
+            <a id="logoutOption" href="#">Cerrar sesión</a>
+          </div>
+        <% } else { %>
+          <a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>
+        <% } %>  
       </div>
       <div class="cart">
         <a href="/carro-compras"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25"

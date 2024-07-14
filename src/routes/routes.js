@@ -180,8 +180,8 @@ router.post("/api/login", async (req, res) => {
 
       if (compareResult) {
         if (rememberMe) {
-          const firstame = data.firstName;
-          localStorage.setItem('userData', JSON.stringify({ firstame, email, password}));
+          const firstName  = data.firstName;
+          localStorage.setItem('userData', JSON.stringify({ firstName, email, password}));
         }
         try {
           // Actualizar el estado de logueo del usuario
@@ -213,7 +213,7 @@ router.post("/api/login", async (req, res) => {
     }
 });  
 // !LOGOUT
-router.post("api/logout", async (req, res) => {
+router.post("/api/logout", async (req, res) => {
   const { email } = req.body;
   try {
     const user = await fetch(`${BASE_URL}/users/email/${email}`, {
@@ -247,6 +247,7 @@ router.post("api/logout", async (req, res) => {
 router.get("/cerrar-sesion", (req, res) => {
   res.redirect('/iniciar-sesion');
 });
+
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
