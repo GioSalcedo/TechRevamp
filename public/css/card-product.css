@@ -16,7 +16,7 @@
   flex-direction: column;
   border-radius: 20px;
   border: 0.5px solid var(--primary-blue-principal-900, #11485a);
-  height: 40%;
+  /* height: 40%; */
   width: 40%;
   overflow: hidden;
 }
@@ -115,7 +115,7 @@
   }
 
   .card-product {
-    height: 40%;
+    /* height: 40%; */
     width: 22%;
   }
 
@@ -136,7 +136,7 @@
   }
 
   .card-product {
-    height: 30%;
+    /* height: 30%; */
     width: 20%;
   }
 
