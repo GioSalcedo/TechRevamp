@@ -3,7 +3,13 @@ const { Router } = require('express');
 const router = Router();
 const path = require('path');
 const fs = require('fs');
-let userName;
+let userName ='';
+
+// Middleware para agregar userName al contexto de todas las vistas renderizadas
+router.use((req, res, next) => {
+  res.locals.userName = userName;
+  next();
+});
 
 // Autenticación
 const bcrypt = require('bcrypt');

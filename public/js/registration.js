@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else{
             repeatpasswordIcon.className = 'fa-solid fa-eye';
             repeatPasswordInput.type = 'password';
-            console.log("holaaaa");
         }
     })
 
