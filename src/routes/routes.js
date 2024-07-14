@@ -11,6 +11,7 @@ const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../m
 
 // Autenticación
 const bcrypt = require('bcrypt');
+const { data } = require('jquery');
 const saltRounds = 10;
 let state = 0;
 
@@ -172,31 +173,44 @@ router.post("/api/login", async (req, res) => {
         'Content-Type': 'application/json',
       },
     });  
-    console.log(user);
+
+    const data = await user.json();
+    console.log('User:', data);
+
     // Validar que el usuario esté registrado
     if (user.ok) {
-      const response = await fetch(`${BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(email, password)
-      }); 
 
-      // Comparar la contraseña ingresada con el hash almacenado
-     // bcrypt.compare(password, user.password, async (compareErr, compareResult) => {
-        if (response.ok) {
-          if (rememberMe) {
-            localStorage.setItem('userData', JSON.stringify({ email, password }));
-          }
-          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user: data });
-        } else if (response.status === 401) {
-            const errorData = await response.json();
-            res.status(401).json({ success: false, message: errorData.message });
-        } else {
-            throw new Error('Error del servidor al iniciar sesión.');
+      bcrypt.compare(password, data.password, async (compareErr, compareResult) => {
+      if (compareErr) {
+        return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
+      }
+
+      if (compareResult) {
+        if (rememberMe) {
+          localStorage.setItem('userData', JSON.stringify({ email, password }));
         }
-    }} catch (error) {
+        try {
+          // Actualizar el estado de logueo del usuario
+          data.isLoggedIn = 1;
+          const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+
+          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
+        } catch (err) {
+          res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+        }
+
+      } else {
+        res.status(401).json({ success: false, message: `Contraseña incorrecta.`});
+      }
+    });
+    }} 
+    catch (error) {
         console.error("Error al intentar iniciar sesión:", error);
         res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
     }
@@ -237,8 +251,6 @@ router.post("/api/registrations", async (req, res) => {
   if (!emailPattern.test(email)) {
     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
-
-
 
   // Validate password
   const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
