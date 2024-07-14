@@ -139,13 +139,32 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Checkbox marcado:', checkbox.checked);
     if (checkbox.checked) {
       localStorage.setItem('userData', JSON.stringify({
-        email: emailInput.value,
-        password: passwordInput.value,
-        rememberMe: checkbox.checked.toString()
+      email: emailInput.value,
+      password: passwordInput.value,
+      rememberMe: checkbox.checked.toString()
       }));
     } else {
       localStorage.removeItem('userData');
     }
   });
+
+  function logout(){
+    fetch('/cerrar-sesion', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
+        document.querySelector('.modal-account').classList.add('toggle');
+      } else {
+        console.error('Error al cerrar sesión');
+      }
+    })
+    .catch(error => console.error('Error de red:', error));
+  }
+
 });
 

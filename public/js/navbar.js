@@ -18,10 +18,31 @@ function toggleMenu() {
 //     modalAccount.classList.remove('active');
 //   }
 // })
-
-//Cerrar sesión
-document.getElementById('logout').addEventListener('click', function(event) {
-  event.preventDefault(); 
-  // localStorage.removeItem('userData');
+document.getElementById('logoutOption').addEventListener('click', logout);
+function logout(event) {
+    event.preventDefault(); 
+  const userData = localStorage.getItem('userData');
+  if (userData) {
+    const email = JSON.parse(userData).email;
+    
+    fetch('/api/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email })
+    })
+    .then(response => {
+      if (response.ok) {
+        document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
+        document.querySelector('.modal-account').classList.add('toggle');
+      } else {
+        console.error('Error al cerrar sesión');
+      }
+    })
+    .catch(error => console.error('Error de red:', error));
+  } else {
+    console.error('No hay datos de usuario en el almacenamiento local.');
+  }
   window.location.href = '/iniciar-sesion';
-});
+}
