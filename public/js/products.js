@@ -4,9 +4,9 @@ const videos = [
 ];
 
 // Banner inicial
-videoSourceElement.src = videos[0];
-bannerVideoElement.load();
-bannerVideoElement.play();
+// videoSourceElement.src = videos[0];
+// bannerVideoElement.load();
+// bannerVideoElement.play();
 
 const productos = {
     productos: [

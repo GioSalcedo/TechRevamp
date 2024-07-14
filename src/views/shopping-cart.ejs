@@ -64,7 +64,7 @@
             <% if (productos && productos.length > 0) { %>
               <% let subtotal = 0; %>
               <% productos.forEach(producto => { %> 
-                <% subtotal += producto.precio; %>
+                <% subtotal += producto.price; %>
               <% }); %>
               <% 
                 const precioEnvio = 25000;

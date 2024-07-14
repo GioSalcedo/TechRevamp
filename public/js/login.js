@@ -139,13 +139,14 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Checkbox marcado:', checkbox.checked);
     if (checkbox.checked) {
       localStorage.setItem('userData', JSON.stringify({
-        email: emailInput.value,
-        password: passwordInput.value,
-        rememberMe: checkbox.checked.toString()
+      email: emailInput.value,
+      password: passwordInput.value,
+      rememberMe: checkbox.checked.toString()
       }));
     } else {
       localStorage.removeItem('userData');
     }
   });
+
 });
 

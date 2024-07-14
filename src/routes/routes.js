@@ -3,14 +3,17 @@ const { Router } = require('express');
 const router = Router();
 const path = require('path');
 const fs = require('fs');
-// const fetch = require('node-fetch');
+let userName ='';
 
-// Manejo de base de datos
-//const pool = require ("./../database/connection-database");
-const {getUsersRegistered, updateLoginStateUser, registerUser} = require('./../mysql.js');
+// Middleware para agregar userName al contexto de todas las vistas renderizadas
+router.use((req, res, next) => {
+  res.locals.userName = userName;
+  next();
+});
 
 // Autenticación
 const bcrypt = require('bcrypt');
+const { data } = require('jquery');
 const saltRounds = 10;
 let state = 0;
 
@@ -23,18 +26,12 @@ router.get("/", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
   const paginatedProducts = productos.slice(start, end);
-
   const totalPages = Math.ceil(productos.length / perPage);
 
-  // Obtener usuario sesión iniciada
-  const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
-  const userData = JSON.parse(fileUser);
-  const userName = userData.name;
   // Render the main products page
   res.render('index', { productos: paginatedProducts, page, totalPages, userName });
 });
@@ -46,58 +43,64 @@ router.get("/home-parcial", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
   const paginatedProducts = productos.slice(start, end);
-
   const totalPages = Math.ceil(productos.length / perPage);
 
   
   res.render('partials/container-home-products', { productos: paginatedProducts });
 });
 
+router.get('/productos', async (req, res) => {
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const productos = await productosBackend.json();
 
-// routes.js
-router.get('/productos', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
+    const page = parseInt(req.query.page) || 1;
+    const perPage = 8;
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
 
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+    const paginatedProducts = productos.slice(start, end);
+    const totalPages = Math.ceil(productos.length / perPage);
 
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
-
-  const paginatedProducts = productos.slice(start, end);
-
-  const totalPages = Math.ceil(productos.length / perPage);
-
-  // Obtener usuario sesión iniciada
-  const fileUser = fs.readFileSync('api/userLogged.json', 'UTF-8');
-  const userData = JSON.parse(fileUser);
-  const userName = userData.name;
-
-  // Render the main products page
-  res.render('products', { productos: paginatedProducts, page, totalPages, userName });
+    res.render('products', { productos: paginatedProducts, page, totalPages });
+  } catch (error) {
+      console.error("Error al traer los productos desde el backend", error);
+      res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+  }
 });
 
-router.get('/productos-parcial', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
+router.get('/productos-parcial', async (req, res) => {
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const productos = await productosBackend.json();
 
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+    const page = parseInt(req.query.page) || 1;
+    const perPage = 8;
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
 
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
+    const paginatedProducts = productos.slice(start, end);
 
-  const paginatedProducts = productos.slice(start, end);
-
-  res.render('partials/container-products', { productos: paginatedProducts });
+    res.render('partials/container-products', { productos: paginatedProducts });
+  } catch (error) {
+    console.error("Error al traer los productos desde el backend", error);
+    res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+}
 });
 
 router.get('/productos/:id', (req, res) => {
@@ -105,7 +108,7 @@ router.get('/productos/:id', (req, res) => {
   const json = JSON.parse(file);
   const productos = json.productos;
   const productId = req.params.id;
-  const product = productos.find(p => p.id == productId);
+  const product = productos.find(p => p.productId == productId);
 
   if (product) {
     res.render('product-detail', { producto: product });
@@ -121,7 +124,6 @@ router.get("/carro-compras", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 4;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
@@ -172,39 +174,88 @@ router.post("/api/login", async (req, res) => {
         'Content-Type': 'application/json',
       },
     });  
-    console.log(user);
+
+    const data = await user.json();
+    console.log('User:', data);
+
     // Validar que el usuario esté registrado
     if (user.ok) {
-      const response = await fetch(`${BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(email, password)
-      }); 
 
-      // Comparar la contraseña ingresada con el hash almacenado
-     // bcrypt.compare(password, user.password, async (compareErr, compareResult) => {
-        if (response.ok) {
-          if (rememberMe) {
-            localStorage.setItem('userData', JSON.stringify({ email, password }));
-          }
-          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user: data });
-        } else if (response.status === 401) {
-            const errorData = await response.json();
-            res.status(401).json({ success: false, message: errorData.message });
-        } else {
-            throw new Error('Error del servidor al iniciar sesión.');
+      bcrypt.compare(password, data.password, async (compareErr, compareResult) => {
+      if (compareErr) {
+        return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
+      }
+
+      if (compareResult) {
+        if (rememberMe) {
+          const firstName  = data.firstName;
+          localStorage.setItem('userData', JSON.stringify({ firstName, email, password}));
         }
-    }} catch (error) {
+        try {
+          // Actualizar el estado de logueo del usuario
+          data.isLoggedIn = 1;
+          const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+
+          //asignar nombre logueado a userName impreso 
+          userName = data.firstName;
+
+          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
+        } catch (err) {
+          res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+        }
+
+      } else {
+        res.status(401).json({ success: false, message: `Contraseña incorrecta.`});
+      }
+    });
+    }} 
+    catch (error) {
         console.error("Error al intentar iniciar sesión:", error);
         res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
     }
 });  
+// !LOGOUT
+router.post("/api/logout", async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await fetch(`${BASE_URL}/users/email/${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await user.json();
+
+    if (user.ok) {
+      data.isLoggedIn = 0;
+      const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+    } else {
+      res.status(404).json({ success: false, message: "Usuario no encontrado." });
+    }
+  } catch (error) {
+    console.error("Error al intentar cerrar sesión:", error);
+    res.status(500).json({ success: false, message: "Error del servidor al intentar cerrar sesión." });
+  }
+});
 
 router.get("/cerrar-sesion", (req, res) => {
   res.redirect('/iniciar-sesion');
 });
+
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
@@ -237,8 +288,6 @@ router.post("/api/registrations", async (req, res) => {
   if (!emailPattern.test(email)) {
     return res.status(400).json({ message: "Por favor, ingrese un correo electrónico válido." });
   }
-
-
 
   // Validate password
   const passwordPattern = /^(?=.*[%#$<>&^*@()\-_+={}])(?=.*[A-Z])(?=.*[0-9]).{8,}$/;
@@ -285,6 +334,7 @@ router.post("/api/registrations", async (req, res) => {
     });
 
     if(response.ok){
+      userName = firstName;
       res.status(201).json({ success: true, message: "Registro exitoso." });
     } else{
       throw new Error('Error al registrar usuario en la API Spring Boot');

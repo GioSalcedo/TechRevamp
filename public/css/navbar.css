@@ -49,6 +49,37 @@
     color: var(--Colors-neutral-white, #FAFEFE);
     text-decoration: none;
     font-size: 1rem; 
+    width: max-content;
+}
+
+.login-nav{
+    position: relative;
+}
+
+.modal-account{
+    display: inline-flex;
+    padding: 4px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    border: 0.5px solid var(--primary-blue-600, #029AB8);
+    background: var(--neutral-white, #FAFEFE);
+    position: absolute;
+    right: 6px;
+    bottom: -64px;
+}
+
+.modal-account a {
+    color: var(--primary-blue-principal-900, #11485A);
+    font-size: var(--ubuntu--body--18-xlarge-400);
+    width: max-content;
+    text-decoration: none;
+}
+
+.modal-account a:hover{
+    color:var(--Colors-primary-blue-600);
 }
 
 .searchbar,
@@ -172,7 +203,7 @@
         width: max-content;
         align-items: center;
         gap: 12px;
-        min-width: 210px;
+        /* min-width: 210px; */
     }
 
     .toggle{

@@ -1,10 +1,10 @@
 <div class="shopping-product">
   <div class="product-image">
-    <img src="<%= producto.imagen %>" alt="Imagen de producto">
+    <img src="<%= producto.image %>" alt="Imagen de producto">
   </div>
   <div class="inf-product">
     <div class="info-selected">
-      <h4><%= producto.nombre %></h4>
+      <h4><%= producto.name %></h4>
       <div class="color-selected">
         <span class="color-circle"></span>
         <select class="color" name="color">
@@ -26,9 +26,9 @@
           <p class="discount-percentage">-28%</p>
           <% function formatCurrency(amount) { %>
             <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
-          <p class="original-price"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
+          <p class="original-price"><%= formatCurrency((producto.price * 1.25).toFixed(2)) %></p>
         </span>
-        <p class="discount-price"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
+        <p class="discount-price"><%= formatCurrency(producto.price.toFixed(2)) %></p>
       </div>
       <button class="delete-product">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
