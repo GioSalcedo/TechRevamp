@@ -1,33 +1,40 @@
 <div class="card-product-detail">
   <img src="<%= producto.imagen %>" alt="Imagen de producto" />
-  <div class="header-botton-detail">
-    <h3 class="title-detail"><%= producto.nombre %></h3>
-    <div class="price-and-discount">
-      <p class="price-1">$<%= (producto.precio * 1.25).toFixed(2) %></p>
-      <p class="discount">25%</p>
+  <div class="product-info">
+    <% function formatCurrency(amount) { %>
+      <% return `$ ${new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'COP', minimumFractionDigits: 2 }).format(amount).replace('COP', '').trim()}`;}%>
+    <div class="header-botton-detail">
+      <h4 class="title-detail"><%= producto.nombre %></h4>
+      <div class="price-and-discount">
+        <p class="price-1"><%= formatCurrency((producto.precio * 1.25).toFixed(2)) %></p>
+        <p class="discount">-25%</p>
+      </div>
+      <div class="botton-info-card-product">
+        <p class="price-2"><%= formatCurrency(producto.precio.toFixed(2)) %></p>
+        <button class="add-to-shopping-cart" href="/carro-compras">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+          >
+            <path
+              d="M6.60541 16C5.48609 16 4.58045 16.9 4.58045 18C4.58045 19.1 5.48609 20 6.60541 20C7.72474 20 8.64055 19.1 8.64055 18C8.64055 16.9 7.72474 16 6.60541 16ZM16.7811 16C15.6618 16 14.7561 16.9 14.7561 18C14.7561 19.1 15.6618 20 16.7811 20C17.9004 20 18.8162 19.1 18.8162 18C18.8162 16.9 17.9004 16 16.7811 16ZM18.8162 14C18.8162 13.45 18.3583 13 17.7987 13H6.60541L7.72474 11H15.3056C16.0688 11 16.7404 10.59 17.0864 9.97L20.3833 3.83C20.6377 3.35 20.4647 2.75 19.9763 2.49C19.4777 2.22 18.8569 2.41 18.5924 2.9L15.3056 9H8.16229L4.10219 0.57C3.93938 0.22 3.57306 0 3.18638 0H1.51757C0.957906 0 0.5 0.45 0.5 1C0.5 1.55 0.957906 2 1.51757 2H2.53514L6.19838 9.59L4.82467 12.03C4.08184 13.37 5.05871 15 6.60541 15H17.7987C18.3583 15 18.8162 14.55 18.8162 14ZM10.9708 0.71C11.3676 0.32 12.0087 0.32 12.4056 0.71L15.0411 3.3C15.4379 3.69 15.4379 4.32 15.0411 4.71L12.4056 7.3C12.0087 7.69 11.3676 7.69 10.9708 7.3C10.5739 6.91 10.5739 6.28 10.9708 5.89L11.8662 5H8.64055C8.08089 5 7.62298 4.55 7.62298 4C7.62298 3.45 8.08089 3 8.64055 3H11.8662L10.9708 2.12C10.5739 1.73 10.5739 1.1 10.9708 0.71Z"
+              fill="#FAFEFE"
+            />
+          </svg>
+          Añadir al carrito
+        </button>
+      </div>
     </div>
-    <div class="botton-info-card-product">
-      <p class="price-2">$<%= producto.precio.toFixed(2) %></p>
-      <button id="btn-detail">
-        <svg
-          width="34"
-          height="30"
-          viewBox="0 0 34 30"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="34" height="30" rx="8" fill="#11485A" />
-          <path
-            d="M16.9546 12.0952C17.4023 12.0952 17.7687 11.7524 17.7687 11.3333V9.80952H19.3968C19.8445 9.80952 20.2108 9.46667 20.2108 9.04762C20.2108 8.62857 19.8445 8.28571 19.3968 8.28571H17.7687V6.7619C17.7687 6.34286 17.4023 6 16.9546 6C16.5069 6 16.1406 6.34286 16.1406 6.7619V8.28571H14.5124C14.0647 8.28571 13.6984 8.62857 13.6984 9.04762C13.6984 9.46667 14.0647 9.80952 14.5124 9.80952H16.1406V11.3333C16.1406 11.7524 16.5069 12.0952 16.9546 12.0952ZM12.8843 18.9524C11.9889 18.9524 11.2644 19.6381 11.2644 20.4762C11.2644 21.3143 11.9889 22 12.8843 22C13.7798 22 14.5124 21.3143 14.5124 20.4762C14.5124 19.6381 13.7798 18.9524 12.8843 18.9524ZM21.0249 18.9524C20.1294 18.9524 19.4049 19.6381 19.4049 20.4762C19.4049 21.3143 20.1294 22 21.0249 22C21.9203 22 22.653 21.3143 22.653 20.4762C22.653 19.6381 21.9203 18.9524 21.0249 18.9524ZM13.7798 15.1429H19.8445C20.455 15.1429 20.9923 14.8305 21.2691 14.3581L23.9066 9.68C24.1101 9.31429 23.9718 8.85714 23.581 8.65905C23.1821 8.45333 22.6856 8.5981 22.4739 8.97143L19.8445 13.619H14.1298L10.662 6.7619H8.81406C8.36632 6.7619 8 7.10476 8 7.52381C8 7.94286 8.36632 8.28571 8.81406 8.28571H9.62811L12.5587 14.0686L11.4597 15.9276C10.8655 16.9486 11.647 18.1905 12.8843 18.1905H21.8389C22.2867 18.1905 22.653 17.8476 22.653 17.4286C22.653 17.0095 22.2867 16.6667 21.8389 16.6667H12.8843L13.7798 15.1429Z"
-            fill="#FAFEFE"
-          />
-        </svg>
-      </button>
+    <div class="content-description">
+      <h3>Descripción de Producto</h3>
+      <p><%= producto.descripcion %></p>
     </div>
   </div>
 </div>
 <div class="content-description">
-  <h3>Descripción de Producto</h3>
-  <p><%= producto.descripcion %></p>
   <%- include('perks'); %>
 </div>
+

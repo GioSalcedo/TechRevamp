@@ -14,21 +14,23 @@
     <header>
       <%- include('partials/navbar'); %>
     </header>
-    <a href="#productRecomendations">
+    <main>
+      <a href="#productRecomendations">
       <video id="bannerVideo" autoplay muted>
         <source id="videoSource" src="https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </a>  
     <%- include('partials/header-recommendation'); %>
-    <%- include('partials/carrusel')%> 
-    <%- include('partials/categories')%> 
+      <%- include('partials/carrusel')%> 
+      <%- include('partials/categories')%> 
     <%- include('partials/nav-pagination', {page: page, totalPages: totalPages }); %>
-    <div class="container-products" id="container-products">
-      <%- include('partials/container-products', { productos: productos }); %>
-    </div>
-    <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
-    }); %> 
+      <div class="container-products" id="container-products">
+        <%- include('partials/container-products', { productos: productos }); %>
+      </div>
+      <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
+      }); %> 
+      </main>
     <%- include('partials/footer');%> 
     <%- include('partials/scripts'); %>
     <script src="/../js/carrusel.js"></script>
