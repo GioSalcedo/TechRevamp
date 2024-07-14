@@ -1,3 +1,13 @@
+//Banner Productos
+const videos = [
+    '/img/products/bannerProducts.mp4',
+];
+
+// Banner inicial
+videoSourceElement.src = videos[0];
+bannerVideoElement.load();
+bannerVideoElement.play();
+
 const productos = {
     productos: [
         {

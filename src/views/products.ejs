@@ -14,15 +14,21 @@
     <header>
       <%- include('partials/navbar'); %>
     </header>
+    <a href="#productRecomendations">
+      <video id="bannerVideo" autoplay muted>
+        <source id="videoSource" src="/img/products/bannerProducts.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </a>  
     <%- include('partials/header-recommendation'); %>
     <%- include('partials/carrusel')%> 
+    <%- include('partials/categories')%> 
     <%- include('partials/nav-pagination', {page: page, totalPages: totalPages }); %>
     <div class="container-products" id="container-products">
       <%- include('partials/container-products', { productos: productos }); %>
     </div>
     <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
     }); %> 
-    <%- include('partials/categories')%> 
     <%- include('partials/footer');%> 
     <%- include('partials/scripts'); %>
     <script src="/../js/carrusel.js"></script>
