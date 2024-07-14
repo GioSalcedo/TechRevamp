@@ -16,20 +16,89 @@
     </header>
     <main>
       <a href="#productRecomendations">
-      <video id="bannerVideo" autoplay muted>
-        <source id="videoSource" src="https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </a>  
-    <%- include('partials/header-recommendation'); %>
-      <%- include('partials/carrusel')%> 
-      <%- include('partials/categories')%> 
-    <%- include('partials/nav-pagination', {page: page, totalPages: totalPages }); %>
-      <div class="container-products" id="container-products">
-        <%- include('partials/container-products', { productos: productos }); %>
+        <video id="bannerVideo" autoplay muted>
+          <source id="videoSource" src="https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4" type="video/mp4">
+        </video>
+      </a> 
+      <%- include('partials/header-recommendation'); %> 
+      <div class="carrousel-container">
+        <%- include('partials/carrusel')%> 
+        <%- include('partials/categories')%> 
       </div>
-      <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
-      }); %> 
+      <div class="products-container">
+        <aside class="filter-panel">
+          <h4>Filtrar por:</h4>
+          <div class="filter-group">
+            <h5>Categorías</h5>
+            <label>
+                <input type="checkbox" class="category" value="smartphones"> 
+                <span class="custom-checkbox"></span>
+                Smartphones
+            </label>
+            <label>
+                <input type="checkbox" class="category" value="tablets"> 
+                <span class="custom-checkbox"></span>
+                Tablets
+            </label>
+            <label>
+                <input type="checkbox" class="category" value="laptops"> 
+                <span class="custom-checkbox"></span>
+                Laptops
+            </label>
+            <label>
+              <input type="checkbox" class="category" value="laptops">
+              <span class="custom-checkbox"></span>
+              Laptops
+            </label>
+            <label>
+                <input type="checkbox" class="category" value="monitores">
+                <span class="custom-checkbox"></span>
+                Monitores
+            </label>
+            <label>
+              <input type="checkbox" class="category" value="auriculares">
+              <span class="custom-checkbox"></span>
+              Auriculares
+            </label>
+            <label>
+              <input type="checkbox" class="category" value="relojes">
+              <span class="custom-checkbox"></span>
+              Relojes
+            </label>
+            <label>
+              <input type="checkbox" class="category" value="camaras">
+              <span class="custom-checkbox"></span>
+              Cámaras
+            </label>
+            <label>
+              <input type="checkbox" class="category" value="impresoras">
+              <span class="custom-checkbox"></span>
+              Impresoras
+            </label>
+        </div>
+          <div class="filter-group">
+              <h5>Rango de Precios</h5>
+              <input type="number" id="minPrice" placeholder="Precio mínimo">
+              <input type="number" id="maxPrice" placeholder="Precio máximo">
+          </div>
+          <div class="filter-group">
+              <h5>Descuentos</h5>
+              <label>
+                  <input type="checkbox" id="discounted">
+                  <span class="custom-checkbox"></span>
+                  Solo con descuento
+              </label>
+          </div>
+          <button class="btn-apply-filters" onclick="applyFilters()">Aplicar filtros</button>
+        </aside>
+        <div class="productos-page">
+          <div class="container-products" id="container-products">
+            <%- include('partials/container-products', { productos: productos }); %>
+          </div>
+          <%- include('partials/nav-pagination', { page: page, totalPages: totalPages
+          }); %> 
+        </div>
+      </div>
       </main>
     <%- include('partials/footer');%> 
     <%- include('partials/scripts'); %>
