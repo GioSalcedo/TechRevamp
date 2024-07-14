@@ -11,10 +11,15 @@
   </head>
   <body>
     <header><%- include('partials/navbar'); %></header>
-    <h2>Detalles de Producto</h2>
-    <div class="product-detail">
-      <%- include('partials/card-detail-product'); %>
-    </div>
+    <main>
+      <div class="principal-container">
+        <h1 id="tittle-detail">Detalles de Producto</h1>
+        <div class="product-detail">
+          <%- include('partials/card-detail-product'); %>
+        </div>
+      </div>
+    </main>
+    
 
     <%- include('partials/footer'); %> 
     <%- include('partials/scripts'); %>
