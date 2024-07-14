@@ -52,10 +52,9 @@
     width: max-content;
 }
 
-.login-user{
+.login-nav{
     position: relative;
 }
-
 
 .modal-account{
     display: inline-flex;

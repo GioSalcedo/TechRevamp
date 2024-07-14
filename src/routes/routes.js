@@ -188,8 +188,8 @@ router.post("/api/login", async (req, res) => {
 
       if (compareResult) {
         if (rememberMe) {
-          const firstame = data.firstName;
-          localStorage.setItem('userData', JSON.stringify({ firstame, email, password}));
+          const firstName  = data.firstName;
+          localStorage.setItem('userData', JSON.stringify({ firstName, email, password}));
         }
         try {
           // Actualizar el estado de logueo del usuario
@@ -220,10 +220,42 @@ router.post("/api/login", async (req, res) => {
         res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
     }
 });  
+// !LOGOUT
+router.post("/api/logout", async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await fetch(`${BASE_URL}/users/email/${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await user.json();
+
+    if (user.ok) {
+      data.isLoggedIn = 0;
+      const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+    } else {
+      res.status(404).json({ success: false, message: "Usuario no encontrado." });
+    }
+  } catch (error) {
+    console.error("Error al intentar cerrar sesión:", error);
+    res.status(500).json({ success: false, message: "Error del servidor al intentar cerrar sesión." });
+  }
+});
 
 router.get("/cerrar-sesion", (req, res) => {
   res.redirect('/iniciar-sesion');
 });
+
 router.get("/iniciar-sesion", (req, res) => {
   res.render('login');
 });
