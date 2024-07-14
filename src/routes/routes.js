@@ -58,47 +58,57 @@ router.get("/home-parcial", (req, res) => {
 });
 
 router.get('/productos', async (req, res) => {
-try {
-  const productosTesting = await fetch(`${BASE_URL}/products`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const productos = await productosTesting.json();
+    const productos = await productosBackend.json();
 
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+    const page = parseInt(req.query.page) || 1;
+    const perPage = 8;
 
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
 
-  const paginatedProducts = productos.slice(start, end);
+    const paginatedProducts = productos.slice(start, end);
 
-  const totalPages = Math.ceil(productos.length / perPage);
+    const totalPages = Math.ceil(productos.length / perPage);
 
-  res.render('products', { productos: paginatedProducts, page, totalPages });
-} catch (error) {
+    res.render('products', { productos: paginatedProducts, page, totalPages });
+  } catch (error) {
+      console.error("Error al traer los productos desde el backend", error);
+      res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+  }
+});
+
+router.get('/productos-parcial', async (req, res) => {
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const productos = await productosBackend.json();
+
+    const page = parseInt(req.query.page) || 1;
+    const perPage = 8;
+
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    const paginatedProducts = productos.slice(start, end);
+
+    res.render('partials/container-products', { productos: paginatedProducts });
+  } catch (error) {
     console.error("Error al traer los productos desde el backend", error);
     res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
 }
-});
-
-router.get('/productos-parcial', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
-
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
-
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
-
-  const paginatedProducts = productos.slice(start, end);
-
-  res.render('partials/container-products', { productos: paginatedProducts });
 });
 
 router.get('/productos/:id', (req, res) => {
@@ -106,7 +116,7 @@ router.get('/productos/:id', (req, res) => {
   const json = JSON.parse(file);
   const productos = json.productos;
   const productId = req.params.id;
-  const product = productos.find(p => p.id == productId);
+  const product = productos.find(p => p.productId == productId);
 
   if (product) {
     res.render('product-detail', { producto: product });
