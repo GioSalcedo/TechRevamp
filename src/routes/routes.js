@@ -26,12 +26,10 @@ router.get("/", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
   const paginatedProducts = productos.slice(start, end);
-
   const totalPages = Math.ceil(productos.length / perPage);
 
   // Render the main products page
@@ -45,12 +43,10 @@ router.get("/home-parcial", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
   const paginatedProducts = productos.slice(start, end);
-
   const totalPages = Math.ceil(productos.length / perPage);
 
   
@@ -65,17 +61,14 @@ router.get('/productos', async (req, res) => {
         'Content-Type': 'application/json',
       },
     });
-
     const productos = await productosBackend.json();
 
     const page = parseInt(req.query.page) || 1;
     const perPage = 8;
-
     const start = (page - 1) * perPage;
     const end = start + perPage;
 
     const paginatedProducts = productos.slice(start, end);
-
     const totalPages = Math.ceil(productos.length / perPage);
 
     res.render('products', { productos: paginatedProducts, page, totalPages });
@@ -98,7 +91,6 @@ router.get('/productos-parcial', async (req, res) => {
 
     const page = parseInt(req.query.page) || 1;
     const perPage = 8;
-
     const start = (page - 1) * perPage;
     const end = start + perPage;
 
@@ -132,7 +124,6 @@ router.get("/carro-compras", (req, res) => {
 
   const page = parseInt(req.query.page) || 1;
   const perPage = 4;
-
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
