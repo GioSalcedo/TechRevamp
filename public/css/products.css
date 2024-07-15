@@ -2,6 +2,7 @@
 @import url(carrusel-products.css);
 @import url(card-product-detail.css);
 @import url(header-recommendation.css);
+@import url(styles.css);
 
 * {
   margin-bottom: 0px !important;
@@ -292,6 +293,10 @@ source {
 
 .show-scroll-to-top {
   display: block;
+}
+
+.scroll-to-top svg{
+  vertical-align: baseline;
 }
 
 @media only screen and (min-width: 768px) {
