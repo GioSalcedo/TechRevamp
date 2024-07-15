@@ -52,21 +52,3 @@ function logout(e) {
     console.error('No hay datos de usuario en el almacenamiento local.');
   }
 }
-
-// function logout(){
-//   fetch('/cerrar-sesion', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   })
-//   .then(response => {
-//     if (response.ok) {
-//       document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
-//       document.querySelector('.modal-account').classList.add('toggle');
-//     } else {
-//       console.error('Error al cerrar sesión');
-//     }
-//   })
-//   .catch(error => console.error('Error de red:', error));
-// }

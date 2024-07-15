@@ -3,11 +3,6 @@ const videos = [
     'https://res.cloudinary.com/dk16s84va/video/upload/v1720927649/bannerProductos.mp4',
 ];
 
-// Banner inicial
-// videoSourceElement.src = videos[0];
-// bannerVideoElement.load();
-// bannerVideoElement.play();
-
 const productos = {
     productos: [
         {
