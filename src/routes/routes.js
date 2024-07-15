@@ -222,6 +222,7 @@ router.post("/api/login", async (req, res) => {
 });  
 // !LOGOUT
 router.post("/api/logout", async (req, res) => {
+  userName = '';
   const { email } = req.body;
   try {
     const user = await fetch(`${BASE_URL}/users/email/${email}`, {
@@ -243,7 +244,7 @@ router.post("/api/logout", async (req, res) => {
         body: JSON.stringify(data)
       });
       
-      userName = '';
+      // userName = '';
       res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
     } else {
       res.status(404).json({ success: false, message: "Usuario no encontrado." });
@@ -252,10 +253,6 @@ router.post("/api/logout", async (req, res) => {
     console.error("Error al intentar cerrar sesión:", error);
     res.status(500).json({ success: false, message: "Error del servidor al intentar cerrar sesión." });
   }
-});
-
-router.get("/cerrar-sesion", (req, res) => {
-  res.redirect('/iniciar-sesion');
 });
 
 router.get("/iniciar-sesion", (req, res) => {
