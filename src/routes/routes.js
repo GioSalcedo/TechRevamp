@@ -112,6 +112,13 @@ router.get('/productos/:id', async (req, res) => {
 
 router.get("/carro-compras/:iduser", async (req, res) => {
   try {
+    const productosCartBackend = await fetch(`${BASE_URL}/shopping-carts/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
     const productosBackend = await fetch(`${BASE_URL}/products`, {
       method: 'GET',
       headers: {
@@ -119,20 +126,42 @@ router.get("/carro-compras/:iduser", async (req, res) => {
       },
     });
   
-    const productos = await productosBackend.json();
+    const productosCart = await productosCartBackend.json();
+    const allProductos = await productosBackend.json();
+    const userLoggedId = parseInt(req.params.iduser);
 
+    // Filtrar los carritos por el id del usuario
+    const carritosUsuario = productosCart.filter(item => {
+      // Convertir item.shoppingCartId.user a número si es necesario
+      const userId = parseInt(item.shoppingCartId.user);
+      return userId === userLoggedId; // Comparar correctamente
+    });
+
+    // Extraer los productos de los carritos del usuario
+    const productos = carritosUsuario.map(item => ({
+      name: item.productId.name,
+      description: item.productId.description,
+      price: item.productId.price,
+      category: item.productId.category,
+      stock: item.productId.stock,
+      image: item.productId.image,
+      quantity: item.quantity
+    }));
+
+    //limitar productos recomendados 
     const page = parseInt(req.query.page) || 1;
-    const perPage = 5;
+    const perPage = 4;
     const start = (page - 1) * perPage;
     const end = start + perPage;
 
-    const paginatedProducts = productos.slice(start, end);
+    const recommendedProducts = allProductos.slice(start, end);
 
-    res.render('shopping-cart', { productos: paginatedProducts});
+    res.render('shopping-cart', { productos, userLoggedId, allProductos: recommendedProducts});
   } catch (error) {
     console.error("Error al traer los productos desde el backend", error);
     res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
 }
+
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {

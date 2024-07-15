@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalPriceDisplay = container.querySelector('.original-price');
     const discountPriceDisplay = container.querySelector('.discount-price');
 
-    const originalPrice = parseFloat(originalPriceDisplay.textContent.replace(/\$|\./g, "").trim());
-    const discountPrice = parseFloat(discountPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    let originalPrice = parseFloat(originalPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    originalPrice = originalPrice / parseFloat(quantityDisplay.textContent.replace(/\$|\./g, "").trim())
+    let discountPrice = parseFloat(discountPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    discountPrice = discountPrice / parseFloat(quantityDisplay.textContent.replace(/\$|\./g, "").trim())
 
     function updatePrices() {
       const quantity = parseInt(quantityDisplay.textContent);
