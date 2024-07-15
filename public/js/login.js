@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
             password: passwordInput.value,
             rememberMe: checkbox.checked.toString(),
             userName: data.user.firstName,
-            isLoggedIn: true
+            isLoggedIn: true,
+            userId: data.user.userId
           }));
           
           Swal.fire({
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         password: passwordInput.value,
         rememberMe: checkbox.checked.toString(),
         userName: JSON.parse(localStorage.getItem('userData')).userName,
+        userId: JSON.parse(localStorage.getItem('userData')).userId,
         isLoggedIn: true
       }));
     } else {
