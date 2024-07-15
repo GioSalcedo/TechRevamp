@@ -19,6 +19,11 @@
     align-items: center;
     gap: 12px;
 }
+
+#navnavsuperior a{
+    display: flex;
+}
+
 .logo{
     height: 40px;
     cursor: pointer;  
@@ -64,8 +69,19 @@
     width: max-content;
 }
 
+.login-user{
+    line-height: normal;
+}
+
 .login-nav{
     position: relative;
+}
+.login-nav a{
+    text-decoration: none;
+}
+
+.login-nav i{
+    display: flex;
 }
 
 .modal-account{
@@ -165,6 +181,10 @@
     cursor: pointer;
 }
 
+.cart{
+    display: flex;
+}
+
 .active{
     display: grid;
     grid-template-columns: 1fr,
@@ -174,7 +194,13 @@
     display: grid;
     width: fit-content;
     gap: 8px; 
+    padding: 0;
 }
+
+.menu-list li a i{
+    display: flex;
+}
+
 .menu-text{
     margin-left: 10px;
 }
