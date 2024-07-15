@@ -58,25 +58,25 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
   form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      clearErrorStyles();
-      let errorMessage;   
-
-      errorMessage = validateEmail();
-      if (errorMessage) {
-          showError(errorMessage);
-          return;
-      }
-
-      errorMessage = validatePassword();
-      if (errorMessage) {
-          showError(errorMessage);
-          return;
-      }
-      
-      errorParagraph.innerHTML = '';
-
+    event.preventDefault();
+  
+    clearErrorStyles();
+    let errorMessage;   
+  
+    errorMessage = validateEmail();
+    if (errorMessage) {
+        showError(errorMessage);
+        return;
+    }
+  
+    errorMessage = validatePassword();
+    if (errorMessage) {
+        showError(errorMessage);
+        return;
+    }
+    
+    errorParagraph.innerHTML = '';
+  
     // Send the data to the server
     fetch("/api/login", {
       method: "POST",
@@ -85,16 +85,23 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify({
           email: emailInput.value,
-          password: passwordInput.value
+          password: passwordInput.value,
+          rememberMe: checkbox.checked
       })
     })
-    .then( async response =>{
+    .then(async response => {
       const data = await response.json();
       console.log("Respuesta: ", data);
       if (response.ok){
         if(data.success){
-          // Redirigir a la página principal u otra acción
-          // alert('Inicio de sesión exitoso.');
+          localStorage.setItem('userData', JSON.stringify({
+            email: emailInput.value,
+            password: passwordInput.value,
+            rememberMe: checkbox.checked.toString(),
+            userName: data.user.firstName,
+            isLoggedIn: true
+          }));
+          
           Swal.fire({
             title: "¡Nos encanta tenerte de nuevo!",
             padding: "3em",
@@ -121,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
         showError('Hubo un problema con el inicio de sesión.');
     });
   });
-  //Autocompletar si se encuentran credenciales en local storage despues de seleccionar un correo
-  // El local storage solo se está usando para la funcionalidad del checkbox "Recuérdame", la validación se está hacienco con el JSON.
+  
+  // Código para autocompletar si se encuentran credenciales en local storage
   emailInput.addEventListener('blur', function() {
     const userData = localStorage.getItem('userData');
     if (userData) {
@@ -139,14 +146,17 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Checkbox marcado:', checkbox.checked);
     if (checkbox.checked) {
       localStorage.setItem('userData', JSON.stringify({
-      email: emailInput.value,
-      password: passwordInput.value,
-      rememberMe: checkbox.checked.toString()
+        email: emailInput.value,
+        password: passwordInput.value,
+        rememberMe: checkbox.checked.toString(),
+        userName: JSON.parse(localStorage.getItem('userData')).userName,
+        isLoggedIn: true
       }));
     } else {
-      localStorage.removeItem('userData');
+      const existingData = JSON.parse(localStorage.getItem('userData')) || {};
+      existingData.rememberMe = 'false';
+      localStorage.setItem('userData', JSON.stringify(existingData));
     }
   });
-
 });
 

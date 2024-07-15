@@ -173,56 +173,49 @@ router.post("/api/login", async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
       },
-    });  
+    });
 
     const data = await user.json();
     console.log('User:', data);
 
-    // Validar que el usuario esté registrado
     if (user.ok) {
-
       bcrypt.compare(password, data.password, async (compareErr, compareResult) => {
-      if (compareErr) {
-        return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
-      }
-
-      if (compareResult) {
-        if (rememberMe) {
-          const firstName  = data.firstName;
-          localStorage.setItem('userData', JSON.stringify({ firstName, email, password}));
-        }
-        try {
-          // Actualizar el estado de logueo del usuario
-          data.isLoggedIn = 1;
-          const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-          });
-
-          //asignar nombre logueado a userName impreso 
-          userName = data.firstName;
-
-          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
-        } catch (err) {
-          res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+        if (compareErr) {
+          return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
         }
 
-      } else {
-        res.status(401).json({ success: false, message: `Contraseña incorrecta.`});
-      }
-    });
-    }} 
-    catch (error) {
-        console.error("Error al intentar iniciar sesión:", error);
-        res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
+        if (compareResult) {
+          try {
+            // Update login status in the database
+            data.isLoggedIn = 1;
+            const updateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data)
+            });
+
+            userName = data.firstName;
+
+            res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user: data });
+          } catch (err) {
+            res.status(500).json({ success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+          }
+        } else {
+          res.status(401).json({ success: false, message: `Contraseña incorrecta.` });
+        }
+      });
+    } else {
+      res.status(404).json({ success: false, message: 'Usuario no encontrado.' });
     }
-});  
+  } catch (error) {
+    console.error("Error al intentar iniciar sesión:", error);
+    res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
+  }
+});
 // !LOGOUT
 router.post("/api/logout", async (req, res) => {
-  userName = '';
   const { email } = req.body;
   try {
     const user = await fetch(`${BASE_URL}/users/email/${email}`, {
@@ -233,21 +226,26 @@ router.post("/api/logout", async (req, res) => {
     });
 
     const data = await user.json();
+    console.log('User:', data);
 
     if (user.ok) {
-      data.isLoggedIn = 0;
-      const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      });
-      
-      // userName = '';
-      res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+      try {
+        data.isLoggedIn = 0;
+        const updateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        // Resetear userName
+        userName = ''; 
+        res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+      } catch (err) {
+        res.status(500).json({ success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+      }
     } else {
-      res.status(404).json({ success: false, message: "Usuario no encontrado." });
+      res.status(404).json({ success: false, message: 'Usuario no encontrado.' });
     }
   } catch (error) {
     console.error("Error al intentar cerrar sesión:", error);
@@ -313,8 +311,7 @@ router.post("/api/registrations", async (req, res) => {
       // Add new user
 
     const hash = await bcrypt.hash(password, saltRounds);
-    // Pendiente *modificar firstname y lastname en form registro. 
-    const newUser = {
+      const newUser = {
       firstName,
       lastName,
       email,

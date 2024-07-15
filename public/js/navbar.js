@@ -28,7 +28,7 @@ function logout(e) {
 
   const userData = localStorage.getItem('userData');
   if (userData) {
-    const email = JSON.parse(userData).email;
+    const { email, rememberMe } = JSON.parse(userData);
     
     fetch('/api/logout', {
       method: 'POST',
@@ -40,8 +40,18 @@ function logout(e) {
     .then(response => {
       if (response.ok) {
         document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
-        localStorage.removeItem('userData'); // Limpiar localStorage después del logout
-        window.location.href = '/iniciar-sesion'; // Redirigir después de completar fetch
+        // Limpiar localStorage si el checkbox de remember me no está marcado
+        if (rememberMe !== 'true') {
+          localStorage.removeItem('userData');
+        } else {
+          // Solo actualizar el estado de isLoggedIn en localStorage
+          const existingData = JSON.parse(localStorage.getItem('userData')) || {};
+          existingData.isLoggedIn = false;
+          localStorage.setItem('userData', JSON.stringify(existingData));
+        }
+        // Resetear userName
+        userName = ''; 
+        window.location.href = '/iniciar-sesion';
       } else {
         console.error('Error al cerrar sesión');
       }
@@ -51,7 +61,6 @@ function logout(e) {
     });
   } else {
     window.location.href = '/iniciar-sesion';
-    // esta línea de reescribir el user no está funcionando cuando no se guarda en local storage
     document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
     console.error('No hay datos de usuario en el almacenamiento local, así que no se pudo actualizar estado del usuario.');
   }
