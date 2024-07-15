@@ -44,9 +44,10 @@ function logout(e) {
         if (rememberMe !== 'true') {
           localStorage.removeItem('userData');
         } else {
-          // Solo actualizar el estado de isLoggedIn en localStorage
+          // Solo actualizar el estado de isLoggedIn y el user id en localStorage
           const existingData = JSON.parse(localStorage.getItem('userData')) || {};
           existingData.isLoggedIn = false;
+          existingData.userId = '';
           localStorage.setItem('userData', JSON.stringify(existingData));
         }
         // Resetear userName

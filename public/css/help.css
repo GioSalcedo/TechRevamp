@@ -158,7 +158,7 @@
   }
  
   .container-help-banner h1{
-    font-size: var(--ubuntu--headline--32-large-400);
+    font-size: var(--ubuntu--display--36-small-400);
   }
   
   .container-help h2{

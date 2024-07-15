@@ -36,23 +36,6 @@ router.get("/", (req, res) => {
   res.render('index', { productos: paginatedProducts, page, totalPages, userName });
 });
 
-router.get("/home-parcial", (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.home;
-
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
-
-  const paginatedProducts = productos.slice(start, end);
-  const totalPages = Math.ceil(productos.length / perPage);
-
-  
-  res.render('partials/container-home-products', { productos: paginatedProducts });
-});
-
 router.get('/productos', async (req, res) => {
   try {
     const productosBackend = await fetch(`${BASE_URL}/products`, {
