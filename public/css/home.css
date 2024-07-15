@@ -37,6 +37,7 @@
 .text-container .downB:hover{
   cursor: pointer;
   font-size: 60px;
+  color:  var(  --Colors-primary-blue-600);
 }
 
 
@@ -204,7 +205,7 @@
   color: #11485A;
   padding: 8px;
   width: fit-content;
-  background-color: var(--Colors-secondary-green-300, #9EF85E);
+  background-color: #9ef85ece;
   border-radius: 4px;
 }
 .topic{
@@ -390,9 +391,9 @@
     font-size: 1.2rem;
   }
   .text-container .downB{
-  height: 20px;
-  width: 20px;
-  font-size: 15px;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
   }
   .text-container .downB:hover{
     font-size: 20px;
