@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const colorSelects  = document.querySelectorAll('.color');
   const colorCircles  = document.querySelectorAll('.color-circle');
   const deleteButtons = document.querySelectorAll('.delete-product');
+  const btnCarrito = document.getElementById('carroComprasLink');
 
   // Función para formatear números como moneda
   function formatCurrency(amount) {
@@ -104,4 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  //Funcionalidad carrito page
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  if (userData && userData.userId) {
+    const link = document.getElementById('carroComprasLink');
+    link.href = `/carro-compras/${userData.userId}`;
+  }
+
 });

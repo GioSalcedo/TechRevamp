@@ -42,12 +42,16 @@ function logout(e) {
         document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
         // Limpiar localStorage si el checkbox de remember me no está marcado
         if (rememberMe !== 'true') {
+          //guardar únicamente el parámetro de userID
+          const userIdL = JSON.parse(localStorage.getItem('userData')).userId || {};
           localStorage.removeItem('userData');
+          userIdL.userId = 0;
+          localStorage.setItem('userData', JSON.stringify(userIdL));
         } else {
           // Solo actualizar el estado de isLoggedIn y el user id en localStorage
           const existingData = JSON.parse(localStorage.getItem('userData')) || {};
           existingData.isLoggedIn = false;
-          existingData.userId = '';
+          existingData.userId = 0;
           localStorage.setItem('userData', JSON.stringify(existingData));
         }
         // Resetear userName
