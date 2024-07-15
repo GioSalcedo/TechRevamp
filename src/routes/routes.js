@@ -86,18 +86,28 @@ router.get('/productos-parcial', async (req, res) => {
 }
 });
 
-router.get('/productos/:id', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
-  const productId = req.params.id;
-  const product = productos.find(p => p.productId == productId);
+router.get('/productos/:id', async (req, res) => {
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const productos = await productosBackend.json();
+    const productId = req.params.id;
+    const product = productos.find(p => p.productId == productId);
 
-  if (product) {
-    res.render('product-detail', { producto: product });
-  } else {
-    res.status(404).send('Producto no encontrado');
-  }
+    if (product) {
+      res.render('product-detail', { producto: product });
+    } else {
+      res.status(404).send('Producto no encontrado');
+    }
+  } catch (error) {
+    console.error("Error al traer los productos desde el backend", error);
+    res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+}
 });
 
 router.get("/carro-compras", (req, res) => {
