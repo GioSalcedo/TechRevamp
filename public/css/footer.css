@@ -55,6 +55,11 @@
   gap: 4px;
 }
 
+.social-media svg:hover{
+  color-scheme: var(--primary-blue-300, #62F0FE);
+  fill:  var(--primary-blue-300, #62F0FE);
+}
+
 .footer .container-links h4{
   font-weight: 700 !important;
   font-size: var(--ubuntu--body--18-xlarge-400);
@@ -78,9 +83,9 @@
   line-height: normal;
 }
 
-.footer .container-links a:hover,
-.footer .container-links .social-media a{
+.footer .container-links a:hover{
   color:  var(--primary-blue-300, #62F0FE);
+  text-decoration: none;
   /* border-bottom: 2px solid var(--primary-blue-300, #62F0FE); */
 }
 
@@ -124,7 +129,8 @@
 
 .container-copyright a:hover{
   color:  var(--secondary-green-600, #42AA06);
-  border-bottom: 2px solid var(--secondary-green-600, #42AA06)
+  border-bottom: 2px solid var(--secondary-green-600, #42AA06);
+  text-decoration:none;
 }
 
 .container-copyright p{
@@ -149,6 +155,14 @@
 
 .terms-policy {
   display: none;
+}
+
+#fourElements{
+  font-weight: bold;
+}
+a#fourElements:hover{
+  text-decoration:none;
+  cursor: pointer;
 }
 
 /* ----------------MEDIA QUERIES FOR RESPONSIVE DESIGN---------------- */
