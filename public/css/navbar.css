@@ -23,11 +23,23 @@
     height: 40px;
     cursor: pointer;  
 }
-.icons, .login-nav{
+
+.icons{
     display: flex;
     align-items: center;
     gap: 16px;
 }
+
+.login-nav{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.login-nav i{
+    margin-right: 12px;
+}
+
 .icons svg, .login-nav svg{
     width:26px;
     height: 26px;
@@ -68,7 +80,7 @@
     background: var(--neutral-white, #FAFEFE);
     position: absolute;
     right: 6px;
-    bottom: -64px;
+    bottom: -58px;
 }
 
 .modal-account a {

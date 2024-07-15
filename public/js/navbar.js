@@ -42,6 +42,7 @@ function logout(e) {
         document.querySelector('.login-user').innerHTML = '<a href="/iniciar-sesion"><span class="login-user">Iniciar Sesión</span></a>';
         localStorage.removeItem('userData'); // Limpiar localStorage después del logout
         window.location.href = '/iniciar-sesion'; // Redirigir después de completar fetch
+        userName = '';
       } else {
         console.error('Error al cerrar sesión');
       }

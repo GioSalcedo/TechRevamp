@@ -242,6 +242,8 @@ router.post("/api/logout", async (req, res) => {
         },
         body: JSON.stringify(data)
       });
+      
+      userName = '';
       res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
     } else {
       res.status(404).json({ success: false, message: "Usuario no encontrado." });
