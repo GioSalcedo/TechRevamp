@@ -176,7 +176,9 @@
     border-radius: 0.5rem;
     background: var(--neutral-white, #FAFEFE);
 }
-
+#navbarToggle{
+    fill: var(--neutral-white, #FAFEFE);
+}
 .menu a:hover, 
 .cart svg:hover,
 .toggle svg:hover,
