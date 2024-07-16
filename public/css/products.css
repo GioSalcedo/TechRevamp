@@ -38,6 +38,8 @@ source {
   display: flex;
   flex-direction: column;
   gap: 10px !important;
+  padding-right: 40px;
+  
 }
 
 .products-container{
@@ -297,6 +299,11 @@ source {
 
 .scroll-to-top svg{
   vertical-align: baseline;
+}
+
+.btn-add-product-cart.added {
+  background-color: var(--Colors-primary-blue-200); 
+  color: var(--Colors-primary-blue-950); 
 }
 
 @media only screen and (min-width: 768px) {
