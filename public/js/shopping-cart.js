@@ -110,9 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Funcionalidad carrito page
   const userData = JSON.parse(localStorage.getItem('userData'));
-  if (userData && userData.userId) {
+  console.log("UserId data:", userData.userId);
+  if (userData.userId >= 0) {
     const link = document.getElementById('carroComprasLink');
     link.href = `/carro-compras/${userData.userId}`;
+    console.log("link cambiado")
   }
 
 });
