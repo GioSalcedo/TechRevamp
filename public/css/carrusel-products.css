@@ -95,16 +95,25 @@
   text-decoration: none;
 }
 
-.header-botton-recommendation #btn-recommendation {
+.header-botton-recommendation .btn-add-product-cart {
   display: inline-flex;
-  padding: var(--Border-radius-border-4, 6px) 8px;
+  padding: 0.75rem 10px;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  align-self: stretch;
+  appearance: none;
+  line-height: 1.5;
+  gap: 0.625rem;
   border-radius: 8px;
   background: var(--primary-blue-principal-900, #11485A);
   border: none;
+  outline: none;
+  font-size: var(--ubuntu--body--18-xlarge-400);
 }
+
+/* #btn-recommendation{
+
+} */
 
 .container-recommendation .docks {
   width: 100%;

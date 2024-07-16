@@ -1,3 +1,12 @@
+h1{
+  color: var(--primary-blue-principal-900, #11485A);
+  font-size: var(--ubuntu--headline--32-large-400);
+}
+
+h3{
+  font-size: var(--ubuntu--tittle--23-large-400)
+}
+
 .nav-actual-page{
   display: flex;
   gap: 8px;
@@ -33,6 +42,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 16px 0;
+}
+
+.empty-cart-container p{
+  font-size: var(--ubuntu--body--18-xlarge-400);
+}
+
+.empty-cart-container a{
+  align-self: center;
 }
 
 .recommended-products .container-products{

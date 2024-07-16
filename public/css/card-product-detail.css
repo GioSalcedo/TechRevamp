@@ -1,5 +1,10 @@
 #tittle-detail{
-  font-size: 2em;
+  font-size: var(--ubuntu--headline--32-large-400);
+  color: var(--primary-blue-principal-900, #11485A)
+}
+
+.content-description h3, #opinions-tittle, .description-review h5{
+  color: var(--primary-blue-principal-900, #11485A);
 }
 
 .container-detail {
@@ -204,8 +209,27 @@
 }
 
 .btn-add-product-cart:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
+
+.btn-add-product-cart .added:hover {
+  transform: scale(1.03);
+}
+
+.botton-info-card-product button:hover{
+  background-color: var( --Colors-primary-blue-700);
+  /* color: var(--Colors-primary-blue-950); */
+}
+
+.botton-info-card-product .added:hover{
+  background-color: var(--Colors-semantic-error);
+  color: var(--Colors-neutral-white);
+}
+
+.botton-info-card-product .added:hover svg path{
+  fill: var(--Colors-neutral-white); 
+}
+
 
 .info-user {
   display: flex;
