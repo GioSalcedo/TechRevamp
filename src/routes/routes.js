@@ -36,23 +36,6 @@ router.get("/", (req, res) => {
   res.render('index', { productos: paginatedProducts, page, totalPages, userName });
 });
 
-router.get("/home-parcial", (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.home;
-
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
-
-  const paginatedProducts = productos.slice(start, end);
-  const totalPages = Math.ceil(productos.length / perPage);
-
-  
-  res.render('partials/container-home-products', { productos: paginatedProducts });
-});
-
 router.get('/productos', async (req, res) => {
   try {
     const productosBackend = await fetch(`${BASE_URL}/products`, {
@@ -103,33 +86,82 @@ router.get('/productos-parcial', async (req, res) => {
 }
 });
 
-router.get('/productos/:id', (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
-  const productId = req.params.id;
-  const product = productos.find(p => p.productId == productId);
+router.get('/productos/:id', async (req, res) => {
+  try {
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const productos = await productosBackend.json();
+    const productId = req.params.id;
+    const product = productos.find(p => p.productId == productId);
 
-  if (product) {
-    res.render('product-detail', { producto: product });
-  } else {
-    res.status(404).send('Producto no encontrado');
-  }
+    if (product) {
+      res.render('product-detail', { producto: product });
+    } else {
+      res.status(404).send('Producto no encontrado');
+    }
+  } catch (error) {
+    console.error("Error al traer los productos desde el backend", error);
+    res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+}
 });
 
-router.get("/carro-compras", (req, res) => {
-  const file = fs.readFileSync('api/products.json', 'UTF-8');
-  const json = JSON.parse(file);
-  const productos = json.productos;
+router.get("/carro-compras/:iduser", async (req, res) => {
+  try {
+    const productosCartBackend = await fetch(`${BASE_URL}/shopping-carts/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const page = parseInt(req.query.page) || 1;
-  const perPage = 4;
-  const start = (page - 1) * perPage;
-  const end = start + perPage;
+    const productosBackend = await fetch(`${BASE_URL}/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    const productosCart = await productosCartBackend.json();
+    const allProductos = await productosBackend.json();
+    const userLoggedId = parseInt(req.params.iduser);
 
-  const paginatedProducts = productos.slice(start, end);
+    // Filtrar los carritos por el id del usuario
+    const carritosUsuario = productosCart.filter(item => {
+      // Convertir item.shoppingCartId.user a número si es necesario
+      const userId = parseInt(item.shoppingCartId.user);
+      return userId === userLoggedId; // Comparar correctamente
+    });
 
-  res.render('shopping-cart', { productos: paginatedProducts});
+    // Extraer los productos de los carritos del usuario
+    const productos = carritosUsuario.map(item => ({
+      name: item.productId.name,
+      description: item.productId.description,
+      price: item.productId.price,
+      category: item.productId.category,
+      stock: item.productId.stock,
+      image: item.productId.image,
+      quantity: item.quantity
+    }));
+
+    //limitar productos recomendados 
+    const page = parseInt(req.query.page) || 1;
+    const perPage = 4;
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    const recommendedProducts = allProductos.slice(start, end);
+
+    res.render('shopping-cart', { productos, userLoggedId, allProductos: recommendedProducts});
+  } catch (error) {
+    console.error("Error al traer los productos desde el backend", error);
+    res.status(500).json({ success: false, message: `Error del servidor al intentar obtener productos.` });
+}
+
 });
 
 router.get("/acerca-de-nosotros", (req, res) => {
@@ -173,53 +205,47 @@ router.post("/api/login", async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
       },
-    });  
+    });
 
     const data = await user.json();
     console.log('User:', data);
 
-    // Validar que el usuario esté registrado
     if (user.ok) {
-
       bcrypt.compare(password, data.password, async (compareErr, compareResult) => {
-      if (compareErr) {
-        return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
-      }
-
-      if (compareResult) {
-        if (rememberMe) {
-          const firstName  = data.firstName;
-          localStorage.setItem('userData', JSON.stringify({ firstName, email, password}));
-        }
-        try {
-          // Actualizar el estado de logueo del usuario
-          data.isLoggedIn = 1;
-          const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-          });
-
-          //asignar nombre logueado a userName impreso 
-          userName = data.firstName;
-
-          res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user });
-        } catch (err) {
-          res.status(500).json({success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+        if (compareErr) {
+          return res.status(500).json({ message: "Error del servidor al comparar la contraseña." });
         }
 
-      } else {
-        res.status(401).json({ success: false, message: `Contraseña incorrecta.`});
-      }
-    });
-    }} 
-    catch (error) {
-        console.error("Error al intentar iniciar sesión:", error);
-        res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
+        if (compareResult) {
+          try {
+            // Update login status in the database
+            data.isLoggedIn = 1;
+            const updateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data)
+            });
+
+            userName = data.firstName;
+
+            res.status(200).json({ success: true, message: "Inicio de sesión exitoso.", user: data });
+          } catch (err) {
+            res.status(500).json({ success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+          }
+        } else {
+          res.status(401).json({ success: false, message: `Contraseña incorrecta.` });
+        }
+      });
+    } else {
+      res.status(404).json({ success: false, message: 'Usuario no encontrado.' });
     }
-});  
+  } catch (error) {
+    console.error("Error al intentar iniciar sesión:", error);
+    res.status(500).json({ success: false, message: "Error del servidor al intentar iniciar sesión." });
+  }
+});
 // !LOGOUT
 router.post("/api/logout", async (req, res) => {
   const { email } = req.body;
@@ -232,28 +258,31 @@ router.post("/api/logout", async (req, res) => {
     });
 
     const data = await user.json();
+    console.log('User:', data);
 
     if (user.ok) {
-      data.isLoggedIn = 0;
-      const UpdateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      });
-      res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+      try {
+        data.isLoggedIn = 0;
+        const updateUser = await fetch(`${BASE_URL}/users/${data.userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        // Resetear userName
+        userName = ''; 
+        res.status(200).json({ success: true, message: "Cierre de sesión exitoso." });
+      } catch (err) {
+        res.status(500).json({ success: false, message: `Error al actualizar el estado de logueo del usuario. desde routes, estado ${data.isLoggedIn}, error catch ${err}, ` });
+      }
     } else {
-      res.status(404).json({ success: false, message: "Usuario no encontrado." });
+      res.status(404).json({ success: false, message: 'Usuario no encontrado.' });
     }
   } catch (error) {
     console.error("Error al intentar cerrar sesión:", error);
     res.status(500).json({ success: false, message: "Error del servidor al intentar cerrar sesión." });
   }
-});
-
-router.get("/cerrar-sesion", (req, res) => {
-  res.redirect('/iniciar-sesion');
 });
 
 router.get("/iniciar-sesion", (req, res) => {
@@ -314,8 +343,7 @@ router.post("/api/registrations", async (req, res) => {
       // Add new user
 
     const hash = await bcrypt.hash(password, saltRounds);
-    // Pendiente *modificar firstname y lastname en form registro. 
-    const newUser = {
+      const newUser = {
       firstName,
       lastName,
       email,

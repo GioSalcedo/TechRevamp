@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const colorSelects  = document.querySelectorAll('.color');
   const colorCircles  = document.querySelectorAll('.color-circle');
   const deleteButtons = document.querySelectorAll('.delete-product');
+  const btnCarrito = document.getElementById('carroComprasLink');
 
   // Función para formatear números como moneda
   function formatCurrency(amount) {
@@ -32,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalPriceDisplay = container.querySelector('.original-price');
     const discountPriceDisplay = container.querySelector('.discount-price');
 
-    const originalPrice = parseFloat(originalPriceDisplay.textContent.replace(/\$|\./g, "").trim());
-    const discountPrice = parseFloat(discountPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    let originalPrice = parseFloat(originalPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    originalPrice = originalPrice / parseFloat(quantityDisplay.textContent.replace(/\$|\./g, "").trim())
+    let discountPrice = parseFloat(discountPriceDisplay.textContent.replace(/\$|\./g, "").trim());
+    discountPrice = discountPrice / parseFloat(quantityDisplay.textContent.replace(/\$|\./g, "").trim())
 
     function updatePrices() {
       const quantity = parseInt(quantityDisplay.textContent);
@@ -104,4 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  //Funcionalidad carrito page
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  console.log("UserId data:", userData.userId);
+  if (userData.userId >= 0) {
+    const link = document.getElementById('carroComprasLink');
+    link.href = `/carro-compras/${userData.userId}`;
+    console.log("link cambiado")
+  }
+
 });

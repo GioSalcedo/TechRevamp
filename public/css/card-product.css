@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 16px;
+  padding: 0;
 }
 
 .galery-products {

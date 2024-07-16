@@ -468,6 +468,7 @@
   .container-cards{
     flex-direction: row;
     flex-wrap: nowrap;
+    padding: 20px;
   }
 
   .card-member {

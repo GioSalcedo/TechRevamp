@@ -2,6 +2,7 @@
 @import url(carrusel-products.css);
 @import url(card-product-detail.css);
 @import url(header-recommendation.css);
+@import url(styles.css);
 
 * {
   margin-bottom: 0px !important;
@@ -37,6 +38,8 @@ source {
   display: flex;
   flex-direction: column;
   gap: 10px !important;
+  padding-right: 40px;
+  
 }
 
 .products-container{
@@ -292,6 +295,15 @@ source {
 
 .show-scroll-to-top {
   display: block;
+}
+
+.scroll-to-top svg{
+  vertical-align: baseline;
+}
+
+.btn-add-product-cart.added {
+  background-color: var(--Colors-primary-blue-200); 
+  color: var(--Colors-primary-blue-950); 
 }
 
 @media only screen and (min-width: 768px) {

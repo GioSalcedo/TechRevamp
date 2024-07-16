@@ -19,15 +19,32 @@
     align-items: center;
     gap: 12px;
 }
+
+#navnavsuperior a{
+    display: flex;
+}
+
 .logo{
     height: 40px;
     cursor: pointer;  
 }
-.icons, .login-nav{
+
+.icons{
     display: flex;
     align-items: center;
     gap: 16px;
 }
+
+.login-nav{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.login-nav a{
+    margin-right: 12px;
+}
+
 .icons svg, .login-nav svg{
     width:26px;
     height: 26px;
@@ -52,8 +69,24 @@
     width: max-content;
 }
 
+.menu a{
+    display: flex;
+    gap: 4px;
+}
+
+.login-user{
+    line-height: normal;
+}
+
 .login-nav{
     position: relative;
+}
+.login-nav a{
+    text-decoration: none;
+}
+
+.login-nav a{
+    display: flex;
 }
 
 .modal-account{
@@ -68,7 +101,7 @@
     background: var(--neutral-white, #FAFEFE);
     position: absolute;
     right: 6px;
-    bottom: -64px;
+    bottom: -58px;
 }
 
 .modal-account a {
@@ -143,14 +176,26 @@
     border-radius: 0.5rem;
     background: var(--neutral-white, #FAFEFE);
 }
-
+#navbarToggle{
+    fill: var(--neutral-white, #FAFEFE);
+}
 .menu a:hover, 
 .cart svg:hover,
-.toggle svg:hover{
-    color:#c1fd93;
+.toggle svg:hover,
+.login-user:hover,
+#login-icon:hover{
     fill: var(--Colors-secondary-green-principal-200, #c1fd93);
+    color: var(--Colors-secondary-green-principal-200, #c1fd93);
     /* background-color: rgba(255, 255, 255, 0.1); */
     cursor: pointer;
+}
+
+#session-arrow:hover{
+    stroke: var(--Colors-secondary-green-principal-200, #c1fd93);
+}
+
+.cart{
+    display: flex;
 }
 
 .active{
@@ -162,7 +207,13 @@
     display: grid;
     width: fit-content;
     gap: 8px; 
+    padding: 0;
 }
+
+.menu-list li a i{
+    display: flex;
+}
+
 .menu-text{
     margin-left: 10px;
 }
