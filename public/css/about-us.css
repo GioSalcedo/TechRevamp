@@ -46,6 +46,8 @@
 }
 .mission-title, .vision-title {
   text-align: center;
+  color: var(--primary-blue-principal-900, #11485A);
+
 }
 .mission-description,
 .vision-description {

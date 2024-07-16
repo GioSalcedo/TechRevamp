@@ -90,3 +90,8 @@ input, button, textarea, select { font: inherit}
 h2 {
   text-align: center;
 }
+
+::selection {
+  background: var(--Colors-primary-blue-principal-900);
+  color: var(--Colors-neutral-white);
+}

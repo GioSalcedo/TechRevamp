@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+h2{
+  color: var(--primary-blue-principal-900, #11485A);
+  font-size: var(--ubuntu--headline--23-small-400);
+}
+
 .container-intro-about p {
   margin: 40px 20px;
   padding: 0 20px 32px;
@@ -42,7 +47,8 @@
 }
 
 .introtext{
-  max-width: 1500px;
+  max-width: 1376px;
+  margin: auto;
 }
 .who-we-are p{
   font-weight: normal;
@@ -60,20 +66,31 @@
   font-size: var(--ubuntu--headline--23-small-400);
   font-weight: 700;
   font-style: italic;
+  color: var(--primary-blue-principal-900, #11485A);
 }
 
 
 @media only screen and (min-width: 768px) {
+
   .about-us-banner h2 {
+    font-size: var(--ubuntu--headline--29-medium-400);
+  }
+
+  h2{
     font-size: var(--ubuntu--headline--29-medium-400);
   }
 }
 @media only screen and (min-width: 1200px) {
+  h2{
+    font-size: var(--ubuntu--headline--32-large-400);
+  }
+
   .about-us-banner h2 {
     font-size: var(--ubuntu--display--36-small-400);
   }
   .who-we-are{
     font-size: var( --ubuntu--headline--23-small-400);
   }
+  
 }
 
