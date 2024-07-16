@@ -49,7 +49,6 @@
     width:26px;
     height: 26px;
     cursor: pointer;
-    fill: var(--Colors-neutral-white);
 }
 
 .login-nav a{
@@ -181,7 +180,6 @@
 .menu a:hover, 
 .cart svg:hover,
 .toggle svg:hover,
-#logoutOption:hover,
 .login-user:hover,
 #login-icon:hover{
     fill: var(--Colors-secondary-green-principal-200, #c1fd93);

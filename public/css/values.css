@@ -134,6 +134,7 @@
   }
   .scroll-1, .scroll-2{
     gap: 50px;
+    padding-left: 50px;
   }
 }
 
